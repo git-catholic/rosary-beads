@@ -1,0 +1,181 @@
+/* ================================================================================ */
+html, body {
+  font-family: Consola;
+  margin: unset;
+  overflow: hidden;
+}
+button {
+  border-radius: 1.5vh;
+  padding: 1vh;
+}
+input {
+  font-family: Consola;
+  margin-bottom: 1vh;
+}
+pre {
+  font-family: Consola;
+}
+@media (orientation: landscape) {
+  html, body {
+    font-size: 2vw;
+  }
+
+  button {
+    font-family: Consola;
+    font-size: 2vw;
+  }
+
+  pre {
+    font-family: Consola;
+    font-size: 2vw;
+  }
+}
+@media (orientation: portrait) {
+  html, body {
+    font-size: 4.5vw;
+  }
+
+  button {
+    font-family: Consola;
+    font-size: 4.5vw;
+  }
+
+  pre {
+    font-family: Consola;
+    font-size: 4.5vw;
+  }
+}
+/* ================================================================================ */
+.lit-color-green, .lit-color-red, .lit-color-rose, .lit-color-violet, .lit-color-white {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.lit-color-green {
+  background-image: repeating-linear-gradient(0deg, green, green 3px, darkgreen 3px, darkgreen 6px);
+}
+.lit-color-red {
+  background-image: repeating-linear-gradient(0deg, #d20000, #d20000 3px, #960000 3px, #960000 6px);
+}
+.lit-color-rose {
+  background-image: repeating-linear-gradient(0deg, pink, pink 3px, rgba(255, 192, 203, 0.411) 3px, rgba(255, 192, 203, 0.411) 6px);
+}
+.lit-color-violet {
+  background-image: repeating-linear-gradient(0deg, purple, purple 3px, #380038 3px, #380038 6px);
+}
+.lit-color-white {
+  background-image: repeating-linear-gradient(0deg, white, white 3px, #ebebeb 3px, #ebebeb 6px);
+}
+/* ================================================================================ */
+.config-widget {
+  background-image: url('widget.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+/* ================================================================================ */
+/*
+  // Reference: https://stackoverflow.com/questions/90178/make-a-div-fill-the-height-of-the-remaining-screen-space
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+*/
+.content-border, #home-content-border {
+  border: 1px dashed black;
+  border-radius: 1.5vh;
+  display: flex;
+  flex-flow: column;
+}
+.content-no-border, .content-border, #home-content-border {
+  background-color: lightgray;
+  box-sizing: border-box;
+  opacity: 85%;
+  padding: 1vh;
+  overflow: hidden;
+}
+@media (orientation: landscape) {
+  .content-no-border, .content-border, #home-content-border {
+    margin: 1vh;
+  }
+
+  #home-content-border {
+    position: absolute;
+    top: 1vh;
+    left: 1vh;
+    right: 1vh;
+    bottom: 1vh;
+  }
+}
+@media (orientation: portrait) {
+  .content-no-border, .content-border, #home-content-border {
+    margin: 0.3vh;
+  }
+
+  #home-content-border {
+    position: absolute;
+    top: 0.3vh;
+    left: 0.3vh;
+    right: 0.3vh;
+    bottom: 0.3vh;
+  }
+}
+#nav-footer {
+  position: absolute;
+  width: 100%;
+}
+@media (orientation: landscape) {
+  #nav-footer {
+    bottom: 1vh;
+  }
+}
+@media (orientation: portrait) {
+  #nav-footer {
+    bottom: 1vh;
+  }
+}
+#nav-footer app-navigation {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+#nav-footer app-navigation .left button, #nav-footer app-navigation .right button {
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+#nav-footer app-navigation .left button {
+  background-image: url('left-arrow.png');
+  bottom: 1vh;
+}
+#nav-footer app-navigation .right button {
+  background-image: url('right-arrow.png');
+  bottom: 1vh;
+}
+#nav-footer app-navigation .left {
+  padding: 1vh;
+  text-align: right;
+  width: 45%;
+}
+#nav-footer app-navigation .right {
+  padding: 1vh;
+  text-align: left;
+  width: 45%;
+}
+.gtp-stacked-column {
+  display: flex;
+  flex-direction: column;
+}
+.gtp-stacked-row {
+  display: flex;
+  flex-direction: row;
+}
+.section-title {
+  font-weight: bold;
+  padding: 1vh;
+  text-align: center;
+}
+
+/*# sourceMappingURL=styles.css.map*/
