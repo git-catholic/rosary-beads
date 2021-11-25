@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# INDEX_HTML_LIST=`find docs -name index.html`
+
+# for fn in ${INDEX_HTML_LIST[*]}
+# do
+#   echo $fn
+#   echo '**'
+# done
+
 # -----------------------------------------------------------------------
 function project_specific_updates() {
   # Any project specific changes should be added here.
@@ -21,7 +29,13 @@ npm version prerelease
 ng build "${build_opt}" --output-path docs --base-href "${PRJ_NAME}/"
 
 # -----------------------------------------------------------------------
-sed -i "s/base href=\"${PRJ_NAME}\/\"/base href=\"\/${PRJ_NAME}\/\"/g" "docs/index.html"
+# sed -i "s/base href=\"${PRJ_NAME}\/\"/base href=\"\/${PRJ_NAME}\/\"/g" "docs/index.html"
+INDEX_HTML_LIST=`find docs -name index.html`
+
+for fn in ${INDEX_HTML_LIST[*]}
+do
+  sed -i "s/base href=\"${PRJ_NAME}\/\"/base href=\"\/${PRJ_NAME}\/\"/g" "$fn"
+done
 project_specific_updates
 
 if [[ ! -f "docs/404.html" ]]; then
