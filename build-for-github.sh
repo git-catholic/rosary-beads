@@ -21,12 +21,20 @@ npm version prerelease
 ng build "${build_opt}" --output-path docs --base-href "${PRJ_NAME}/"
 
 # -----------------------------------------------------------------------
-sed -i "s/base href=\"${PRJ_NAME}\/\"/base href=\"\/${PRJ_NAME}\/\"/g" "docs/index.html"
+# sed -i "s/base href=\"${PRJ_NAME}\/\"/base href=\"\/${PRJ_NAME}\/\"/g" "docs/index.html"
+INDEX_HTML_LIST=`find docs -name index.html`
+
+for fn in ${INDEX_HTML_LIST[*]}
+do
+  sed -i "s/base href=\"${PRJ_NAME}\/\"/base href=\"\/${PRJ_NAME}\/\"/g" "$fn"
+  NOT_FOUND_PAGE=`echo $fn | sed -e "s/index.html/404.html/g"`
+  cp -p "$fn" "$NOT_FOUND_PAGE"
+done
 project_specific_updates
 
-if [[ ! -f "docs/404.html" ]]; then
-  cp -p "docs/index.html" "docs/404.html"
-fi
+# if [[ ! -f "docs/404.html" ]]; then
+#   cp -p "docs/index.html" "docs/404.html"
+# fi
 
 COMMIT_VERSION=`npm version | grep -i rosary | awk -F"[' :]" '{ print $3,$6 }'`
 git commit -a -m "Build - ${COMMIT_VERSION}"
