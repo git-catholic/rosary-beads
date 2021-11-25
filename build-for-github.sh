@@ -26,6 +26,9 @@ INDEX_HTML_LIST=`find docs -name index.html`
 
 for fn in ${INDEX_HTML_LIST[*]}
 do
+  echo "sed command: \'s/base href=\"${PRJ_NAME}\/\"/base href=\"\/${PRJ_NAME}\/\"/g\'"
+  echo "fn: $fn"
+  echo "pwd: $PWD"
   sed -i "s/base href=\"${PRJ_NAME}\/\"/base href=\"\/${PRJ_NAME}\/\"/g" "$fn"
   NOT_FOUND_PAGE=`echo $fn | sed -e "s/index.html/404.html/g"`
   cp -p "$fn" "$NOT_FOUND_PAGE"
