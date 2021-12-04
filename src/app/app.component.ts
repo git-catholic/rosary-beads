@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { url } from 'inspector';
 import { version } from '../../package.json';
 import { AppConfigService } from './services/app-config.service';
 import { LiturgicalYearService } from './services/liturgical-year.service';
@@ -51,19 +52,19 @@ export class AppComponent implements AfterViewInit {
   }
 
   tap1mp3(): string {
-    return window.location.href + '/assets/Tapping-1.mp3';
+    return 'assets/Tapping-1.mp3';
   }
 
   tap1ogg(): string {
-    return window.location.href + '/assets/Tapping-1.ogg';
+    return 'assets/Tapping-1.ogg';
   }
 
   tap2mp3(): string {
-    return window.location.href + '/assets/Tapping-2.mp3';
+    return 'assets/Tapping-2.mp3';
   }
 
   tap2ogg(): string {
-    return window.location.href + '/assets/Tapping-2.ogg';
+    return 'assets/Tapping-2.ogg';
   }
 
   private checkOrientation(): void {
