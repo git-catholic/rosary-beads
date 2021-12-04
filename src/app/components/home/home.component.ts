@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   constructor(private languages: SupportedLanguagesService) { }
 
   ngOnInit(): void {
-    this.languages.checkForRedirect();
+    this.languages.checkForRedirect('holy-rosary');
   }
 
 }
