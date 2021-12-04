@@ -10,15 +10,19 @@ import { LocalizationService } from 'src/app/services/localization.service';
 import { HolyRosaryPrayerComponent } from '../../rosary-prayers/holy-rosary/holy-rosary-prayer/holy-rosary-prayer.component';
 import { PatsBeadsComponent } from '../../rosary-beads/pats-beads/pats-beads.component';
 import { ActivePrayerComponent } from './active-prayer.component';
+import { SoundService } from 'src/app/services/sound.service';
 
 describe('ActivePrayerComponent', () => {
   let component: ActivePrayerComponent;
   let fixture: ComponentFixture<ActivePrayerComponent>;
-  let beadGroupLoader = new BeadGroupLoaderService();
+  let localizationUtil = new LocalizationService();
+  let soundService: SoundService;
+  let beadGroupLoader = new BeadGroupLoaderService(localizationUtil);
   let holyRosaryPrayer: HolyRosaryPrayerComponent;
 
   beforeEach(() => {
-    holyRosaryPrayer = new HolyRosaryPrayerComponent();
+    soundService = new SoundService();
+    holyRosaryPrayer = new HolyRosaryPrayerComponent(soundService);
     holyRosaryPrayer.activeBeadGroupList = beadGroupLoader.loadHolyRosaryContemporaryMysteryEnum(RosaryMysteriesEnum.GLORIOUS);
     holyRosaryPrayer.prayerName = 'test-active-prayer';
 

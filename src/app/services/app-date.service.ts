@@ -46,7 +46,6 @@ export class AppDateService {
 
   protected updateDate(date: Date): void {
     const baseDate = (date) ? this.normalizeDate(date) : this.normalizeDate(new Date());
-    console.log(`processing: ${baseDate}`);
     this._currentYear = baseDate.getFullYear();
     this._date = new Date(this._currentYear, baseDate.getMonth(), baseDate.getDate());
   }

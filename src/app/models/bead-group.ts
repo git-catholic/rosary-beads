@@ -10,14 +10,14 @@ export class BeadGroup implements BeadGroupTemplate {
   phoneFeedback?: string;
   mysteryIdx?: number;
   incrementMysteryIdx?: boolean;
-  linkBeadGroupIndex?: number;
+  anchorId?: string;
 
   private beadIndex?: number;
 
   constructor(data?: BeadGroupTemplate, 
               mysteryIdx?: number, 
               beadGroupIndex?: number,
-              linkBeadGroupIndex?: number) {
+              anchorId?: string) {
 
     if (data) {
       this.sequence = data.sequence;
@@ -28,7 +28,7 @@ export class BeadGroup implements BeadGroupTemplate {
       this.phoneFeedback = (data?.phoneFeedback || 'short');
       this.mysteryIdx = mysteryIdx;
       this.incrementMysteryIdx = data?.incrementMysteryIdx;
-      this.linkBeadGroupIndex = linkBeadGroupIndex;
+      this.anchorId = anchorId;
 
       this.beadIndex = 0;
     }

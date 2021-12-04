@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from 'src/app/app.component';
+import { AppConfigService } from 'src/app/services/app-config.service';
 
 @Component({
   selector: 'app-notices',
@@ -10,8 +10,8 @@ export class NoticesComponent implements OnInit {
 
   appVersion: string;
 
-  constructor(appComponent: AppComponent) {
-    this.appVersion = appComponent.appVersion;
+  constructor(appConfig: AppConfigService) {
+    this.appVersion = appConfig.appVersion;
   }
 
   ngOnInit(): void {

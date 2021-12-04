@@ -45,12 +45,14 @@ export class HolyRosaryPrayerComponent implements OnInit {
 
   activeBeadGroup: BeadGroup;
   currentPrayer: Prayer;
-  highlightBeadIndex: number;
+  sequenceBeadIndex: number;  // This corresponds to prayer index in sequence
+  highlightBeadIndex: number; // This corresponds to bead index on Rosary beads. Some prayers share the same bead.
 
   constructor(private soundService: SoundService) { }
 
   ngOnInit(): void {
     this.activeBeadGroup = this.activeBeadGroupList.next();
+    this.sequenceBeadIndex = 0;
     this.highlightBeadIndex = 0;
 
     if (this.orientation === undefined) {
@@ -66,10 +68,13 @@ export class HolyRosaryPrayerComponent implements OnInit {
   }
 
   onNext() {
-    console.log('rosary - onNext');
+    const previousBead = this.activeBeadGroup;
     this.activeBeadGroup = this.activeBeadGroupList.next();
     if (this.activeBeadGroup) {
-      this.highlightBeadIndex++;
+      this.sequenceBeadIndex++;
+      if (this.activeBeadGroup.anchorId === undefined || previousBead.anchorId === undefined) {
+        this.highlightBeadIndex++;
+      }
     }
     this.currentPrayer = this.findCurrentPrayer();
     this.rosaryBeads.updateBeadPosition(this.highlightBeadIndex);
@@ -79,7 +84,10 @@ export class HolyRosaryPrayerComponent implements OnInit {
   onPrevious() {
     this.activeBeadGroup = this.activeBeadGroupList.previous();
     if (this.activeBeadGroup) {
-      this.highlightBeadIndex--;
+      this.sequenceBeadIndex--;
+      if (this.activeBeadGroup.anchorId === undefined) {
+        this.highlightBeadIndex--;
+      }
     }
     this.currentPrayer = this.findCurrentPrayer();
     this.rosaryBeads.updateBeadPosition(this.highlightBeadIndex);

@@ -8,14 +8,14 @@
         {{ activeBeadGroupList.mystery() }}
       </div>
     </div>
-    <div class="mystery-row-inner">
-      <div class="fruit-label" i18n>
-        Fruit of the Mystery:
+    <ng-container *ngIf="activeBeadGroupList.fruit()">
+      <div class="mystery-row-inner">
+        <div class="fruit-label" i18n="@@mystery-fruit">Fruit of the Mystery:</div>
+        <div class="fruit-value">
+          {{ activeBeadGroupList.fruit() }}
+        </div>
       </div>
-      <div class="fruit-value">
-        {{ activeBeadGroupList.fruit() }}
-      </div>
-    </div>
+    </ng-container>
   </ng-container>
   <ng-container *ngIf="appConfig.isPortrait">
     <span class="mystery-label">
@@ -24,8 +24,10 @@
     <span class="mystery-value">
       {{ activeBeadGroupList.mystery() }}
     </span>
-    <span class="fruit-value">
-      - {{ activeBeadGroupList.fruit() }}
-    </span>
+    <ng-container *ngIf="activeBeadGroupList.fruit()">
+      <span class="fruit-value">
+        - {{ activeBeadGroupList.fruit() }}
+      </span>
+    </ng-container>
   </ng-container>
 </div>

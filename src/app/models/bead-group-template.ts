@@ -9,8 +9,7 @@ export interface BeadGroupTemplate {
   prayerIds?: string[];
   phoneFeedback?: string;
   incrementMysteryIdx?: boolean;
-  linkBeadGroupIndex?: number;
-
+  anchorId?: string;
 }
 
 export enum BeadLinkOffset {
@@ -22,11 +21,10 @@ export function initBeadGroup(beadMap: Map<string, BeadGroup>,
                               template: BeadGroupTemplate, 
                               mysteryIdx: number, 
                               beadGroupIndex: number,
-                              linkBeadGroupIndexOffset?: BeadLinkOffset): BeadGroup {
+                              anchorId?: string): BeadGroup {
   const beadGroup = new BeadGroup(template, mysteryIdx, beadGroupIndex);
-  if (linkBeadGroupIndexOffset) {
-    const offset = (BeadLinkOffset.BEAD_IDX_MINUS_2 === linkBeadGroupIndexOffset) ? 2 : 1
-    beadGroup.linkBeadGroupIndex = beadGroupIndex - offset;
+  if (anchorId) {
+    beadGroup.anchorId = anchorId;
   }
   beadMap[beadGroup.sequenceId] = beadGroup;
   return beadGroup;

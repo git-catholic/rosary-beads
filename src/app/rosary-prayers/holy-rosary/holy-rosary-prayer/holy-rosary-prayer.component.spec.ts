@@ -12,7 +12,8 @@ import { HolyRosaryPrayerComponent } from './holy-rosary-prayer.component';
 describe('HolyRosaryPrayerComponent', () => {
   let component: HolyRosaryPrayerComponent;
   let fixture: ComponentFixture<HolyRosaryPrayerComponent>;
-  let beadGroupLoader = new BeadGroupLoaderService();
+  let localizationUtil = new LocalizationService();
+  let beadGroupLoader = new BeadGroupLoaderService(localizationUtil);
 
   beforeEach(() => {
     TestBed.configureTestingModule({

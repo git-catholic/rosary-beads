@@ -2,7 +2,7 @@ import { BeadGroupContainer } from "../sequences/contemporary-rosary";
 import { BeadGroup } from "./bead-group";
 import { fruitByNumber, Mysteries, mysteryByNumber } from "./mysteries";
 
-export class BeadGroupList {
+export abstract class BeadGroupList {
 
   debugTheEnd = false;
 
@@ -18,13 +18,16 @@ export class BeadGroupList {
   private skipNext = false;
   private beadIdxOverrideOccurred = false;
 
-  constructor(public prayerName: string, private beadContainer: BeadGroupContainer, mysteries?: Mysteries) {
+  constructor(private beadContainer: BeadGroupContainer, 
+              mysteries?: Mysteries) {
     this.currentBeadGroup = undefined;
     this.beadGroups = beadContainer.beadGroups;
     this.beadGroupIdx = -1;
     this.activeMysteries = mysteries;
     this.activeMysteriesIdx = 0;
   }
+
+  abstract prayerName(): string;
 
   debugHasBeadIdxOverrideOccurred(resetOverrideFlag = true): boolean {
     const result = this.beadIdxOverrideOccurred;

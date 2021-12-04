@@ -1,8 +1,9 @@
 import { BeadGroupTemplate } from "../models/bead-group-template";
-import { MysteryGloriousComponent } from "../rosary-prayers/holy-rosary/mysteries/mystery-glorious";
-import { MysteryJoyfulComponent } from "../rosary-prayers/holy-rosary/mysteries/mystery-joyful";
-import { MysteryLuminousComponent } from "../rosary-prayers/holy-rosary/mysteries/mystery-luminous";
-import { MysterySorrowfulComponent } from "../rosary-prayers/holy-rosary/mysteries/mystery-sorrowful";
+import { MysteryGlorious } from "../rosary-prayers/holy-rosary/mysteries/mystery-glorious";
+import { MysteryJoyful } from "../rosary-prayers/holy-rosary/mysteries/mystery-joyful";
+import { MysteryLuminous } from "../rosary-prayers/holy-rosary/mysteries/mystery-luminous";
+import { MysterySorrowful } from "../rosary-prayers/holy-rosary/mysteries/mystery-sorrowful";
+import { LocalizationService } from "../services/localization.service";
 
 export enum RosaryMysteriesEnum {
   GLORIOUS,
@@ -11,18 +12,18 @@ export enum RosaryMysteriesEnum {
   SORROWFUL
 }
 
-export function lookupMystery(mysteryEnum: RosaryMysteriesEnum) {
+export function lookupMystery(localizationUtil: LocalizationService, mysteryEnum: RosaryMysteriesEnum) {
   if (RosaryMysteriesEnum.GLORIOUS === mysteryEnum) {
-    return new MysteryGloriousComponent();
+    return new MysteryGlorious(localizationUtil);
   }
   else if (RosaryMysteriesEnum.JOYFUL === mysteryEnum) {
-    return new MysteryJoyfulComponent();
+    return new MysteryJoyful(localizationUtil);
   }
   else if (RosaryMysteriesEnum.LUMINOUS === mysteryEnum) {
-    return new MysteryLuminousComponent();
+    return new MysteryLuminous(localizationUtil);
   }
   else if (RosaryMysteriesEnum.SORROWFUL === mysteryEnum) {
-    return new MysterySorrowfulComponent();
+    return new MysterySorrowful(localizationUtil);
   }
   return undefined;
 }

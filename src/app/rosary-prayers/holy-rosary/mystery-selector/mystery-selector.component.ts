@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RosaryMysteriesEnum } from 'src/app/sequences/rosary-helper';
 import { AppConfigService } from 'src/app/services/app-config.service';
+import { LocalizationService } from 'src/app/services/localization.service';
+import { MysteryGlorious } from '../mysteries/mystery-glorious';
 
 const SUN = 0;
 const MON = 1;
@@ -33,7 +35,8 @@ export class MysterySelectorComponent implements OnInit {
 
   private dayOfWeek: number;
 
-  constructor(private appConfig: AppConfigService) {
+  constructor(private appConfig: AppConfigService,
+              private localizationUtil: LocalizationService) {
     if (MYSTERY_LABEL_MAP.size === 0) {
       MYSTERY_LABEL_MAP[RosaryMysteriesEnum.GLORIOUS] = this.gloriousMystery;
       MYSTERY_LABEL_MAP[RosaryMysteriesEnum.JOYFUL] = this.joyfulMystery;
@@ -57,7 +60,7 @@ export class MysterySelectorComponent implements OnInit {
   }
 
   get gloriousMystery(): string {
-    return $localize`:@@glorious:Glorious`;
+    return this.localizationUtil.gloriousMysteryLabel;
   }
 
   get gloriousMysteryNotes(): string {
@@ -65,7 +68,7 @@ export class MysterySelectorComponent implements OnInit {
   }
 
   get joyfulMystery(): string {
-    return $localize`:@@joyful:Joyful`;
+    return this.localizationUtil.joyfulMysteryLabel;
   }
 
   get joyfulMysteryNotes(): string {
@@ -73,7 +76,7 @@ export class MysterySelectorComponent implements OnInit {
   }
 
   get luminousMystery(): string {
-    return $localize`:@@luminous:Luminous`;
+    return this.localizationUtil.luminousMysteryLabel;
   }
 
   get luminousMysteryNotes(): string {
@@ -81,7 +84,7 @@ export class MysterySelectorComponent implements OnInit {
   }
 
   get sorrowfulMystery(): string {
-    return $localize`:@@sorrowful:Sorrowful`;
+    return this.localizationUtil.sorrowfulMysteryLabel;
   }
 
   get sorrowfulMysteryNotes(): string {

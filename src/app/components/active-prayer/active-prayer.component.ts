@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { BeadGroupList } from 'src/app/models/bead-group-list';
+import { LocalizationService } from 'src/app/services/localization.service';
 import { HolyRosaryPrayerComponent } from '../../rosary-prayers/holy-rosary/holy-rosary-prayer/holy-rosary-prayer.component';
 
 @Component({
@@ -27,15 +28,9 @@ export class ActivePrayerComponent implements OnInit, AfterViewInit {
   @ViewChild(HolyRosaryPrayerComponent)
   holyRosaryPrayer: HolyRosaryPrayerComponent;
 
-  prayerName: string;
-
   constructor() { }
 
-  ngOnInit(): void {
-    this.prayerName = this.activeBeadGroupList.prayerName;
-    this.prayerName = this.prayerName[0].toUpperCase() + this.prayerName.substring(1);
-    console.log(`prayerName: ${this.prayerName}`);
-  }
+  ngOnInit(): void { }
 
   ngAfterViewInit(): void {
     this.holyRosaryPrayer.debugTheEnd = this.debugTheEnd;
@@ -43,6 +38,11 @@ export class ActivePrayerComponent implements OnInit, AfterViewInit {
 
   get isPrayerSequenceDone(): boolean {
     return this.activeBeadGroupList.isPrayerSequenceDone;
+  }
+
+  get prayerName(): string {
+    let name = this.activeBeadGroupList.prayerName();
+    return name[0].toUpperCase() + name.substring(1);
   }
 
   onNext() {

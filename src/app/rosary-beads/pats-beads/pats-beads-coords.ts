@@ -2,19 +2,24 @@ import { BeadPosition } from "src/app/models/bead-position";
 
 export const PATS_BEADS_COORDS_LONG: BeadPosition[] = [
 
+  // 0
   { x: 853, y: 3454 },  // Sign of the cross
 
-  { x: 948, y: 3208 },  // Apostles Creed
-  { x: 948, y: 3208 },  // Our Father
+  // 1
+  { x: 948, y: 3208, anchorId: 'a' },  // Apostles Creed and Our Father
 
+  // 2
   { x: 1051, y: 2992 }, // Hail Marys
   { x: 1033, y: 2902 },
   { x: 988, y: 2830 },
 
-  { x: 815, y: 2646 },  // Glory Be
-  { x: 815, y: 2646 },  // First Mystery
+  // 5
+  { x: 815, y: 2646, anchorId: 'b' },  // Glory Be and First Mystery
 
+  // 6
   { x: 805, y: 2368 },  // Our Father
+
+  // 7
   { x: 949, y: 2170 },  // Hail Marys
   { x: 1015, y: 2091 },
   { x: 1060, y: 2012 },
@@ -26,11 +31,10 @@ export const PATS_BEADS_COORDS_LONG: BeadPosition[] = [
   { x: 1339, y: 1533 },
   { x: 1353, y: 1442 },
 
-  { x: 1458, y: 1249 }, // Glory Be
-  { x: 1458, y: 1249 }, // Fatima
-  { x: 1458, y: 1249 }, // Second Mystery
-  { x: 1458, y: 1249 }, // Our Father
+  // 17
+  { x: 1458, y: 1249, anchorId: 'c' }, // Glory Be, Fatima, Second Mystery, and Our Father
 
+  // 18
   { x: 1425, y: 1018 }, // Hail Marys
   { x: 1430, y: 924 },
   { x: 1458, y: 836 },
@@ -42,11 +46,10 @@ export const PATS_BEADS_COORDS_LONG: BeadPosition[] = [
   { x: 1287, y: 407 },
   { x: 1199, y: 396 },
 
-  { x: 1045, y: 495 },  // Glory Be
-  { x: 1045, y: 495 },  // Fatima
-  { x: 1045, y: 495 },  // Third Mystery
-  { x: 1045, y: 495 },  // Our Father
+  // 28
+  { x: 1045, y: 495, anchorId: 'd' },  // Glory Be, Fatima, Third Mystery, and Our Father
 
+  // 29
   { x: 820, y: 479 },   // Hail Marys
   { x: 771, y: 400 },
   { x: 723, y: 324 },
@@ -58,11 +61,10 @@ export const PATS_BEADS_COORDS_LONG: BeadPosition[] = [
   { x: 443, y: 165 },
   { x: 408, y: 242 },
 
-  { x: 357, y: 459 },   // Glory Be
-  { x: 357, y: 459 },   // Fatima
-  { x: 357, y: 459 },   // Fourth Mystery
-  { x: 357, y: 459 },   // Our Father
+  // 39
+  { x: 357, y: 459, anchorId: 'e' },   // Glory Be, Fatima, Fourth Mystery, and Our Father
 
+  // 40
   { x: 391, y: 683 },   // Hail Marys
   { x: 351, y: 759 },
   { x: 279, y: 788 },
@@ -74,11 +76,10 @@ export const PATS_BEADS_COORDS_LONG: BeadPosition[] = [
   { x: 174, y: 1241 },
   { x: 230, y: 1318 },
 
-  { x: 399, y: 1503 },  // Glory Be
-  { x: 399, y: 1503 },  // Fatima
-  { x: 399, y: 1503 },  // Fifth Mystery
-  { x: 399, y: 1503 },  // Our Father
+  // 50
+  { x: 399, y: 1503, anchorId: 'f' },  // Glory Be, Fatima, Fifth Mystery, and Our Father
 
+  // 51
   { x: 341, y: 1710 },  // Hail Marys
   { x: 371, y: 1796 },
   { x: 405, y: 1871 },
@@ -90,12 +91,10 @@ export const PATS_BEADS_COORDS_LONG: BeadPosition[] = [
   { x: 787, y: 2139 },
   { x: 810, y: 2215 },
 
-  { x: 805, y: 2368 },  // Glory Be
-  { x: 805, y: 2368 },  // Fatima
-  { x: 805, y: 2368 },  // Hail, Holy Queen
-  { x: 805, y: 2368 },  // Closing #1
-  { x: 805, y: 2368 },  // Closing #2
+  // 61
+  { x: 805, y: 2368, anchorId: 'g' },  // Glory Be, Fatima, "Hail, Holy Queen" and Closing prayers
 
+  // 62
   { x: 853, y: 3454 }   // Sign of the cross
 
 ];

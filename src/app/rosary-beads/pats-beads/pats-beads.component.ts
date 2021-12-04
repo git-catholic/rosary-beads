@@ -57,7 +57,6 @@ export class PatsBeadsComponent implements OnInit, OnChanges, AfterViewInit, Ros
         ? this.highlightStyleForPortrait(point)
         : this.highlightStyleForLandscape(point);
 
-      console.log(`highlightStyle(${this.highlightBeadIdx}) point: ${JSON.stringify(point)} style: ${style}`);
       return style;
     }
 

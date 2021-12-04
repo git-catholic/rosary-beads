@@ -1,11 +1,12 @@
 import { Mysteries } from 'src/app/models/mysteries';
+import { LocalizationService } from 'src/app/services/localization.service';
 
-export class MysteryGloriousComponent implements Mysteries {
+export class MysteryGlorious implements Mysteries {
 
-  constructor() { }
+  constructor(private localizationUtil: LocalizationService) { }
 
   get mysterySequenceName(): string {
-    return 'Glorious';
+    return this.localizationUtil.gloriousMysteryLabel;
   }
 
   get mystery1(): string {

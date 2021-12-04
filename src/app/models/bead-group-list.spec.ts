@@ -1,5 +1,6 @@
 import { RosaryMysteriesEnum } from "../sequences/rosary-helper";
 import { BeadGroupLoaderService } from "../services/bead-group-loader.service";
+import { LocalizationService } from "../services/localization.service";
 import { BeadGroup } from "./bead-group";
 import { BeadGroupList } from "./bead-group-list";
 
@@ -9,7 +10,8 @@ describe('BeadGroupList', () => {
 
     it('for Holy Rosary sequence with Glory Be and Fatima prayers displayed separately', () => {
       // given
-      const loader = new BeadGroupLoaderService();
+      const localizationUtil = new LocalizationService();
+      const loader = new BeadGroupLoaderService(localizationUtil);
       let beadGroupList: BeadGroupList = loader.loadHolyRosaryContemporaryMysteryEnum(RosaryMysteriesEnum.JOYFUL);
       let groupIdx = 0;
       let mysteryNum = 1;

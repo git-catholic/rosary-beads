@@ -1,9 +1,9 @@
 @import '../../../../styles-shared-mixins.scss';
 
 $button-height: 9vh;
-$close-button-diameter: 7vw;
+$close-button-diameter: 25px;
 $tab-line-color: darkslategray;
-$tab-top-radius: 3vw;
+$tab-top-radius: 10px;
 
 #config-tab-row {
   border-bottom: 1px solid $tab-line-color;

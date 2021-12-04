@@ -7,6 +7,10 @@ export class LocalizationService {
 
   constructor() { }
 
+  get prayerHolyRosary(): string {
+    return $localize`:@@prayerHolyRosary:The Holy Rosary`;
+  }
+
   get adventLabel(): string {
     return $localize`:@@adventLabel:Advent`;
   }
@@ -41,6 +45,22 @@ export class LocalizationService {
 
   get easterSundayLabel(): string {
     return $localize`:@@easterSundayLabel:Easter Sunday`;
+  }
+
+  get gloriousMysteryLabel(): string {
+    return $localize`:@@glorious:Glorious`;
+  }
+
+  get joyfulMysteryLabel(): string {
+    return $localize`:@@joyful:Joyful`;
+  }
+
+  get luminousMysteryLabel(): string {
+    return $localize`:@@luminous:Luminous`;
+  }
+
+  get sorrowfulMysteryLabel(): string {
+    return $localize`:@@sorrowful:Sorrowful`;
   }
 
 }
