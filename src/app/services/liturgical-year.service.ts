@@ -33,7 +33,7 @@ export class LiturgicalYearService {
       return this.overrideLiturgicalColor;
     }
 
-    if ((this.dateInRange(this.liturgicalDates.triduum)
+    if ((this.isDateInRangeOfTriduum
       || this.appDate.date === this.palmSunday
       || this.appDate.date === this.pentacostSunday)
       && this.appDate.date !== this.liturgicalDates.easter.startDate) {
@@ -43,17 +43,41 @@ export class LiturgicalYearService {
       || this.appDate.date === this.lentSunday4) {
         return LiturgicalColors.ROSE;
     }
-    else if (this.dateInRange(this.liturgicalDates.christmas)
-      || this.dateInRange(this.liturgicalDates.easter)
+    else if (this.isDateInRangeOfChristmas
+      || this.isDateInRangeOfEaster
       || this.appDate.date === this.allSaintsDay) {
         return LiturgicalColors.WHITE;
     }
-    else if (this.dateInRange(this.liturgicalDates.advent)
-      || this.dateInRange(this.liturgicalDates.lent)) {
+    else if (this.isDateInRangeOfAdvent
+      || this.isDateInRangeOfLent) {
         return LiturgicalColors.VIOLET;
     }
 
     return LiturgicalColors.GREEN;
+  }
+
+  get isAshWednesday(): boolean {
+    return this.appDate.date === this.liturgicalDates.lent.startDate;
+  }
+
+  get isDateInRangeOfAdvent(): boolean {
+    return this.dateInRange(this.liturgicalDates.advent);
+  }
+
+  get isDateInRangeOfChristmas(): boolean {
+    return this.dateInRange(this.liturgicalDates.christmas);
+  }
+
+  get isDateInRangeOfEaster(): boolean {
+    return this.dateInRange(this.liturgicalDates.easter);
+  }
+
+  get isDateInRangeOfLent(): boolean {
+    return this.dateInRange(this.liturgicalDates.lent);
+  }
+
+  get isDateInRangeOfTriduum(): boolean {
+    return this.dateInRange(this.liturgicalDates.triduum);
   }
 
   validateDates() {
