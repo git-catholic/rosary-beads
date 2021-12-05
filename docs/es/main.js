@@ -858,8 +858,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var src_app_services_supported_languages_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/supported-languages.service */ "uzqb");
-/* harmony import */ var _rosary_prayers_holy_rosary_holy_rosary_home_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../rosary-prayers/holy-rosary/holy-rosary-home.component */ "ZVbO");
-
 
 
 
@@ -868,13 +866,11 @@ class HomeComponent {
         this.languages = languages;
     }
     ngOnInit() {
-        this.languages.checkForRedirect();
+        this.languages.checkForRedirect('holy-rosary');
     }
 }
 HomeComponent.ɵfac = function HomeComponent_Factory(t) { return new (t || HomeComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_supported_languages_service__WEBPACK_IMPORTED_MODULE_1__["SupportedLanguagesService"])); };
-HomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: HomeComponent, selectors: [["app-home"]], decls: 1, vars: 0, template: function HomeComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-holy-rosary-home");
-    } }, directives: [_rosary_prayers_holy_rosary_holy_rosary_home_component__WEBPACK_IMPORTED_MODULE_2__["HolyRosaryHomeComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJob21lLmNvbXBvbmVudC5zY3NzIn0= */"] });
+HomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: HomeComponent, selectors: [["app-home"]], decls: 0, vars: 0, template: function HomeComponent_Template(rf, ctx) { }, styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJob21lLmNvbXBvbmVudC5zY3NzIn0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](HomeComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -1956,16 +1952,16 @@ class AppComponent {
         this.checkOrientation();
     }
     tap1mp3() {
-        return window.location.href + '/assets/Tapping-1.mp3';
+        return 'assets/Tapping-1.mp3';
     }
     tap1ogg() {
-        return window.location.href + '/assets/Tapping-1.ogg';
+        return 'assets/Tapping-1.ogg';
     }
     tap2mp3() {
-        return window.location.href + '/assets/Tapping-2.mp3';
+        return 'assets/Tapping-2.mp3';
     }
     tap2ogg() {
-        return window.location.href + '/assets/Tapping-2.ogg';
+        return 'assets/Tapping-2.ogg';
     }
     checkOrientation() {
         if (window.matchMedia('(orientation: portrait)').matches) {
@@ -4371,18 +4367,18 @@ class SupportedLanguagesService {
     isSupportedLanguageId(languageId) {
         return this.supportedLanguages.has(languageId);
     }
-    checkForRedirect() {
+    checkForRedirect(route) {
         const languageId = this.activeLanguageId;
         const languageSupported = this.isSupportedLanguageId(languageId);
         const currentCorrect = this.currentUrlCorrectLanguage(languageId);
+        const routeSegment = (route) ? `/${route}` : '';
         console.log(`language: ${languageId}, languageSupported: ${languageSupported}, currentCorrect: ${currentCorrect}`);
-        if (languageSupported && !currentCorrect) {
-            const redirectUrl = `/${this.appConfig.appName}/${languageId}`;
-            console.log(`Redirect for language triggered: ${redirectUrl} - enabled? ${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].redirect !== false}`);
-            if (src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].redirect === false) {
-                return;
-            }
+        if (src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].redirect && languageSupported && !currentCorrect) {
+            const redirectUrl = `/${this.appConfig.appName}/${languageId}${routeSegment}`;
             window.location.href = redirectUrl;
+        }
+        else if (routeSegment.length > 0) {
+            window.location.href = routeSegment;
         }
     }
     currentUrlCorrectLanguage(languageId) {
@@ -4432,6 +4428,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/home/home.component */ "BuFo");
 /* harmony import */ var _components_testing_buzz_feedback_buzz_feedback_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/testing/buzz-feedback/buzz-feedback.component */ "Kn0e");
 /* harmony import */ var _components_testing_layouts_layouts_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/testing/layouts/layouts.component */ "DZO2");
+/* harmony import */ var _rosary_prayers_holy_rosary_holy_rosary_home_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./rosary-prayers/holy-rosary/holy-rosary-home.component */ "ZVbO");
+
 
 
 
@@ -4441,6 +4439,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"] },
+    { path: 'holy-rosary', component: _rosary_prayers_holy_rosary_holy_rosary_home_component__WEBPACK_IMPORTED_MODULE_5__["HolyRosaryHomeComponent"] },
     { path: 'testing/layout', component: _components_testing_layouts_layouts_component__WEBPACK_IMPORTED_MODULE_4__["LayoutsComponent"] },
     { path: 'testing/buzz', component: _components_testing_buzz_feedback_buzz_feedback_component__WEBPACK_IMPORTED_MODULE_3__["BuzzFeedbackComponent"] }
 ];
