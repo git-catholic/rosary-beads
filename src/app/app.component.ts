@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { url } from 'inspector';
 import { version } from '../../package.json';
 import { AppConfigService } from './services/app-config.service';
 import { LiturgicalYearService } from './services/liturgical-year.service';
