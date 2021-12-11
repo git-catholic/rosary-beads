@@ -34,6 +34,14 @@
           <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="language-reference" datatype="html">
+        <source>Language reference</source>
+        <target>Referencia idiomática</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/language-selector/language-selector.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="lang-english" datatype="html">
         <source>English</source>
         <target>Inglés</target>
@@ -551,22 +559,16 @@
       the resurrection of the body;
       and life everylasting.
       Amen.</source>
-        <target>Creo en Dios, Padre todopoderoso, 
-      creador del Cielo y de la Tierra.
-      Creo en Jesucristo su único Hijo, Señor Nuestro, 
-      que fue concebido por obra y gracia del Espíritu Santo; 
-      nació de Santa María Virgen; 
-      padeció bajo el poder de Poncio Pilato;
-      fue crucificado, muerto y sepultado; 
-      descendió a los infiernos; 
-      al tercer día resucitó de entre los muertos; 
-      subió a los cielos y está sentado a la derecha de Dios Padre; 
-      desde allí ha de venir a juzgar a vivos y muertos. 
-      Creo en el Espíritu Santo, 
-      la Santa Iglesia Católica, 
-      la comunión de los Santos 
-      el perdón de los pecados 
-      la resurrección de la carne y la vida eterna.
+        <target>Creo en Dios, Padre Todopoderoso, Creador del cielo y de la tierra.
+      Creo en Jesucristo, su único Hijo, Nuestro Señor, que fue concebido por
+      obra y gracia del Espíritu Santo, nació de Santa María Virgen, padeció
+      bajo el poder de Poncio Pilato, fue crucificado, muerto y sepultado,
+      descendió a los infiernos, al tercer día resucitó de entre los muertos,
+      subió a los cielos y está sentado a la derecha de Dios, Padre todopoderoso.
+      Desde allí ha de venir a juzgar a vivos y muertos.
+      Creo en el Espíritu Santo, La santa Iglesia católica, la comunión de los
+      santos, el perdón de los pecados, la resurrección de la carne y la vida
+      eterna.
       Amén</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/prayers/common-prayers.ts</context>
@@ -591,7 +593,7 @@
       </trans-unit>
       <trans-unit id="closing-response-1" datatype="html">
         <source>That we may be made worthy of the promises of Christ.</source>
-        <target>para que seamos dignos de alcanzar las promesas de nuestro Señor Jesucristo.</target>
+        <target>para que seamos dignos de alcanzar las promesas de Nuestro Señor Jesucristo.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/prayers/common-prayers.ts</context>
           <context context-type="linenumber">82</context>
@@ -627,8 +629,16 @@
       through the same Christ, our Lord.
 
       Amen.</source>
-        <target>Oh Dios cuyo unigénito hijo con su vida, muerte y resurrección nos alcanzó el premio de la vida eterna, concédenos a los que recordamos
-estos misterios del Santo Rosario, imitar lo que contienen y alcanzar lo que prometen, por el mismo Jesucristo Nuestro Señor.
+        <target>Oh Dios, cuyo Unigénito Hijo
+      con su vida, muerte y resurrección
+      nos consiguió los premios de la vida
+      eterna, te rogamos nos concedas que,
+      meditando estos misterios en el
+      sacratísimo Rosario de la Bienaventurada
+      Virgen María, imitemos lo que contienen
+      y alcancemos lo que prometen.
+      Por Jesucristo
+      Nuestro Señor.
       
       Amén</target>
         <context-group purpose="location">
@@ -639,7 +649,7 @@ estos misterios del Santo Rosario, imitar lo que contienen y alcanzar lo que pro
       <trans-unit id="glory-leader" datatype="html">
         <source>Glory be to the Father, and the Son,
       and the Holy Spirit.</source>
-        <target>Gloria al Padre, al Hijo y al Espíritu Santo.</target>
+        <target>Gloria al Padre, y al Hijo, y al Espíritu Santo.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/prayers/common-prayers.ts</context>
           <context context-type="linenumber">124,125</context>
@@ -699,13 +709,12 @@ estos misterios del Santo Rosario, imitar lo que contienen y alcanzar lo que pro
       O clement, O loving, O sweet Virgin Mary.
 
       Amen</source>
-        <target>Dios te salve, Reina y Madre, madre de misericordia, 
-      vida, dulzura y esperanza nuestra, Dios te salve. 
-      A ti llamamos los desterrados hijos de Eva. 
-      A ti suspiramos gimiendo y llorando en este valle de lágrimas. 
-      Ea, pues, Señora, abogada nuestra: vuelve a nosotros esos tus ojos misericordiosos. 
-      Y después de este destierro, muéstranos a Jesús, fruto bendito de tu vientre. 
-      Oh clemente, oh piadosa, oh dulce Virgen María.
+        <target>Dios te salve, Reina y Madre de misericordia, vida, dulzura y esperanza
+      nuestra; Dios te salve. A ti llamamos los desterrados hijos de Eva;
+      a ti suspiramos, gimiendo y llorando, en este valle de lágrimas. Ea, pues,
+      Señora, abogada nuestra, vuelve a nosotros esos tus ojos misericordiosos;
+      y después de este destierro, muéstranos a Jesús, fruto bendito de tu
+      vientre. ¡Oh, clementísima, oh piadosa, oh dulce Virgen María!
       
       Amén</target>
         <context-group purpose="location">
@@ -726,7 +735,9 @@ estos misterios del Santo Rosario, imitar lo que contienen y alcanzar lo que pro
       the Lord is with thee;
       blessed art thou amongst women,
       and blessed is the fruit of thy womb, Jesus.</source>
-        <target>Dios te salve, María. Llena eres de gracia: El Señor es contigo. Bendita eres entre todas las mujeres. Y bendito es el fruto de tu vientre: Jesús.</target>
+        <target>Dios te salve, María, llena eres de gracia; el Señor es contigo.
+      Bendita Tú eres entre todas las mujeres, y bendito es el fruto de tu vientre,
+      Jesús.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/prayers/common-prayers.ts</context>
           <context context-type="linenumber">248,251</context>
@@ -738,7 +749,8 @@ estos misterios del Santo Rosario, imitar lo que contienen y alcanzar lo que pro
       now, and at the hour of our death.
 
       Amen.</source>
-        <target>Santa María, Madre de Dios, ruega por nosotros pecadores, ahora y en la hora de nuestra muerte.
+        <target>Santa María, Madre de Dios, ruega por nosotros, pecadores,
+      ahora y en la hora de nuestra muerte.
       
       Amén</target>
         <context-group purpose="location">
@@ -760,8 +772,8 @@ estos misterios del Santo Rosario, imitar lo que contienen y alcanzar lo que pro
       Thy kingdom come;
       Thy will be done
       on earth as it is in heaven.</source>
-        <target>Padre nuestro, que estás en el cielo.
-Santificado sea tu nombre. Venga tu reino. Hágase tu voluntad en la tierra como en el cielo.</target>
+        <target>Padre nuestro que estás en el cielo, santificado sea tu Nombre; venga a
+      nosotros tu reino; hágase tu voluntad en la tierra como en el cielo.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/prayers/common-prayers.ts</context>
           <context context-type="linenumber">278,282</context>
@@ -775,7 +787,9 @@ Santificado sea tu nombre. Venga tu reino. Hágase tu voluntad en la tierra como
       but deliver us from evil.
 
       Amen.</source>
-        <target>Danos hoy nuestro pan de cada día. Perdona nuestras ofensas, como también nosotros perdonamos a los que nos ofenden. No nos dejes caer en tentación y líbranos del mal.
+        <target>Danos hoy nuestro pan de cada día; perdona nuestras ofensas, como también 
+      nosotros perdonamos a los que nos ofenden; no nos dejes caer en la 
+      tentación, y líbranos del mal.
       
       Amén</target>
         <context-group purpose="location">
