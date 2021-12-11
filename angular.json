@@ -25,7 +25,7 @@
           "options": {
             "outputPath": "dist/rosary-beads",
             "index": "src/index.html",
-            "localize": false,
+            "localize": true,
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
