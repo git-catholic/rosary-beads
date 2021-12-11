@@ -1,23 +1,7 @@
 @import '../../../../styles-shared-mixins.scss';
+@import '../shared-config-mixins.scss';
 
-.device-row {
-  border-bottom: 1px solid black;
-  display: flex;
-  flex-direction: row;
+.language-selector {
+  padding-bottom: 3vh;
   width: 100%;
-}
-
-.device-row .device-field-name {
-  background-color: azure;
-  opacity: 85%;
-  padding: $margins;
-  text-align: right;
-  width: 30%;
-}
-
-.device-row .device-field-value {
-  font-weight: bold;
-  padding: $margins;
-  width: 70%;
-  overflow-wrap: anywhere;
 }

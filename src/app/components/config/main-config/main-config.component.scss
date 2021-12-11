@@ -1,20 +1,14 @@
 @import '../../../../styles-shared-mixins.scss';
-
-$button-height: 9vh;
-$close-button-diameter: 25px;
-$tab-line-color: darkslategray;
-$tab-top-radius: 10px;
+@import '../shared-config-mixins.scss';
 
 #config-tab-row {
-  border-bottom: 1px solid $tab-line-color;
   display: block;
-  height: 4vh;
   width: 100%;
 }
 
 #config-tab-row .tabs-section {
+  display: flex;
   float: left;
-  // height: $button-height;
 
   .selected-tab, .unselected-tab {
     border-top-left-radius: $tab-top-radius;
@@ -45,4 +39,9 @@ $tab-top-radius: 10px;
   vertical-align: top;
   width: $close-button-diameter;
   height: $close-button-diameter;
+}
+
+.config-content {
+  position: relative;
+  top: 3vh;
 }

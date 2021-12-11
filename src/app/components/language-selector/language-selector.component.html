@@ -1,8 +1,22 @@
 <div class="language-selector">
-  <label i18n="@@select-language">Select language:</label>&nbsp;
-  <select (change)="onLanguageSelectionChange($event.target.value)">
-    <option *ngFor="let entry of supportedLanguages" value="{{ entry }}" [selected]="isSelectedLanguage(entry)">
-      {{ entry }}
-    </option>
-  </select>
+  <div class="kv-row">
+    <span class="kv-field-name">
+      <label class="kv-field-name" i18n="@@select-language">Select language:</label>
+    </span>
+    <span class="kv-field-value">
+      <select (change)="onLanguageSelectionChange($event.target.value)">
+        <option *ngFor="let entry of supportedLanguages" value="{{ entry }}" [selected]="isSelectedLanguage(entry)">
+          {{ entry }}
+        </option>
+      </select>
+    </span>
+  </div>
+  <div *ngIf="languages.activeLanguageReference" class="kv-row">
+    <span class="kv-field-name">
+      <span i18n="@@language-reference">Language reference</span>:
+    </span>
+    <span class="kv-field-value">
+      <a href="{{ languages.activeLanguageReference }}">{{ languages.activeLanguageName }}</a>
+    </span>
+  </div>
 </div>
