@@ -7,13 +7,14 @@ import { AppConfigService } from '../../services/app-config.service';
 import { LiturgicalYearService } from 'src/app/services/liturgical-year.service';
 import * as Hammer from 'hammerjs';
 import { ActivePrayerComponent } from 'src/app/components/active-prayer/active-prayer.component';
+import { RosaryPrayer } from '../rosary-prayer';
 
 @Component({
   selector: 'app-holy-rosary-home',
   templateUrl: './holy-rosary-home.component.html',
   styleUrls: ['./holy-rosary-home.component.scss']
 })
-export class HolyRosaryHomeComponent implements OnInit {
+export class HolyRosaryHomeComponent implements OnInit, RosaryPrayer {
 
   @Input()
   selectedMysteryId: string;

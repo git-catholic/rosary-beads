@@ -19,7 +19,7 @@ export function refreshNeeded(period: LiturgicalPeriod, appDate: AppDateService)
 }
 
 export function calculateAdventAndChristmas(appDate: AppDateService, localization: LocalizationService): LiturgicalDates {
-  const nextChristmasDay = calculateNextChristmas(appDate, localization);
+  const nextChristmasDay = calculateChristmasFromAppDate(appDate, localization);
 
   const adventYear = nextChristmasDay.startDate.getFullYear();
   const dowChristmasDay = nextChristmasDay.startDate.getDay();
@@ -41,12 +41,14 @@ export function calculateAdventAndChristmas(appDate: AppDateService, localizatio
   }
 }
 
-function calculateNextChristmas(appDate: AppDateService, localization: LocalizationService): LiturgicalPeriod {
-  let christmasDay = new Date(appDate.currentYear, Months.DEC, 25);
+function calculateChristmasFromAppDate(appDate: AppDateService, localization: LocalizationService): LiturgicalPeriod {
+  let result = calculateChristmasForYear(appDate.currentYear - 1, localization);
+  return (appDate.date.getTime() > result.endDate.getTime())
+    ? calculateChristmasForYear(appDate.currentYear, localization) : result;
+}
 
-  if (appDate.date > christmasDay) {
-    christmasDay = new Date(appDate.currentYear + 1, Months.DEC, 25);
-  }
+function calculateChristmasForYear(year: number, localization: LocalizationService): LiturgicalPeriod {
+  let christmasDay = new Date(year, Months.DEC, 25);
 
   const endOfChristmas = calculateEndOfChristmasSeason(christmasDay);
 

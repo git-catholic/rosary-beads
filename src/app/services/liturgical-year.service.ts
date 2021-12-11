@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { calculateAdventAndChristmas, refreshNeeded } from 'src/utils/dates-advent-christmas';
 import { calculateLentAndEaster } from 'src/utils/dates-lent-easter';
-import { Months } from 'src/utils/key-dates';
+import { addDays, Months } from 'src/utils/key-dates';
 import { LiturgicalColors } from '../models/liturgical-colors';
 import { LiturgicalDates, LiturgicalPeriod, PeriodStatus } from '../models/liturgical-dates';
 import { AppDateService } from './app-date.service';
@@ -22,63 +22,81 @@ export class LiturgicalYearService {
 
   overrideLiturgicalColor: LiturgicalColors;
 
-  constructor(private readonly appDate: AppDateService,
+  constructor(public appDate: AppDateService,
               private localization: LocalizationService) {
     this.validateDates();
   }
 
   liturgicalColor(): LiturgicalColors {
 
+    const appDateTime = this.appDate.date.getTime();
+
     if (this.overrideLiturgicalColor) {
       return this.overrideLiturgicalColor;
     }
 
-    if ((this.dateInRange(this.liturgicalDates.triduum)
-      || this.appDate.date === this.palmSunday
-      || this.appDate.date === this.pentacostSunday)
-      && this.appDate.date !== this.liturgicalDates.easter.startDate) {
+    if ((this.isDateInRangeOfTriduum
+      || appDateTime === this.palmSunday.getTime()
+      || appDateTime === this.pentacostSunday.getTime())
+      && appDateTime !== this.liturgicalDates.easter.startDate.getTime()) {
         return LiturgicalColors.RED;
     }
-    else if (this.appDate.date === this.adventSunday3
-      || this.appDate.date === this.lentSunday4) {
+    else if (appDateTime === this.adventSunday3.getTime()
+      || appDateTime === this.lentSunday4.getTime()) {
         return LiturgicalColors.ROSE;
     }
-    else if (this.dateInRange(this.liturgicalDates.christmas)
-      || this.dateInRange(this.liturgicalDates.easter)
-      || this.appDate.date === this.allSaintsDay) {
+    else if (this.isDateInRangeOfChristmas
+      || this.isDateInRangeOfEaster
+      || appDateTime === this.allSaintsDay.getTime()) {
         return LiturgicalColors.WHITE;
     }
-    else if (this.dateInRange(this.liturgicalDates.advent)
-      || this.dateInRange(this.liturgicalDates.lent)) {
+    else if (this.isDateInRangeOfAdvent
+      || this.isDateInRangeOfLent) {
         return LiturgicalColors.VIOLET;
     }
 
     return LiturgicalColors.GREEN;
   }
 
+  get isAshWednesday(): boolean {
+    return this.appDate.date.getTime() === this.liturgicalDates.lent.startDate.getTime();
+  }
+
+  get isDateInRangeOfAdvent(): boolean {
+    return this.dateInRange(this.liturgicalDates.advent);
+  }
+
+  get isDateInRangeOfChristmas(): boolean {
+    return this.dateInRange(this.liturgicalDates.christmas);
+  }
+
+  get isDateInRangeOfEaster(): boolean {
+    return this.dateInRange(this.liturgicalDates.easter);
+  }
+
+  get isDateInRangeOfLent(): boolean {
+    return this.dateInRange(this.liturgicalDates.lent);
+  }
+
+  get isDateInRangeOfTriduum(): boolean {
+    return this.dateInRange(this.liturgicalDates.triduum);
+  }
+
   validateDates() {
-    this.liturgicalDates = undefined;   //this.stateStorage.liturgicalDates.data;
+    this.liturgicalDates = undefined;
 
     this.refreshLiturgicalDates();
 
     this.allSaintsDay = new Date(this.appDate.currentYear, Months.NOV, 1);
     this.pentacostSunday = this.liturgicalDates.easter.endDate;
-
-    let workingDate = new Date(this.liturgicalDates.advent.startDate);
-    workingDate.setDate(workingDate.getDate() + 14);
-    this.adventSunday3 = workingDate;
-
-    workingDate = new Date(this.liturgicalDates.lent.startDate);
-    workingDate.setDate(workingDate.getDate() + 25);
-    this.lentSunday4 = workingDate;
-
-    workingDate = new Date(this.liturgicalDates.easter.startDate);
-    workingDate.setDate(workingDate.getDate() - 7);
-    this.palmSunday = workingDate;
+    this.adventSunday3 = addDays(this.liturgicalDates.advent.startDate, 14);
+    this.lentSunday4 = addDays(this.liturgicalDates.lent.startDate, 25);
+    this.palmSunday = addDays(this.liturgicalDates.easter.startDate, -7);
   }
 
   dateInRange(period: LiturgicalPeriod): boolean {
-    return period.startDate <= this.appDate.date && this.appDate.date <= period.endDate;
+    return period.startDate.getTime() <= this.appDate.date.getTime()
+      && this.appDate.date.getTime() <= period.endDate.getTime();
   }
 
   private refreshLiturgicalDates() {

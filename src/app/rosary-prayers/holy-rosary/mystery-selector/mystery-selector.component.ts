@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RosaryMysteriesEnum } from 'src/app/sequences/rosary-helper';
 import { AppConfigService } from 'src/app/services/app-config.service';
+import { AppDateService } from 'src/app/services/app-date.service';
+import { LiturgicalYearService } from 'src/app/services/liturgical-year.service';
 import { LocalizationService } from 'src/app/services/localization.service';
 import { MysteryGlorious } from '../mysteries/mystery-glorious';
 
@@ -36,6 +38,7 @@ export class MysterySelectorComponent implements OnInit {
   private dayOfWeek: number;
 
   constructor(private appConfig: AppConfigService,
+              private liturgicalYear: LiturgicalYearService,
               private localizationUtil: LocalizationService) {
     if (MYSTERY_LABEL_MAP.size === 0) {
       MYSTERY_LABEL_MAP[RosaryMysteriesEnum.GLORIOUS] = this.gloriousMystery;
@@ -112,6 +115,22 @@ export class MysterySelectorComponent implements OnInit {
   }
 
   getMysteryOfTheDay(): RosaryMysteriesEnum {
+    // Special handling for Sunday
+    if (this.dayOfWeek === SUN) {
+      if (this.liturgicalYear.isDateInRangeOfAdvent) {
+        return RosaryMysteriesEnum.JOYFUL;
+      }
+      if (this.liturgicalYear.isDateInRangeOfLent) {
+        return RosaryMysteriesEnum.SORROWFUL;
+      }
+    }
+
+    // Special handling for Ash Wednesday
+    if (this.liturgicalYear.isAshWednesday) {
+      return RosaryMysteriesEnum.SORROWFUL;
+    }
+
+    // Handle by day of week
     if (this.dayOfWeek === SUN || this.dayOfWeek === WED) {
       return RosaryMysteriesEnum.GLORIOUS;
     }
