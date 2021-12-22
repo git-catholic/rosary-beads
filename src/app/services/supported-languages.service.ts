@@ -8,15 +8,16 @@ import { StringStorage } from './state-storage.service';
 })
 export class SupportedLanguagesService {
 
-  readonly supportedLanguages = new Map<string, string>();
+  readonly supportedLanguages = new Map<string, LanguageDetails>();
 
   private readonly language = new StringStorage('rosary.language');
 
   private _activeLanguageId: string;
+  private _activeLanguage: LanguageDetails;
 
   constructor(private appConfig: AppConfigService) {
-    this.supportedLanguages.set('en', this.languageEnglish);
-    this.supportedLanguages.set('es', this.languageSpanish);
+    this.supportedLanguages.set('en', { name: this.languageEnglish, reference: 'https://austindiocese.org/documents/2017/8/The%20Rosary_for%20web.pdf' });
+    this.supportedLanguages.set('es', { name: this.languageSpanish, reference: 'https://austindiocese.org/documents/2017/8/Spanish%20Rosary_for%20web.pdf' });
     
     this.loadActiveLanguageId();
   }
@@ -43,7 +44,16 @@ export class SupportedLanguagesService {
       console.log(`Browser language id not supported. Using default: ${workingId}`);
     }
     this._activeLanguageId = workingId;
+    this.updateActiveLanguageData();
     this.language.data = this._activeLanguageId;
+  }
+
+  get activeLanguageName(): string {
+    return this._activeLanguage?.name;
+  }
+
+  get activeLanguageReference(): string {
+    return this._activeLanguage?.reference;
   }
 
   isSupportedLanguageId(languageId: string): boolean {
@@ -84,6 +94,16 @@ export class SupportedLanguagesService {
       this.activeLanguageId = window.navigator.language;
     }
     console.log(`stateStorage language: ${this._activeLanguageId}`);
+    this.updateActiveLanguageData();
   }
 
+  private updateActiveLanguageData() {
+    this._activeLanguage = this.supportedLanguages.get(this._activeLanguageId);
+  }
+
+}
+
+export interface LanguageDetails {
+  name: string;
+  reference?: string;
 }

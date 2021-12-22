@@ -17,3 +17,27 @@ $border: 1px dashed black;
 $border-radius: 1.5vh;
 
 $input-margin-bottom: 1vh;
+
+/* ================================================================================ */
+
+.kv-row {
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.kv-row .kv-field-name {
+  background-color: azure;
+  opacity: 85%;
+  padding: $margins;
+  text-align: right;
+  width: 30%;
+}
+
+.kv-row .kv-field-value {
+  font-weight: bold;
+  padding: $margins;
+  width: 70%;
+  overflow-wrap: anywhere;
+}

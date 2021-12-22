@@ -27,7 +27,14 @@
         <source>Select language:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/language-selector/language-selector.component.html</context>
-          <context context-type="linenumber">2</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="language-reference" datatype="html">
+        <source>Language reference</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/language-selector/language-selector.component.html</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="f3a92a305f31f615cf7381e9ebd177aaa53d03d7" datatype="html">
@@ -55,14 +62,14 @@
         <source>Automatic</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/models/liturgical-dates.ts</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3681524507192124314" datatype="html">
         <source>Ordinary Time</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/models/liturgical-dates.ts</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="creedName" datatype="html">
@@ -747,14 +754,14 @@
         <source>English</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/supported-languages.service.ts</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="lang-spanish" datatype="html">
         <source>Spanish</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/supported-languages.service.ts</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
     </body>

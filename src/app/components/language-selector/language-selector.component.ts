@@ -34,8 +34,8 @@ export class LanguageSelectorComponent implements OnInit {
   private initSupportedLanguages() {
     let languageList = [];
     for (const [key, value] of this.languages.supportedLanguages) {
-      console.log(`--- language: ${key}=${value}`);
-      languageList.push(`${key}: ${value}`);
+      console.log(`--- language: ${key}=${value.name}`);
+      languageList.push(`${key}: ${value.name}`);
     }
     this._supportedLanguages = languageList;
   }
