@@ -25,7 +25,7 @@ else
 
   # ng build "${build_opt}" --output-path docs --deploy-url "${PRJ_NAME}/"
   npm version prerelease
-  ng build "${build_opt}" --output-path docs --base-href "${PRJ_NAME}/" --deploy-url "${PRJ_NAME}/"
+  ng build "${build_opt}" --output-path docs --base-href "${PRJ_NAME}/"
 
   # -----------------------------------------------------------------------
   # sed -i "s/base href=\"${PRJ_NAME}\/\"/base href=\"\/${PRJ_NAME}\/\"/g" "docs/index.html"
