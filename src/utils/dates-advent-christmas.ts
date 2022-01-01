@@ -19,31 +19,21 @@ export function refreshNeeded(period: LiturgicalPeriod, appDate: AppDateService)
 }
 
 export function calculateAdventAndChristmas(appDate: AppDateService, localization: LocalizationService): LiturgicalDates {
-  const nextChristmasDay = calculateChristmasFromAppDate(appDate, localization);
+  const activeChristmasDay = calculateChristmasFromAppDate(appDate, localization);
+  const adventOffsetYear = (activeChristmasDay.startDate <= appDate.date) ? 1 : 0;
+  console.log(`appDate: ${appDate.date}, adventOffsetYear: ${adventOffsetYear}, nextChristmasDay: ${JSON.stringify(activeChristmasDay)}`);
 
-  const adventYear = nextChristmasDay.startDate.getFullYear();
-  const dowChristmasDay = nextChristmasDay.startDate.getDay();
-  const sundayBeforeChristmas = (dowChristmasDay === 0) ? 7 : dowChristmasDay;
-  const adventStartsDaysBack = nextChristmasDay.startDate.getDate() - 21 - sundayBeforeChristmas;
-  const adventStarts = (adventStartsDaysBack >= 1)
-    ? new Date(adventYear, Months.DEC, adventStartsDaysBack)
-    : new Date(adventYear, Months.NOV, adventStartsDaysBack + 30);
+  const adventYear = activeChristmasDay.startDate.getFullYear();
 
   return {
-    christmas: nextChristmasDay,
-    advent: {
-      startDate: adventStarts,
-      endDate: new Date(adventYear, Months.DEC, 24),
-      name: localization.adventLabel,
-      color: LiturgicalColors.VIOLET,
-      labelId: ':@@adventLabel'
-    }
+    christmas: activeChristmasDay,
+    advent: calculateAdventForYear(activeChristmasDay.startDate.getFullYear() + adventOffsetYear, localization)
   }
 }
 
 function calculateChristmasFromAppDate(appDate: AppDateService, localization: LocalizationService): LiturgicalPeriod {
   let result = calculateChristmasForYear(appDate.currentYear - 1, localization);
-  return (appDate.date.getTime() > result.endDate.getTime())
+  return (appDate.date > result.endDate)
     ? calculateChristmasForYear(appDate.currentYear, localization) : result;
 }
 
@@ -66,4 +56,22 @@ function calculateEndOfChristmasSeason(christmasDay: Date): Date {
   const jan6 = new Date(christmasDay.getFullYear() + 1, Months.JAN, 6);
   const daysInFuture = 7 - jan6.getDay();
   return addDays(jan6, daysInFuture);
+}
+
+function calculateAdventForYear(adventYear: number, localization: LocalizationService): LiturgicalPeriod {
+  const christmasDayForYear = calculateChristmasForYear(adventYear, localization);
+  const dowChristmasDay = christmasDayForYear.startDate.getDay();
+  const sundayBeforeChristmas = (dowChristmasDay === 0) ? 7 : dowChristmasDay;
+  const adventStartsDaysBack = christmasDayForYear.startDate.getDate() - 21 - sundayBeforeChristmas;
+  const adventStarts = (adventStartsDaysBack >= 1)
+    ? new Date(adventYear, Months.DEC, adventStartsDaysBack)
+    : new Date(adventYear, Months.NOV, adventStartsDaysBack + 30);
+
+  return {
+    startDate: adventStarts,
+    endDate: new Date(adventYear, Months.DEC, 24),
+    name: localization.adventLabel,
+    color: LiturgicalColors.VIOLET,
+    labelId: ':@@adventLabel'
+  };
 }

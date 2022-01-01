@@ -54,6 +54,16 @@ describe('LiturgicalYearService', () => {
     expectLiturgicalDatesToMatch(service.liturgicalDates, LIT_YEAR_2020_2021);
   });
 
+  it('should match expected results when "now" is "2021-12-31".', () => {
+    const fakeNow = new Date(2021, Months.DEC, 31);
+    appDate = new AppDateServiceForTest(activatedRoute, fakeNow);
+    service = new LiturgicalYearService(appDate, localization);
+    expect(service).toBeTruthy();
+    expect(service.liturgicalDates).toBeTruthy();
+    expect(service.liturgicalDates.christmas.startDate.getFullYear()).toBeLessThan(service.liturgicalDates.advent.endDate.getFullYear());
+    expect(service.liturgicalDates.christmas.endDate.getFullYear()).toEqual(service.liturgicalDates.advent.endDate.getFullYear());
+  });
+
   liturgicalTestData.forEach(liturgicalEntry => {
     it(`should return ${liturgicalEntry.expectedColor} as the liturgical color for ${liturgicalEntry.dateForTest}`, () => {
       appDate = new AppDateServiceForTest(activatedRoute, liturgicalEntry.dateForTest);
