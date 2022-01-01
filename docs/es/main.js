@@ -1221,28 +1221,18 @@ function refreshNeeded(period, appDate) {
         : src_app_models_liturgical_dates__WEBPACK_IMPORTED_MODULE_1__["PeriodStatus"].GOOD;
 }
 function calculateAdventAndChristmas(appDate, localization) {
-    const nextChristmasDay = calculateChristmasFromAppDate(appDate, localization);
-    const adventYear = nextChristmasDay.startDate.getFullYear();
-    const dowChristmasDay = nextChristmasDay.startDate.getDay();
-    const sundayBeforeChristmas = (dowChristmasDay === 0) ? 7 : dowChristmasDay;
-    const adventStartsDaysBack = nextChristmasDay.startDate.getDate() - 21 - sundayBeforeChristmas;
-    const adventStarts = (adventStartsDaysBack >= 1)
-        ? new Date(adventYear, _key_dates__WEBPACK_IMPORTED_MODULE_2__["Months"].DEC, adventStartsDaysBack)
-        : new Date(adventYear, _key_dates__WEBPACK_IMPORTED_MODULE_2__["Months"].NOV, adventStartsDaysBack + 30);
+    const activeChristmasDay = calculateChristmasFromAppDate(appDate, localization);
+    const adventOffsetYear = (activeChristmasDay.startDate <= appDate.date) ? 1 : 0;
+    console.log(`appDate: ${appDate.date}, adventOffsetYear: ${adventOffsetYear}, nextChristmasDay: ${JSON.stringify(activeChristmasDay)}`);
+    const adventYear = activeChristmasDay.startDate.getFullYear();
     return {
-        christmas: nextChristmasDay,
-        advent: {
-            startDate: adventStarts,
-            endDate: new Date(adventYear, _key_dates__WEBPACK_IMPORTED_MODULE_2__["Months"].DEC, 24),
-            name: localization.adventLabel,
-            color: src_app_models_liturgical_colors__WEBPACK_IMPORTED_MODULE_0__["LiturgicalColors"].VIOLET,
-            labelId: ':@@adventLabel'
-        }
+        christmas: activeChristmasDay,
+        advent: calculateAdventForYear(activeChristmasDay.startDate.getFullYear() + adventOffsetYear, localization)
     };
 }
 function calculateChristmasFromAppDate(appDate, localization) {
     let result = calculateChristmasForYear(appDate.currentYear - 1, localization);
-    return (appDate.date.getTime() > result.endDate.getTime())
+    return (appDate.date > result.endDate)
         ? calculateChristmasForYear(appDate.currentYear, localization) : result;
 }
 function calculateChristmasForYear(year, localization) {
@@ -1261,6 +1251,22 @@ function calculateEndOfChristmasSeason(christmasDay) {
     const jan6 = new Date(christmasDay.getFullYear() + 1, _key_dates__WEBPACK_IMPORTED_MODULE_2__["Months"].JAN, 6);
     const daysInFuture = 7 - jan6.getDay();
     return Object(_key_dates__WEBPACK_IMPORTED_MODULE_2__["addDays"])(jan6, daysInFuture);
+}
+function calculateAdventForYear(adventYear, localization) {
+    const christmasDayForYear = calculateChristmasForYear(adventYear, localization);
+    const dowChristmasDay = christmasDayForYear.startDate.getDay();
+    const sundayBeforeChristmas = (dowChristmasDay === 0) ? 7 : dowChristmasDay;
+    const adventStartsDaysBack = christmasDayForYear.startDate.getDate() - 21 - sundayBeforeChristmas;
+    const adventStarts = (adventStartsDaysBack >= 1)
+        ? new Date(adventYear, _key_dates__WEBPACK_IMPORTED_MODULE_2__["Months"].DEC, adventStartsDaysBack)
+        : new Date(adventYear, _key_dates__WEBPACK_IMPORTED_MODULE_2__["Months"].NOV, adventStartsDaysBack + 30);
+    return {
+        startDate: adventStarts,
+        endDate: new Date(adventYear, _key_dates__WEBPACK_IMPORTED_MODULE_2__["Months"].DEC, 24),
+        name: localization.adventLabel,
+        color: src_app_models_liturgical_colors__WEBPACK_IMPORTED_MODULE_0__["LiturgicalColors"].VIOLET,
+        labelId: ':@@adventLabel'
+    };
 }
 
 
@@ -3612,7 +3618,7 @@ class BeadGroup {
 /*! exports provided: name, version, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"rosary-beads\",\"version\":\"0.1.6-3\",\"scripts\":{\"ng\":\"ng\",\"start\":\"ng serve\",\"build\":\"ng build\",\"test\":\"ng test\",\"lint\":\"ng lint\",\"e2e\":\"ng e2e\",\"i18n\":\"ng extract-i18n --output-path src/assets/i18n/\"},\"private\":true,\"dependencies\":{\"@angular/animations\":\"~11.0.6\",\"@angular/common\":\"~11.0.6\",\"@angular/compiler\":\"~11.0.6\",\"@angular/core\":\"~11.0.6\",\"@angular/forms\":\"~11.0.6\",\"@angular/localize\":\"^12.2.6\",\"@angular/platform-browser\":\"~11.0.6\",\"@angular/platform-browser-dynamic\":\"~11.0.6\",\"@angular/router\":\"~11.0.6\",\"@types/hammerjs\":\"^2.0.40\",\"hammerjs\":\"^2.0.8\",\"rxjs\":\"~6.6.0\",\"tslib\":\"^2.3.1\",\"zone.js\":\"~0.10.2\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1100.6\",\"@angular/cli\":\"~11.0.6\",\"@angular/compiler-cli\":\"~11.0.6\",\"@types/jasmine\":\"~3.6.0\",\"@types/node\":\"^12.11.1\",\"codelyzer\":\"^6.0.0\",\"jasmine-core\":\"~3.6.0\",\"jasmine-spec-reporter\":\"~5.0.0\",\"karma\":\"~5.1.0\",\"karma-chrome-launcher\":\"~3.1.0\",\"karma-coverage\":\"~2.0.3\",\"karma-jasmine\":\"~4.0.0\",\"karma-jasmine-html-reporter\":\"^1.5.0\",\"protractor\":\"~7.0.0\",\"ts-node\":\"~8.3.0\",\"tslint\":\"~6.1.0\",\"typescript\":\"~4.0.2\"}}");
+module.exports = JSON.parse("{\"name\":\"rosary-beads\",\"version\":\"0.1.7-1\",\"scripts\":{\"ng\":\"ng\",\"start\":\"ng serve\",\"build\":\"ng build\",\"test\":\"ng test\",\"lint\":\"ng lint\",\"e2e\":\"ng e2e\",\"i18n\":\"ng extract-i18n --output-path src/assets/i18n/\"},\"private\":true,\"dependencies\":{\"@angular/animations\":\"~11.0.6\",\"@angular/common\":\"~11.0.6\",\"@angular/compiler\":\"~11.0.6\",\"@angular/core\":\"~11.0.6\",\"@angular/forms\":\"~11.0.6\",\"@angular/localize\":\"^12.2.6\",\"@angular/platform-browser\":\"~11.0.6\",\"@angular/platform-browser-dynamic\":\"~11.0.6\",\"@angular/router\":\"~11.0.6\",\"@types/hammerjs\":\"^2.0.40\",\"hammerjs\":\"^2.0.8\",\"rxjs\":\"~6.6.0\",\"tslib\":\"^2.3.1\",\"zone.js\":\"~0.10.2\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1100.6\",\"@angular/cli\":\"~11.0.6\",\"@angular/compiler-cli\":\"~11.0.6\",\"@types/jasmine\":\"~3.6.0\",\"@types/node\":\"^12.11.1\",\"codelyzer\":\"^6.0.0\",\"jasmine-core\":\"~3.6.0\",\"jasmine-spec-reporter\":\"~5.0.0\",\"karma\":\"~5.1.0\",\"karma-chrome-launcher\":\"~3.1.0\",\"karma-coverage\":\"~2.0.3\",\"karma-jasmine\":\"~4.0.0\",\"karma-jasmine-html-reporter\":\"^1.5.0\",\"protractor\":\"~7.0.0\",\"ts-node\":\"~8.3.0\",\"tslint\":\"~6.1.0\",\"typescript\":\"~4.0.2\"}}");
 
 /***/ }),
 
