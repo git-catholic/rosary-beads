@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BeadGroupList } from 'src/app/models/bead-group-list';
+import { HolyRosaryBeadGroupList } from 'src/app/models/holy-rosary-bead-group-list';
 import { AppConfigService } from 'src/app/services/app-config.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { AppConfigService } from 'src/app/services/app-config.service';
 export class MysteryDisplayComponent implements OnInit {
 
   @Input()
-  activeBeadGroupList: BeadGroupList;
+  activeBeadGroupList: HolyRosaryBeadGroupList;
 
   private mysteryNumbers = [undefined, '1st', '2nd', '3rd', '4th', '5th'];
 

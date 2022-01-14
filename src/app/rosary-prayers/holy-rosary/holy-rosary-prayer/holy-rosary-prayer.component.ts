@@ -1,10 +1,10 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { BeadGroup } from 'src/app/models/bead-group';
-import { BeadGroupList } from 'src/app/models/bead-group-list';
+import { HolyRosaryBeadGroupList } from 'src/app/models/holy-rosary-bead-group-list';
 import { Prayer, PrayerApostlesCreed, PrayerClosing1, PrayerClosing2, PrayerFatima, PrayerGlory, PrayerGloryFatima, PrayerHailHolyQueen, PrayerHailMary, PrayerOurFather, PrayerSignOfTheCross } from 'src/app/prayers/common-prayers';
 import { SoundService } from 'src/app/services/sound.service';
 import { PatsBeadsComponent } from '../../../rosary-beads/pats-beads/pats-beads.component';
-import { CurrentPrayerComponent } from '../current-prayer/current-prayer.component';
+import { CurrentPrayerComponent } from '../../current-prayer/current-prayer.component';
 
 const seqMap = new Map<string, Prayer>();
 seqMap['closing1'] = new PrayerClosing1();
@@ -26,7 +26,7 @@ seqMap['sign-cross'] = new PrayerSignOfTheCross();
 export class HolyRosaryPrayerComponent implements OnInit {
 
   @Input()
-  activeBeadGroupList: BeadGroupList;
+  activeBeadGroupList: HolyRosaryBeadGroupList;
 
   @Input()
   prayerName: string;

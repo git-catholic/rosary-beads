@@ -1,33 +1,33 @@
 import { BeadGroupContainer } from "../sequences/contemporary-rosary";
 import { BeadGroup } from "./bead-group";
-import { fruitByNumber, Mysteries, mysteryByNumber } from "./mysteries";
 
 export abstract class BeadGroupList {
 
-  debugTheEnd = false;
+  protected currentBeadGroup: BeadGroup;
 
-  private currentBeadGroup: BeadGroup;
+  protected beadGroups: BeadGroup[];
+  protected beadGroupIdx: number;
 
-  // TODO: Mystery-related code should be moved to HolyRosaryPrayerComponent
-  private activeMysteries: Mysteries;
-  private activeMysteriesIdx: number;
+  protected skipNext = false;
+  protected beadIdxOverrideOccurred = false;
 
-  private beadGroups: BeadGroup[];
-  private beadGroupIdx: number;
-
-  private skipNext = false;
-  private beadIdxOverrideOccurred = false;
-
-  constructor(private beadContainer: BeadGroupContainer, 
-              mysteries?: Mysteries) {
+  constructor(protected beadContainer: BeadGroupContainer) {
     this.currentBeadGroup = undefined;
-    this.beadGroups = beadContainer.beadGroups;
+    this.beadGroups = this.beadContainer.beadGroups;
     this.beadGroupIdx = -1;
-    this.activeMysteries = mysteries;
-    this.activeMysteriesIdx = 0;
   }
 
   abstract prayerName(): string;
+
+  protected abstract onNextStart(): void;
+  protected abstract onNextBeadGroupDone(): void;
+  protected abstract onNextBeadGroupContinued(): void;
+  protected abstract onNextEnd(): void;
+
+  protected abstract onPreviousStart(): void;
+  protected abstract onPreviousBead(): void;
+  protected abstract onPreviousBeadGroup(): void;
+  protected abstract onPreviousEnd(): void;
 
   debugHasBeadIdxOverrideOccurred(resetOverrideFlag = true): boolean {
     const result = this.beadIdxOverrideOccurred;
@@ -43,23 +43,6 @@ export abstract class BeadGroupList {
     }
   }
 
-  debugSetIndices(sequenceId: string): void {
-    const redirectBeadInfo: BeadGroup = this.beadContainer.beadMap[sequenceId];
-    if (redirectBeadInfo) {
-      this.currentBeadGroup = redirectBeadInfo;
-      this.activeMysteriesIdx = redirectBeadInfo.mysteryIdx;
-      this.beadGroupIdx = redirectBeadInfo.beadGroupIndex;
-      this.skipNext = true;
-      this.beadIdxOverrideOccurred = true;
-      console.log('debugTheEnd set to false');
-      this.debugTheEnd = false;
-    }
-    else if (sequenceId === 'end') {
-      console.log('debugTheEnd set to true');
-      this.debugTheEnd = true;
-    }
-  }
-
   get isPrayerSequenceDone(): boolean {
     return this.beadGroupIdx >= this.beadGroups.length;
   }
@@ -69,6 +52,8 @@ export abstract class BeadGroupList {
   }
 
   next(): BeadGroup {
+    this.onNextStart();
+
     if (this.skipNext) {
       this.skipNext = false;
       return this.currentBeadGroup;
@@ -83,49 +68,34 @@ export abstract class BeadGroupList {
       this.currentBeadGroup = this.beadGroups[this.beadGroupIdx];
       this.currentBeadGroup.resetBeadIndex();
 
-      if (this.currentBeadGroup.sequence.startsWith('mystery') || this.currentBeadGroup.incrementMysteryIdx) {
-        this.activeMysteriesIdx++;
-      }
+      this.onNextBeadGroupDone();
     }
     else {
       this.currentBeadGroup.next();
+      this.onNextBeadGroupContinued();
     }
+
+    this.onNextEnd();
     return this.currentBeadGroup;
   }
 
   previous(): BeadGroup {
+    this.onPreviousStart();
+
     if (this.currentBeadGroup.index > 0) {
       this.currentBeadGroup.previous();
+      this.onPreviousBead();
     }
     else if (this.beadGroupIdx > 0) {
-      const lastWasMystery = this.currentBeadGroup.sequence.startsWith('mystery') || this.currentBeadGroup.incrementMysteryIdx;
-
       this.beadGroupIdx--;
       this.currentBeadGroup = this.beadGroups[this.beadGroupIdx];
       this.currentBeadGroup.resetBeadIndexToEnd();
 
-      if (lastWasMystery) {
-        this.activeMysteriesIdx--;
-      }
+      this.onPreviousBeadGroup();
     }
 
+    this.onPreviousEnd();
     return this.currentBeadGroup;
-  }
-
-  mysterySequenceName(): string {
-    return this.activeMysteries.mysterySequenceName;
-  }
-
-  mysteryNumber(): number {
-    return this.activeMysteriesIdx;
-  }
-
-  mystery(): string {
-    return mysteryByNumber(this.activeMysteries, this.activeMysteriesIdx);
-  }
-
-  fruit(): string {
-    return fruitByNumber(this.activeMysteries, this.activeMysteriesIdx);
   }
 
   toConsole() {

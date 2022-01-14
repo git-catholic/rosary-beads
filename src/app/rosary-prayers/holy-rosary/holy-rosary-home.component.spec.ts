@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from 'src/app/app.component';
 import { NoticesComponent } from 'src/app/components/notices/notices.component';
-import { LiturgicalDates } from 'src/app/models/liturgical-dates';
 import { AppConfigService } from 'src/app/services/app-config.service';
 import { AppDateService } from 'src/app/services/app-date.service';
 import { LocalizationService } from 'src/app/services/localization.service';

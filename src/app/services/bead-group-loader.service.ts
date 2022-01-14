@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BeadGroupList } from '../models/bead-group-list';
+import { HolyRosaryBeadGroupList } from '../models/holy-rosary-bead-group-list';
 import { Mysteries } from '../models/mysteries';
 import { ContemporaryRosary } from '../sequences/contemporary-rosary';
 import { RosaryMysteriesEnum, lookupMystery } from '../sequences/rosary-helper';
@@ -12,12 +12,12 @@ export class BeadGroupLoaderService {
 
   constructor(private localizationUtil: LocalizationService) { }
 
-  loadHolyRosaryContemporaryMysteryEnum(mysteryEnum: RosaryMysteriesEnum): BeadGroupList {
+  loadHolyRosaryContemporaryMysteryEnum(mysteryEnum: RosaryMysteriesEnum): HolyRosaryBeadGroupList {
     const mystery = lookupMystery(this.localizationUtil, mysteryEnum);
     return new ContemporaryRosary(this.localizationUtil, mystery);
   }
 
-  loadHolyRosaryContemporary(mystery: Mysteries): BeadGroupList {
+  loadHolyRosaryContemporary(mystery: Mysteries): HolyRosaryBeadGroupList {
     return new ContemporaryRosary(this.localizationUtil, mystery);
   }
 

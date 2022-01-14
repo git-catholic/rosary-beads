@@ -1,8 +1,8 @@
 import { BeadGroup } from '../models/bead-group';
-import { BeadGroupList } from '../models/bead-group-list';
 import { initBeadGroup } from '../models/bead-group-template';
-import { Mysteries } from '../models/mysteries';
+import { fruitByNumber, Mysteries, mysteryByNumber } from '../models/mysteries';
 import { LocalizationService } from '../services/localization.service';
+import { HolyRosaryBeadGroupList } from '../models/holy-rosary-bead-group-list';
 import { SIGN_CROSS, APOSTLES_CREED, OUR_FATHER, OPENING_HAIL_MARYS, GLORY, MYSTERY_1, HAIL_MARYS, GLORY_FATIMA, MYSTERY_2, MYSTERY_3, MYSTERY_4, MYSTERY_5, HAIL_HOLY_QUEEN, CLOSING_1, FATIMA, CLOSING_2 } from './rosary-helper';
 
 /*
@@ -13,17 +13,65 @@ IMPORTANT: If you change the order of prayers (ie: loadContemporaryHolyRosary),
              export const PATS_BEADS_COORDS: BeadPosition[]
 */
 
-export class ContemporaryRosary extends BeadGroupList {
+export class ContemporaryRosary extends HolyRosaryBeadGroupList {
+ 
+  private activeMysteries: Mysteries;
+  private activeMysteriesIdx: number;
 
   constructor(private localizationUtil: LocalizationService, mysteries?: Mysteries) {
-    super(loadContemporaryHolyRosary(), mysteries);
+    super(loadContemporaryHolyRosary());
     console.log(`Contemporary - ${mysteries.mysterySequenceName}`);
+    this.activeMysteries = mysteries;
+    this.activeMysteriesIdx = 0;
+
   }
 
   prayerName(): string {
     return this.localizationUtil.prayerHolyRosary;
   }
 
+  mysterySequenceName(): string {
+    return this.activeMysteries.mysterySequenceName;
+  }
+
+  mysteryNumber(): number {
+    return this.activeMysteriesIdx;
+  }
+
+  mystery(): string {
+    return mysteryByNumber(this.activeMysteries, this.activeMysteriesIdx);
+  }
+
+  fruit(): string {
+    return fruitByNumber(this.activeMysteries, this.activeMysteriesIdx);
+  }
+
+
+  protected onNextStart(): void { }
+
+  protected onNextBeadGroupDone(): void {
+      if (this.currentBeadGroup.sequence.startsWith('mystery') || this.currentBeadGroup.incrementMysteryIdx) {
+        this.activeMysteriesIdx++;
+      }
+  }
+
+  protected onNextBeadGroupContinued(): void { }
+
+  protected onNextEnd(): void { }
+
+  protected onPreviousStart(): void { }
+
+  protected onPreviousBead(): void { }
+
+  protected onPreviousBeadGroup(): void {
+      const lastWasMystery = this.currentBeadGroup.sequence.startsWith('mystery') || this.currentBeadGroup.incrementMysteryIdx;
+
+      if (lastWasMystery) {
+        this.activeMysteriesIdx--;
+      }
+  }
+
+  protected onPreviousEnd(): void { }
 }
 
 export interface BeadGroupContainer {

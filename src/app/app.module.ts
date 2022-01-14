@@ -16,14 +16,14 @@ import { BuzzFeedbackComponent } from './components/testing/buzz-feedback/buzz-f
 import { LayoutsComponent } from './components/testing/layouts/layouts.component';
 import { EndComponent } from './prayers/end/end.component';
 import { PatsBeadsComponent } from './rosary-beads/pats-beads/pats-beads.component';
-import { CurrentPrayerComponent } from './rosary-prayers/holy-rosary/current-prayer/current-prayer.component';
+import { CurrentPrayerComponent } from './rosary-prayers/current-prayer/current-prayer.component';
 import { HolyRosaryHomeComponent } from './rosary-prayers/holy-rosary/holy-rosary-home.component';
 import { HolyRosaryPrayerComponent } from './rosary-prayers/holy-rosary/holy-rosary-prayer/holy-rosary-prayer.component';
 import { MysteryDisplayComponent } from './rosary-prayers/holy-rosary/mystery-display/mystery-display.component';
 import { MysterySelectorComponent } from './rosary-prayers/holy-rosary/mystery-selector/mystery-selector.component';
 import { AppHammerConfig } from './services/app-hammer-config';
 import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
-import { DivineMercyComponent } from './rosary-prayers/divine-mercy/divine-mercy.component';
+import { DivineMercyHomeComponent } from './rosary-prayers/divine-mercy/divine-mercy-home.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +48,7 @@ import { DivineMercyComponent } from './rosary-prayers/divine-mercy/divine-mercy
     DeviceDetailsComponent,
     MainConfigComponent,
     LanguageSelectorComponent,
-    DivineMercyComponent
+    DivineMercyHomeComponent
   ],
   imports: [
     BrowserModule,

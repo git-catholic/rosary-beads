@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DivineMercyComponent } from './divine-mercy.component';
+import { DivineMercyHomeComponent } from './divine-mercy-home.component';
 
 describe('DivineMercyComponent', () => {
-  let component: DivineMercyComponent;
-  let fixture: ComponentFixture<DivineMercyComponent>;
+  let component: DivineMercyHomeComponent;
+  let fixture: ComponentFixture<DivineMercyHomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DivineMercyComponent ]
+      declarations: [ DivineMercyHomeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DivineMercyComponent);
+    fixture = TestBed.createComponent(DivineMercyHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
