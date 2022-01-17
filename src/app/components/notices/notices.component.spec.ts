@@ -6,6 +6,7 @@ import { LiturgicalYearService } from 'src/app/services/liturgical-year.service'
 
 import { NoticesComponent } from './notices.component';
 import { ActivatedRoute } from '@angular/router';
+import { LiturgicalDatesComponent } from '../liturgical-dates/liturgical-dates.component';
 
 describe('NoticesComponent', () => {
   let component: NoticesComponent;
@@ -16,7 +17,9 @@ describe('NoticesComponent', () => {
     activatedRoute = new ActivatedRoute();
     TestBed.configureTestingModule({
       declarations: [
-        NoticesComponent
+        NoticesComponent,
+
+        LiturgicalDatesComponent
       ],
       providers: [
         { provide: ActivatedRoute, useValue: activatedRoute },

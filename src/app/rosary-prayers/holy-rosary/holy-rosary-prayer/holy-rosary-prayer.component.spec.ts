@@ -6,6 +6,7 @@ import { AppDateService } from 'src/app/services/app-date.service';
 import { BeadGroupLoaderService } from 'src/app/services/bead-group-loader.service';
 import { LocalizationService } from 'src/app/services/localization.service';
 import { PatsBeadsComponent } from '../../../rosary-beads/pats-beads/pats-beads.component';
+import { CurrentPrayerComponent } from '../../current-prayer/current-prayer.component';
 import { HolyRosaryPrayerComponent } from './holy-rosary-prayer.component';
 
 
@@ -19,9 +20,10 @@ describe('HolyRosaryPrayerComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         HolyRosaryPrayerComponent,
-        PatsBeadsComponent,
 
-        EndComponent
+        CurrentPrayerComponent,
+        EndComponent,
+        PatsBeadsComponent
       ],
       providers: [
         { provide: AppDateService, useValue: new AppDateService(undefined) },

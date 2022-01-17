@@ -32,9 +32,6 @@ export class HolyRosaryPrayerComponent implements OnInit {
   prayerName: string;
 
   @Input()
-  debugTheEnd: boolean;
-
-  @Input()
   orientation: string;
 
   @ViewChild('rosaryBeads')

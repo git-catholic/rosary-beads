@@ -21,14 +21,9 @@ export class CurrentPrayerComponent implements OnInit {
   @Input()
   prayerName: string;
 
-  @Input()
-  debugTheEnd: boolean;
-
   constructor() { }
 
-  ngOnInit(): void {
-    console.log(`ngOnInit() debugTheEnd: ${this.debugTheEnd}`);
-  }
+  ngOnInit(): void { }
 
   beadStatus(): string {
     return (this.currentPrayer instanceof PrayerHailMary)
@@ -44,10 +39,6 @@ export class CurrentPrayerComponent implements OnInit {
 
   currentPrayerLeader(): string {
     return `${this.currentPrayer.leader}`;
-  }
-
-  updateDebugTheEnd(flag: boolean): void {
-    this.debugTheEnd = flag;
   }
 
 }

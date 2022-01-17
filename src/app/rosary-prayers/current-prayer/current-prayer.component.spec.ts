@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { EndComponent } from 'src/app/prayers/end/end.component';
 import { CurrentPrayerComponent } from './current-prayer.component';
 
 describe('CurrentPrayerComponent', () => {
@@ -8,7 +8,11 @@ describe('CurrentPrayerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CurrentPrayerComponent ]
+      declarations: [
+        CurrentPrayerComponent,
+
+        EndComponent
+      ]
     })
     .compileComponents();
   });

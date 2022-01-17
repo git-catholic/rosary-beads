@@ -11,6 +11,8 @@ import { HolyRosaryPrayerComponent } from '../../rosary-prayers/holy-rosary/holy
 import { PatsBeadsComponent } from '../../rosary-beads/pats-beads/pats-beads.component';
 import { ActivePrayerComponent } from './active-prayer.component';
 import { SoundService } from 'src/app/services/sound.service';
+import { CurrentPrayerComponent } from 'src/app/rosary-prayers/current-prayer/current-prayer.component';
+import { HeaderComponent } from '../header/header.component';
 
 describe('ActivePrayerComponent', () => {
   let component: ActivePrayerComponent;
@@ -29,9 +31,12 @@ describe('ActivePrayerComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         ActivePrayerComponent,
+
+        CurrentPrayerComponent,
+        EndComponent,
+        HeaderComponent,
         HolyRosaryPrayerComponent,
-        PatsBeadsComponent,
-        EndComponent
+        PatsBeadsComponent
       ],
       providers: [
         { provide: AppDateService, useValue: new AppDateService(undefined) },

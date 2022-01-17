@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from 'src/app/app.component';
+import { LiturgicalDatesComponent } from 'src/app/components/liturgical-dates/liturgical-dates.component';
 import { NoticesComponent } from 'src/app/components/notices/notices.component';
 import { AppConfigService } from 'src/app/services/app-config.service';
 import { AppDateService } from 'src/app/services/app-date.service';
@@ -15,6 +16,8 @@ describe('HomeComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [
         HolyRosaryHomeComponent,
+
+        LiturgicalDatesComponent,
         MysterySelectorComponent,
         NoticesComponent
       ],

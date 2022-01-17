@@ -39,7 +39,6 @@ export class HolyRosaryHomeComponent implements OnInit, RosaryPrayer {
   }
 
   ngOnInit(): void {
-    console.log(`selectedMysteryId: ${this.selectedMysteryId}`);
     if (this.selectedMysteryId) {
       this.onMysterySelected(RosaryMysteriesEnum[this.selectedMysteryId]);
     }
