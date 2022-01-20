@@ -1,9 +1,10 @@
 import { BeadGroup } from '../models/bead-group';
-import { initBeadGroup } from '../models/bead-group-template';
+import { initBasicBeadGroup, initMysteryBeadGroup } from '../models/bead-group-template';
 import { fruitByNumber, Mysteries, mysteryByNumber } from '../models/mysteries';
 import { LocalizationService } from '../services/localization.service';
 import { HolyRosaryBeadGroupList } from '../models/holy-rosary-bead-group-list';
 import { SIGN_CROSS, APOSTLES_CREED, OUR_FATHER, OPENING_HAIL_MARYS, GLORY, MYSTERY_1, HAIL_MARYS, GLORY_FATIMA, MYSTERY_2, MYSTERY_3, MYSTERY_4, MYSTERY_5, HAIL_HOLY_QUEEN, CLOSING_1, FATIMA, CLOSING_2 } from './rosary-helper';
+import { BeadGroupContainer } from '../models/bead-group-container';
 
 /*
 IMPORTANT: If you change the order of prayers (ie: loadContemporaryHolyRosary),
@@ -74,58 +75,53 @@ export class ContemporaryRosary extends HolyRosaryBeadGroupList {
   protected onPreviousEnd(): void { }
 }
 
-export interface BeadGroupContainer {
-  beadGroups: BeadGroup[];
-  beadMap: Map<string, BeadGroup>;
-}
-
 function loadContemporaryHolyRosary(): BeadGroupContainer {
   let beadGroupIndex = 0;
   let mysteryIdx = 0;
   const beadMap = new Map<string, BeadGroup>();
 
   const beadGroups = [
-    initBeadGroup(beadMap, SIGN_CROSS, undefined, beadGroupIndex++),
+    initBasicBeadGroup(beadMap, SIGN_CROSS, beadGroupIndex++),
 
-    initBeadGroup(beadMap, APOSTLES_CREED, undefined, beadGroupIndex++, 'a'),
-    initBeadGroup(beadMap, OUR_FATHER, undefined, beadGroupIndex++, 'a'),
-    initBeadGroup(beadMap, OPENING_HAIL_MARYS, undefined, beadGroupIndex++),
-    initBeadGroup(beadMap, GLORY, undefined, beadGroupIndex++, 'b'),
+    initBasicBeadGroup(beadMap, APOSTLES_CREED, beadGroupIndex++, 'a'),
+    initBasicBeadGroup(beadMap, OUR_FATHER, beadGroupIndex++, 'a'),
+    initBasicBeadGroup(beadMap, OPENING_HAIL_MARYS, beadGroupIndex++),
+    initBasicBeadGroup(beadMap, GLORY, beadGroupIndex++, 'b'),
 
-    initBeadGroup(beadMap, MYSTERY_1, mysteryIdx, beadGroupIndex++, 'b'),
-    initBeadGroup(beadMap, OUR_FATHER, mysteryIdx, beadGroupIndex++),
-    initBeadGroup(beadMap, HAIL_MARYS, mysteryIdx, beadGroupIndex++),
-    initBeadGroup(beadMap, GLORY, mysteryIdx, beadGroupIndex++, 'c'),
-    initBeadGroup(beadMap, FATIMA, mysteryIdx++, beadGroupIndex++, 'c'),
+    initMysteryBeadGroup(beadMap, MYSTERY_1, mysteryIdx, beadGroupIndex++, 'b'),
+    initMysteryBeadGroup(beadMap, OUR_FATHER, mysteryIdx, beadGroupIndex++),
+    initMysteryBeadGroup(beadMap, HAIL_MARYS, mysteryIdx, beadGroupIndex++),
+    initMysteryBeadGroup(beadMap, GLORY, mysteryIdx, beadGroupIndex++, 'c'),
+    initMysteryBeadGroup(beadMap, FATIMA, mysteryIdx++, beadGroupIndex++, 'c'),
 
-    initBeadGroup(beadMap, MYSTERY_2, mysteryIdx, beadGroupIndex++, 'c'),
-    initBeadGroup(beadMap, OUR_FATHER, mysteryIdx, beadGroupIndex++, 'c'),
-    initBeadGroup(beadMap, HAIL_MARYS, mysteryIdx, beadGroupIndex++),
-    initBeadGroup(beadMap, GLORY, mysteryIdx, beadGroupIndex++, 'd'),
-    initBeadGroup(beadMap, FATIMA, mysteryIdx++, beadGroupIndex++, 'd'),
+    initMysteryBeadGroup(beadMap, MYSTERY_2, mysteryIdx, beadGroupIndex++, 'c'),
+    initMysteryBeadGroup(beadMap, OUR_FATHER, mysteryIdx, beadGroupIndex++, 'c'),
+    initMysteryBeadGroup(beadMap, HAIL_MARYS, mysteryIdx, beadGroupIndex++),
+    initMysteryBeadGroup(beadMap, GLORY, mysteryIdx, beadGroupIndex++, 'd'),
+    initMysteryBeadGroup(beadMap, FATIMA, mysteryIdx++, beadGroupIndex++, 'd'),
 
-    initBeadGroup(beadMap, MYSTERY_3, mysteryIdx, beadGroupIndex++, 'd'),
-    initBeadGroup(beadMap, OUR_FATHER, mysteryIdx, beadGroupIndex++, 'd'),
-    initBeadGroup(beadMap, HAIL_MARYS, mysteryIdx, beadGroupIndex++),
-    initBeadGroup(beadMap, GLORY, mysteryIdx, beadGroupIndex++, 'e'),
-    initBeadGroup(beadMap, FATIMA, mysteryIdx++, beadGroupIndex++, 'e'),
+    initMysteryBeadGroup(beadMap, MYSTERY_3, mysteryIdx, beadGroupIndex++, 'd'),
+    initMysteryBeadGroup(beadMap, OUR_FATHER, mysteryIdx, beadGroupIndex++, 'd'),
+    initMysteryBeadGroup(beadMap, HAIL_MARYS, mysteryIdx, beadGroupIndex++),
+    initMysteryBeadGroup(beadMap, GLORY, mysteryIdx, beadGroupIndex++, 'e'),
+    initMysteryBeadGroup(beadMap, FATIMA, mysteryIdx++, beadGroupIndex++, 'e'),
 
-    initBeadGroup(beadMap, MYSTERY_4, mysteryIdx, beadGroupIndex++, 'e'),
-    initBeadGroup(beadMap, OUR_FATHER, mysteryIdx, beadGroupIndex++, 'e'),
-    initBeadGroup(beadMap, HAIL_MARYS, mysteryIdx, beadGroupIndex++),
-    initBeadGroup(beadMap, GLORY, mysteryIdx, beadGroupIndex++, 'f'),
-    initBeadGroup(beadMap, FATIMA, mysteryIdx++, beadGroupIndex++, 'f'),
+    initMysteryBeadGroup(beadMap, MYSTERY_4, mysteryIdx, beadGroupIndex++, 'e'),
+    initMysteryBeadGroup(beadMap, OUR_FATHER, mysteryIdx, beadGroupIndex++, 'e'),
+    initMysteryBeadGroup(beadMap, HAIL_MARYS, mysteryIdx, beadGroupIndex++),
+    initMysteryBeadGroup(beadMap, GLORY, mysteryIdx, beadGroupIndex++, 'f'),
+    initMysteryBeadGroup(beadMap, FATIMA, mysteryIdx++, beadGroupIndex++, 'f'),
 
-    initBeadGroup(beadMap, MYSTERY_5, mysteryIdx, beadGroupIndex++, 'f'),
-    initBeadGroup(beadMap, OUR_FATHER, mysteryIdx, beadGroupIndex++, 'f'),
-    initBeadGroup(beadMap, HAIL_MARYS, mysteryIdx, beadGroupIndex++),
-    initBeadGroup(beadMap, GLORY, mysteryIdx, beadGroupIndex++, 'g'),
-    initBeadGroup(beadMap, FATIMA, mysteryIdx++, beadGroupIndex++, 'g'),
+    initMysteryBeadGroup(beadMap, MYSTERY_5, mysteryIdx, beadGroupIndex++, 'f'),
+    initMysteryBeadGroup(beadMap, OUR_FATHER, mysteryIdx, beadGroupIndex++, 'f'),
+    initMysteryBeadGroup(beadMap, HAIL_MARYS, mysteryIdx, beadGroupIndex++),
+    initMysteryBeadGroup(beadMap, GLORY, mysteryIdx, beadGroupIndex++, 'g'),
+    initMysteryBeadGroup(beadMap, FATIMA, mysteryIdx++, beadGroupIndex++, 'g'),
 
-    initBeadGroup(beadMap, HAIL_HOLY_QUEEN, undefined, beadGroupIndex++, 'g'),
-    initBeadGroup(beadMap, CLOSING_1, undefined, beadGroupIndex++, 'g'),
-    initBeadGroup(beadMap, CLOSING_2, undefined, beadGroupIndex++, 'g'),
-    initBeadGroup(beadMap, SIGN_CROSS, undefined, beadGroupIndex++)
+    initBasicBeadGroup(beadMap, HAIL_HOLY_QUEEN, beadGroupIndex++, 'g'),
+    initBasicBeadGroup(beadMap, CLOSING_1, beadGroupIndex++, 'g'),
+    initBasicBeadGroup(beadMap, CLOSING_2, beadGroupIndex++, 'g'),
+    initBasicBeadGroup(beadMap, SIGN_CROSS, beadGroupIndex++)
   ];
 
   return {

@@ -17,7 +17,14 @@ export enum BeadLinkOffset {
   BEAD_IDX_MINUS_2
 }
 
-export function initBeadGroup(beadMap: Map<string, BeadGroup>,
+export function initBasicBeadGroup(beadMap: Map<string, BeadGroup>,
+                                   template: BeadGroupTemplate,
+                                   beadGroupIndex: number,
+                                   anchorId?: string): BeadGroup {
+  return initMysteryBeadGroup(beadMap, template, undefined, beadGroupIndex, anchorId);
+}
+
+export function initMysteryBeadGroup(beadMap: Map<string, BeadGroup>,
                               template: BeadGroupTemplate, 
                               mysteryIdx: number, 
                               beadGroupIndex: number,

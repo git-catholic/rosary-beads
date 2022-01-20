@@ -7,6 +7,10 @@ export class LocalizationService {
 
   constructor() { }
 
+  get prayerDivineMercy(): string {
+    return $localize`:@@prayerDivineMercy:Divine Mercy Chaplet`;
+  }
+
   get prayerHolyRosary(): string {
     return $localize`:@@prayerHolyRosary:The Holy Rosary`;
   }

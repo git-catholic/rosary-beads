@@ -1,5 +1,5 @@
+import { BeadGroupContainer } from "./bead-group-container";
 import { BeadGroupList } from "./bead-group-list";
-import { BeadGroupContainer } from "../sequences/contemporary-rosary";
 
 export abstract class HolyRosaryBeadGroupList extends BeadGroupList {
 
