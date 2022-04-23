@@ -81,6 +81,19 @@ describe('LiturgicalYearService', () => {
       expect(service.pentacostSunday.getTime() === appDate.date.getTime()).toEqual(liturgicalEntry.isPentacostSunday || false);
     });
   });
+
+  fit('bug #8 - calculate easter season correctly when date is April 23, 2022', () => {
+    const fakeNow = new Date(2022, Months.APR, 23);
+    appDate = new AppDateServiceForTest(activatedRoute, fakeNow);
+    service = new LiturgicalYearService(appDate, localization);
+    expect(service).toBeTruthy();
+    const easterStartYear = service.liturgicalDates.easter.startDate.getFullYear();
+    const easterEndYear = service.liturgicalDates.easter.endDate.getFullYear();
+    expect(easterStartYear).toEqual(2022);
+    expect(easterEndYear).toEqual(easterStartYear);
+    console.log(`Easter 2022: ${service.liturgicalDates.easter.startDate} - ${service.liturgicalDates.easter.endDate}`);
+    expect(service.isDateInRangeOfEaster).toBeTrue();
+  });
 });
 
 function expectLiturgicalDatesToMatch(date1: LiturgicalDates, date2: LiturgicalDates) {

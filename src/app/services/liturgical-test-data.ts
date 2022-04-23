@@ -161,10 +161,10 @@ export const easterLiturgicalTestData: LiturgicalDataForTest[] = [
 ]
 
 export const liturgicalTestData: LiturgicalDataForTest[] = [
-  // ...adventLiturgicalTestData,
-  // ...christmasLiturgicalTestData,
-  // ...lentLiturgicalTestData,
+  ...adventLiturgicalTestData,
+  ...christmasLiturgicalTestData,
+  ...lentLiturgicalTestData,
   ...triduumLiturgicalTestData,
-  // ...easterLiturgicalTestData
+  ...easterLiturgicalTestData
 ];
 
