@@ -83,6 +83,71 @@ describe('BeadGroupList', () => {
       consoleLogBead('sign-cross (end)', beadGroup, groupIdx);
     });
 
+    fit('should keep sequence when going from Our Father to Hail Mary, back to Our Father and again Hail Mary', () => {
+      // given
+      const localizationUtil = new LocalizationService();
+      const loader = new BeadGroupLoaderService(localizationUtil);
+      let beadGroupList: BeadGroupList = loader.loadHolyRosaryContemporaryMysteryEnum(RosaryMysteriesEnum.JOYFUL);
+      let groupIdx = 0;
+      let mysteryNum = 1;
+
+      // when / then
+      let beadGroup = beadGroupList.next();
+      expectSignOfTheCross(beadGroup, groupIdx++);
+      consoleLogBead('sign-cross (start)', beadGroup, groupIdx);
+
+      // when / then
+      beadGroup = beadGroupList.next();
+      expectApostlesCreed(beadGroup, groupIdx++);
+      consoleLogBead('creed', beadGroup, groupIdx);
+
+      // when / then
+      beadGroup = beadGroupList.next();
+      expectOurFather(beadGroup, groupIdx++);
+      consoleLogBead('our-father', beadGroup, groupIdx);
+
+      // when / then
+      expectHailMarySequence(beadGroupList, groupIdx++, 3);
+
+      // when / then
+      beadGroup = beadGroupList.next();
+      expectGloryBeOnly(beadGroup, groupIdx++);
+      consoleLogBead('glory', beadGroup, groupIdx);
+
+      const currBead = beadGroupList.current();
+      consoleLogBead('current', currBead, groupIdx);
+
+      // when / then
+      beadGroup = beadGroupList.next();
+      expectMystery(beadGroup, groupIdx++, mysteryNum++);
+      consoleLogBead('mystery', beadGroup, groupIdx);
+
+      // when / then
+      beadGroup = beadGroupList.next();
+      expectOurFather(beadGroup, groupIdx++);
+      consoleLogBead('our-father', beadGroup, groupIdx);
+
+      // when / then
+      beadGroup = beadGroupList.next();
+      consoleLogBead('hail-mary', beadGroup, groupIdx);
+      expectHailMary(beadGroup, groupIdx, 0, 10);
+
+      // when / then
+      beadGroup = beadGroupList.previous();
+      expectOurFather(beadGroup, groupIdx--);
+      consoleLogBead('our-father', beadGroup, groupIdx);
+
+      // // when / then
+      // beadGroup = beadGroupList.next();
+      // consoleLogBead('hail-mary', beadGroup, groupIdx);
+      // expectHailMary(beadGroup, groupIdx, 0, 10);
+
+      // // when / then
+      // beadGroup = beadGroupList.previous();
+      // expectOurFather(beadGroup, groupIdx--);
+ 
+    });
+
   });
 
 });
