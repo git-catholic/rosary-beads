@@ -78,20 +78,21 @@ describe('LiturgicalYearService', () => {
       expect(service.isDateInRangeOfEaster).toEqual(liturgicalEntry.expectEaster || false);
       expect(service.isAshWednesday).toEqual(liturgicalEntry.isAshWednesday || false);
       expect(service.palmSunday.getTime() === appDate.date.getTime()).toEqual(liturgicalEntry.isPalmSunday || false);
+      console.log(`Pentecost date: ${service.pentacostSunday.getDate()},  ${service.pentacostSunday.getTime()}`);
+      console.log(`App date: ${appDate.date.getDate()},  ${appDate.date.getTime()}`);
+      console.log(`Is Pentecost Sunday: ${liturgicalEntry.isPentacostSunday}`);
       expect(service.pentacostSunday.getTime() === appDate.date.getTime()).toEqual(liturgicalEntry.isPentacostSunday || false);
     });
   });
 
-  fit('bug #8 - calculate easter season correctly when date is April 23, 2022', () => {
-    const fakeNow = new Date(2022, Months.APR, 23);
+  it('bug #8 - calculate easter season correctly when date is April 23, 2022', () => {
+    const year = 2022;
+    const fakeNow = new Date(year, Months.APR, 23);
     appDate = new AppDateServiceForTest(activatedRoute, fakeNow);
     service = new LiturgicalYearService(appDate, localization);
     expect(service).toBeTruthy();
-    const easterStartYear = service.liturgicalDates.easter.startDate.getFullYear();
-    const easterEndYear = service.liturgicalDates.easter.endDate.getFullYear();
-    expect(easterStartYear).toEqual(2022);
-    expect(easterEndYear).toEqual(easterStartYear);
-    console.log(`Easter 2022: ${service.liturgicalDates.easter.startDate} - ${service.liturgicalDates.easter.endDate}`);
+    expect(service.liturgicalDates.easter.startDate.getFullYear()).toEqual(year);
+    expect(service.liturgicalDates.easter.endDate.getFullYear()).toEqual(year);
     expect(service.isDateInRangeOfEaster).toBeTrue();
   });
 });
