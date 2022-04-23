@@ -42,11 +42,13 @@ export function gaussEaster(year: number): Date {
 
 export function calculateLentAndEaster(appDate: AppDateService, localization: LocalizationService): LiturgicalDates {
   let easterDay = gaussEaster(appDate.currentYear);
-  if (appDate.date > easterDay) {
+  let endEaster = calculateEndOfEasterSeason(easterDay);
+
+  if (appDate.date > endEaster) {
     easterDay = gaussEaster(appDate.currentYear + 1);
+    endEaster = calculateEndOfEasterSeason(easterDay);
   }
 
-  const endEaster = addDays(easterDay, 49);
 
   const lentEnds = addDays(easterDay, -3);
   const lentStarts = addDays(lentEnds, -43);
@@ -74,4 +76,8 @@ export function calculateLentAndEaster(appDate: AppDateService, localization: Lo
       labelId: ':@@easterLabel'
     }
   }
+}
+
+function calculateEndOfEasterSeason(easterDay: Date): Date {
+  return addDays(easterDay, 49);
 }

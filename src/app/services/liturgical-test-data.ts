@@ -154,17 +154,18 @@ export const easterLiturgicalTestData: LiturgicalDataForTest[] = [
   },
   {
     dateForTest: addDays(LIT_YEAR_2020_2021.easter.endDate, 0),
-    expectedColor: LiturgicalColors.WHITE,
+    expectedColor: LiturgicalColors.RED,
     expectedMystery: undefined,
-    expectEaster: true
+    expectEaster: true,
+    isPentacostSunday: true
   }
 ]
 
 export const liturgicalTestData: LiturgicalDataForTest[] = [
-  // ...adventLiturgicalTestData,
-  // ...christmasLiturgicalTestData,
-  // ...lentLiturgicalTestData,
+  ...adventLiturgicalTestData,
+  ...christmasLiturgicalTestData,
+  ...lentLiturgicalTestData,
   ...triduumLiturgicalTestData,
-  // ...easterLiturgicalTestData
+  ...easterLiturgicalTestData
 ];
 
