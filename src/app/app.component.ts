@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { version } from '../../package.json';
 import { AppConfigService } from './services/app-config.service';
 import { LiturgicalYearService } from './services/liturgical-year.service';
 import { SoundService } from './services/sound.service';
+
+const pkgAppVersion = require('../../package.json').version;
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent implements AfterViewInit {
 
   title = $localize`:@@rosaryTitle:Rosary Beads`;
 
-  readonly appVersion: string = version;
+  readonly appVersion: string = pkgAppVersion;
 
   @ViewChild('tap1')
   private tapRef1: ElementRef<HTMLAudioElement>;
@@ -71,7 +72,7 @@ export class AppComponent implements AfterViewInit {
       // console.log(`you're in PORTRAIT mode - ${window.innerWidth}, ${window.innerHeight}`);
       this.appConfig.isPortrait = true;
     }
-    else 
+    else
     if (window.matchMedia('(orientation: landscape)').matches) {
       // console.log(`you're in LANDSCAPE mode - ${window.innerWidth}, ${window.innerHeight}`);
       this.appConfig.isPortrait = false;
