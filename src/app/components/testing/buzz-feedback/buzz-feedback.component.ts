@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-buzz-feedback',
@@ -8,8 +8,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class BuzzFeedbackComponent implements OnInit {
 
-  fg = new FormGroup({
-    time: new FormControl(200)
+  fg = new UntypedFormGroup({
+    time: new UntypedFormControl(200)
   });
   
   constructor() { }
