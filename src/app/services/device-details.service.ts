@@ -1,21 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { AppConfigService } from 'src/app/services/app-config.service';
+import { Injectable } from "@angular/core";
+import { AppConfigService } from "./app-config.service";
 
-@Component({
-  selector: 'app-device-details',
-  templateUrl: './device-details.component.html',
-  styleUrls: ['./device-details.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class DeviceDetailsComponent implements OnInit {
+export class DeviceDetailsService {
 
   constructor(private appConfig: AppConfigService) { }
-
-  ngOnInit(): void { }
 
   get appNameVersion(): string {
     return `${this.appConfig.appName} - ${this.appConfig.appVersion}`;
   }
-  
+
   get isPortrait(): boolean {
     return this.appConfig?.isPortrait;
   }
