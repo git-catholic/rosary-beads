@@ -1,0 +1,9 @@
+<div #patsBeadsDiv id="pats-beads-div">
+  <ng-container *ngIf="isPortrait">
+    <img #patsBeadsImg id="pats-beads-img" src="assets/cropped-2.90-deg.png">
+  </ng-container>
+  <ng-container *ngIf="!isPortrait">
+    <img #patsBeadsImg id="pats-beads-img" src="assets/cropped-2.png">
+  </ng-container>
+  <div id="patsBeadsHighlightDiv" class="pats-beads-highlight-div" [style]="highlightStyle"></div>
+</div>

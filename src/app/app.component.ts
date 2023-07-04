@@ -1,7 +1,5 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { AppConfigService } from './services/app-config.service';
-import { LiturgicalYearService } from './services/liturgical-year.service';
-import { SoundService } from './services/sound.service';
 
 const pkgAppVersion = require('../../package.json').version;
 
@@ -24,9 +22,7 @@ export class AppComponent implements AfterViewInit {
   private tapRef2: ElementRef<HTMLAudioElement>;
   private tap2: HTMLAudioElement;
 
-  constructor(public liturgicalYear: LiturgicalYearService,
-              private appConfig: AppConfigService,
-              private soundService: SoundService) {
+  constructor(private appConfig: AppConfigService) {
     this.checkOrientation();
     console.log(`user-agent: ${window.navigator.userAgent}`);
   }
@@ -34,16 +30,6 @@ export class AppComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.tap1 = this.extractAudioElement(this.tapRef1);
     this.tap2 = this.extractAudioElement(this.tapRef2, 0.5);
-
-    if (this.soundService) {
-      this.soundService.tap1 = this.tap1;
-      this.soundService.tap2 = this.tap2;
-    }
-  }
-
-  backgroundImageClass(): string {
-    const color = this.liturgicalYear.liturgicalColor();
-    return `lit-color-${color.toString().toLowerCase()}`;
   }
 
   @HostListener('window:resize', ['$event'])

@@ -1,0 +1,37 @@
+#pats-beads-div {
+  background-color: transparent;
+  overflow: hidden;
+}
+
+#pats-beads-img {
+  object-fit: contain;
+}
+
+@media (orientation: landscape) {
+  #pats-beads-img {
+    width: 16vw;
+  }
+}
+
+@media (orientation: portrait) {
+  #pats-beads-img {
+    width: 100%;
+  }
+}
+
+
+.pats-beads-highlight-div {
+  position: absolute;
+
+  background-color: red;
+  border: solid darkred;
+  border-radius: 50%;
+
+  opacity: 0.5;
+  z-index: 2;
+}
+
+#pats-beads-image-placeholder {
+  background-color: blueviolet;
+  z-index: 1;
+}
