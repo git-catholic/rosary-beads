@@ -1,0 +1,175 @@
+============================================================================
+$ ng update @angular/core@17 @angular/cli@17
+Node.js version v23.11.0 detected.
+Odd numbered Node.js versions will not enter LTS status and should not be used for production. For more information, please see https://nodejs.org/en/about/previous-releases/.
+The installed Angular CLI version is outdated.
+Installing a temporary Angular CLI versioned 17.3.17 to perform the update.
+√ Packages successfully installed.
+Node.js version v23.11.0 detected.
+Odd numbered Node.js versions will not enter LTS status and should not be used for production. For more information, please see https://nodejs.org/en/about/previous-releases/.
+Using package manager: npm
+Collecting installed dependencies...
+Found 26 dependencies.
+Fetching dependency metadata from registry...
+    Updating package.json with dependency @angular-devkit/build-angular @ "17.3.17" (was "16.2.16")...
+    Updating package.json with dependency @angular/cli @ "17.3.17" (was "16.2.16")...
+    Updating package.json with dependency @angular/compiler-cli @ "17.3.12" (was "16.2.12")...
+    Updating package.json with dependency typescript @ "5.4.5" (was "4.9.5")...
+    Updating package.json with dependency @angular/animations @ "17.3.12" (was "16.2.12")...
+    Updating package.json with dependency @angular/common @ "17.3.12" (was "16.2.12")...
+    Updating package.json with dependency @angular/compiler @ "17.3.12" (was "16.2.12")...
+    Updating package.json with dependency @angular/core @ "17.3.12" (was "16.2.12")...
+    Updating package.json with dependency @angular/forms @ "17.3.12" (was "16.2.12")...
+    Updating package.json with dependency @angular/platform-browser @ "17.3.12" (was "16.2.12")...
+    Updating package.json with dependency @angular/platform-browser-dynamic @ "17.3.12" (was "16.2.12")...
+    Updating package.json with dependency @angular/router @ "17.3.12" (was "16.2.12")...
+    Updating package.json with dependency @angular/localize @ "17.3.12" (was "16.2.12")...
+    Updating package.json with dependency zone.js @ "0.14.10" (was "0.13.3")...
+UPDATE package.json (1230 bytes)
+√ Packages successfully installed.
+** Executing migrations of package '@angular/cli' **
+
+> Replace usages of '@nguniversal/builders' with '@angular-devkit/build-angular'.
+  Migration completed (No changes made).
+
+> Replace usages of '@nguniversal/' packages with '@angular/ssr'.
+  Migration completed (No changes made).
+
+> Replace deprecated options in 'angular.json'.
+UPDATE angular.json (4792 bytes)
+  Migration completed (1 file modified).
+
+> Add 'browser-sync' as dev dependency when '@angular-devkit/build-angular:ssr-dev-server' is used, as it is no longer a direct dependency of '@angular-devkit/build-angular'.
+  Migration completed (No changes made).
+
+** Executing migrations of package '@angular/core' **
+
+> Angular v17 introduces a new control flow syntax that uses the @ and } characters.
+  This migration replaces the existing usages with their corresponding HTML entities.
+  Migration completed (No changes made).
+
+> Updates `TransferState`, `makeStateKey`, `StateKey` imports from `@angular/platform-browser` to `@angular/core`.
+  Migration completed (No changes made).
+
+> CompilerOption.useJit and CompilerOption.missingTranslation are unused under Ivy.
+  This migration removes their usage
+  Migration completed (No changes made).
+
+> Updates two-way bindings that have an invalid expression to use the longform expression instead.
+  Migration completed (No changes made).
+
+
+============================================================================
+$ ng update @angular/core@16 @angular/cli@16
+Node.js version v23.11.0 detected.
+Odd numbered Node.js versions will not enter LTS status and should not be used for production. For more information, please see https://nodejs.org/en/about/previous-releases/.
+The installed Angular CLI version is outdated.
+Installing a temporary Angular CLI versioned 16.2.16 to perform the update.
+√ Packages successfully installed.
+Node.js version v23.11.0 detected.
+Odd numbered Node.js versions will not enter LTS status and should not be used for production. For more information, please see https://nodejs.org/en/about/previous-releases/.
+Workspace extension with invalid name (defaultProject) found.
+Using package manager: npm
+Collecting installed dependencies...
+Found 26 dependencies.
+Fetching dependency metadata from registry...
+    Updating package.json with dependency @angular-devkit/build-angular @ "16.2.16" (was "15.2.11")...
+    Updating package.json with dependency @angular/cli @ "16.2.16" (was "15.2.11")...
+    Updating package.json with dependency @angular/compiler-cli @ "16.2.12" (was "15.2.10")...
+    Updating package.json with dependency @angular/animations @ "16.2.12" (was "15.2.10")...
+    Updating package.json with dependency @angular/common @ "16.2.12" (was "15.2.10")...
+    Updating package.json with dependency @angular/compiler @ "16.2.12" (was "15.2.10")...
+    Updating package.json with dependency @angular/core @ "16.2.12" (was "15.2.10")...
+    Updating package.json with dependency @angular/forms @ "16.2.12" (was "15.2.10")...
+    Updating package.json with dependency @angular/platform-browser @ "16.2.12" (was "15.2.10")...
+    Updating package.json with dependency @angular/platform-browser-dynamic @ "16.2.12" (was "15.2.10")...
+    Updating package.json with dependency @angular/router @ "16.2.12" (was "15.2.10")...
+    Updating package.json with dependency @angular/localize @ "16.2.12" (was "15.2.10")...
+    Updating package.json with dependency zone.js @ "0.13.3" (was "0.11.8")...
+UPDATE package.json (1229 bytes)
+√ Packages successfully installed.
+** Executing migrations of package '@angular/cli' **
+
+> Remove 'defaultProject' option from workspace configuration.
+  The project to use will be determined from the current working directory.
+Workspace extension with invalid name (defaultProject) found.
+UPDATE angular.json (4804 bytes)
+  Migration completed (1 file modified).
+
+> Replace removed 'defaultCollection' option in workspace configuration with 'schematicCollections'.
+  Migration completed (No changes made).
+
+> Update the '@angular-devkit/build-angular:server' builder configuration to disable 'buildOptimizer' for non optimized builds.
+  Migration completed (No changes made).
+
+** Executing migrations of package '@angular/core' **
+
+> In Angular version 15.2, the guard and resolver interfaces (CanActivate, Resolve, etc) were deprecated.
+  This migration removes imports and 'implements' clauses that contain them.
+  Migration completed (No changes made).
+
+> As of Angular v16, the `moduleId` property of `@Component` is deprecated as it no longer has any effect.
+  Migration completed (No changes made).
+
+
+============================================================================
+$ ng update @angular/core@15 @angular/cli@15
+Node.js version v23.11.0 detected.
+Odd numbered Node.js versions will not enter LTS status and should not be used for production. For more information, please see https://nodejs.org/en/about/previous-releases/.
+The installed Angular CLI version is outdated.
+Installing a temporary Angular CLI versioned 15.2.11 to perform the update.
+√ Packages successfully installed.
+Node.js version v23.11.0 detected.
+Odd numbered Node.js versions will not enter LTS status and should not be used for production. For more information, please see https://nodejs.org/en/about/releases/.
+Using package manager: npm
+Collecting installed dependencies...
+Found 26 dependencies.
+Fetching dependency metadata from registry...
+    Updating package.json with dependency @angular-devkit/build-angular @ "15.2.11" (was "14.2.11")...
+    Updating package.json with dependency @angular/cli @ "15.2.11" (was "14.2.11")...
+    Updating package.json with dependency @angular/compiler-cli @ "15.2.10" (was "14.3.0")...
+    Updating package.json with dependency typescript @ "4.9.5" (was "4.6.4")...
+    Updating package.json with dependency @angular/animations @ "15.2.10" (was "14.3.0")...
+    Updating package.json with dependency @angular/common @ "15.2.10" (was "14.3.0")...
+    Updating package.json with dependency @angular/compiler @ "15.2.10" (was "14.3.0")...
+    Updating package.json with dependency @angular/core @ "15.2.10" (was "14.3.0")...
+    Updating package.json with dependency @angular/forms @ "15.2.10" (was "14.3.0")...
+    Updating package.json with dependency @angular/platform-browser @ "15.2.10" (was "14.3.0")...
+    Updating package.json with dependency @angular/platform-browser-dynamic @ "15.2.10" (was "14.3.0")...
+    Updating package.json with dependency @angular/router @ "15.2.10" (was "14.3.0")...
+    Updating package.json with dependency @angular/localize @ "15.2.10" (was "14.3.0")...
+UPDATE package.json (1229 bytes)
+√ Packages successfully installed.
+** Executing migrations of package '@angular/cli' **
+
+> Remove Browserslist configuration files that matches the Angular CLI default configuration.
+DELETE .browserslistrc
+  Migration completed (1 file modified).
+
+> Remove exported `@angular/platform-server` `renderModule` method.
+  The `renderModule` method is now exported by the Angular CLI.
+  Migration completed (No changes made).
+
+> Remove no longer needed require calls in Karma builder main file.
+UPDATE src/test.ts (482 bytes)
+  Migration completed (1 file modified).
+
+> Update TypeScript compiler `target` and set `useDefineForClassFields`.
+  These changes are for IDE purposes as TypeScript compiler options `target` and `useDefineForClassFields` are set to `ES2022` and `false` respectively by the Angular CLI.
+  To control ECMA version and features use the Browerslist configuration.
+UPDATE tsconfig.json (549 bytes)
+  Migration completed (1 file modified).
+
+> Remove options from 'angular.json' that are no longer supported by the official builders.
+  Migration completed (No changes made).
+
+** Executing migrations of package '@angular/core' **
+
+> In Angular version 15, the deprecated `relativeLinkResolution` config parameter of the Router is removed.
+  This migration removes all `relativeLinkResolution` fields from the Router config objects.
+  Migration completed (No changes made).
+
+> Since Angular v15, the `RouterLink` contains the logic of the `RouterLinkWithHref` directive.
+  This migration replaces all `RouterLinkWithHref` references with `RouterLink`.
+  Migration completed (No changes made).
+
