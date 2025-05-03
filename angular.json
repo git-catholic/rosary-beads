@@ -27,7 +27,7 @@
             "index": "src/index.html",
             "localize": true,
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
@@ -91,34 +91,34 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "rosary-beads:build"
+            "buildTarget": "rosary-beads:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "rosary-beads:build:production"
+              "buildTarget": "rosary-beads:build:production"
             },
             "local": {
-              "browserTarget": "rosary-beads:build:local"
+              "buildTarget": "rosary-beads:build:local"
             },
             "en": {
-              "browserTarget": "rosary-beads:build:en"
+              "buildTarget": "rosary-beads:build:en"
             },
             "es": {
-              "browserTarget": "rosary-beads:build:es"
+              "buildTarget": "rosary-beads:build:es"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rosary-beads:build"
+            "buildTarget": "rosary-beads:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
