@@ -159,7 +159,6 @@
       }
     }
   },
-  "defaultProject": "rosary-beads",
   "cli": {
     "analytics": false
   }
