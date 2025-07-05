@@ -159,5 +159,8 @@
       }
     }
   },
-  "defaultProject": "rosary-beads"
+  "defaultProject": "rosary-beads",
+  "cli": {
+    "analytics": false
+  }
 }
