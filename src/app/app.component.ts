@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { AppConfigService } from './services/app-config.service';
 
 const pkgAppVersion = require('../../package.json').version;
@@ -35,6 +35,10 @@ export class AppComponent implements AfterViewInit {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.checkOrientation();
+  }
+
+  backgroundImageClass(): string {
+    return '';
   }
 
   tap1mp3(): string {
