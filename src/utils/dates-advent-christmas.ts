@@ -1,7 +1,7 @@
-import { LiturgicalColors } from "src/app/models/liturgical-colors";
-import { LiturgicalDates, LiturgicalPeriod, PeriodStatus } from "src/app/models/liturgical-dates";
-import { AppDateService } from "src/app/services/app-date.service";
-import { LocalizationService } from "src/app/services/localization.service";
+import { LiturgicalColors } from "./liturgical-colors";
+import { LiturgicalDates, LiturgicalPeriod, PeriodStatus } from "./liturgical-dates";
+import { AppDateService } from "../app/services/app-date.service";
+import { LocalizationService } from "../app/services/localization.service";
 import { addDays, Months } from "./key-dates";
 
 export function refreshNeeded(period: LiturgicalPeriod, appDate: AppDateService): PeriodStatus {

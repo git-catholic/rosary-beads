@@ -5,8 +5,8 @@ import { HomeComponent } from './components/home/home.component';
 const routes: Routes = [
   // { path: 'testing/layout', component: LayoutsComponent },
   // { path: 'testing/buzz', component: BuzzFeedbackComponent },
-  { path: 'holy-rosary', component: HomeComponent },
-  { path: '', redirectTo: 'holy-rosary', pathMatch: 'full' }
+  { path: 'prayer-home', component: HomeComponent },
+  { path: '', redirectTo: 'prayer-home', pathMatch: 'full' }
 ];
 
 @NgModule({

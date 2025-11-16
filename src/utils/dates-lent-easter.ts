@@ -1,7 +1,7 @@
-import { LiturgicalColors } from "src/app/models/liturgical-colors";
-import { LiturgicalDates } from "src/app/models/liturgical-dates";
-import { AppDateService } from "src/app/services/app-date.service";
-import { LocalizationService } from "src/app/services/localization.service";
+import { LiturgicalColors } from "./liturgical-colors";
+import { LiturgicalDates } from "./liturgical-dates";
+import { AppDateService } from "../app/services/app-date.service";
+import { LocalizationService } from "../app/services/localization.service";
 import { addDays, Months } from "./key-dates";
 
 /**

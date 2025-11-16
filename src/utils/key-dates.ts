@@ -1,5 +1,5 @@
-import { LiturgicalColors } from "src/app/models/liturgical-colors";
-import { LiturgicalDates } from "src/app/models/liturgical-dates";
+import { LiturgicalColors } from "./liturgical-colors";
+import { LiturgicalDates } from "./liturgical-dates";
 
 export enum Months {
   JAN = 0,

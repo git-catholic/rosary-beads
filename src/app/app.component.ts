@@ -1,10 +1,14 @@
 import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { AppConfigService } from './services/app-config.service';
+import { LiturgicalYearService } from './services/liturgical-year.service';
+
+declare var require: any;
 
 const pkgAppVersion = require('../../package.json').version;
 
 @Component({
   selector: 'app-root',
+  standalone: false,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -15,14 +19,15 @@ export class AppComponent implements AfterViewInit {
   readonly appVersion: string = pkgAppVersion;
 
   @ViewChild('tap1')
-  private tapRef1: ElementRef<HTMLAudioElement>;
-  private tap1: HTMLAudioElement;
+  private tapRef1!: ElementRef<HTMLAudioElement>;
+  private tap1!: HTMLAudioElement | undefined;
 
   @ViewChild('tap2')
-  private tapRef2: ElementRef<HTMLAudioElement>;
-  private tap2: HTMLAudioElement;
+  private tapRef2!: ElementRef<HTMLAudioElement>;
+  private tap2!: HTMLAudioElement | undefined;
 
-  constructor(private appConfig: AppConfigService) {
+  constructor(private appConfig: AppConfigService,
+              private liturgicalYear: LiturgicalYearService) {
     this.checkOrientation();
     console.log(`user-agent: ${window.navigator.userAgent}`);
   }
@@ -33,12 +38,13 @@ export class AppComponent implements AfterViewInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  onResize(event: any) {
     this.checkOrientation();
   }
 
   backgroundImageClass(): string {
-    return '';
+    const color = this.liturgicalYear.liturgicalColor();
+    return `lit-color-${color.toString().toLowerCase()}`;
   }
 
   tap1mp3(): string {
@@ -68,11 +74,11 @@ export class AppComponent implements AfterViewInit {
       this.appConfig.isPortrait = false;
     }
     else {
-      this.appConfig.isPortrait = undefined;
+      this.appConfig.isPortrait = false;
     }
   }
 
-  private extractAudioElement(elementRef: ElementRef<HTMLAudioElement>, volume = 0.3): HTMLAudioElement {
+  private extractAudioElement(elementRef: ElementRef<HTMLAudioElement>, volume = 0.3): HTMLAudioElement | undefined {
     if (elementRef?.nativeElement) {
       const element = elementRef.nativeElement;
       element.volume = volume;

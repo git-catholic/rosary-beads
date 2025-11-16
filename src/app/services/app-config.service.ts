@@ -2,6 +2,8 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { AppDateService } from './app-date.service';
 import { LocalizationService } from './localization.service';
 
+declare var require: any;
+
 const pkgAppName = require('../../../package.json').name;
 const pkgAppVersion = require('../../../package.json').version;
 
@@ -15,9 +17,9 @@ export class AppConfigService {
   readonly appName: string = pkgAppName;
   readonly appVersion: string = pkgAppVersion;
 
-  private _isPortrait: boolean;
+  private _isPortrait!: boolean;
 
-  private _isFullscreen: boolean;
+  private _isFullscreen!: boolean;
 
   constructor(public readonly appDate: AppDateService,
               public readonly localization: LocalizationService) { }

@@ -1,4 +1,4 @@
-import { addDays } from "src/utils/key-dates";
+import { addDays } from './key-dates';
 import { LiturgicalColors } from "./liturgical-colors";
 
 export class LiturgicalDates {
