@@ -47,4 +47,20 @@ export class LocalizationService {
     return $localize`:@@easterSundayLabel:Easter Sunday`;
   }
 
+  get gloriousMysteryLabel(): string {
+    return $localize`:@@glorious:Glorious`;
+  }
+
+  get joyfulMysteryLabel(): string {
+    return $localize`:@@joyful:Joyful`;
+  }
+
+  get luminousMysteryLabel(): string {
+    return $localize`:@@luminous:Luminous`;
+  }
+
+  get sorrowfulMysteryLabel(): string {
+    return $localize`:@@sorrowful:Sorrowful`;
+  }
+
 }

@@ -114,13 +114,16 @@
               "buildTarget": "rosary-beads:build:production"
             },
             "local": {
-              "buildTarget": "rosary-beads:build:local"
+              "buildTarget": "rosary-beads:build:local",
+              "port": 4201
             },
             "en": {
-              "buildTarget": "rosary-beads:build:en"
-          },
+              "buildTarget": "rosary-beads:build:en",
+              "port": 4201
+            },
             "es": {
-              "buildTarget": "rosary-beads:build:es"
+              "buildTarget": "rosary-beads:build:es",
+              "port": 4201
             }
           }
         },

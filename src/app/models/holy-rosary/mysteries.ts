@@ -1,10 +1,10 @@
 import { Sequence, SequenceTemplate } from "../sequence";
 
 export abstract class Mystery extends Sequence implements SequenceTemplate {
-  abstract id: string;
+  abstract override id: string;
   abstract mystery: string;
   abstract fruit: string;
-  get sequenceIndex(): number {
+  override get sequenceIndex(): number {
     return this.currentIndex;
   }
 }

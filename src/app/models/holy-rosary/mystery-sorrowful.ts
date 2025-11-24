@@ -1,5 +1,5 @@
-import { Mysteries, Mystery } from 'src/app/models/holy-rosary/mysteries';
-import { LocalizationService } from 'src/app/services/localization.service';
+import { Mysteries, Mystery } from '../../models/holy-rosary/mysteries';
+import { LocalizationService } from '../../services/localization.service';
 
 export class MysterySorrowful1 extends Mystery {
   name: string;

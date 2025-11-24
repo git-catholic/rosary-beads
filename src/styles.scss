@@ -22,6 +22,29 @@ pre {
   font-family: $fontname;
 }
 
+.button-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.button-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-cell, .home-button-cell {
+  padding: $padding;
+  text-align: center;
+}
+
+.home-button-cell, .home-button {
+  width: 97%;
+}
+
+.button-cell {
+  width: 24%;
+}
+
 @media (orientation: landscape) {
 
   html, body {
@@ -101,6 +124,13 @@ $offset-red: rgb(150, 0, 0);
 }
 
 /* ================================================================================ */
+
+.home-widget {
+  background-image: url('assets/home.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
 
 .config-widget {
   background-image: url('assets/widget.png');

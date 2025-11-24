@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { BeadPosition, BeadPositionTemplate } from "../bead-position";
-import { PrayerSequence } from "src/app/models/prayer-sequence";
-import { Sequence } from "src/app/models/sequence";
+import { PrayerSequence } from "../../models/prayer-sequence";
+import { Sequence } from "../../models/sequence";
 import { RosaryBeads } from "../rosary-beads";
 
 @Component({

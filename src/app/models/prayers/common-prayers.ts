@@ -31,6 +31,31 @@ export class PrayerApostlesCreed extends Sequence implements GroupPrayerTemplate
 
 /* ================================================================================ */
 
+export class PrayerFatima extends Sequence implements GroupPrayerTemplate {
+
+  readonly id = 'PrayerFatima';
+
+  constructor() {
+    super();
+  }
+
+  get name(): string {
+    return $localize`:@@fatimaName:The Fatima Prayer`;
+  }
+
+  get all(): string {
+    return $localize`:@@fatima:Oh my Jesus, forgive us our sins,
+      save us from the fires of hell;
+      lead all souls to heaven,
+      especially those in most need of your mercy!
+
+      Amen.`;
+  }
+
+}
+
+/* ================================================================================ */
+
 export class PrayerGlory extends Sequence implements LeaderResponseTemplate {
 
   readonly id = 'PrayerGlory';
@@ -45,6 +70,35 @@ export class PrayerGlory extends Sequence implements LeaderResponseTemplate {
       and ever shall be, world without end.
 
       Amen.`;
+
+}
+
+/* ================================================================================ */
+
+export class PrayerGloryFatima extends Sequence implements LeaderResponseTemplate {
+
+  readonly id = 'PrayerGloryFatima';
+
+  private gloryPrayer = new PrayerGlory();
+  private fatimaPrayer = new PrayerFatima();
+
+  constructor() {
+    super();
+  }
+
+  get name(): string {
+    return `${this.gloryPrayer.name} / ${this.fatimaPrayer.name}`;
+  }
+
+  get leader(): string {
+    return this.gloryPrayer.leader;
+  }
+
+  get response(): string {
+    return `${this.gloryPrayer.response}
+
+      ${this.fatimaPrayer.all}`;
+  }
 
 }
 

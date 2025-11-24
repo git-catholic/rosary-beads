@@ -3,7 +3,7 @@ import { Mysteries, MysteryPlaceholder } from "./mysteries";
 import { PrayerClosing1, PrayerClosing2, PrayerFatima, PrayerHailHolyQueen } from "../prayers/rosary-prayers";
 import { PrayerSequence } from "../prayer-sequence";
 import { Sequence } from "../sequence";
-import { RosaryBeads } from "src/app/rosary-beads/rosary-beads";
+import { RosaryBeads } from "../../rosary-beads/rosary-beads";
 
 export class PrayerHolyRosary extends PrayerSequence {
 

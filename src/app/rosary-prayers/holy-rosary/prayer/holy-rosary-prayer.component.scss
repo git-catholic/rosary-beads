@@ -1,0 +1,21 @@
+@import '../../../../styles-shared-mixins.scss';
+
+@media (orientation: landscape) {
+
+  #rosary-beads {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+  }
+
+  #rosary-beads #rosary-beads-img-div {
+    width: 30%;
+  }
+
+  #rosary-beads #rosary-beads-prayer-div {
+    width: 70%;
+  }
+
+}
+

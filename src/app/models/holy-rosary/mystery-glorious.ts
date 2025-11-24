@@ -1,4 +1,4 @@
-import { Mysteries, Mystery } from 'src/app/models/holy-rosary/mysteries';
+import { Mysteries, Mystery } from '../../models/holy-rosary/mysteries';
 
 export class MysteryGlorious1 extends Mystery {
   readonly name = $localize`:@@first-glorious:First Glorious Mystery`;
