@@ -1,8 +1,4 @@
 import { BeadGroupTemplate } from "../../models/beads/bead-group-template";
-import { MysteryGlorious } from "../../models/holy-rosary/mystery-glorious";
-import { MysteryJoyful } from "../../models/holy-rosary/mystery-joyful";
-import { MysteryLuminous } from "../../models/holy-rosary/mystery-luminous";
-import { MysterySorrowful } from "../../models/holy-rosary/mystery-sorrowful";
 
 export enum RosaryMysteriesEnum {
   GLORIOUS,
@@ -11,21 +7,22 @@ export enum RosaryMysteriesEnum {
   SORROWFUL
 }
 
-export function lookupMystery(mysteryEnum: RosaryMysteriesEnum) {
-  if (RosaryMysteriesEnum.GLORIOUS === mysteryEnum) {
-    return new MysteryGlorious();
-  }
-  else if (RosaryMysteriesEnum.JOYFUL === mysteryEnum) {
-    return new MysteryJoyful();
-  }
-  else if (RosaryMysteriesEnum.LUMINOUS === mysteryEnum) {
-    return new MysteryLuminous();
-  }
-  else if (RosaryMysteriesEnum.SORROWFUL === mysteryEnum) {
-    return new MysterySorrowful();
-  }
-  return undefined;
-}
+// See prayer-factory
+// export function lookupMystery(mysteryEnum: RosaryMysteriesEnum) {
+//   if (RosaryMysteriesEnum.GLORIOUS === mysteryEnum) {
+//     return new MysteryGlorious();
+//   }
+//   else if (RosaryMysteriesEnum.JOYFUL === mysteryEnum) {
+//     return new MysteryJoyful();
+//   }
+//   else if (RosaryMysteriesEnum.LUMINOUS === mysteryEnum) {
+//     return new MysteryLuminous();
+//   }
+//   else if (RosaryMysteriesEnum.SORROWFUL === mysteryEnum) {
+//     return new MysterySorrowful();
+//   }
+//   return undefined;
+// }
 
 export const MYSTERY_1: BeadGroupTemplate = {
   sequence: 'mystery-1',

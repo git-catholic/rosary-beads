@@ -55,7 +55,8 @@ export class HolyRosaryHomeComponent implements OnInit {
 
   onMysterySelected(selectedMystery: RosaryMysteriesEnum): void {
     console.log(`selected mystery: ${selectedMystery}`);
-    this.router.navigate([HOLY_ROSARY_PRAYER]);
+    this.router.navigate([HOLY_ROSARY_PRAYER, selectedMystery as RosaryMysteriesEnum]);
+    // this.router.componentInputBindingEnabled
     // this.selectedBeadGroupList = this.beadGroupLoader.loadHolyRosaryContemporaryMysteryEnum(selectedMystery);
   }
 

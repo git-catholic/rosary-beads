@@ -1,0 +1,23 @@
+<div id="rosary-beads">
+  <div class="app-header-div">
+    <app-header [prayerName]="'The Holy Rosary'"></app-header>
+  </div>
+  <div id="rosary-beads-img-div">
+    <!-- <app-pats-beads #rosaryBeads></app-pats-beads> -->
+    <!-- <ng-container *ngComponentOutlet="getBeadsComponent()" /> -->
+    <app-rosary-beads-container #rosaryBeads [rosaryBeadsType]="beadsByType"
+                                (activeBeadsEvent)="onActiveBeads($event)">
+    </app-rosary-beads-container>
+    <!-- <section #dynamicRosaryBeads></section> -->
+  </div>
+  <div id="rosary-beads-prayer-div">
+    <!-- <div *ngIf="showMystery">
+      <app-mystery-display [mystery]="activeMysteries"></app-mystery-display>
+    </div> -->
+  <!--   <div id="active-prayer">
+      <app-current-prayer #primaryPrayer [prayerName]="prayerName" [activeBeadGroup]="activeBeadGroup" [currentPrayer]="currentPrayer" [debugTheEnd]="debugTheEnd"></app-current-prayer>
+    </div> -->
+  </div>
+  <button (click)="onPrevious()">&lt;= Previous</button>
+  <button (click)="onNext()">Next =&gt;</button>
+</div>

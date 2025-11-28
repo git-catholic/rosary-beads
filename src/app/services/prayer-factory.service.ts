@@ -1,14 +1,49 @@
-// import { Injectable } from '@angular/core';
-// import { PrayerSequence } from '../models/prayer-sequence';
+import { Injectable, Type } from '@angular/core';
+import { PatsBeadsComponent } from '../rosary-beads/pats-beads/pats-beads.component';
+import { RosaryBeads } from '../rosary-beads/rosary-beads';
+import { RosaryMysteriesEnum } from '../rosary-prayers/holy-rosary/rosary-helper';
+import { MysteryGlorious } from '../models/holy-rosary/mystery-glorious';
+import { Mysteries } from '../models/holy-rosary/mysteries';
+import { MysteryJoyful } from '../models/holy-rosary/mystery-joyful';
+import { MysteryLuminous } from '../models/holy-rosary/mystery-luminous';
+import { MysterySorrowful } from '../models/holy-rosary/mystery-sorrowful';
+import { AppConfigService } from './app-config.service';
+import { PrayerHolyRosary } from '../models/holy-rosary/prayer-holy-rosary';
+import { Sequence } from '../models/sequence';
+import { BeadPosition, BeadPositionTemplate } from '../rosary-beads/bead-position';
+import { holyRosarySequenceForPatsBeads } from '../rosary-beads/pats-beads/holy-rosary-pats-beads-seq';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class PrayerFactoryService {
+@Injectable({
+  providedIn: 'root'
+})
+export class PrayerFactoryService {
 
-//   newPrayerSequence(name: string): PrayerSequence {
+  constructor(private appConfig: AppConfigService) { }
 
-//   }
+  // newBeads(name: string): RosaryBeads {
+  //   // Currently only supports PatsBeadsComponent
+  //   return new PatsBeadsComponent(this.appConfig);  // , holyRosarySequenceForPatsBeads());
+  // }
+  newBeadsByType(name: string): Type<RosaryBeads> {
+    return PatsBeadsComponent;
+  }
 
-// }
+  newPrayerMystery(mystery: RosaryMysteriesEnum): Mysteries {
+    if (RosaryMysteriesEnum.GLORIOUS === mystery) {
+      return new MysteryGlorious();
+    }
+    else if (RosaryMysteriesEnum.JOYFUL === mystery) {
+      return new MysteryJoyful();
+    }
+    else if (RosaryMysteriesEnum.LUMINOUS === mystery) {
+      return new MysteryLuminous();
+    }
+    return new MysterySorrowful();
+  }
+
+  newRosaryPrayer(mysteries: Mysteries, rosaryBeads: RosaryBeads): PrayerHolyRosary {
+    return new PrayerHolyRosary(mysteries, rosaryBeads);
+  }
+
+}
 

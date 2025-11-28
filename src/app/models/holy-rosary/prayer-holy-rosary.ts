@@ -15,6 +15,7 @@ export class PrayerHolyRosary extends PrayerSequence {
 
   constructor(private mysteries: Mysteries, private beads?: RosaryBeads) {
     super();
+    this.resetSequence(this.init());
     this.updateMysteryPlaceholders();
   }
 
@@ -65,6 +66,7 @@ export class PrayerHolyRosary extends PrayerSequence {
   };
 
   protected onNext(prayer?: Sequence): void {
+    console.log(`rosary - has beads? ${this.beads}`);
     if (this.beads !== undefined) {
       this.beads.next(prayer);
     }
