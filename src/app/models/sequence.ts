@@ -1,3 +1,5 @@
+import { sequenceToString } from "../utils/sequence-tostring";
+
 export interface SequenceTemplate {
   id: string;
   name?: string;
@@ -85,6 +87,10 @@ export abstract class Sequence implements NavigateSequence, SequenceTemplate {
   end(): Sequence {
     this.index = this.maxTimes - 1;
     return this;
+  }
+
+  toString(): string {
+    return sequenceToString(this);
   }
 
 }

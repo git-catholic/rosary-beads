@@ -27,19 +27,10 @@ export class RosaryBeadsContainerComponent implements OnInit, AfterViewInit, Ros
   activeBeadsEvent = new EventEmitter<any>;
 
 
-  // @ViewChild('patsBeads')
-  // patsBeads: PatsBeadsComponent;
-
   @ViewChild('activeBeads', { static: true })
   activeBeadsRef!: TemplateRef<any>;
 
-  // @ViewChild(RosaryBeads)
   activeBeads!: RosaryBeads;
-
-  // activeBeadsOutputs = {
-  //   activeBeadsEvent: (activeBeads: RosaryBeads) => this.onActiveBeads(activeBeads)
-  // }
-// activeBeadsInitEvent: Record<string,unknown>;
 
   constructor() {
     console.log(`inject something?`)
@@ -47,29 +38,23 @@ export class RosaryBeadsContainerComponent implements OnInit, AfterViewInit, Ros
       providers: [
         { provide: 'activeBeadsEvent', useValue: (activeBeads: RosaryBeads) => this.onActiveBeads(activeBeads) }
       ]
-    })
+    });
   }
   
   ngOnInit(): void {
-    // console.log(`RosaryBeadsContainerComponent - ngOnInit - ${this.activeBeadsOutputs?.activeBeadsEvent}`);
-    // this.activeBeads = this.rosaryBeadsComponent.
-    // this.rosaryBeadsType.templateRef = this.vcr.createEmbeddedView(this.activeBeads);
-    // if (this.patsBeads !== undefined) {
-    //   this.activeBeads = this.patsBeads;
-    // }
-    // console.log(`ngOnInit: activeBeadsRef element found? ${this.activeBeadsRef?.elementRef?.nativeElement}`);
-    // // this.activeBeads = this.activeBeadsRef?.elementRef?.nativeElement?.component;
-    // console.log(`ngOnInit: activeBeads found? ${this.activeBeads}`);
+    console.log(`RosaryBeadsContainerComponent - ngOnInit`);
   }
 
   ngAfterViewInit(): void {
-    // console.log(`RosaryBeadsContainerComponent - ngAfterViewInit - ${this.activeBeadsOutputs?.activeBeadsEvent}`);
-    // console.log(`ngAfterViewInit: activeBeadsRef element found? ${this.activeBeadsRef?.elementRef?.nativeElement}`);
-    // this.activeBeads = this.activeBeadsRef?.elementRef?.nativeElement?.component;
-    // console.log(`ngAfterViewInit: activeBeads found? ${this.activeBeads}`);
+    console.log(`RosaryBeadsContainerComponent - ngAfterViewInit`);
+  }
+
+  getActiveBeadDetails(): Sequence {
+    return this.activeBeads?.getActiveBeadDetails();
   }
 
   getActiveBeadsType() {
+    console.log(`RosaryBeadsContainerComponent - getActiveBeadsType`);
     return PatsBeadsComponent;
   }
 

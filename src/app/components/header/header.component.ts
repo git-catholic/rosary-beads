@@ -1,6 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { AppConfigService } from '../../services/app-config.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -18,9 +19,6 @@ export class HeaderComponent implements OnInit {
   isPrayerSequenceDone: boolean;
 
   @Output()
-  onResetEvent = new EventEmitter<boolean>();
-
-  @Output()
   onEnableNavigationEvent = new EventEmitter<boolean>();
 
   @Output()
@@ -29,12 +27,18 @@ export class HeaderComponent implements OnInit {
   @ViewChild('navEnabledChkbox')
   navEnabledChkbox: ElementRef;
 
-  constructor(public appConfig: AppConfigService) { }
+  constructor(private appConfig: AppConfigService,
+              private router: Router) { }
 
   ngOnInit(): void { }
 
+  get isPortrait(): boolean {
+    return this.appConfig?.isPortrait;
+  }
+
   onStartNew() {
-    this.onResetEvent.emit(true);
+    console.log(`onStartNew`);
+    this.router.navigate(['']);
   }
 
   onEnableNavigation(): void {

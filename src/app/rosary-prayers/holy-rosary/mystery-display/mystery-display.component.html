@@ -1,33 +1,33 @@
-<!-- <div class="mystery-row">
+<div class="mystery-row">
   <ng-container *ngIf="appConfig.isPortrait === false">
     <div class="mystery-row-inner">
       <div class="mystery-label">
-        {{ mysteryNum }} {{ mysteryName }} {{ mysteryLiteralLabel }}:
+        {{ mysteryNumber }}:
       </div>
       <div class="mystery-value">
-        {{ activeBeadGroupList.mystery() }}
+        {{ mysteryDesc }}
       </div>
     </div>
-    <ng-container *ngIf="activeBeadGroupList.fruit()">
+    <ng-container *ngIf="mysteryFruit">
       <div class="mystery-row-inner">
         <div class="fruit-label" i18n="@@mystery-fruit">Fruit of the Mystery:</div>
         <div class="fruit-value">
-          {{ activeBeadGroupList.fruit() }}
+          {{ mysteryFruit }}
         </div>
       </div>
     </ng-container>
   </ng-container>
   <ng-container *ngIf="appConfig.isPortrait">
     <span class="mystery-label">
-      {{ mysteryNum }} {{ mysteryName }} {{ mysteryLiteralLabel }}:
+      {{ mysteryNumber }}:
     </span>
     <span class="mystery-value">
-      {{ activeBeadGroupList.mystery() }}
+      {{ mysteryDesc }}
     </span>
-    <ng-container *ngIf="activeBeadGroupList.fruit()">
+    <ng-container *ngIf="mysteryFruit">
       <span class="fruit-value">
-        - {{ activeBeadGroupList.fruit() }}
+        - {{ mysteryFruit }}
       </span>
     </ng-container>
   </ng-container>
-</div> -->
+</div>

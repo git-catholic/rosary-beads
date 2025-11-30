@@ -1,10 +1,5 @@
-<div>before</div>
 <div>
-<ng-container #activeBeads [ngComponentOutlet]="getActiveBeadsType()"
-              [ngComponentOutletInjector]="injector">
-</ng-container>
+  <ng-container #activeBeads [ngComponentOutlet]="getActiveBeadsType()"
+                [ngComponentOutletInjector]="injector">
+  </ng-container>
 </div>
-<div>after</div>
-<!-- <div *ngIf="isPatsBeadsComponent">
-  <app-pats-beads></app-pats-beads>
-</div> -->

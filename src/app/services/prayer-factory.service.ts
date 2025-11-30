@@ -10,8 +10,6 @@ import { MysterySorrowful } from '../models/holy-rosary/mystery-sorrowful';
 import { AppConfigService } from './app-config.service';
 import { PrayerHolyRosary } from '../models/holy-rosary/prayer-holy-rosary';
 import { Sequence } from '../models/sequence';
-import { BeadPosition, BeadPositionTemplate } from '../rosary-beads/bead-position';
-import { holyRosarySequenceForPatsBeads } from '../rosary-beads/pats-beads/holy-rosary-pats-beads-seq';
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +18,6 @@ export class PrayerFactoryService {
 
   constructor(private appConfig: AppConfigService) { }
 
-  // newBeads(name: string): RosaryBeads {
-  //   // Currently only supports PatsBeadsComponent
-  //   return new PatsBeadsComponent(this.appConfig);  // , holyRosarySequenceForPatsBeads());
-  // }
   newBeadsByType(name: string): Type<RosaryBeads> {
     return PatsBeadsComponent;
   }

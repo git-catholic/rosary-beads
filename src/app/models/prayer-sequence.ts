@@ -1,4 +1,4 @@
-import { asGroupPrayer, asLeaderResponse, isGroupPrayer, isLeaderResponse } from "../utils/typeof-utils";
+import { sequenceToString } from "../utils/sequence-tostring";
 import { Sequence, SequenceTemplate } from "./sequence";
 
 export abstract class PrayerSequence implements SequenceTemplate {
@@ -21,6 +21,14 @@ export abstract class PrayerSequence implements SequenceTemplate {
     }
   }
 
+  getCurrentPrayer(): Sequence {
+    return this.currentPrayer;
+  }
+
+  getPrayerIndex(): number {
+    return this.prayerIndex;
+  }
+
   resetSequence(sequence?: Sequence[]): void {
     if (this._sequence === undefined && sequence === undefined) {
       throw new Error('Unable to reset sequence as an initial sequence was not provided');
@@ -38,24 +46,15 @@ export abstract class PrayerSequence implements SequenceTemplate {
     this.currentPrayer = this._sequence[this.sequenceIndex];
   }
 
+  getCurrentSequenceId(): string {
+    if (this.currentPrayer !== undefined) {
+      console.log(`current: (json) ${JSON.stringify(this.currentPrayer)}`);
+    }
+    return this.currentPrayer?.id;
+  }
+
   toString(): string {
-    const leaderResponse = asLeaderResponse(this.currentPrayer);
-    const groupPrayer = asGroupPrayer(this.currentPrayer);
-    let prayer = '';
-    if (leaderResponse !== undefined) {
-      prayer = `leader: ${leaderResponse?.leader}\n`
-        + `response: ${leaderResponse?.response}\n`;
-    }
-    if (groupPrayer !== undefined) {
-      prayer += `all: ${groupPrayer?.all}\n`;
-    }
-    return `id: ${this.id}\n`
-      + `name: ${this.name}\n`
-      + `index: ${this.prayerIndex}\n`
-      + `seqIdx: ${this._sequenceIndex}\n`
-      + `leader/response? ${isLeaderResponse(this.currentPrayer)}\n`
-      + `group? ${isGroupPrayer(this.currentPrayer)}\n`
-      + `prayers:\n${prayer}\n`;
+    return sequenceToString(this);
   }
 
   get currentIndex(): number {
@@ -74,6 +73,10 @@ export abstract class PrayerSequence implements SequenceTemplate {
     return this._totalPrayers;
   }
 
+  get isPrayerSequenceDone(): boolean {
+    return this.currentIndex >= this.totalPrayerCount;
+  }
+
   hasNext(): boolean {
     return (this.currentPrayer !== undefined && this.currentPrayer.hasNext()) || this.sequenceIndex < this._sequence.length - 1;
   }
@@ -83,13 +86,15 @@ export abstract class PrayerSequence implements SequenceTemplate {
   }
 
   next(): Sequence {
-    console.log(`abstract prayer seq: ${this.currentPrayer?.hasNext()}`);
+    console.log(`abstract prayer seq: ${this.currentPrayer?.id} - ${this.currentPrayer?.hasNext()}`);
     if (this.currentPrayer?.hasNext()) {
+      console.log(`this.currentPrayer?.hasNext()`);
       this.prayerIndex++;
       this.onNext(this.currentPrayer);
       return this.currentPrayer.next();
     }
     if (this.hasNext()) {
+      console.log(`this.hasNext()`);
       this.prayerIndex++;
       this._sequenceIndex++;
       this.currentPrayer = this._sequence[this.sequenceIndex];

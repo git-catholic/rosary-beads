@@ -18,13 +18,13 @@ export class MysteryDisplayComponent implements OnInit {
   // activeBeadGroupList: BeadGroupList;
 
   @Input()
-  mystery: string;
+  mysteryNumber: string;
 
   @Input()
   mysteryDesc: string;
 
   @Input()
-  fruit: string;
+  mysteryFruit: string;
 
   constructor(public appConfig: AppConfigService) { }
 

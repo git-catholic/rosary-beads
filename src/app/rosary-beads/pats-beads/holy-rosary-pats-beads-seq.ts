@@ -8,17 +8,17 @@ export function holyRosarySequenceForPatsBeads(): Sequence[] {
     { id: '0-0', x: 853, y: 3454 },  // Sign of the cross
 
     // 1
-    { id: '0-1', x: 948, y: 3208 },  // Apostles Creed
-    { id: '0-1', x: 948, y: 3208 },  // Our Father
+    { id: '0-0', x: 948, y: 3208 },  // Apostles Creed
+    { id: '0-0', x: 948, y: 3208 },  // Our Father
 
     // 2
-    { id: '0-2', x: 1051, y: 2992 }, // Hail Marys
-    { id: '0-3', x: 1033, y: 2902 },
-    { id: '0-4', x: 988, y: 2830 },
+    { id: '0-1', x: 1051, y: 2992 }, // Hail Marys
+    { id: '0-2', x: 1033, y: 2902 },
+    { id: '0-3', x: 988, y: 2830 },
 
     // 5
-    { id: '0-5', x: 815, y: 2646 },  // Glory Be
-    { id: '0-5', x: 815, y: 2646 },  // First Mystery
+    { id: '0-4', x: 815, y: 2646 },  // Glory Be
+    { id: '1-0', x: 815, y: 2646 },  // First Mystery
 
     // 6
     { id: '1-0', x: 805, y: 2368 },  // Our Father
@@ -38,8 +38,8 @@ export function holyRosarySequenceForPatsBeads(): Sequence[] {
     // 17
     { id: '1-11', x: 1458, y: 1249 }, // Glory Be
     { id: '1-11', x: 1458, y: 1249 }, // Fatima
-    { id: '1-11', x: 1458, y: 1249 }, // Second Mystery
-    { id: '1-11', x: 1458, y: 1249 }, // Our Father
+    { id: '2-0', x: 1458, y: 1249 }, // Second Mystery
+    { id: '2-0', x: 1458, y: 1249 }, // Our Father
 
     // 18
     { id: '2-1', x: 1425, y: 1018 }, // Hail Marys
@@ -56,8 +56,8 @@ export function holyRosarySequenceForPatsBeads(): Sequence[] {
     // 28
     { id: '2-11', x: 1045, y: 495 },  // Glory Be
     { id: '2-11', x: 1045, y: 495 },  // Fatima
-    { id: '2-11', x: 1045, y: 495 },  // Third Mystery
-    { id: '2-11', x: 1045, y: 495 },  // Our Father
+    { id: '3-0', x: 1045, y: 495 },  // Third Mystery
+    { id: '3-0', x: 1045, y: 495 },  // Our Father
 
     // 29
     { id: '3-1', x: 820, y: 479 },   // Hail Marys
@@ -74,8 +74,8 @@ export function holyRosarySequenceForPatsBeads(): Sequence[] {
     // 39
     { id: '3-11', x: 357, y: 459 },   // Glory Be
     { id: '3-11', x: 357, y: 459 },   // Fatima
-    { id: '3-11', x: 357, y: 459 },   // Fourth Mystery
-    { id: '3-11', x: 357, y: 459 },   // Our Father
+    { id: '4-0', x: 357, y: 459 },   // Fourth Mystery
+    { id: '4-0', x: 357, y: 459 },   // Our Father
 
     // 40
     { id: '4-1', x: 391, y: 683 },   // Hail Marys
@@ -92,8 +92,8 @@ export function holyRosarySequenceForPatsBeads(): Sequence[] {
     // 50
     { id: '4-11', x: 399, y: 1503 },  // Glory Be
     { id: '4-11', x: 399, y: 1503 },  // Fatima
-    { id: '4-11', x: 399, y: 1503 },  // Fifth Mystery
-    { id: '4-11', x: 399, y: 1503 },  // Our Father
+    { id: '5-0', x: 399, y: 1503 },  // Fifth Mystery
+    { id: '5-0', x: 399, y: 1503 },  // Our Father
 
     // 51
     { id: '5-1', x: 341, y: 1710 },  // Hail Marys
@@ -108,8 +108,8 @@ export function holyRosarySequenceForPatsBeads(): Sequence[] {
     { id: '5-10', x: 810, y: 2215 },
 
     // 61
-    { id: '6-0', x: 805, y: 2368},  // Glory Be
-    { id: '6-0', x: 805, y: 2368},  // Fatima
+    { id: '5-11', x: 805, y: 2368},  // Glory Be
+    { id: '5-11', x: 805, y: 2368},  // Fatima
     { id: '6-0', x: 805, y: 2368},  // "Hail, Holy Queen"
     { id: '6-0', x: 805, y: 2368},  // Closing prayer #1
     { id: '6-0', x: 805, y: 2368},  // Closing prayer #2

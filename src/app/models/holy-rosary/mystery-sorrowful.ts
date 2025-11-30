@@ -1,8 +1,7 @@
 import { Mysteries, Mystery } from '../../models/holy-rosary/mysteries';
-import { LocalizationService } from '../../services/localization.service';
 
 export class MysterySorrowful1 extends Mystery {
-  name: string;
+  readonly name = $localize`:@@first-sorrowful:1st Sorrowful Mystery`;
   readonly id = 'MysterySorrowful1';
 
   get mystery(): string {
@@ -15,7 +14,7 @@ export class MysterySorrowful1 extends Mystery {
 }
 
 export class MysterySorrowful2 extends Mystery {
-  name: string;
+  readonly name = $localize`:@@second-sorrowful:2nd Sorrowful Mystery`;
   readonly id = 'MysterySorrowful2';
 
   get mystery(): string {
@@ -28,7 +27,7 @@ export class MysterySorrowful2 extends Mystery {
 }
 
 export class MysterySorrowful3 extends Mystery {
-  name: string;
+  readonly name = $localize`:@@third-sorrowful:3rd Sorrowful Mystery`;
   readonly id = 'MysterySorrowful3';
 
   get mystery(): string {
@@ -41,7 +40,7 @@ export class MysterySorrowful3 extends Mystery {
 }
 
 export class MysterySorrowful4 extends Mystery {
-  name: string;
+  readonly name = $localize`:@@fourth-sorrowful:4th Sorrowful Mystery`;
   readonly id = 'MysterySorrowful4';
 
   get mystery(): string {
@@ -54,7 +53,7 @@ export class MysterySorrowful4 extends Mystery {
 }
 
 export class MysterySorrowful5 extends Mystery {
-  name: string;
+  readonly name = $localize`:@@fifth-sorrowful:5th Sorrowful Mystery`;
   readonly id = 'MysterySorrowful5';
 
   get mystery(): string {

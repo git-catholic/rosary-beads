@@ -22,6 +22,11 @@ pre {
   font-family: $fontname;
 }
 
+.active-prayer-workspace {
+  display: flex;
+  flex-direction: column;
+}
+
 .button-row {
   display: flex;
   flex-direction: row;
@@ -65,6 +70,11 @@ pre {
     font-size: $font-size-dropdown;
   }
 
+  .active-prayer-workspace {
+    font-size: $font-size-base;
+    margin-top: 2vh;
+  }
+
 }
 
 @media (orientation: portrait) {
@@ -85,6 +95,11 @@ pre {
 
   select, select option {
     font-size: $font-size-dropdown-phone;
+  }
+
+  .active-prayer-workspace {
+    font-size: $font-size-base-phone;
+    margin-top: -2vh;
   }
 
 }

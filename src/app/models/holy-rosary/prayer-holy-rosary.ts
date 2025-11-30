@@ -4,6 +4,7 @@ import { PrayerClosing1, PrayerClosing2, PrayerFatima, PrayerHailHolyQueen } fro
 import { PrayerSequence } from "../prayer-sequence";
 import { Sequence } from "../sequence";
 import { RosaryBeads } from "../../rosary-beads/rosary-beads";
+import { isMystery } from "../../utils/typeof-utils";
 
 export class PrayerHolyRosary extends PrayerSequence {
 
@@ -15,6 +16,7 @@ export class PrayerHolyRosary extends PrayerSequence {
 
   constructor(private mysteries: Mysteries, private beads?: RosaryBeads) {
     super();
+    console.log(`Beads passed in? ${beads}`);
     this.resetSequence(this.init());
     this.updateMysteryPlaceholders();
   }
@@ -66,7 +68,7 @@ export class PrayerHolyRosary extends PrayerSequence {
   };
 
   protected onNext(prayer?: Sequence): void {
-    console.log(`rosary - has beads? ${this.beads}`);
+    console.log(`rosary - has beads? ${this.beads} - bead id: ${this.beads?.id}`);
     if (this.beads !== undefined) {
       this.beads.next(prayer);
     }
@@ -94,7 +96,9 @@ export class PrayerHolyRosary extends PrayerSequence {
     let mysteryIndex = 1;
     for (let idx = 0; idx < this.sequence.length; idx++) {
       if (this.sequence[idx]?.id === this.mysteryPlaceholder?.id) {
+        console.log(`+++ update mystery ${idx}, ${this.mysteries.mystery(mysteryIndex)?.mystery}`);
         this.sequence[idx] = this.mysteries.mystery(mysteryIndex);
+        console.log(`    isMystery: ${isMystery(this.sequence[idx])}`);
         mysteryIndex++;
       }
     }

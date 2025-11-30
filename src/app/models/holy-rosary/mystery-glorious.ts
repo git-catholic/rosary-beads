@@ -1,7 +1,7 @@
 import { Mysteries, Mystery } from '../../models/holy-rosary/mysteries';
 
 export class MysteryGlorious1 extends Mystery {
-  readonly name = $localize`:@@first-glorious:First Glorious Mystery`;
+  readonly name = $localize`:@@first-glorious:1st Glorious Mystery`;
   readonly id = 'MysteryGlorious1';
 
   get mystery(): string {
@@ -14,7 +14,7 @@ export class MysteryGlorious1 extends Mystery {
 }
 
 export class MysteryGlorious2 extends Mystery {
-  readonly name = $localize`:@@second-glorious:Second Glorious Mystery`;
+  readonly name = $localize`:@@second-glorious:2nd Glorious Mystery`;
   readonly id = 'MysteryGlorious2';
 
   get mystery(): string {
@@ -27,7 +27,7 @@ export class MysteryGlorious2 extends Mystery {
 }
 
 export class MysteryGlorious3 extends Mystery {
-  readonly name = $localize`:@@third-glorious:Third Glorious Mystery`;
+  readonly name = $localize`:@@third-glorious:3rd Glorious Mystery`;
   readonly id = 'MysteryGlorious3';
 
   get mystery(): string {
@@ -40,7 +40,7 @@ export class MysteryGlorious3 extends Mystery {
 }
 
 export class MysteryGlorious4 extends Mystery {
-  readonly name = $localize`:@@fourth-glorious:Fourth Glorious Mystery`;
+  readonly name = $localize`:@@fourth-glorious:4th Glorious Mystery`;
   readonly id = 'MysteryGlorious4';
 
   get mystery(): string {
@@ -53,7 +53,7 @@ export class MysteryGlorious4 extends Mystery {
 }
 
 export class MysteryGlorious5 extends Mystery {
-  readonly name = $localize`:@@fifth-glorious:Fifth Glorious Mystery`;
+  readonly name = $localize`:@@fifth-glorious:5th Glorious Mystery`;
   readonly id = 'MysteryGlorious5';
 
   get mystery(): string {

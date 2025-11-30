@@ -2,7 +2,7 @@ import { Mysteries, Mystery } from '../../models/holy-rosary/mysteries';
 import { LocalizationService } from '../../services/localization.service';
 
 export class MysteryLuminous1 extends Mystery {
-  name: string;
+  readonly name = $localize`:@@first-luminous:1st Luminous Mystery`;
   readonly id = 'MysteryLuminous1';
 
   get mystery(): string {
@@ -15,7 +15,7 @@ export class MysteryLuminous1 extends Mystery {
 }
 
 export class MysteryLuminous2 extends Mystery {
-  name: string;
+  readonly name = $localize`:@@second-luminous:2nd Luminous Mystery`;
   readonly id = 'MysteryLuminous2';
 
   get mystery(): string {
@@ -28,7 +28,7 @@ export class MysteryLuminous2 extends Mystery {
 }
 
 export class MysteryLuminous3 extends Mystery {
-  name: string;
+  readonly name = $localize`:@@third-luminous:3rd Luminous Mystery`;
   readonly id = 'MysteryLuminous3';
 
   get mystery(): string {
@@ -41,7 +41,7 @@ export class MysteryLuminous3 extends Mystery {
 }
 
 export class MysteryLuminous4 extends Mystery {
-  name: string;
+  readonly name = $localize`:@@fourth-luminous:4th Luminous Mystery`;
   readonly id = 'MysteryLuminous4';
 
   get mystery(): string {
@@ -54,7 +54,7 @@ export class MysteryLuminous4 extends Mystery {
 }
 
 export class MysteryLuminous5 extends Mystery {
-  name: string;
+  readonly name = $localize`:@@fifth-luminous:5th Luminous Mystery`;
   readonly id = 'MysteryLuminous5';
 
   get mystery(): string {
