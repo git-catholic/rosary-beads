@@ -1,7 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Sequence } from '../../models/sequence';
 import { CommonModule } from '@angular/common';
-import { AppRoutingModule } from '../../app-routing.module';
 import { asLeaderResponse, asGroupPrayer } from '../../utils/typeof-utils';
 
 @Component({

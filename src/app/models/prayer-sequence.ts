@@ -29,6 +29,10 @@ export abstract class PrayerSequence implements SequenceTemplate {
     return this.prayerIndex;
   }
 
+  getPrayerSequence(): Sequence[] {
+    return this._sequence;
+  }
+
   resetSequence(sequence?: Sequence[]): void {
     if (this._sequence === undefined && sequence === undefined) {
       throw new Error('Unable to reset sequence as an initial sequence was not provided');
@@ -136,10 +140,6 @@ export abstract class PrayerSequence implements SequenceTemplate {
     this.currentPrayer = this._sequence[this.sequenceIndex];
     this.onEnd();
     return this.currentPrayer.end();
-  }
-
-  protected get sequence(): Sequence[] {
-    return this._sequence;
   }
 
   protected get totalPrayers(): number {

@@ -94,11 +94,12 @@ export class PrayerHolyRosary extends PrayerSequence {
 
   private updateMysteryPlaceholders() {
     let mysteryIndex = 1;
-    for (let idx = 0; idx < this.sequence.length; idx++) {
-      if (this.sequence[idx]?.id === this.mysteryPlaceholder?.id) {
+    let prayerSequence = this.getPrayerSequence();
+    for (let idx = 0; idx < prayerSequence?.length; idx++) {
+      if (prayerSequence[idx]?.id === this.mysteryPlaceholder?.id) {
         console.log(`+++ update mystery ${idx}, ${this.mysteries.mystery(mysteryIndex)?.mystery}`);
-        this.sequence[idx] = this.mysteries.mystery(mysteryIndex);
-        console.log(`    isMystery: ${isMystery(this.sequence[idx])}`);
+        prayerSequence[idx] = this.mysteries.mystery(mysteryIndex);
+        console.log(`    isMystery: ${isMystery(prayerSequence[idx])}`);
         mysteryIndex++;
       }
     }

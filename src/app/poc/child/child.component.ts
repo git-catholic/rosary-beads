@@ -1,10 +1,12 @@
 // child.component.ts
 import { Component, Output, EventEmitter, Inject } from '@angular/core';
+import { SwipeComponent } from '../swipe/swipe.component';
 
 @Component({
   selector: 'app-child',
   standalone: true,
-  template: `<button (click)="sendMessage()">Send Message to Parent</button>`
+  imports: [SwipeComponent],
+  template: `<app-swipe></app-swipe><button (click)="sendMessage()">Send Message to Parent</button>`
 })
 export class ChildComponent {
   // @Output()

@@ -6,7 +6,7 @@ import { ChildComponent } from '../child/child.component';
 @Component({
   selector: 'app-parent',
   standalone: true,
-  imports: [CommonModule, ChildComponent],
+  imports: [CommonModule],
   template: `
     <div>
     <ng-container 
