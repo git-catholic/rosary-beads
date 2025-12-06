@@ -16,8 +16,8 @@ import { ChildComponent } from '../child/child.component';
     </div>
     <!-- <div>
       <app-child (messageEmitter)="onChildMessage($event)"></app-child>
-    </div> -->
-    <p>Message from child: {{ receivedMessage }}</p>
+    </div>
+    <p>Message from child: {{ receivedMessage }}</p> -->
   `
 })
 export class ParentComponent {

@@ -6,7 +6,7 @@ import { SwipeComponent } from '../swipe/swipe.component';
   selector: 'app-child',
   standalone: true,
   imports: [SwipeComponent],
-  template: `<app-swipe></app-swipe><button (click)="sendMessage()">Send Message to Parent</button>`
+  template: `<app-swipe></app-swipe>`
 })
 export class ChildComponent {
   // @Output()

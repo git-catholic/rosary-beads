@@ -1,8 +1,6 @@
 <!-- app.component.html -->
-<div class="container">
-  <h1>Swiper Elements</h1>
-  <swiper-container #mySwiper
-                    navigation="true">
+<div class="swiper-parent-container">
+  <swiper-container #mySwiper>
     <!-- <swiper-slide>Slide 1</swiper-slide>
     <swiper-slide>Slide 2</swiper-slide>
     <swiper-slide>Slide 3</swiper-slide>
@@ -13,4 +11,7 @@
       <!-- Hello -->
     </swiper-slide>
   </swiper-container>
+
+  <button id="custom-prev-button" (click)="onPrev()">&lArr;</button>
+  <button id="custom-next-button" (click)="onNext()">&rArr;</button>
 </div>

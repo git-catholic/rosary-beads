@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SwiperContainer } from 'swiper/element';
 import { Swiper, SwiperOptions } from 'swiper/types';
 import { AppConfigService } from '../../services/app-config.service';
@@ -32,9 +32,12 @@ export class SwipeComponent implements OnInit, AfterViewInit {
   prayerSequence: Sequence[];
   
   @ViewChild('mySwiper')
-  private swiperEl: SwiperContainer;
+  private swiperContainer: SwiperContainer;
 
-  // private swiper: Swiper;
+  @ViewChild('mySwiper')
+  swiperContainerEl: ElementRef<SwiperContainer>;
+
+  private swiper: Swiper;
 
   mysteries: Mysteries;
   rosaryBeads: RosaryBeads;
@@ -68,21 +71,36 @@ export class SwipeComponent implements OnInit, AfterViewInit {
     console.log(`seq: ${this.activePrayer?.currentSequence?.toString()}`);
 
     console.log(`SwipeComponent - ngOnInit()`);
-    this.swiperEl = document.querySelector('swiper-container');
-    this.swiperEl.addEventListener('swiperslidechange', ($event) => this.onSlideChange($event));
-    this.swiperEl.addEventListener('swiperreachend', () => this.onReachEnd());
-    this.swiperEl.addEventListener('swiperreachbeginning', () => this.onReachBeginning());
+    this.swiperContainer = document.querySelector('swiper-container');
+    this.swiperContainer.addEventListener('swiperslidechange', ($event) => this.onSlideChange($event));
+    this.swiperContainer.addEventListener('swiperreachend', () => this.onReachEnd());
+    this.swiperContainer.addEventListener('swiperreachbeginning', () => this.onReachBeginning());
   }
 
   ngAfterViewInit(): void {
-    // this.swiper = this.swiperEl?.swiper;
-    // console.log(`have swiper? ${this.swiper}`);
+    this.swiper = this.swiperContainerEl?.nativeElement?.swiper;
+    console.log(`have swiper? ${this.swiper}`);
 
     // const baseSequence = this.activePrayer?.getPrayerSequence();
     // const useSequence = [
     //   baseSequence[0], baseSequence[1], baseSequence[2]
     // ]
-    this.prayerSequence = this.activePrayer?.getPrayerSequence();
+    this.prayerSequence = this.preprocessSequence();
+    this.swiperContainer.navigation = {
+      nextEl: '#custom-next-button',
+      prevEl: '#custom-prev-button'
+    }
+  }
+
+  onNext(): void {
+    console.log(`onNext - ${this.swiperContainer?.swiper} - ${this.swiperContainerEl?.nativeElement?.swiper}`);
+    this.swiperContainerEl?.nativeElement?.swiper?.slideNext();
+    // this.swiperContainerEl.nativeElement.swi
+  }
+
+  onPrev(): void {
+    console.log(`onPrev - ${this.swiperContainer?.swiper} - ${this.swiperContainerEl?.nativeElement}`);
+    this.swiperContainerEl?.nativeElement?.swiper?.slidePrev();
   }
 
   onSlideChange(event: any): void {
@@ -97,6 +115,16 @@ export class SwipeComponent implements OnInit, AfterViewInit {
 
   onReachBeginning(): void {
     console.log('Swiper reached the beginning!');
+  }
+
+  private preprocessSequence(): Sequence[] {
+    const expandedSequence = [];
+    this.activePrayer?.getPrayerSequence().forEach(sequence => {
+      for (let idx = 0; idx < sequence?.maxTimes; idx++) {
+        expandedSequence.push(sequence);
+      }
+    })
+    return expandedSequence;
   }
 
 }
