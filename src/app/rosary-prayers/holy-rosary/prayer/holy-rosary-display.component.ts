@@ -10,7 +10,7 @@ import { MysteryDisplayComponent } from '../mystery-display/mystery-display.comp
 import { CommonModule } from '@angular/common';
 import { RosaryBeadsContainerComponent } from '../../../rosary-beads/rosary-beads-container/rosary-beads-container.component';
 import { Sequence } from '../../../models/sequence';
-import { PrayerDisplayComponent } from '../../../components/prayer-display/prayer-display.component';
+import { PrayerSwipeComponent } from '../../../components/prayer-swipe/prayer-swipe.component';
 
 @Component({
   selector: 'app-holy-rosary-prayer',
@@ -19,7 +19,7 @@ import { PrayerDisplayComponent } from '../../../components/prayer-display/praye
     CommonModule,
     HeaderComponent,
     MysteryDisplayComponent,
-    PrayerDisplayComponent,
+    PrayerSwipeComponent,
     RosaryBeadsContainerComponent
   ],
   templateUrl: './holy-rosary-display.component.html',
@@ -40,7 +40,6 @@ export class HolyRosaryDisplayComponent implements AfterViewInit {
   activeMysteries: Mysteries;
   
   currentPrayer: PrayerSequence;
-  currentPrayerCounter: string;
 
   mysteryNumber: string;
   mysteryDesc: string;
@@ -73,17 +72,9 @@ export class HolyRosaryDisplayComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.debug(`HolyRosaryDisplayComponent - ngAfterViewInit (start)`);
     this.sequenceBeadIndex = 0;
     this.rosaryBeadsContainer.start();
-    this.debugCurrentPrayer();
     this.currentPrayer.start();
-    console.debug(`HolyRosaryDisplayComponent - ngAfterViewInit (end)`);
-  }
-
-  onActiveBeads(activeBeads: any) {
-    console.log(`+++ received new rosary beads! - ${activeBeads?.id}`);
-    this.rosaryBeads = activeBeads as RosaryBeads;
   }
 
   get showMystery(): boolean {
@@ -91,32 +82,52 @@ export class HolyRosaryDisplayComponent implements AfterViewInit {
   }
 
   get currentPrayerSequence(): Sequence {
-    console.debug(`+++ currentSequence: ${this.currentPrayer?.currentSequence?.id}`);
     return this.currentPrayer?.currentSequence;
+  }
+
+  get fullPrayerSequence(): Sequence[] {
+    return this.currentPrayer?.getPrayerSequence();
+  }
+
+  get prayerName(): string {
+    return this.currentPrayer?.name;
   }
 
   get isPrayerSequenceDone(): boolean {
     return this.currentPrayer?.isPrayerSequenceDone;
   }
 
+  onActiveBeads(activeBeads: any) {
+    this.rosaryBeads = activeBeads as RosaryBeads;
+  }
+
+  onSwipeIndex(swipeIndex: number) {
+    if (this.currentPrayer.currentIndex < swipeIndex) {
+      this.onNext();
+    }
+    else if (this.currentPrayer.currentIndex > swipeIndex) {
+      this.onPrevious();
+    }
+  }
+
   onNext() {
     if (this.currentPrayer?.hasNext()) {
       this.currentPrayer.next();
-      this.debugCurrentPrayer();
     }
-    this.rosaryBeadsContainer.updateBeadPosition(this.currentPrayer.currentIndex);
-    this.updateMystery();
-    this.updateCurrentPrayerCounter();
+    this.updateDisplayAndPositions();
   }
 
   onPrevious() {
     if (this.currentPrayer?.hasPrevious()) {
       this.currentPrayer.previous();
-      this.debugCurrentPrayer();
     }
+    this.updateDisplayAndPositions();
+  }
+
+  private updateDisplayAndPositions(): void {
     this.rosaryBeadsContainer.updateBeadPosition(this.currentPrayer.currentIndex);
     this.updateMystery();
-    this.updateCurrentPrayerCounter();
+    // this.updateCurrentPrayerCounter();
   }
 
   private updateMystery(): void {
@@ -127,27 +138,27 @@ export class HolyRosaryDisplayComponent implements AfterViewInit {
     this.mysteryFruit = activeMystery?.fruit;
   }
 
-  private updateCurrentPrayerCounter(): void {
-    if (!this.isHailMary()) {
-      console.debug(`not a hail mary??`);
-      this.currentPrayerCounter = undefined;
-      return;
-    }
+  // private updateCurrentPrayerCounter(): void {
+  //   if (!this.isHailMary()) {
+  //     console.debug(`not a hail mary??`);
+  //     this.currentPrayerCounter = undefined;
+  //     return;
+  //   }
 
-    const beadId = this.rosaryBeads?.getActiveBeadDetails()?.id;
-    const rootId = Number.parseInt(beadId?.charAt(0));
-    const hailMaryNum = Number.parseInt(beadId?.substring(2));
-    const maxBeads = (rootId === 0) ? 3 : 10;
-    console.debug(`beadId: ${beadId}, rootId: ${rootId}, HailMary# ${hailMaryNum}, maxBeads: ${maxBeads}`);
+  //   const beadId = this.rosaryBeads?.getActiveBeadDetails()?.id;
+  //   const rootId = Number.parseInt(beadId?.charAt(0));
+  //   const hailMaryNum = Number.parseInt(beadId?.substring(2));
+  //   const maxBeads = (rootId === 0) ? 3 : 10;
+  //   console.debug(`beadId: ${beadId}, rootId: ${rootId}, HailMary# ${hailMaryNum}, maxBeads: ${maxBeads}`);
 
-    this.currentPrayerCounter = (hailMaryNum > 0)
-      ? `(${hailMaryNum} / ${maxBeads})`
-      : undefined;
-  }
+  //   this.currentPrayerCounter = (hailMaryNum > 0)
+  //     ? `(${hailMaryNum} / ${maxBeads})`
+  //     : undefined;
+  // }
 
-  private isHailMary(): boolean {
-    return this.currentPrayer?.currentSequence?.id === 'PrayerHailMary';
-  }
+  // private isHailMary(): boolean {
+  //   return this.currentPrayer?.currentSequence?.id === 'PrayerHailMary';
+  // }
 
   private debugCurrentPrayer() {
     console.log(`current: ${this.currentPrayer.toString()}`)

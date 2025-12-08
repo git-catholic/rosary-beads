@@ -3,9 +3,11 @@
     <span class="section-title" i18n>
       Select the desired Mystery:
     </span>
-    <button class="home-widget" (click)="onGoHome()">
-      &nbsp;&nbsp;&nbsp;&nbsp;
-    </button>
+    <span *ngIf="multiPrayerHome">
+      <button class="home-widget" (click)="onGoHome()">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+      </button>
+    </span>
     <button class="config-widget" (click)="onConfigView()">
       &nbsp;&nbsp;&nbsp;&nbsp;
     </button>

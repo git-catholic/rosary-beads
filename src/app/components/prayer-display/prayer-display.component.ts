@@ -2,17 +2,22 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { Sequence } from '../../models/sequence';
 import { CommonModule } from '@angular/common';
 import { asLeaderResponse, asGroupPrayer } from '../../utils/typeof-utils';
+import { EndComponent } from '../end/end.component';
 
 @Component({
   selector: 'app-prayer-display',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    EndComponent
 ],
   templateUrl: './prayer-display.component.html',
   styleUrl: './prayer-display.component.scss'
 })
 export class PrayerDisplayComponent implements OnInit, OnChanges {
+
+  @Input()
+  prayerName: string;
 
   @Input()
   activePrayerSequence: Sequence;
@@ -27,17 +32,13 @@ export class PrayerDisplayComponent implements OnInit, OnChanges {
   prayerResponse: string;
   prayerAll: string;
 
-  constructor() {
-    console.log(`PrayerDisplayComponent - constructor`);
-  }
+  constructor() { }
 
   ngOnInit(): void {
-    console.log(`PrayerDisplayComponent - ngOnInit`);
     this.updatePrayer();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(`PrayerDisplayComponent - ngOnChanges`);
     this.updatePrayer();
   }
 
@@ -60,10 +61,6 @@ export class PrayerDisplayComponent implements OnInit, OnChanges {
     else if (groupPrayer) {
       this.prayerAll = groupPrayer?.all;
     }
-
-    console.debug(`leader: ${this.prayerLeader}`);
-    console.debug(`response: ${this.prayerResponse}`);
-    console.debug(`all: ${this.prayerAll}`);
   }
 
 }

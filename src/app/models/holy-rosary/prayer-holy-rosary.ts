@@ -1,4 +1,4 @@
-import { PrayerApostlesCreed, PrayerGlory, PrayerHailMary, PrayerOurFather, PrayerSignOfTheCross } from "../prayers/common-prayers";
+import { PrayerApostlesCreed, PrayerEnd, PrayerGlory, PrayerHailMary, PrayerOurFather, PrayerSignOfTheCross } from "../prayers/common-prayers";
 import { Mysteries, MysteryPlaceholder } from "./mysteries";
 import { PrayerClosing1, PrayerClosing2, PrayerFatima, PrayerHailHolyQueen } from "../prayers/rosary-prayers";
 import { PrayerSequence } from "../prayer-sequence";
@@ -63,7 +63,8 @@ export class PrayerHolyRosary extends PrayerSequence {
       new PrayerHailHolyQueen(),
       new PrayerClosing1(),
       new PrayerClosing2(),
-      new PrayerSignOfTheCross()
+      new PrayerSignOfTheCross(),
+      new PrayerEnd()
     ];
   };
 
@@ -97,9 +98,7 @@ export class PrayerHolyRosary extends PrayerSequence {
     let prayerSequence = this.getPrayerSequence();
     for (let idx = 0; idx < prayerSequence?.length; idx++) {
       if (prayerSequence[idx]?.id === this.mysteryPlaceholder?.id) {
-        console.log(`+++ update mystery ${idx}, ${this.mysteries.mystery(mysteryIndex)?.mystery}`);
         prayerSequence[idx] = this.mysteries.mystery(mysteryIndex);
-        console.log(`    isMystery: ${isMystery(prayerSequence[idx])}`);
         mysteryIndex++;
       }
     }

@@ -14,13 +14,11 @@
                            [mysteryFruit]="mysteryFruit">
       </app-mystery-display>
     </div>
-    <!-- <div id="active-prayer"> -->
-      <app-prayer-display [activePrayerSequence]="currentPrayerSequence"
-                          [currentPrayerCounter]="currentPrayerCounter"
-                          [isPrayerSequenceDone]="isPrayerSequenceDone">
-      </app-prayer-display>
-    <!-- </div> -->
+    <div id="active-prayer">
+      <app-prayer-swipe [prayerName] = "prayerName"
+                        [prayerSequence]="fullPrayerSequence"
+                        (swipeIndexEvent)="onSwipeIndex($event)">
+      </app-prayer-swipe>
+    </div>
   </div>
-  <button (click)="onPrevious()">&lt;= Previous</button>
-  <button (click)="onNext()">Next =&gt;</button>
 </div>

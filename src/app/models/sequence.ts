@@ -30,6 +30,8 @@ export abstract class Sequence implements NavigateSequence, SequenceTemplate {
   abstract id: string;
   abstract name?: string;
 
+  prayerLabel?: string;
+
   private _maxTimes: number;
 
   protected index: number = 0;

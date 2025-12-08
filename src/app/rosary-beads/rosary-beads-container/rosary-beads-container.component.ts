@@ -60,7 +60,6 @@ export class RosaryBeadsContainerComponent implements OnInit, AfterViewInit, Ros
 
   onActiveBeads(activeBeads: RosaryBeads) {
     this.activeBeads = activeBeads;
-    console.log(`onActiveBeads - ${activeBeads}`);
     this.activeBeadsEvent.emit(activeBeads);
   }
 
@@ -83,7 +82,6 @@ export class RosaryBeadsContainerComponent implements OnInit, AfterViewInit, Ros
   }
 
   updateBeadPosition(prayerIdx: number): void {
-    console.log(`updateBeadPosition (container): prayerIdx = ${prayerIdx} - ${this.activeBeads}`);
     this.activeBeads?.updateBeadPosition(prayerIdx);
   }
 
@@ -92,32 +90,26 @@ export class RosaryBeadsContainerComponent implements OnInit, AfterViewInit, Ros
   }
 
   hasNext(): boolean {
-    console.log(`container hasNext called`);
     return this.activeBeads?.hasNext();
   }
 
   hasPrevious(): boolean {
-    console.log(`container hasPrevious called`);
     return this.activeBeads?.hasPrevious();
   }
 
   next(prayer?: Sequence): Sequence {
-    console.log(`container next called`);
     return this.activeBeads?.next(prayer);
   }
 
   previous(prayer?: Sequence): Sequence {
-    console.log(`container previous called`);
     return this.activeBeads?.previous(prayer);
   }
 
   start(): Sequence {
-    console.log(`container start called`);
     return this.activeBeads?.start();
   }
 
   end(): Sequence {
-    console.log(`container end called`);
     return this.activeBeads?.end();
   }
 

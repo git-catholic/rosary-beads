@@ -1,1 +1,14 @@
-<p>prayer-swipe works!</p>
+<div class="swiper-parent-container">
+  <swiper-container #prayerSwiper>
+    <swiper-slide *ngFor="let sequence of prayerSequence; let i = index">
+      <app-prayer-display [prayerName] = "prayerName"
+                          [activePrayerSequence]="sequence"
+                          [isPrayerSequenceDone]="checkSequenceDone(i)"
+                          [currentPrayerCounter]="sequence?.prayerLabel">
+      </app-prayer-display>
+    </swiper-slide>
+  </swiper-container>
+
+  <button id="custom-prev-button" [class]="prevButtonClass" [disabled]="leftArrowDisabled" (click)="onPrev()">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  <button id="custom-next-button" [class]="nextButtonClass" [disabled]="rightArrowDisabled" (click)="onNext()">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+</div>

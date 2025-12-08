@@ -7,18 +7,7 @@ import { ChildComponent } from '../child/child.component';
   selector: 'app-parent',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <div>
-    <ng-container 
-      [ngComponentOutlet]="childComponentType"
-      [ngComponentOutletInjector]="injector">
-    </ng-container>
-    </div>
-    <!-- <div>
-      <app-child (messageEmitter)="onChildMessage($event)"></app-child>
-    </div>
-    <p>Message from child: {{ receivedMessage }}</p> -->
-  `
+  templateUrl: './parent.component.html'
 })
 export class ParentComponent {
   childComponentType = ChildComponent;

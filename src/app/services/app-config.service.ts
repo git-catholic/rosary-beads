@@ -28,6 +28,10 @@ export class AppConfigService {
     this._isFullscreen = !this._isFullscreen;
   }
 
+  get hasMultiPrayerSupport(): boolean {
+    return false;
+  }
+
   get isFullscreen(): boolean {
     return this._isFullscreen;
   }

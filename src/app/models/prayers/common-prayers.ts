@@ -165,3 +165,10 @@ export class PrayerSignOfTheCross extends Sequence implements GroupPrayerTemplat
       Amen.`
 
 }
+
+/* ================================================================================ */
+
+export class PrayerEnd extends Sequence {
+  override id = 'PrayerEnd';
+  override name = 'the-end';  
+}

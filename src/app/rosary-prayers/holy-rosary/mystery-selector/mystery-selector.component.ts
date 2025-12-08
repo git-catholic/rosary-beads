@@ -5,7 +5,7 @@ import { LiturgicalYearService } from '../../../services/liturgical-year.service
 import { LocalizationService } from '../../../services/localization.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { PRAYER_HOME } from '../../../app-routing.module';
+import { APP_HOME, PRAYER_HOME } from '../../../app-routing.module';
 
 const SUN = 0;
 const MON = 1;
@@ -62,8 +62,12 @@ export class MysterySelectorComponent implements OnInit {
     this.router.navigate([PRAYER_HOME]);
   }
 
-onConfigView(): void {
+  onConfigView(): void {
     this.onConfigViewEvent.emit('mystery-selector');
+  }
+
+  get multiPrayerHome(): boolean {
+    return this.appConfig?.hasMultiPrayerSupport;
   }
 
   get isPortrait(): boolean {

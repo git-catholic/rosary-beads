@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PrayerSwipeComponent } from './prayer-swipe.component';
 
-describe('PrayerSwipeComponent', () => {
+describe('SwipeComponent', () => {
   let component: PrayerSwipeComponent;
   let fixture: ComponentFixture<PrayerSwipeComponent>;
 
