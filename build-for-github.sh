@@ -28,6 +28,7 @@ else
   cp -p src/redirect-index.html docs/index.html
 
   mv docs/browser/* docs/
+  rm -r docs/browser
   
   COMMIT_VERSION=`npm version | grep -i "${PRJ_NAME}" | awk -F"[:]" '{ print $1,$2 }' | sed -e "s/',//g"`
   CV_CLEAN=`echo ${COMMIT_VERSION}`
