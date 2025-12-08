@@ -93,8 +93,7 @@
                   "maximumWarning": "4kB",
                   "maximumError": "8kB"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "development": {
               "optimization": false,
@@ -118,12 +117,10 @@
               "port": 4201
             },
             "en": {
-              "buildTarget": "rosary-beads:build:en",
-              "port": 4201
+              "buildTarget": "rosary-beads:build:en"
             },
             "es": {
-              "buildTarget": "rosary-beads:build:es",
-              "port": 4201
+              "buildTarget": "rosary-beads:build:es"
             }
           }
         },
