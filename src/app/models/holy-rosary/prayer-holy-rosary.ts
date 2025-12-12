@@ -4,21 +4,25 @@ import { PrayerClosing1, PrayerClosing2, PrayerFatima, PrayerHailHolyQueen } fro
 import { PrayerSequence } from "../prayer-sequence";
 import { Sequence } from "../sequence";
 import { RosaryBeads } from "../../rosary-beads/rosary-beads";
-import { isMystery } from "../../utils/typeof-utils";
+import { LocalizationService } from "../../services/localization.service";
 
 export class PrayerHolyRosary extends PrayerSequence {
 
   readonly id = 'PrayerHolyRosary';
 
-  readonly name = $localize`:@@prayerHolyRosary:The Holy Rosary`;
-
   private mysteryPlaceholder = new MysteryPlaceholder();
 
-  constructor(private mysteries: Mysteries, private beads?: RosaryBeads) {
+  constructor(private localizationService: LocalizationService,
+              private mysteries: Mysteries,
+              private beads?: RosaryBeads) {
     super();
     console.log(`Beads passed in? ${beads}`);
     this.resetSequence(this.init());
     this.updateMysteryPlaceholders();
+  }
+
+  get name(): string {
+    return this.localizationService?.prayerHolyRosary;
   }
 
   protected init(): Sequence[] {

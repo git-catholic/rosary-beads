@@ -1,7 +1,7 @@
 import { Mysteries, Mystery } from '../../models/holy-rosary/mysteries';
 
 export class MysterySorrowful1 extends Mystery {
-  readonly name = $localize`:@@first-sorrowful:1st Sorrowful Mystery`;
+  readonly name = $localize`:@@first-sorrowful:First Sorrowful Mystery`;
   readonly id = 'MysterySorrowful1';
 
   get mystery(): string {
@@ -14,7 +14,7 @@ export class MysterySorrowful1 extends Mystery {
 }
 
 export class MysterySorrowful2 extends Mystery {
-  readonly name = $localize`:@@second-sorrowful:2nd Sorrowful Mystery`;
+  readonly name = $localize`:@@second-sorrowful:Second Sorrowful Mystery`;
   readonly id = 'MysterySorrowful2';
 
   get mystery(): string {
@@ -27,7 +27,7 @@ export class MysterySorrowful2 extends Mystery {
 }
 
 export class MysterySorrowful3 extends Mystery {
-  readonly name = $localize`:@@third-sorrowful:3rd Sorrowful Mystery`;
+  readonly name = $localize`:@@third-sorrowful:Third Sorrowful Mystery`;
   readonly id = 'MysterySorrowful3';
 
   get mystery(): string {
@@ -40,7 +40,7 @@ export class MysterySorrowful3 extends Mystery {
 }
 
 export class MysterySorrowful4 extends Mystery {
-  readonly name = $localize`:@@fourth-sorrowful:4th Sorrowful Mystery`;
+  readonly name = $localize`:@@fourth-sorrowful:Fourth Sorrowful Mystery`;
   readonly id = 'MysterySorrowful4';
 
   get mystery(): string {
@@ -53,7 +53,7 @@ export class MysterySorrowful4 extends Mystery {
 }
 
 export class MysterySorrowful5 extends Mystery {
-  readonly name = $localize`:@@fifth-sorrowful:5th Sorrowful Mystery`;
+  readonly name = $localize`:@@fifth-sorrowful:Fifth Sorrowful Mystery`;
   readonly id = 'MysterySorrowful5';
 
   get mystery(): string {

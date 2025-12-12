@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { RosaryBeadsContainerComponent } from '../../../rosary-beads/rosary-beads-container/rosary-beads-container.component';
 import { Sequence } from '../../../models/sequence';
 import { PrayerSwipeComponent } from '../../../components/prayer-swipe/prayer-swipe.component';
+import { LocalizationService } from '../../../services/localization.service';
 
 @Component({
   selector: 'app-holy-rosary-prayer',
@@ -56,7 +57,8 @@ export class HolyRosaryDisplayComponent implements AfterViewInit {
 
   constructor(private soundService: SoundService,
               private activatedRoute: ActivatedRoute,
-              private prayerFactory: PrayerFactoryService) {
+              private prayerFactory: PrayerFactoryService,
+              private localizationService: LocalizationService) {
     this.mystery = Number.parseInt(this.activatedRoute.snapshot.paramMap.get('mystery'));
     this.beadsByType = this.prayerFactory.newBeadsByType('any');
     this.activeMysteries = this.prayerFactory.newPrayerMystery(this.mystery);
@@ -90,7 +92,7 @@ export class HolyRosaryDisplayComponent implements AfterViewInit {
   }
 
   get prayerName(): string {
-    return this.currentPrayer?.name;
+    return this.localizationService?.prayerHolyRosary;
   }
 
   get isPrayerSequenceDone(): boolean {

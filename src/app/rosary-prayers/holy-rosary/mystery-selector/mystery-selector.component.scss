@@ -1,4 +1,6 @@
-@import '../../../../styles-shared-mixins.scss';
+// @use 'styles/variables' as vars;
+@use '../../../../styles/style-variables.scss' as vars;
+// @use '../../../../styles.scss';
 
 $widget-width: 3vw;
 $widget-width-phone: 9vw;
@@ -26,7 +28,7 @@ $widget-width-phone: 9vw;
   }
 
   .button-cell {
-    padding: $padding;
+    padding: vars.$padding;
     text-align: center;
     width: 24%;
   }
@@ -46,7 +48,7 @@ $widget-width-phone: 9vw;
   .button-row {
     display: flex;
     flex-direction: row;
-    padding: $margins-phone;
+    padding: vars.$margins-phone;
 
     button {
       width: 40%;
@@ -56,7 +58,7 @@ $widget-width-phone: 9vw;
       display: flex;
       align-items: center;
 
-      padding-left: $margins;
+      padding-left: vars.$margins;
       width: 60%;
       height: inherit;
     }

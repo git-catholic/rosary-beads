@@ -10,13 +10,15 @@ import { MysterySorrowful } from '../models/holy-rosary/mystery-sorrowful';
 import { AppConfigService } from './app-config.service';
 import { PrayerHolyRosary } from '../models/holy-rosary/prayer-holy-rosary';
 import { Sequence } from '../models/sequence';
+import { LocalizationService } from './localization.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PrayerFactoryService {
 
-  constructor(private appConfig: AppConfigService) { }
+  constructor(private appConfig: AppConfigService,
+              private localizationService: LocalizationService) { }
 
   newBeadsByType(name: string): Type<RosaryBeads> {
     return PatsBeadsComponent;
@@ -36,7 +38,7 @@ export class PrayerFactoryService {
   }
 
   newRosaryPrayer(mysteries: Mysteries, rosaryBeads: RosaryBeads): PrayerHolyRosary {
-    return new PrayerHolyRosary(mysteries, rosaryBeads);
+    return new PrayerHolyRosary(this.localizationService, mysteries, rosaryBeads);
   }
 
 }

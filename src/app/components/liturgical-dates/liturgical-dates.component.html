@@ -1,5 +1,5 @@
 <div *ngIf="showSelector" class="liturgical-div">
-  <label i18n>Liturgical period:</label>&nbsp;
+  <label i18n="lit-dates.period">Liturgical period:</label>&nbsp;
   <select (change)="onLiturgicalPeriodChanged($event)">
     <option *ngFor="let periodSelector of litYearColorSelector; let i = index" value="{{ i }}">
       {{ periodSelector.name }}

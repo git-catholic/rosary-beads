@@ -1,4 +1,5 @@
-@import '../../../styles-shared-mixins.scss';
+// @use 'styles/variables' as vars;
+@use '../../../styles/style-variables.scss' as vars;
 
 .leaderPrayerRight {
   float: right;
@@ -13,14 +14,14 @@
 }
 
 .prayer-all, .prayer-leader-label, .prayer-response-label {
-  margin-top: $margins;
+  margin-top: vars.$margins;
 }
 
 .prayer-all, .prayer-leader, .prayer-response, .prayer-leader-label, .prayer-response-label {
   display: block;
-  margin-left: $margins;
-  margin-right: $margins;
-  padding: $padding;
+  margin-left: vars.$margins;
+  margin-right: vars.$margins;
+  padding: vars.$padding;
   text-align: left;
   width: auto;
 }

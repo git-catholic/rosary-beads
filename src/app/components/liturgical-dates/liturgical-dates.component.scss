@@ -1,4 +1,5 @@
-@import '../../../styles-shared-mixins.scss';
+// @use 'styles/variables' as vars;
+@use '../../../styles/style-variables.scss' as vars;
 
 .liturgical-div {
   text-align: center;
@@ -8,7 +9,7 @@
 @media (orientation: landscape) {
 
   .liturgical-div select, .liturgical-div select option {
-    font-size: $font-size-dropdown;
+    font-size: vars.$font-size-dropdown;
   }
 
   .box {
@@ -31,7 +32,7 @@
 @media (orientation: portrait) {
 
   .liturgical-div select, .liturgical-div select option {
-    font-size: $font-size-dropdown-phone;
+    font-size: vars.$font-size-dropdown-phone;
   }
 
   .box {
@@ -50,5 +51,5 @@
 .label {
   font-weight: bold;
   margin: 0.5vh;
-  padding-top: $padding;
+  padding-top: vars.$padding;
 }
