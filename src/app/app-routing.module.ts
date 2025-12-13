@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HolyRosaryHomeComponent } from './rosary-prayers/holy-rosary/home/holy-rosary-home.component';
 import { HolyRosaryDisplayComponent } from './rosary-prayers/holy-rosary/prayer/holy-rosary-display.component';
+import { MainConfigComponent } from './components/config/main-config/main-config.component';
 
 export const HOLY_ROSARY_HOME = 'holy-rosary-home';
 export const HOLY_ROSARY_PRAYER = 'holy-rosary-prayer';
+export const PRAYER_CONFIG = 'prayer-config';
 export const PRAYER_HOME = 'prayer-home';
 
 export const APP_HOME = HOLY_ROSARY_HOME;
@@ -15,6 +17,7 @@ const routes: Routes = [
   // { path: 'testing/buzz', component: BuzzFeedbackComponent },
   { path: HOLY_ROSARY_PRAYER + '/:mystery', component: HolyRosaryDisplayComponent },
   { path: APP_HOME, component: HolyRosaryHomeComponent },
+  { path: PRAYER_CONFIG, component: MainConfigComponent },
   // { path: PRAYER_HOME, component: PrayerHomeComponent },
   { path: '', redirectTo: APP_HOME, pathMatch: 'full' }
 ];

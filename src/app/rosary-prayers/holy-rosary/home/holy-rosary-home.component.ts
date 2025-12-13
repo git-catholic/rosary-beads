@@ -8,7 +8,7 @@ import { RosaryMysteriesEnum } from '../rosary-helper';
 import { MysterySelectorComponent } from '../mystery-selector/mystery-selector.component';
 import { NoticesComponent } from '../../../components/notices/notices.component';
 import { Router } from '@angular/router';
-import { HOLY_ROSARY_PRAYER } from '../../../app-routing.module';
+import { HOLY_ROSARY_PRAYER, PRAYER_CONFIG } from '../../../app-routing.module';
 
 @Component({
   selector: 'app-holy-rosary-home',
@@ -37,8 +37,6 @@ export class HolyRosaryHomeComponent implements OnInit {
 
   elem: any;
 
-  private exitingConfig = false;
-
   constructor(public appConfig: AppConfigService,
               private liturgicalYear: LiturgicalYearService,
               private router: Router,
@@ -56,63 +54,15 @@ export class HolyRosaryHomeComponent implements OnInit {
   onMysterySelected(selectedMystery: RosaryMysteriesEnum): void {
     console.log(`selected mystery: ${selectedMystery}`);
     this.router.navigate([HOLY_ROSARY_PRAYER, selectedMystery as RosaryMysteriesEnum]);
-    // this.router.componentInputBindingEnabled
-    // this.selectedBeadGroupList = this.beadGroupLoader.loadHolyRosaryContemporaryMysteryEnum(selectedMystery);
   }
 
   get showMysterySelector(): boolean {
     return true;  // this.selectedBeadGroupList === undefined;
   }
 
-  // onResetEvent(flag: boolean): void {
-  //   this.selectedBeadGroupList = undefined;
-  //   this.liturgicalYear.overrideLiturgicalColor = undefined;
-  // }
-
-  /*
-  onEnableNavigation(flag: boolean): void {
-    console.log(`home: ${flag}`);
-    this.navigationEnabled = flag;
-  }
-
-  onNext(): void {
-    console.log(`next method: ${this.exitingConfig}`);
-    if (this.exitingConfig) {
-      this.exitingConfig = false;
-    }
-    else {
-      this.activePrayer.onNext();
-    }
-  }
-
-  onPrevious(): void {
-    if (this.exitingConfig) {
-      this.exitingConfig = false;
-    }
-    else {
-      this.activePrayer.onPrevious();
-    }
-  }
-
-  onSwipe(event: HammerInput) {
-    if (this.processSwipeEvent(event)) {
-      if (Hammer.DIRECTION_LEFT === event?.direction) {
-        this.onNext();
-      }
-      else if (Hammer.DIRECTION_RIGHT === event?.direction) {
-        this.onPrevious();
-      }
-    }
-  }
-  */
-
   onConfigView(source: string): void {
-    this.showConfigView = true;
-  }
-
-  onCloseConfigView(): void {
-    this.exitingConfig = true;
-    this.showConfigView = false;
+    console.log(`route to config?`);
+    this.router.navigate([PRAYER_CONFIG]);
   }
 
   openFullscreen() {

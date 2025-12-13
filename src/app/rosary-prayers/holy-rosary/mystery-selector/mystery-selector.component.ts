@@ -63,6 +63,7 @@ export class MysterySelectorComponent implements OnInit {
   }
 
   onConfigView(): void {
+    console.log(`mystery-selector - config view clicked`);
     this.onConfigViewEvent.emit('mystery-selector');
   }
 

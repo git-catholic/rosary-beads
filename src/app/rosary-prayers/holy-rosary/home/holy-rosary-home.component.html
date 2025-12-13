@@ -1,9 +1,5 @@
 <div id="home-content-border"> <!-- (panleft)="onSwipe($event)" (panright)="onSwipe($event)"> -->
-  <!-- TODO - restore
-  <ng-container *ngIf="showConfigView">
-    <app-main-config (onCloseConfigViewEvent)="onCloseConfigView($event)"></app-main-config>
-  </ng-container> -->
-  <ng-container *ngIf="!showConfigView">
+  <ng-container>
     <div *ngIf="showMysterySelector">
       <app-mystery-selector 
         (selectedMysteryEvent)="onMysterySelected($event)"
