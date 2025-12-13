@@ -61,22 +61,23 @@ export class SupportedLanguagesService {
   }
 
   checkForRedirect() {
-    const languageId = this.activeLanguageId;
-    const languageSupported = this.isSupportedLanguageId(languageId);
-    const currentCorrect = this.currentUrlCorrectLanguage(languageId);
+    // *** NO-OP ***
+    // const languageId = this.activeLanguageId;
+    // const languageSupported = this.isSupportedLanguageId(languageId);
+    // const currentCorrect = this.currentUrlCorrectLanguage(languageId);
 
-    console.log(`language: ${languageId}, languageSupported: ${languageSupported}, currentCorrect: ${currentCorrect}`);
+    // console.log(`language: ${languageId}, languageSupported: ${languageSupported}, currentCorrect: ${currentCorrect}`);
 
-    if (languageSupported && !currentCorrect) {
-      const redirectUrl = `/${this.appConfig.appName}/${languageId}`;
-      console.log(`Redirect for language triggered: ${redirectUrl} - enabled? ${environment.redirect !== false}`);
+    // if (languageSupported && !currentCorrect) {
+    //   const redirectUrl = `/${this.appConfig.appName}/${languageId}`;
+    //   console.log(`Redirect for language triggered: ${redirectUrl} - enabled? ${environment.redirect !== false}`);
 
-      if (environment.redirect === false) {
-        return;
-      }
+    //   if (environment.redirect === false) {
+    //     return;
+    //   }
 
-      window.location.href = redirectUrl;
-    }
+    //   window.location.href = redirectUrl;
+    // }
   }
 
   private currentUrlCorrectLanguage(languageId: string): boolean {

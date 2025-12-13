@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalizationService {
 
-  constructor() { }
+  constructor(private translate: TranslateService) { }
 
   get appTitle(): string {
     return $localize`:@@rosaryTitle:Rosary Beads`;
@@ -60,7 +61,10 @@ export class LocalizationService {
   }
 
   get gloriousMysteryLabel(): string {
-    return $localize`:@@glorious:Glorious`;
+    //return $localize`:@@glorious:Glorious`;
+    //return this.translate.get('glorious:Glorious');
+    console.log(`gloriousMysteryLabel - ${this.translate?.get('glorious').subscribe(value => console.log(`I got ${value}`))}`);
+    return this.translate.instant('glorious');
   }
 
   get joyfulMysteryLabel(): string {

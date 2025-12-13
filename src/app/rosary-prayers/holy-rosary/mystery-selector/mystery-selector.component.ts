@@ -6,6 +6,7 @@ import { LocalizationService } from '../../../services/localization.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { APP_HOME, PRAYER_HOME } from '../../../app-routing.module';
+import { TranslateModule, TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 const SUN = 0;
 const MON = 1;
@@ -22,7 +23,10 @@ const HIGHLIGHT_MYSTERY_OF_DAY = 'highlight-mystery-of-day';
 @Component({
   selector: 'app-mystery-selector',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    TranslateModule
+  ],
   templateUrl: './mystery-selector.component.html',
   styleUrls: ['./mystery-selector.component.scss']
 })
@@ -44,6 +48,7 @@ export class MysterySelectorComponent implements OnInit {
               private liturgicalYear: LiturgicalYearService,
               private localizationUtil: LocalizationService,
               private router: Router) {
+
     if (MYSTERY_LABEL_MAP.size === 0) {
       MYSTERY_LABEL_MAP[RosaryMysteriesEnum.GLORIOUS] = this.gloriousMystery;
       MYSTERY_LABEL_MAP[RosaryMysteriesEnum.JOYFUL] = this.joyfulMystery;

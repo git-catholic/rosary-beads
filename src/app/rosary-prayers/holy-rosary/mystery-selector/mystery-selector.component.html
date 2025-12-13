@@ -16,7 +16,7 @@
   <ng-container *ngIf="!isPortrait">
     <div class="button-row">
       <div class="button-cell">
-        <button (click)='selectGlorious()' [class]='isGlorious'><b>{{ gloriousMystery }}</b></button>
+        <button (click)='selectGlorious()' [class]='isGlorious'><b>{{ 'glorious' | translate }}</b></button>
         <span class="description">{{ gloriousMysteryNotes }}</span>
       </div>
       <div class="button-cell">

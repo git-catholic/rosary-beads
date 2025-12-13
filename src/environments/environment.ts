@@ -6,8 +6,8 @@
 export const environment = {
   production: false,
   debugMode: true,
-  redirect: true,
-  useDebugImage: false   // Temporary
+  redirect: false,
+  useDebugImage: false
 };
 
 /*

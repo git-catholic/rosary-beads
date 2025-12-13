@@ -8,13 +8,13 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss",
-          "standalone": false
+          "standalone": true
         },
         "@schematics/angular:directive": {
-          "standalone": false
+          "standalone": true
         },
         "@schematics/angular:pipe": {
-          "standalone": false
+          "standalone": true
         }
       },
       "root": "",
@@ -32,7 +32,7 @@
           "options": {
             "outputPath": "dist/rosary-beads",
             "index": "src/index.html",
-            "localize": true,
+            "localize": false,
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js",
@@ -113,8 +113,7 @@
               "buildTarget": "rosary-beads:build:production"
             },
             "local": {
-              "buildTarget": "rosary-beads:build:local",
-              "port": 4201
+              "buildTarget": "rosary-beads:build:local"
             },
             "en": {
               "buildTarget": "rosary-beads:build:en"
