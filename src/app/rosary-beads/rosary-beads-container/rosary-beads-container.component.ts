@@ -26,7 +26,6 @@ export class RosaryBeadsContainerComponent implements OnInit, AfterViewInit, Ros
   @Output()
   activeBeadsEvent = new EventEmitter<any>;
 
-
   @ViewChild('activeBeads', { static: true })
   activeBeadsRef!: TemplateRef<any>;
 

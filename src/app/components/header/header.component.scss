@@ -4,11 +4,18 @@
 
   background-color: darkgray;
   opacity: 90%;
-  display: flex;
+  display: flexbox;
   flex-direction: row;
   -webkit-flex-direction: row;
   padding: vars.$padding;
+  position: absolute;
+  left: 0;
+  right: 0;
 
+}
+
+.prayer-name {
+  font-weight: bold;
 }
 
 @media (orientation: landscape) {
@@ -19,19 +26,21 @@
 
 @media (orientation: portrait) {
   .active-prayer-header {
-    max-height: 4vh;
+    max-height: 6vh;
   }
 }
 
 .active-prayer-header .header-title {
   padding: vars.$padding;
-  text-align: center;
-  width: 45%;
+  text-align: left;
+  // width: 25%;
 }
 
 .active-prayer-header .header-buttons {
   padding: vars.$padding;
   text-align: center;
+  font-weight: bold;
+  // width: 75%;
 }
 
 @media (orientation: landscape) {
@@ -45,7 +54,7 @@
 @media (orientation: portrait) {
 
   .active-prayer-header .header-buttons {
-    margin-top: -1.9vh;
+    margin-top: -1.6vh;
   }
 
 }

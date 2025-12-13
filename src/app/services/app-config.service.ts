@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { AppDateService } from './app-date.service';
 import { LocalizationService } from './localization.service';
+import { environment } from '../../environments/environment';
 
 declare var require: any;
 
@@ -16,13 +17,17 @@ export class AppConfigService {
 
   readonly appName: string = pkgAppName;
   readonly appVersion: string = pkgAppVersion;
+  readonly useDebugImage: boolean;
 
   private _isPortrait!: boolean;
 
   private _isFullscreen!: boolean;
 
   constructor(public readonly appDate: AppDateService,
-              public readonly localization: LocalizationService) { }
+              public readonly localization: LocalizationService) {
+    
+    this.useDebugImage = environment.useDebugImage;
+  }
 
   toggleView(): void {
     this._isFullscreen = !this._isFullscreen;

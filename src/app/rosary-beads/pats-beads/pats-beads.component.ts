@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Inject, Output, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, EventEmitter, Inject, Input, Output, ViewChild } from "@angular/core";
 import { BeadPosition, BeadPositionTemplate } from "../bead-position";
 import { PrayerSequence } from "../../models/prayer-sequence";
 import { Sequence } from "../../models/sequence";
@@ -18,6 +18,8 @@ import { holyRosarySequenceForPatsBeads } from "./holy-rosary-pats-beads-seq";
 })
 export class PatsBeadsComponent extends PrayerSequence implements AfterViewInit, RosaryBeads {
 
+  readonly useDebugImage: boolean;
+  
   readonly id: string = 'PatsBeadsComponent';
 
   readonly name: string = `:@@patsBeads:Pat's Beads`;
@@ -43,6 +45,8 @@ export class PatsBeadsComponent extends PrayerSequence implements AfterViewInit,
   constructor(private appConfig: AppConfigService,
               @Inject('activeBeadsEvent') private activeBeadsEvent: (activeBeads: RosaryBeads) => void) { //, private beadPositionSequence: Sequence[]) {
     super(holyRosarySequenceForPatsBeads());
+    this.useDebugImage = appConfig?.useDebugImage;
+    
     //this.updateBeadPositionSequence(beadPositionSequence);
     this.initHolyRosarySequence();
     this.appConfig.screenOrientationChangeEvent.subscribe((portrait: boolean) => {
@@ -57,6 +61,17 @@ export class PatsBeadsComponent extends PrayerSequence implements AfterViewInit,
     console.log(`pats-beads: emit`);
     //this.activeBeadsEvent.emit(this);
     this.activeBeadsEvent(this);
+  }
+
+  getBeadSource(): string {
+    if (this.useDebugImage) {
+      return this.isPortrait
+        ? 'assets/x-2.90-deg.png'
+        : 'assets/x-2.png';
+    }
+    return this.isPortrait
+      ? 'assets/cropped-2.90-deg.png'
+      : 'assets/cropped-2.png';
   }
 
   getActiveBeadDetails(): Sequence {

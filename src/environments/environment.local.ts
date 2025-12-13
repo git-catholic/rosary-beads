@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   debugMode: true,
-  redirect: false
+  redirect: false,
+  useDebugImage: true   // Temporary
 };
 
 /*
