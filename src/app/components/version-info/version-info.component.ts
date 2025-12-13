@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppConfigService } from '../../services/app-config.service';
+import { LocalizationService } from '../../services/localization.service';
 
 @Component({
   selector: 'app-version-info',
@@ -9,10 +10,13 @@ import { AppConfigService } from '../../services/app-config.service';
 })
 export class VersionInfoComponent {
 
-    appVersion: string;
-  
-    constructor(appConfig: AppConfigService) {
-      this.appVersion = appConfig.appVersion;
-    }
+  title: string;
+  appVersion: string;
+
+  constructor(appConfig: AppConfigService,
+              localizationService: LocalizationService) {
+    this.title = localizationService.appTitle;
+    this.appVersion = appConfig.appVersion;
+  }
     
 }

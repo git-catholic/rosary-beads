@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { AppConfigService } from './services/app-config.service';
 import { LiturgicalYearService } from './services/liturgical-year.service';
+import { LocalizationService } from './services/localization.service';
 
 declare var require: any;
 
@@ -14,7 +15,7 @@ const pkgAppVersion = require('../../package.json').version;
 })
 export class AppComponent implements AfterViewInit {
 
-  title = $localize`:@@rosaryTitle:Rosary Beads`;
+  title: string;
 
   readonly appVersion: string = pkgAppVersion;
 
@@ -27,7 +28,9 @@ export class AppComponent implements AfterViewInit {
   private tap2!: HTMLAudioElement | undefined;
 
   constructor(private appConfig: AppConfigService,
-              private liturgicalYear: LiturgicalYearService) {
+              private liturgicalYear: LiturgicalYearService,
+              localizationService: LocalizationService) {
+    this.title = localizationService.appTitle;
     this.checkOrientation();
     console.log(`user-agent: ${window.navigator.userAgent}`);
   }

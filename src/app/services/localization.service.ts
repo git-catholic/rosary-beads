@@ -7,6 +7,18 @@ export class LocalizationService {
 
   constructor() { }
 
+  get appTitle(): string {
+    return $localize`:@@rosaryTitle:Rosary Beads`;
+  }
+
+  get liturgicalPeriod(): string {
+    return $localize`:@@lit-dates.period:Liturgical period`;
+  }
+
+  get importantDates(): string {
+    return $localize`:@@lit-dates.important-times:Important Times`;
+  }
+
   get prayerHolyRosary(): string {
     return $localize`:@@prayerHolyRosary:The Holy Rosary`;
   }

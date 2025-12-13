@@ -2,14 +2,6 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file datatype="plaintext" original="messages.es.xlf" source-language="en-US" target-language="es">
     <body>
-      <trans-unit datatype="html" id="rosaryTitle">
-        <source>Rosary Beads</source>
-        <target>Rosario</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.ts</context>
-          <context context-type="linenumber">14</context>
-        </context-group>
-      </trans-unit>
       <trans-unit datatype="html" id="end.thank-you">
         <source>Thank you for praying</source>
         <target>¡Gracias por rezar</target>
@@ -24,22 +16,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/end/end.component.html</context>
           <context context-type="linenumber">4,6</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="lit-dates.period">
-        <source>Liturgical period:</source>
-        <target>Tiempo litúrgico</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/liturgical-dates/liturgical-dates.component.html</context>
-          <context context-type="linenumber">2,3</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit datatype="html" id="lit-dates.important-times">
-        <source> Important Times </source>
-        <target>Tiempos importantes</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/notices/notices.component.html</context>
-          <context context-type="linenumber">3,5</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="prayer-leader">
@@ -937,6 +913,30 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/rosary-prayers/holy-rosary/mystery-selector/mystery-selector.component.ts</context>
           <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="rosaryTitle">
+        <source>Rosary Beads</source>
+        <target>Rosario</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="lit-dates.period">
+        <source>Liturgical period:</source>
+        <target>Tiempo litúrgico</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/liturgical-dates/liturgical-dates.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="lit-dates.important-times">
+        <source> Important Times </source>
+        <target>Tiempos importantes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/notices/notices.component.html</context>
+          <context context-type="linenumber">3,5</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="prayerHolyRosary">

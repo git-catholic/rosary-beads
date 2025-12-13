@@ -57,6 +57,10 @@ export class LiturgicalDatesComponent implements OnInit {
     ]
   }
 
+  liturgicalPeriodLabel(): string {
+    return this.localizationUtil?.liturgicalPeriod;
+  }
+
   get showSelector(): boolean {
     return this.hideSelector !== true;
   }
