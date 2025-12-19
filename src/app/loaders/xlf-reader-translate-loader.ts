@@ -37,21 +37,39 @@ export class XlfReaderTranslateLoader implements TranslateLoader {
         for (let idx = 0; idx < elements?.length; idx++) {
           const element = elements[idx];
           const key: string = element?.attributes?.getNamedItem('id')?.textContent || '';
-          if (key?.length > 0) {
-            const target = this.getTextContentForTagName(element, 'target');
-            const entry = JSON.parse(`{ "${key}": "${target}" }`);
-            Object.assign(responseMap, entry);
+          try {
+            if (key?.length > 0) {
+              const rawTarget = this.getTextContent(element);
+              const target = this.fixResponse(rawTarget);
+              const entry = JSON.parse(`{ "${key}": "${target}" }`);
+              Object.assign(responseMap, entry);
+            }
+          }
+          catch (error) {
+            console.error(`ERROR: idx: ${idx} - id: ${key}`);
           }
         }
+
         return responseMap;
       })
     )
   }
 
+  private fixResponse(source: string): string {
+    return source?.replaceAll('\n', '\\n');
+  }
+
+  private getTextContent(element: Element): string {
+    const targetValue = this.getTextContentForTagName(element, 'target');
+    return (targetValue)
+      ? targetValue
+      : this.getTextContentForTagName(element, 'source') || 'NOT PROVIDED';
+  }
+
   private getTextContentForTagName(element: Element, tagName: string): string {
     const childElements = element.getElementsByTagName(tagName);
     const value = (childElements[0] as HTMLElement)?.textContent;
-    return value || 'NOT PROVIDED';
+    return value;
   }
 
 }

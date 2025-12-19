@@ -8,7 +8,7 @@ import { RosaryMysteriesEnum } from '../rosary-helper';
 import { MysterySelectorComponent } from '../mystery-selector/mystery-selector.component';
 import { NoticesComponent } from '../../../components/notices/notices.component';
 import { Router } from '@angular/router';
-import { HOLY_ROSARY_PRAYER, PRAYER_CONFIG } from '../../../app-routing.module';
+import { HOLY_ROSARY_HOME, HOLY_ROSARY_PRAYER, PRAYER_CONFIG } from '../../../app-routing.module';
 
 @Component({
   selector: 'app-holy-rosary-home',
@@ -62,7 +62,7 @@ export class HolyRosaryHomeComponent implements OnInit {
 
   onConfigView(source: string): void {
     console.log(`route to config?`);
-    this.router.navigate([PRAYER_CONFIG]);
+    this.router.navigate([PRAYER_CONFIG, { source: HOLY_ROSARY_HOME }]);
   }
 
   openFullscreen() {

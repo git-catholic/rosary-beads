@@ -7,6 +7,11 @@ export const environment = {
   production: false,
   debugMode: true,
   redirect: false,
+  supportedLanguages: [
+    [ 'en', 'supported.english' ],
+    // [ 'he', 'supported.hebrew', true ],
+    [ 'es', 'supported.spanish' ]
+  ],
   useDebugImage: false
 };
 

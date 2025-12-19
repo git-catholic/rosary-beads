@@ -1,5 +1,9 @@
 <div class="language-selector">
-  <app-language-selector></app-language-selector>
+  <app-language-selector
+    class="dropdown-height"
+    [items]="languageSelectorList"
+    (languageSelectionChangeEvent)="onLanguageSelectionChange($event)">
+  </app-language-selector>
 </div>
 <div class="kv-row">
   <span class="kv-field-name">Version:</span>

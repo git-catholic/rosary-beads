@@ -62,21 +62,22 @@ export class LocalizationService {
 
   get gloriousMysteryLabel(): string {
     //return $localize`:@@glorious:Glorious`;
-    //return this.translate.get('glorious:Glorious');
-    console.log(`gloriousMysteryLabel - ${this.translate?.get('glorious').subscribe(value => console.log(`I got ${value}`))}`);
     return this.translate.instant('glorious');
   }
 
   get joyfulMysteryLabel(): string {
-    return $localize`:@@joyful:Joyful`;
+    // return $localize`:@@joyful:Joyful`;
+    return this.translate.instant('joyful');
   }
 
   get luminousMysteryLabel(): string {
-    return $localize`:@@luminous:Luminous`;
+    // return $localize`:@@luminous:Luminous`;
+    return this.translate.instant('luminous');
   }
 
   get sorrowfulMysteryLabel(): string {
-    return $localize`:@@sorrowful:Sorrowful`;
+    // return $localize`:@@sorrowful:Sorrowful`;
+    return this.translate.instant('sorrowful');
   }
 
 }

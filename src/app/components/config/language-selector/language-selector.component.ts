@@ -1,46 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-import { SupportedLanguagesService } from '../../../services/supported-languages.service';
 import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
+export interface LanguageItem {
+  displayValue: string;
+  value: string;
+}
 
 @Component({
   selector: 'app-language-selector',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    TranslateModule
+  ],
   templateUrl: './language-selector.component.html',
   styleUrls: ['./language-selector.component.scss']
 })
 export class LanguageSelectorComponent implements OnInit {
 
-  private _supportedLanguages: string[] = [];
+  @Input()
+  items?: LanguageItem[];
 
-  constructor(public languages: SupportedLanguagesService) { }
+  @Output()
+  languageSelectionChangeEvent = new EventEmitter<string>();
+
+  selectedValue: string;
+
+  constructor(public translate: TranslateService) { }
 
   ngOnInit(): void {
-    this.initSupportedLanguages();
-    console.log(`current id: ${this.languages.activeLanguageId}`);
+    //console.log(`current lang: ${this.translate.getCurrentLang()}`);
+    const activeCode = this.translate.getCurrentLang();
+    const displayArray = this.items.filter(entry => entry.value === activeCode)
+      .map(entry => entry.displayValue);
+    this.selectedValue = displayArray[0];
+  }
+  
+  onLanguageSelectionChange(event: Event): void {
+    const value = (event.target as HTMLSelectElement).value;
+    this.languageSelectionChangeEvent.emit(value);
   }
 
-  get supportedLanguages(): string[] {
-    return this._supportedLanguages;
-  }
-
-  isSelectedLanguage(entry: string): boolean {
-    return entry.startsWith(this.languages.activeLanguageId);
-  }
-
-  onLanguageSelectionChange(event: any) {
-    const code = event?.target?.value;
-    const parsed = code.split(':');
-    this.languages.activeLanguageId = parsed[0];
-    this.languages.checkForRedirect();
-  }
-
-  private initSupportedLanguages() {
-    let languageList = [];
-    for (const [key, value] of this.languages.supportedLanguages) {
-      console.log(`--- language: ${key}=${value.name}`);
-      languageList.push(`${key}: ${value.name}`);
-    }
-    this._supportedLanguages = languageList;
+  isSelectedLanguage(entry: LanguageItem): boolean {
+    return entry?.displayValue === this.selectedValue;
   }
 }

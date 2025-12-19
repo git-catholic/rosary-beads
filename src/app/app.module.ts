@@ -8,6 +8,7 @@ import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { XlfReaderTranslateLoader } from './loaders/xlf-reader-translate-loader';
 
 export function HttpLoaderFactory(http: HttpClient) {
+  console.log(`HttpLoaderFactory - XlfReaderTranslateLoader start`);
   return new XlfReaderTranslateLoader(http, './assets/i18n/messages', '.xlf');
 }
 
@@ -21,7 +22,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({
-      defaultLanguage: 'en',
+      fallbackLang: 'en',
       loader: {
         provide: TranslateLoader,
         useFactory: (HttpLoaderFactory),

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppConfigService } from '../../../services/app-config.service';
-import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
+import { LanguageItem, LanguageSelectorComponent } from '../language-selector/language-selector.component';
+import { TranslateService } from '@ngx-translate/core';
+import { SupportedLanguagesService } from '../../../services/supported-languages.service';
 
 @Component({
   selector: 'app-device-details',
@@ -11,7 +13,18 @@ import { LanguageSelectorComponent } from '../language-selector/language-selecto
 })
 export class DeviceDetailsComponent implements OnInit {
 
-  constructor(private appConfig: AppConfigService) { }
+  readonly languageSelectorList: LanguageItem[];
+
+  constructor(private appConfig: AppConfigService,
+              private supportedLanguagesService: SupportedLanguagesService,
+              private translateService: TranslateService) {
+
+    this.languageSelectorList = [];
+    this.supportedLanguagesService.getSupportedLanguagesMap().forEach((value, key) => {
+      console.log(`loading selector: ${key} = ${value?.id}`);
+      this.languageSelectorList.push({ value: key, displayValue: value?.id })
+    });
+  }
 
   ngOnInit(): void { }
 
@@ -37,6 +50,10 @@ export class DeviceDetailsComponent implements OnInit {
 
   get windowDevicePixelRatio(): any {
     return window.devicePixelRatio;
+  }
+
+  onLanguageSelectionChange(code: string) {
+    this.supportedLanguagesService.assignActiveLanguageIdFromCode(code);
   }
 
 }
