@@ -5,6 +5,7 @@ import { PrayerSequence } from "../prayer-sequence";
 import { Sequence } from "../sequence";
 import { RosaryBeads } from "../../rosary-beads/rosary-beads";
 import { LocalizationService } from "../../services/localization.service";
+import { TranslateService } from "@ngx-translate/core";
 
 export class PrayerHolyRosary extends PrayerSequence {
 

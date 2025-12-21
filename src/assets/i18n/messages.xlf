@@ -760,7 +760,7 @@
           <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5861687312699761898" datatype="html">
+      <trans-unit id="select-mystery" datatype="html">
         <source> Select the desired Mystery: </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/rosary-prayers/holy-rosary/mystery-selector/mystery-selector.component.html</context>
@@ -884,6 +884,20 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/localization.service.ts</context>
           <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="supported.english" datatype="html">
+        <source>English</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/supported-languages.service.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="supported.spanish" datatype="html">
+        <source>Spanish</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/supported-languages.service.ts</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
     </body>

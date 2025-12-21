@@ -66,19 +66,19 @@ export class LiturgicalDatesComponent implements OnInit {
   }
 
   labelFromId(labelId: string): string {
-    if (':@@adventLabel' === labelId) {
+    if ('adventLabel' === labelId) {
       return this.localizationUtil.adventLabel;
     }
-    else if (':@@christmasLabel' === labelId) {
+    else if ('christmasLabel' === labelId) {
       return this.localizationUtil.christmasLabel;
     }
-    else if (':@@lentLabel' === labelId) {
+    else if ('lentLabel' === labelId) {
       return this.localizationUtil.lentLabel;
     }
-    else if (':@@triduumLabel' === labelId) {
+    else if ('triduumLabel' === labelId) {
       return this.localizationUtil.triduumLabel;
     }
-    else if (':@@easterLabel' === labelId) {
+    else if ('easterLabel' === labelId) {
       return this.localizationUtil.easterLabel;
     }
     return labelId;

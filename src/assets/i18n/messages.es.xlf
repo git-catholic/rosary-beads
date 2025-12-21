@@ -52,7 +52,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="glorious-fruit-1">
         <source>A conversion of heart</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-glorious.ts</context>
           <context context-type="linenumber">16</context>
@@ -76,7 +76,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="glorious-fruit-2">
         <source>A desire for heaven</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-glorious.ts</context>
           <context context-type="linenumber">24</context>
@@ -100,7 +100,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="glorious-fruit-3">
         <source>The gifts of the Holy Spirit</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-glorious.ts</context>
           <context context-type="linenumber">32</context>
@@ -124,7 +124,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="glorious-fruit-4">
         <source>Devotion to Mary</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-glorious.ts</context>
           <context context-type="linenumber">40</context>
@@ -148,7 +148,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="glorious-fruit-5">
         <source>Eternal happiness</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-glorious.ts</context>
           <context context-type="linenumber">48</context>
@@ -180,7 +180,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="joyful-fruit-1">
         <source>Humility</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-joyful.ts</context>
           <context context-type="linenumber">16</context>
@@ -204,7 +204,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="joyful-fruit-2">
         <source>Charity</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-joyful.ts</context>
           <context context-type="linenumber">24</context>
@@ -228,7 +228,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="joyful-fruit-3">
         <source>Poverty; detachment from the world</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-joyful.ts</context>
           <context context-type="linenumber">32</context>
@@ -252,7 +252,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="joyful-fruit-4">
         <source>Obedience</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-joyful.ts</context>
           <context context-type="linenumber">40</context>
@@ -276,7 +276,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="joyful-fruit-5">
         <source>Piety</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-joyful.ts</context>
           <context context-type="linenumber">48</context>
@@ -308,7 +308,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="luminous-fruit-1">
         <source>Openness to the Holy Spirit</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-luminous.ts</context>
           <context context-type="linenumber">16</context>
@@ -332,7 +332,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="luminous-fruit-2">
         <source>To Jesus through Mary</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-luminous.ts</context>
           <context context-type="linenumber">24</context>
@@ -356,7 +356,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="luminous-fruit-3">
         <source>Conversion</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-luminous.ts</context>
           <context context-type="linenumber">32</context>
@@ -380,7 +380,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="luminous-fruit-4">
         <source>Desire for holiness</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-luminous.ts</context>
           <context context-type="linenumber">40</context>
@@ -404,7 +404,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="luminous-fruit-5">
         <source>Adoration</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-luminous.ts</context>
           <context context-type="linenumber">48</context>
@@ -436,7 +436,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="sorrowful-fruit-1">
         <source>Contrition for our sins</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-sorrowful.ts</context>
           <context context-type="linenumber">16</context>
@@ -460,7 +460,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="sorrowful-fruit-2">
         <source>Mortification of our senses</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-sorrowful.ts</context>
           <context context-type="linenumber">24</context>
@@ -484,7 +484,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="sorrowful-fruit-3">
         <source>Interior mortification</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-sorrowful.ts</context>
           <context context-type="linenumber">32</context>
@@ -508,7 +508,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="sorrowful-fruit-4">
         <source>Patience under crosses</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-sorrowful.ts</context>
           <context context-type="linenumber">40</context>
@@ -532,7 +532,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="sorrowful-fruit-5">
         <source>That we may die to ourselves</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/holy-rosary-prayer/mysteries/mystery-sorrowful.ts</context>
           <context context-type="linenumber">48</context>
@@ -564,7 +564,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="creedName">
         <source>Apostles' Creed</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/prayers/common-prayers.ts</context>
           <context context-type="linenumber">37</context>
@@ -609,7 +609,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="gloryName">
         <source>The Glory Be (The Doxology)</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/prayers/common-prayers.ts</context>
           <context context-type="linenumber">168</context>
@@ -639,7 +639,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="hailMaryName">
         <source>Hail Mary</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/prayers/common-prayers.ts</context>
           <context context-type="linenumber">244</context>
@@ -675,7 +675,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="ourFatherName">
         <source>Our Father</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/prayers/common-prayers.ts</context>
           <context context-type="linenumber">274</context>
@@ -736,7 +736,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="closingName1">
         <source>Closing Prayer 1</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/prayers/common-prayers.ts</context>
           <context context-type="linenumber">74</context>
@@ -760,7 +760,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="closingName2">
         <source>Closing Prayer 2</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/prayers/common-prayers.ts</context>
           <context context-type="linenumber">96</context>
@@ -807,7 +807,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="fatimaName">
         <source>The Fatima Prayer</source>
-        <target/>
+        <target>REPLACE_WITH_TRANSLATION</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/prayers/common-prayers.ts</context>
           <context context-type="linenumber">144</context>
@@ -875,7 +875,7 @@
           <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="5861687312699761898">
+      <trans-unit datatype="html" id="select-mystery">
         <source> Select the desired Mystery: </source>
         <target>Seleccione el misterio deseado:</target>
         <context-group purpose="location">
@@ -1017,6 +1017,22 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/localization.service.ts</context>
           <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="supported.english">
+        <source>English</source>
+        <target>Inglés</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/supported-languages.service.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="supported.spanish">
+        <source>Spanish</source>
+        <target>Español</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/supported-languages.service.ts</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
     </body>

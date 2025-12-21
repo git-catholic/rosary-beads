@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { environment } from '../../environments/environment';
 import { take } from 'rxjs';
+import { StringStorage } from './state-storage.service';
 
 @Injectable({
   providedIn: 'root'

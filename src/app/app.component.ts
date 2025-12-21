@@ -2,10 +2,15 @@ import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@
 import { AppConfigService } from './services/app-config.service';
 import { LiturgicalYearService } from './services/liturgical-year.service';
 import { LocalizationService } from './services/localization.service';
+import { SupportedLanguagesService } from './services/supported-languages.service';
+import { TranslateService } from '@ngx-translate/core';
+import { StringStorage } from './services/state-storage.service';
 
 declare var require: any;
 
 const pkgAppVersion = require('../../package.json').version;
+
+export const REPLACE_WITH_TRANSLATION = 'REPLACE_WITH_TRANSLATION';
 
 @Component({
   selector: 'app-root',
@@ -27,12 +32,19 @@ export class AppComponent implements AfterViewInit {
   private tapRef2!: ElementRef<HTMLAudioElement>;
   private tap2!: HTMLAudioElement | undefined;
 
+  private readonly language = new StringStorage('rosary.language');
+
   constructor(private appConfig: AppConfigService,
               private liturgicalYear: LiturgicalYearService,
-              localizationService: LocalizationService) {
+              localizationService: LocalizationService,
+              //private translate: TranslateService,
+              supportedLanguagesService: SupportedLanguagesService) {
+
     this.title = localizationService.appTitle;
     this.checkOrientation();
     console.log(`user-agent: ${window.navigator.userAgent}`);
+    console.log(`language: ${this.language?.data}`);
+    supportedLanguagesService.assignActiveLanguageIdFromCode(this.language?.data);
   }
 
   ngAfterViewInit(): void {

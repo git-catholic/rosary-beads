@@ -8,6 +8,13 @@
     <span *ngIf="isPortrait">
       <input #navEnabledChkbox type="checkbox" value=false (change)="onEnableNavigation()">
     </span>
+    <span class="language-selector">
+      <app-language-selector
+        class="dropdown-height"
+        [items]="languageSelectorList"
+        (languageSelectionChangeEvent)="onLanguageSelectionChange($event)">
+      </app-language-selector>
+    </span>
   </span>
   <span class="header-title">
     <span class="prayer-name">{{ prayerName }}</span>

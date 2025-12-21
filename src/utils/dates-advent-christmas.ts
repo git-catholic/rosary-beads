@@ -47,7 +47,7 @@ function calculateChristmasForYear(year: number, localization: LocalizationServi
     endDate: endOfChristmas,
     name: localization.christmasLabel,
     color: LiturgicalColors.WHITE,
-    labelId: ':@@christmasLabel'
+    labelId: 'christmasLabel'
   };
 }
 
@@ -72,6 +72,6 @@ function calculateAdventForYear(adventYear: number, localization: LocalizationSe
     endDate: new Date(adventYear, Months.DEC, 24),
     name: localization.adventLabel,
     color: LiturgicalColors.VIOLET,
-    labelId: ':@@adventLabel'
+    labelId: 'adventLabel'
   };
 }

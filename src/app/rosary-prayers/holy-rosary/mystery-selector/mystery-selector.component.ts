@@ -47,7 +47,8 @@ export class MysterySelectorComponent implements OnInit {
   constructor(private appConfig: AppConfigService,
               private liturgicalYear: LiturgicalYearService,
               private localizationUtil: LocalizationService,
-              private router: Router) {
+              private router: Router,
+              private translate: TranslateService) {
 
     if (MYSTERY_LABEL_MAP.size === 0) {
       MYSTERY_LABEL_MAP[RosaryMysteriesEnum.GLORIOUS] = this.gloriousMystery;
@@ -85,7 +86,7 @@ export class MysterySelectorComponent implements OnInit {
   }
 
   get gloriousMysteryNotes(): string {
-    return $localize`:@@glorious-notes:Sunday and Wednesday`;
+    return this.translate.instant('glorious-notes');
   }
 
   get joyfulMystery(): string {
@@ -93,7 +94,7 @@ export class MysterySelectorComponent implements OnInit {
   }
 
   get joyfulMysteryNotes(): string {
-    return $localize`:@@joyful-notes:Monday, Saturday and Sunday during Advent`;
+    return this.translate.instant('joyful-notes');
   }
 
   get luminousMystery(): string {
@@ -101,7 +102,7 @@ export class MysterySelectorComponent implements OnInit {
   }
 
   get luminousMysteryNotes(): string {
-    return $localize`:@@luminous-notes:Thursday`;
+    return this.translate.instant('luminous-notes');
   }
 
   get sorrowfulMystery(): string {
@@ -109,7 +110,7 @@ export class MysterySelectorComponent implements OnInit {
   }
 
   get sorrowfulMysteryNotes(): string {
-    return $localize`:@@sorrowful-notes:Tuesday, Friday and Sunday during Lent`;
+    return this.translate.instant('sorrowful-notes');
   }
 
   get isGlorious(): string {

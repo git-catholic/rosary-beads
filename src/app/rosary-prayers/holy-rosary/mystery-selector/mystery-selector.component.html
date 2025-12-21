@@ -1,7 +1,7 @@
 <div class="content-border">
   <div class="select-mystery-title-row">
-    <span class="section-title" i18n>
-      Select the desired Mystery:
+    <span class="section-title">
+      {{ 'select-mystery' | translate }}
     </span>
     <span *ngIf="multiPrayerHome">
       <button class="home-widget" (click)="onGoHome()">
@@ -16,7 +16,7 @@
   <ng-container *ngIf="!isPortrait">
     <div class="button-row">
       <div class="button-cell">
-        <button (click)='selectGlorious()' [class]='isGlorious'><b>{{ 'glorious' | translate }}</b></button>
+        <button (click)='selectGlorious()' [class]='isGlorious'><b>{{ gloriousMystery }}</b></button>
         <span class="description">{{ gloriousMysteryNotes }}</span>
       </div>
       <div class="button-cell">

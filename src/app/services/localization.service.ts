@@ -9,74 +9,70 @@ export class LocalizationService {
   constructor(private translate: TranslateService) { }
 
   get appTitle(): string {
-    return $localize`:@@rosaryTitle:Rosary Beads`;
+    return this.translate.instant('rosaryTitle');
   }
 
   get liturgicalPeriod(): string {
-    return $localize`:@@lit-dates.period:Liturgical period`;
+    return this.translate.instant('lit-dates.period');
   }
 
   get importantDates(): string {
-    return $localize`:@@lit-dates.important-times:Important Times`;
+    return this.translate.instant('lit-dates.important-times');
   }
 
   get prayerHolyRosary(): string {
-    return $localize`:@@prayerHolyRosary:The Holy Rosary`;
+    return this.translate.instant('prayerHolyRosary');
   }
 
   get adventLabel(): string {
-    return $localize`:@@adventLabel:Advent`;
+    return this.translate.instant('adventLabel');
   }
 
   get christmasLabel(): string {
-    return $localize`:@@christmasLabel:Christmas`;
+    return this.translate.instant('christmasLabel');
   }
 
   get lentLabel(): string {
-    return $localize`:@@lentLabel:Lent`;
+    return this.translate.instant('lentLabel');
   }
 
   get triduumLabel(): string {
-    return $localize`:@@triduumLabel:Holy Triduum`;
+    return this.translate.instant('triduumLabel');
   }
 
   get holyThursdayLabel(): string {
-    return $localize`:@@holyThursday:Holy Thursday`;
+    return this.translate.instant('holyThursday');
   }
 
   get goodFridayLabel(): string {
-    return $localize`:@@goodFridayLabel:Good Friday`;
+    return this.translate.instant('goodFridayLabel');
   }
 
   get holySaturdayLabel(): string {
-    return $localize`:@@holySaturdayLabel:Holy Saturday`;
+    return this.translate.instant('holySaturdayLabel');
   }
 
   get easterLabel(): string {
-    return $localize`:@@easterLabel:Easter`;
+    return this.translate.instant('easterLabel');
   }
 
   get easterSundayLabel(): string {
-    return $localize`:@@easterSundayLabel:Easter Sunday`;
+    return this.translate.instant('easterSundayLabel');
   }
 
   get gloriousMysteryLabel(): string {
-    //return $localize`:@@glorious:Glorious`;
     return this.translate.instant('glorious');
   }
 
   get joyfulMysteryLabel(): string {
-    // return $localize`:@@joyful:Joyful`;
     return this.translate.instant('joyful');
   }
 
   get luminousMysteryLabel(): string {
-    // return $localize`:@@luminous:Luminous`;
     return this.translate.instant('luminous');
   }
 
   get sorrowfulMysteryLabel(): string {
-    // return $localize`:@@sorrowful:Sorrowful`;
     return this.translate.instant('sorrowful');
   }
 

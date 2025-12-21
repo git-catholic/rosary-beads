@@ -1,14 +1,14 @@
 <div class="active-prayer-workspace">
   <div *ngIf="prayerLeader">
     <span class="prayer-leader-label">
-      <span class="leaderPrayerLeft" i18n="@@prayer-leader">Leader:</span>
+      <span class="leaderPrayerLeft">{{ 'prayer-leader' | translate }}</span>
       <span class="leaderPrayerRight">{{ currentPrayerCounter }}</span>
     </span>
     <span class="prayer-leader">{{ prayerLeader }}</span>
   </div>
 
   <div *ngIf="prayerResponse">
-    <span class="prayer-response-label" i18n="@@prayer-response">Response:</span>
+    <span class="prayer-response-label">{{ 'prayer-response' | translate }}</span>
     <span class="prayer-response">{{ prayerResponse }}</span>
   </div>
 

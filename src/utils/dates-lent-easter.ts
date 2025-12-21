@@ -59,21 +59,21 @@ export function calculateLentAndEaster(appDate: AppDateService, localization: Lo
       endDate: lentEnds,
       name: localization.lentLabel,
       color: LiturgicalColors.VIOLET,
-      labelId: ':@@lentLabel'
+      labelId: 'lentLabel'
     },
     triduum: {
       startDate: lentEnds,
       endDate: easterDay,
       name: localization.triduumLabel,
       color: LiturgicalColors.RED,
-      labelId: ':@@triduumLabel'
+      labelId: 'triduumLabel'
     },
     easter: {
       startDate: easterDay,
       endDate: endEaster,
       name: localization.easterLabel,
       color: LiturgicalColors.WHITE,
-      labelId: ':@@easterLabel'
+      labelId: 'easterLabel'
     }
   }
 }

@@ -3,18 +3,20 @@ import { Sequence } from '../../models/sequence';
 import { CommonModule } from '@angular/common';
 import { asLeaderResponse, asGroupPrayer } from '../../utils/typeof-utils';
 import { EndComponent } from '../end/end.component';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-prayer-display',
   standalone: true,
   imports: [
     CommonModule,
-    EndComponent
+    EndComponent,
+    TranslateModule
 ],
   templateUrl: './prayer-display.component.html',
   styleUrl: './prayer-display.component.scss'
 })
-export class PrayerDisplayComponent implements OnInit, OnChanges {
+export class PrayerDisplayComponent {
 
   @Input()
   prayerName: string;
@@ -28,39 +30,27 @@ export class PrayerDisplayComponent implements OnInit, OnChanges {
   @Input()
   isPrayerSequenceDone: boolean;
 
-  prayerLeader: string;
-  prayerResponse: string;
-  prayerAll: string;
+  constructor(private translate: TranslateService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
-    this.updatePrayer();
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    this.updatePrayer();
-  }
-
-  private updatePrayer(): void {
-    this.prayerLeader = undefined;
-    this.prayerResponse = undefined;
-    this.prayerAll = undefined;
-
-    if (this.activePrayerSequence === undefined) {
-      return;
-    }
-
+  get prayerLeader(): string {
     const leaderResponse = asLeaderResponse(this.activePrayerSequence);
-    const groupPrayer = asGroupPrayer(this.activePrayerSequence);
+    return (leaderResponse)
+      ? this.translate.instant(leaderResponse?.leader)
+      : '';
+  }
 
-    if (leaderResponse) {
-      this.prayerLeader = leaderResponse?.leader;
-      this.prayerResponse = leaderResponse?.response;
-    }
-    else if (groupPrayer) {
-      this.prayerAll = groupPrayer?.all;
-    }
+  get prayerResponse(): string {
+    const leaderResponse = asLeaderResponse(this.activePrayerSequence);
+    return (leaderResponse)
+      ? this.translate.instant(leaderResponse?.response)
+      : '';
+  }
+
+  get prayerAll(): string {
+    const groupPrayer = asGroupPrayer(this.activePrayerSequence);
+    return (groupPrayer)
+      ? this.translate.instant(groupPrayer?.all)
+      : '';
   }
 
 }

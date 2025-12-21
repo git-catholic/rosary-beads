@@ -1,68 +1,48 @@
 import { Mysteries, Mystery } from '../../models/holy-rosary/mysteries';
 
 export class MysteryGlorious1 extends Mystery {
-  readonly name = $localize`:@@first-glorious:First Glorious Mystery`;
+  readonly name = 'first-glorious';
   readonly id = 'MysteryGlorious1';
 
-  get mystery(): string {
-    return $localize`:@@glorious-mystery-1:The Resurrection`;
-  }
+  readonly mystery = 'glorious-mystery-1';
 
-  get fruit(): string {
-    return $localize`:@@glorious-fruit-1:A conversion of heart`;
-  }
+  readonly fruit = 'glorious-fruit-1';
 }
 
 export class MysteryGlorious2 extends Mystery {
-  readonly name = $localize`:@@second-glorious:Second Glorious Mystery`;
+  readonly name = 'second-glorious';
   readonly id = 'MysteryGlorious2';
 
-  get mystery(): string {
-    return $localize`:@@glorious-mystery-2:The Ascension`;
-  }
+  readonly mystery = 'glorious-mystery-2';
 
-  get fruit(): string {
-    return $localize`:@@glorious-fruit-2:A desire for heaven`;
-  }
+  readonly fruit = 'glorious-fruit-2';
 }
 
 export class MysteryGlorious3 extends Mystery {
-  readonly name = $localize`:@@third-glorious:Third Glorious Mystery`;
+  readonly name = 'third-glorious';
   readonly id = 'MysteryGlorious3';
 
-  get mystery(): string {
-    return $localize`:@@glorious-mystery-3:The Coming of the Holy Spirit`;
-  }
+  readonly mystery = 'glorious-mystery-3';
 
-  get fruit(): string {
-    return $localize`:@@glorious-fruit-3:The gifts of the Holy Spirit`;
-  }
+  readonly fruit = 'glorious-fruit-3';
 }
 
 export class MysteryGlorious4 extends Mystery {
-  readonly name = $localize`:@@fourth-glorious:Fourth Glorious Mystery`;
+  readonly name = 'fourth-glorious';
   readonly id = 'MysteryGlorious4';
 
-  get mystery(): string {
-    return $localize`:@@glorious-mystery-4:The Assumption of the Blessed Mother`;
-  }
+  readonly mystery = 'glorious-mystery-4';
 
-  get fruit(): string {
-    return $localize`:@@glorious-fruit-4:Devotion to Mary`;
-  }
+  readonly fruit = 'glorious-fruit-4';
 }
 
 export class MysteryGlorious5 extends Mystery {
-  readonly name = $localize`:@@fifth-glorious:Fifth Glorious Mystery`;
+  readonly name = 'fifth-glorious';
   readonly id = 'MysteryGlorious5';
 
-  get mystery(): string {
-    return $localize`:@@glorious-mystery-5:The Coronation of the Blessed Mother`;
-  }
+  readonly mystery = 'glorious-mystery-5';
 
-  get fruit(): string {
-    return $localize`:@@glorious-fruit-5:Eternal happiness`;
-  }
+  readonly fruit = 'glorious-fruit-5';
 }
 
 export class MysteryGlorious extends Mysteries {

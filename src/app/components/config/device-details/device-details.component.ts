@@ -21,7 +21,6 @@ export class DeviceDetailsComponent implements OnInit {
 
     this.languageSelectorList = [];
     this.supportedLanguagesService.getSupportedLanguagesMap().forEach((value, key) => {
-      console.log(`loading selector: ${key} = ${value?.id}`);
       this.languageSelectorList.push({ value: key, displayValue: value?.id })
     });
   }
