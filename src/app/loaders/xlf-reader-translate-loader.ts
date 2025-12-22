@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { TranslateLoader } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export class XlfReaderTranslateLoader implements TranslateLoader {
@@ -19,10 +19,15 @@ export class XlfReaderTranslateLoader implements TranslateLoader {
   }
 
   getTranslation(langId: string): Observable<any> {
-    const xlfSegment = `.${langId}`;
-    const loadLangFilename = `${this.usePrefix}${xlfSegment}${this.useSuffix}`;
-    console.log(`loadLangFile: ${loadLangFilename}`)
-    return this.getXlfData(`${loadLangFilename}`);
+    if (langId?.length > 0) {
+      const xlfSegment = `.${langId}`;
+      const loadLangFilename = `${this.usePrefix}${xlfSegment}${this.useSuffix}`;
+      console.log(`loadLangFile: ${loadLangFilename}`)
+      return this.getXlfData(`${loadLangFilename}`);
+    }
+    console.error(`Attempted to retrieve undefined language`);
+    const responseMap = {};
+    return of(responseMap)
   }
 
   getXlfData(filePath: string): Observable<any> {
