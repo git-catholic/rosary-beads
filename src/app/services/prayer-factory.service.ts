@@ -1,7 +1,6 @@
 import { Injectable, Type } from '@angular/core';
 import { PatsBeadsComponent } from '../rosary-beads/pats-beads/pats-beads.component';
 import { RosaryBeads } from '../rosary-beads/rosary-beads';
-import { RosaryMysteriesEnum } from '../rosary-prayers/holy-rosary/rosary-helper';
 import { MysteryGlorious } from '../models/holy-rosary/mystery-glorious';
 import { Mysteries } from '../models/holy-rosary/mysteries';
 import { MysteryJoyful } from '../models/holy-rosary/mystery-joyful';
@@ -9,8 +8,8 @@ import { MysteryLuminous } from '../models/holy-rosary/mystery-luminous';
 import { MysterySorrowful } from '../models/holy-rosary/mystery-sorrowful';
 import { AppConfigService } from './app-config.service';
 import { PrayerHolyRosary } from '../models/holy-rosary/prayer-holy-rosary';
-import { Sequence } from '../models/sequence';
 import { LocalizationService } from './localization.service';
+import { RosaryMysteriesEnum } from '../utils/rosary-mysteries-enum';
 
 @Injectable({
   providedIn: 'root'

@@ -1,11 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { RosaryMysteriesEnum } from '../rosary-helper';
+import { RosaryMysteriesEnum } from '../../../utils/rosary-mysteries-enum';
 import { AppConfigService } from '../../../services/app-config.service';
 import { LiturgicalYearService } from '../../../services/liturgical-year.service';
 import { LocalizationService } from '../../../services/localization.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { APP_HOME, PRAYER_HOME } from '../../../app-routing.module';
+import { PRAYER_HOME } from '../../../app-routing.module';
 import { TranslateModule, TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 const SUN = 0;

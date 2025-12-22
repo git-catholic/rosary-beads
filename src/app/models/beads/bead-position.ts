@@ -1,5 +1,5 @@
-export interface BeadPosition {
-  x: number;
-  y: number;
-  anchorId?: string;
-}
+// export interface BeadPosition {
+//   x: number;
+//   y: number;
+//   anchorId?: string;
+// }

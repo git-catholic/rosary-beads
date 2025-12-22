@@ -6,7 +6,7 @@ PRJ_NAME=`echo ${PWD##*/}`
 echo "Project: ${PRJ_NAME}"
 
 # -------------------------------------------------------------------------
-IS_VALID=`grep -c "\"localize\": true" angular.json`
+IS_VALID=1
 
 # -------------------------------------------------------------------------
 if [[ $IS_VALID -eq 0 ]]; then

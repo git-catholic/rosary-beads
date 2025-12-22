@@ -1,10 +1,8 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, Inject, Input, OnInit, ViewChild } from '@angular/core';
-// import { BeadGroupList } from '../../../models/beads/bead-group-list';
-// import { ActivePrayerComponent } from '../../../components/active-prayer/active-prayer.component';
 import { AppConfigService } from '../../../services/app-config.service';
 import { LiturgicalYearService } from '../../../services/liturgical-year.service';
-import { RosaryMysteriesEnum } from '../rosary-helper';
+import { RosaryMysteriesEnum } from '../../../utils/rosary-mysteries-enum';
 import { MysterySelectorComponent } from '../mystery-selector/mystery-selector.component';
 import { NoticesComponent } from '../../../components/notices/notices.component';
 import { Router } from '@angular/router';
