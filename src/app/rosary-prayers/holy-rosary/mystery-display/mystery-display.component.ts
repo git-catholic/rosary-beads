@@ -29,6 +29,9 @@ export class MysteryDisplayComponent implements OnInit {
               private translate: TranslateService) { }
 
   ngOnInit(): void {
+    console.log(`displayMystery: name/number=${this.mysteryNumber}, desc=${this.mysteryDesc}, fruit=${this.mysteryFruit}`);
+    console.log(`mysteryLiteralLabel (raw): ${this.mysteryLiteralLabel}`);
+    console.log(`mysteryFruitDisplay (raw): ${this.mysteryFruitDisplay}`);
   }
 
   get mysteryLiteralLabel(): string {

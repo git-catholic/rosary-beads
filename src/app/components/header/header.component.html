@@ -5,10 +5,11 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
       </button>
     </span>
-    <span *ngIf="isPortrait">
+    <!-- <span *ngIf="isPortrait">
       <input #navEnabledChkbox type="checkbox" value=false (change)="onEnableNavigation()">
-    </span>
-    <span class="language-selector">
+    </span> -->
+    <span class="seperator"></span>
+    <span class="header-language-selector">
       <app-language-selector
         class="dropdown-height"
         [items]="languageSelectorList"

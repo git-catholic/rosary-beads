@@ -14,12 +14,13 @@ $widget-width-phone: 9vw;
 @media (orientation: landscape) {
   .section-title {
     text-align: left;
-    width: calc(100% - #{$widget-width});
+    width: 50%; //calc(100% - #{$widget-width});
   }
 
   .home-widget, .config-widget {
     float: right;
     width: $widget-width;
+    height: $widget-width;
   }
 
   .button-row {
@@ -32,6 +33,11 @@ $widget-width-phone: 9vw;
     text-align: center;
     width: 24%;
   }
+
+  .mystery-language-selector {
+    padding-bottom: 3vh;
+    float: right;
+  }
 }
 
 @media (orientation: portrait) {
@@ -43,6 +49,7 @@ $widget-width-phone: 9vw;
   .home-widget, .config-widget {
     float: right;
     width: $widget-width-phone;
+    height: $widget-width-phone;
   }
 
   .button-row {
@@ -62,6 +69,11 @@ $widget-width-phone: 9vw;
       width: 60%;
       height: inherit;
     }
+  }
+
+  .mystery-language-selector {
+    margin-top: 1vh;
+    float: right;
   }
 }
 

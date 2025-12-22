@@ -35,10 +35,7 @@ export class HeaderComponent implements OnInit {
               private supportedLanguagesService: SupportedLanguagesService,
               private router: Router) {
 
-    this.languageSelectorList = [];
-    this.supportedLanguagesService.getSupportedLanguagesMap().forEach((value, key) => {
-      this.languageSelectorList.push({ value: key, displayValue: value?.id })
-    });
+    this.languageSelectorList = this.supportedLanguagesService.getLanguageSelectorList();
   }
 
   ngOnInit(): void { }

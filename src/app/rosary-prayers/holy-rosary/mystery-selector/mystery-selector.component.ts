@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { PRAYER_HOME } from '../../../app-routing.module';
 import { TranslateModule, TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { LanguageItem, LanguageSelectorComponent } from '../../../components/config/language-selector/language-selector.component';
+import { SupportedLanguagesService } from '../../../services/supported-languages.service';
 
 const SUN = 0;
 const MON = 1;
@@ -25,6 +27,7 @@ const HIGHLIGHT_MYSTERY_OF_DAY = 'highlight-mystery-of-day';
   standalone: true,
   imports: [
     CommonModule,
+    LanguageSelectorComponent,
     TranslateModule
   ],
   templateUrl: './mystery-selector.component.html',
@@ -42,11 +45,14 @@ export class MysterySelectorComponent implements OnInit {
 
   mysteryOfTheDay: RosaryMysteriesEnum;
 
+  readonly languageSelectorList: LanguageItem[];
+
   private dayOfWeek: number;
 
   constructor(private appConfig: AppConfigService,
               private liturgicalYear: LiturgicalYearService,
               private localizationUtil: LocalizationService,
+              private supportedLanguagesService: SupportedLanguagesService,
               private router: Router,
               private translate: TranslateService) {
 
@@ -60,6 +66,8 @@ export class MysterySelectorComponent implements OnInit {
     this.dayOfWeek = (new Date()).getDay();
     this.mysteryOfTheDay = this.getMysteryOfTheDay();
     this.mysteryOfTheDayLabel = MYSTERY_LABEL_MAP[this.mysteryOfTheDay];
+
+    this.languageSelectorList = this.supportedLanguagesService.getLanguageSelectorList();
   }
 
   ngOnInit(): void { }
@@ -71,6 +79,10 @@ export class MysterySelectorComponent implements OnInit {
   onConfigView(): void {
     console.log(`mystery-selector - config view clicked`);
     this.onConfigViewEvent.emit('mystery-selector');
+  }
+
+  onLanguageSelectionChange(code: string) {
+    this.supportedLanguagesService.assignActiveLanguageIdFromCode(code);
   }
 
   get multiPrayerHome(): boolean {

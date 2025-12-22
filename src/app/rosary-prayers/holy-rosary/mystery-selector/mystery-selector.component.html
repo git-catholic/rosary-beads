@@ -8,9 +8,17 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
       </button>
     </span>
-    <button class="config-widget" (click)="onConfigView()">
-      &nbsp;&nbsp;&nbsp;&nbsp;
-    </button>
+    <span class="mystery-language-selector">
+      <app-language-selector
+        class="dropdown-height"
+        [items]="languageSelectorList"
+        (languageSelectionChangeEvent)="onLanguageSelectionChange($event)">
+      </app-language-selector>
+      <br/>
+      <button class="config-widget" (click)="onConfigView()">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+      </button>
+    </span>
   </div>
 
   <ng-container *ngIf="!isPortrait">

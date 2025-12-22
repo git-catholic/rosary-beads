@@ -9,6 +9,9 @@ export const HOLY_ROSARY_PRAYER = 'holy-rosary-prayer';
 export const PRAYER_CONFIG = 'prayer-config';
 export const PRAYER_HOME = 'prayer-home';
 
+const LEGACY_EN = 'en';
+const LEGACY_ES = 'es';
+
 export const APP_HOME = HOLY_ROSARY_HOME;
 // export const APP_HOME = PRAYER_HOME;
 
@@ -19,6 +22,8 @@ const routes: Routes = [
   { path: APP_HOME, component: HolyRosaryHomeComponent },
   { path: PRAYER_CONFIG, component: MainConfigComponent },
   // { path: PRAYER_HOME, component: PrayerHomeComponent },
+  { path: LEGACY_EN, redirectTo: APP_HOME },
+  { path: LEGACY_ES, redirectTo: APP_HOME },
   { path: '', redirectTo: APP_HOME, pathMatch: 'full' }
 ];
 

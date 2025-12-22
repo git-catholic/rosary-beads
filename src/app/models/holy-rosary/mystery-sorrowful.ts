@@ -1,67 +1,67 @@
 import { Mysteries, Mystery } from '../../models/holy-rosary/mysteries';
 
 export class MysterySorrowful1 extends Mystery {
-  readonly name = $localize`:@@first-sorrowful:First Sorrowful Mystery`;
+  readonly name = `first-sorrowful`;
   readonly id = 'MysterySorrowful1';
 
   get mystery(): string {
-    return $localize`:@@sorrowful-mystery-1:The Agony in the Garden`;
+    return `sorrowful-mystery-1`;
   }
 
   get fruit(): string {
-    return $localize`:@@sorrowful-fruit-1:Contrition for our sins`;
+    return `sorrowful-fruit-1`;
   }
 }
 
 export class MysterySorrowful2 extends Mystery {
-  readonly name = $localize`:@@second-sorrowful:Second Sorrowful Mystery`;
+  readonly name = `second-sorrowful`;
   readonly id = 'MysterySorrowful2';
 
   get mystery(): string {
-    return $localize`:@@sorrowful-mystery-2:The Scourging at the Pillar`;
+    return `sorrowful-mystery-2`;
   }
 
   get fruit(): string {
-    return $localize`:@@sorrowful-fruit-2:Mortification of our senses`;
+    return `sorrowful-fruit-2`;
   }
 }
 
 export class MysterySorrowful3 extends Mystery {
-  readonly name = $localize`:@@third-sorrowful:Third Sorrowful Mystery`;
+  readonly name = `third-sorrowful`;
   readonly id = 'MysterySorrowful3';
 
   get mystery(): string {
-    return $localize`:@@sorrowful-mystery-3:The Crowning of Thorns`;
+    return `sorrowful-mystery-3`;
   }
 
   get fruit(): string {
-    return $localize`:@@sorrowful-fruit-3:Interior mortification`;
+    return `sorrowful-fruit-3`;
   }
 }
 
 export class MysterySorrowful4 extends Mystery {
-  readonly name = $localize`:@@fourth-sorrowful:Fourth Sorrowful Mystery`;
+  readonly name = `fourth-sorrowful`;
   readonly id = 'MysterySorrowful4';
 
   get mystery(): string {
-    return $localize`:@@sorrowful-mystery-4:The Carrying of the Cross`;
+    return `sorrowful-mystery-4`;
   }
 
   get fruit(): string {
-    return $localize`:@@sorrowful-fruit-4:Patience under crosses`;
+    return `sorrowful-fruit-4`;
   }
 }
 
 export class MysterySorrowful5 extends Mystery {
-  readonly name = $localize`:@@fifth-sorrowful:Fifth Sorrowful Mystery`;
+  readonly name = `fifth-sorrowful`;
   readonly id = 'MysterySorrowful5';
 
   get mystery(): string {
-    return $localize`:@@sorrowful-mystery-5:The Crucifixion and Death of our Lord`;
+    return `sorrowful-mystery-5`;
   }
 
   get fruit(): string {
-    return $localize`:@@sorrowful-fruit-5:That we may die to ourselves`;
+    return `sorrowful-fruit-5`;
   }
 }
 
@@ -78,7 +78,7 @@ export class MysterySorrowful extends Mysteries {
   }
 
   get mysterySequenceName(): string {
-    return $localize`:@@sorrowful:Sorrowful`;
+    return `sorrowful`;
   }
 
 }

@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../../environments/environment';
 import { take } from 'rxjs';
 import { StringStorage } from './state-storage.service';
+import { LanguageItem } from '../components/config/language-selector/language-selector.component';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +55,14 @@ export class SupportedLanguagesService {
 
   get langDir(): string {
     return this.langRtl ? 'rtl' : 'ltr';
+  }
+
+  getLanguageSelectorList(): LanguageItem[] {
+    const languageSelectorList: LanguageItem[] = [];
+    this.getSupportedLanguagesMap().forEach((value, key) => {
+      languageSelectorList.push({ value: key, displayValue: value?.id })
+    });
+    return languageSelectorList;
   }
 
   getSupportedLanguagesMap(): Map<string, SupportedLanguage> {

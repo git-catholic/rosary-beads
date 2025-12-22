@@ -2,67 +2,67 @@ import { Mysteries, Mystery } from '../../models/holy-rosary/mysteries';
 import { LocalizationService } from '../../services/localization.service';
 
 export class MysteryLuminous1 extends Mystery {
-  readonly name = $localize`:@@first-luminous:First Luminous Mystery`;
+  readonly name = `first-luminous`;
   readonly id = 'MysteryLuminous1';
 
   get mystery(): string {
-    return $localize`:@@luminous-mystery-1:The Baptism in the Jordan`;
+    return `luminous-mystery-1`;
   }
 
   get fruit(): string {
-    return $localize`:@@luminous-fruit-1:Openness to the Holy Spirit`;
+    return `luminous-fruit-1`;
   }
 }
 
 export class MysteryLuminous2 extends Mystery {
-  readonly name = $localize`:@@second-luminous:Second Luminous Mystery`;
+  readonly name = `second-luminous`;
   readonly id = 'MysteryLuminous2';
 
   get mystery(): string {
-    return $localize`:@@luminous-mystery-2:The Wedding Feast at Cana`;
+    return `luminous-mystery-2`;
   }
 
   get fruit(): string {
-    return $localize`:@@luminous-fruit-2:To Jesus through Mary`;
+    return `luminous-fruit-2`;
   }
 }
 
 export class MysteryLuminous3 extends Mystery {
-  readonly name = $localize`:@@third-luminous:Third Luminous Mystery`;
+  readonly name = `third-luminous`;
   readonly id = 'MysteryLuminous3';
 
   get mystery(): string {
-    return $localize`:@@luminous-mystery-3:The Proclamation of the Kingdom of God`;
+    return `luminous-mystery-3`;
   }
 
   get fruit(): string {
-    return $localize`:@@luminous-fruit-3:Conversion`;
+    return `luminous-fruit-3`;
   }
 }
 
 export class MysteryLuminous4 extends Mystery {
-  readonly name = $localize`:@@fourth-luminous:Fourth Luminous Mystery`;
+  readonly name = `fourth-luminous`;
   readonly id = 'MysteryLuminous4';
 
   get mystery(): string {
-    return $localize`:@@luminous-mystery-4:The Transfiguration`;
+    return `luminous-mystery-4`;
   }
 
   get fruit(): string {
-    return $localize`:@@luminous-fruit-4:Desire for holiness`;
+    return `luminous-fruit-4`;
   }
 }
 
 export class MysteryLuminous5 extends Mystery {
-  readonly name = $localize`:@@fifth-luminous:Fifth Luminous Mystery`;
+  readonly name = `fifth-luminous`;
   readonly id = 'MysteryLuminous5';
 
   get mystery(): string {
-    return $localize`:@@luminous-mystery-5:The Instituation of the Eucharist`;
+    return `luminous-mystery-5`;
   }
 
   get fruit(): string {
-    return $localize`:@@luminous-fruit-5:Adoration`;
+    return `luminous-fruit-5`;
   }
 }
 
@@ -79,7 +79,7 @@ export class MysteryLuminous extends Mysteries {
   }
 
   get mysterySequenceName(): string {
-    return $localize`:@@luminous:Luminous`;;
+    return `luminous`;
   }
 
 }

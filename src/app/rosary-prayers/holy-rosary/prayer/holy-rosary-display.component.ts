@@ -60,8 +60,10 @@ export class HolyRosaryDisplayComponent implements AfterViewInit {
               private prayerFactory: PrayerFactoryService,
               private localizationService: LocalizationService) {
     this.mystery = Number.parseInt(this.activatedRoute.snapshot.paramMap.get('mystery'));
+    console.log(`+++ HolyRosaryDisplayComponent - mystery: ${this.mystery}`);
     this.beadsByType = this.prayerFactory.newBeadsByType('any');
     this.activeMysteries = this.prayerFactory.newPrayerMystery(this.mystery);
+    console.log(`+++ activeMysteries: ${JSON.stringify(this.activeMysteries)}`);
     this.currentPrayer = this.prayerFactory.newRosaryPrayer(this.activeMysteries, this.rosaryBeadsContainer);
   }
 
@@ -135,6 +137,7 @@ export class HolyRosaryDisplayComponent implements AfterViewInit {
   private updateMystery(): void {
     const rootId = Number.parseInt(this.rosaryBeads?.getActiveBeadDetails()?.id?.charAt(0));
     const activeMystery = this.activeMysteries.mystery(rootId);
+    console.log(`updateMystery: name/number=${activeMystery?.name}, desc=${activeMystery?.mystery}, fruit=${activeMystery?.fruit}`);
     this.mysteryNumber = activeMystery?.name;
     this.mysteryDesc = activeMystery?.mystery;
     this.mysteryFruit = activeMystery?.fruit;
