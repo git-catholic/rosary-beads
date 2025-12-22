@@ -3,10 +3,14 @@ import { LiturgicalPeriod, automaticSelection, ordinaryTime } from '../../models
 import { LiturgicalYearService } from '../../services/liturgical-year.service';
 import { LocalizationService } from '../../services/localization.service';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-liturgical-dates',
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    TranslateModule
+  ],
   templateUrl: './liturgical-dates.component.html',
   styleUrls: ['./liturgical-dates.component.scss'],
   standalone: true

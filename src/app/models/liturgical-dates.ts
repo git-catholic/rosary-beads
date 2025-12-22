@@ -57,13 +57,13 @@ export enum PeriodStatus {
 }
 
 export const automaticSelection: LiturgicalPeriod = {
-  name: $localize`:@@:Automatic`,
+  name: 'test-automatic',
   color: undefined,
   labelId: 'selectPeriodAutomatic'
 }
 
 export const ordinaryTime: LiturgicalPeriod = {
-  name: $localize`:@@:Ordinary Time`,
+  name: 'test-ordinarytime',
   color: LiturgicalColors.GREEN,
   labelId: 'selectOrdinaryTime'
 }

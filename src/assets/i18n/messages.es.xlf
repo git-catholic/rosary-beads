@@ -546,7 +546,7 @@
           <context context-type="linenumber">67</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="810888510148304696">
+      <trans-unit datatype="html" id="selectPeriodAutomatic">
         <source>Automatic</source>
         <target>Automática</target>
         <context-group purpose="location">
@@ -554,7 +554,7 @@
           <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
-      <trans-unit datatype="html" id="3681524507192124314">
+      <trans-unit datatype="html" id="selectOrdinaryTime">
         <source>Ordinary Time</source>
         <target>Tiempo ordinario</target>
         <context-group purpose="location">

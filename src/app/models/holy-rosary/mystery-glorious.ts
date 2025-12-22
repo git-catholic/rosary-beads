@@ -58,7 +58,7 @@ export class MysteryGlorious extends Mysteries {
   }
 
   get mysterySequenceName(): string {
-    return $localize`:@@glorious:Glorious`;
+    return 'glorious';
   }
 
 }
