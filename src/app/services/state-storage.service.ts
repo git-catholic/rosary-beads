@@ -7,6 +7,8 @@ export class StateStorageService {
 
   constructor() { }
 
+  readonly selectedLanguage = new StringStorage('rosary.language');
+  
 }
 
 export class StringStorage {

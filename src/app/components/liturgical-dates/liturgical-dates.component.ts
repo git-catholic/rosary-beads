@@ -20,6 +20,9 @@ export class LiturgicalDatesComponent implements OnInit {
   @Input()
   hideSelector: boolean;
 
+  @Input()
+  displayVerticalVersion: boolean;
+
   periods: LiturgicalPeriod[];
   periodsLeft: LiturgicalPeriod[];
   periodsRight: LiturgicalPeriod[];

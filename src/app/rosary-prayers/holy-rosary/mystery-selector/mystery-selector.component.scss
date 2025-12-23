@@ -11,6 +11,10 @@ $widget-width-phone: 9vw;
   width: 100%;
 }
 
+app-language-selector, app-version-info {
+  float: left;
+}
+
 @media (orientation: landscape) {
   .section-title {
     text-align: left;

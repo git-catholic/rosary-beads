@@ -1,0 +1,10 @@
+.version-vertical {
+  position: absolute;
+  top: 50%; /* Moves top edge to vertical center of parent */
+  left: 50%; /* Moves left edge to horizontal center of parent */
+  transform: translate(0, -50%) rotate(-90deg);
+  text-align: left;
+  // transform: rotate(-90deg);
+  // float: right;
+  width: 90%;
+}

@@ -2,7 +2,19 @@
   <div class="section-title">
     {{ importantDatesLabel() }}
   </div>
-  <app-liturgical-dates></app-liturgical-dates>
+  <span>
+    <app-liturgical-dates [displayVerticalVersion]="displayVerticalVersion"></app-liturgical-dates>
+    <app-version-info #versionInfo
+                      appVisibilityCheck
+                      [appTitle]="appTitle()"
+                      [appVersion]="appVersion"
+                      [hideBorder]="true"
+                      (completelyVisibleEvent)="onVersionVisibleChanged($event)">
+    </app-version-info>
+  </span>
+  <span>
+    <!-- <div *ngIf="displayVerticalVersion">
+      <app-version-info [appTitle]="appTitle()" [appVersion]="appVersion" [hideBorder]="true" class="version-vertical"></app-version-info>
+    </div> -->
+  </span>
 </div>
-
-<app-version-info></app-version-info>

@@ -9,6 +9,7 @@ export class LocalizationService {
   constructor(private translate: TranslateService) { }
 
   get appTitle(): string {
+    console.log(`++ appTitle: ${this.translate.instant('rosaryTitle')}`);
     return this.translate.instant('rosaryTitle');
   }
 
@@ -17,6 +18,7 @@ export class LocalizationService {
   }
 
   get importantDates(): string {
+    console.log(`importantDates: ${this.translate.instant('lit-dates.important-times')}`);
     return this.translate.instant('lit-dates.important-times');
   }
 
@@ -25,6 +27,7 @@ export class LocalizationService {
   }
 
   get adventLabel(): string {
+    console.log(`++ adventLabel: ${this.translate.instant('adventLabel')}`);
     return this.translate.instant('adventLabel');
   }
 

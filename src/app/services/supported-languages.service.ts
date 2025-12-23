@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { environment } from '../../environments/environment';
 import { take } from 'rxjs';
-import { StringStorage } from './state-storage.service';
+import { StateStorageService, StringStorage } from './state-storage.service';
 import { LanguageItem } from '../components/config/language-selector/language-selector.component';
 
 @Injectable({
@@ -25,7 +25,8 @@ export class SupportedLanguagesService {
   // private supportedLang_hebrew?: string;
   private supportedLang_spanish?: string;
 
-  constructor(private translate: TranslateService) {
+  constructor(private stateStorageService: StateStorageService,
+              private translate: TranslateService) {
 
     this.supportedLanguagesMap = new Map<string, SupportedLanguage>();
 
@@ -51,6 +52,7 @@ export class SupportedLanguagesService {
     this.translate.addLangs(this.supportedLanguageCodes);
 
     this.updateSupportedLanguages();
+    this.assignActiveLanguageIdFromCode(this.stateStorageService?.selectedLanguage?.data);
   }
 
   get langDir(): string {
@@ -106,6 +108,9 @@ export class SupportedLanguagesService {
     this.translate.use(code);
     console.log(`after use ${code}`);
     this.updateSupportedLanguages();
+    if (this.stateStorageService?.selectedLanguage) {
+      this.stateStorageService.selectedLanguage.data = code;
+    }
   }
 
   private updateSupportedLanguages() {

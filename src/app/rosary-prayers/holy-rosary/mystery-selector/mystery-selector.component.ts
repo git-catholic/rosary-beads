@@ -6,7 +6,7 @@ import { LocalizationService } from '../../../services/localization.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { PRAYER_HOME } from '../../../app-routing.module';
-import { TranslateModule, TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LanguageItem, LanguageSelectorComponent } from '../../../components/config/language-selector/language-selector.component';
 import { SupportedLanguagesService } from '../../../services/supported-languages.service';
 
@@ -83,6 +83,14 @@ export class MysterySelectorComponent implements OnInit {
 
   onLanguageSelectionChange(code: string) {
     this.supportedLanguagesService.assignActiveLanguageIdFromCode(code);
+  }
+
+  get appTitle(): string {
+    return this.localizationUtil.appTitle;
+  }
+
+  get appVersion(): string {
+    return this.appConfig?.appVersion;
   }
 
   get multiPrayerHome(): boolean {
