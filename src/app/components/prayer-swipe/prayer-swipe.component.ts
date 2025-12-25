@@ -4,6 +4,7 @@ import { SwiperContainer } from 'swiper/element';
 import { Swiper, SwiperOptions } from 'swiper/types';
 import { PrayerDisplayComponent } from '../prayer-display/prayer-display.component';
 import { Sequence } from '../../models/sequence';
+import { AppConfigService } from '../../services/app-config.service';
 
 @Component({
   selector: 'app-prayer-swipe',
@@ -42,7 +43,7 @@ export class PrayerSwipeComponent implements OnInit, AfterViewInit {
     navigation: true,
   };
 
-  constructor() { }
+  constructor(private appConfig: AppConfigService) { }
 
   ngOnInit(): void {
     this.swiperContainer = document.querySelector('swiper-container');
@@ -87,6 +88,10 @@ export class PrayerSwipeComponent implements OnInit, AfterViewInit {
 
   set swiperIndex(newIndex: number) {
     this.swiper?.slideTo(newIndex);
+  }
+
+  get isNavigationEnabled(): boolean {
+    return this.appConfig?.isNavigationEnabled;
   }
 
   checkSequenceDone(sequenceIndex: number): boolean {

@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { environment } from '../../environments/environment';
 import { take } from 'rxjs';
-import { StateStorageService, StringStorage } from './state-storage.service';
+import { StateStorageService } from './state-storage.service';
 import { LanguageItem } from '../components/config/language-selector/language-selector.component';
 
 @Injectable({

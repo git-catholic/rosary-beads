@@ -3,8 +3,7 @@ import { AppConfigService } from './services/app-config.service';
 import { LiturgicalYearService } from './services/liturgical-year.service';
 import { LocalizationService } from './services/localization.service';
 import { SupportedLanguagesService } from './services/supported-languages.service';
-import { TranslateService } from '@ngx-translate/core';
-import { StringStorage } from './services/state-storage.service';
+import { StateStorageService } from './services/state-storage.service';
 
 declare var require: any;
 
@@ -32,19 +31,20 @@ export class AppComponent implements AfterViewInit {
   private tapRef2!: ElementRef<HTMLAudioElement>;
   private tap2!: HTMLAudioElement | undefined;
 
-  private readonly language = new StringStorage('rosary.language');
-
   constructor(private appConfig: AppConfigService,
               private liturgicalYear: LiturgicalYearService,
               localizationService: LocalizationService,
               //private translate: TranslateService,
-              supportedLanguagesService: SupportedLanguagesService) {
+              supportedLanguagesService: SupportedLanguagesService,
+              stateStorageService: StateStorageService) {
 
     this.title = localizationService.appTitle;
     this.checkOrientation();
+
+    const language = stateStorageService.selectedLanguage;
     console.log(`user-agent: ${window.navigator.userAgent}`);
-    console.log(`language: ${this.language?.data}`);
-    supportedLanguagesService.assignActiveLanguageIdFromCode(this.language?.data);
+    console.log(`language: ${language?.data}`);
+    supportedLanguagesService.assignActiveLanguageIdFromCode(language?.data);
   }
 
   ngAfterViewInit(): void {
@@ -101,4 +101,5 @@ export class AppComponent implements AfterViewInit {
     }
     return undefined;
   }
+
 }

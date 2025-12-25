@@ -1,7 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { AppDateService } from './app-date.service';
-import { LocalizationService } from './localization.service';
 import { environment } from '../../environments/environment';
+import { StateStorageService } from './state-storage.service';
 
 declare var require: any;
 
@@ -23,9 +22,7 @@ export class AppConfigService {
 
   private _isFullscreen!: boolean;
 
-  constructor(public readonly appDate: AppDateService,
-              public readonly localization: LocalizationService) {
-    
+  constructor(private stateStorageService: StateStorageService) {
     this.useDebugImage = environment.useDebugImage;
   }
 
@@ -53,4 +50,9 @@ export class AppConfigService {
   get defaultLanguageId(): string {
     return 'en';
   }
+
+  get isNavigationEnabled(): boolean {
+    return this.stateStorageService?.navigationOnFlag?.data;
+  }
+
 }

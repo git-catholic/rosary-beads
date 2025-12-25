@@ -51,8 +51,21 @@ export class DeviceDetailsComponent implements OnInit {
     return window.devicePixelRatio;
   }
 
+  get navigationChecked(): boolean {
+    return this.appConfig?.isNavigationEnabled;
+  }
+
+  get enableNavigation(): string {
+    return this.translateService.instant('navigationChecked');
+  }
+
   onLanguageSelectionChange(code: string) {
     this.supportedLanguagesService.assignActiveLanguageIdFromCode(code);
+  }
+
+  onNavigationChecked(event: Event) {
+    const isChecked = (event.target as HTMLInputElement).checked;
+    console.log(`navigation checked: ${isChecked}`);
   }
 
 }

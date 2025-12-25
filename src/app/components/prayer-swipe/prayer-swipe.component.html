@@ -9,6 +9,8 @@
     </swiper-slide>
   </swiper-container>
 
-  <button id="custom-prev-button" [class]="prevButtonClass" [disabled]="leftArrowDisabled" (click)="onPrev()">&nbsp;&nbsp;&nbsp;&nbsp;</button>
-  <button id="custom-next-button" [class]="nextButtonClass" [disabled]="rightArrowDisabled" (click)="onNext()">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  <span *ngIf="isNavigationEnabled">
+    <button id="custom-prev-button" [class]="prevButtonClass" [disabled]="leftArrowDisabled" (click)="onPrev()">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    <button id="custom-next-button" [class]="nextButtonClass" [disabled]="rightArrowDisabled" (click)="onNext()">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  </span>
 </div>
