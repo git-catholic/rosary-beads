@@ -1,15 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { BuzzFeedbackComponent } from './components/testing/buzz-feedback/buzz-feedback.component';
-import { LayoutsComponent } from './components/testing/layouts/layouts.component';
-import { HolyRosaryHomeComponent } from './rosary-prayers/holy-rosary/holy-rosary-home.component';
+import { HolyRosaryHomeComponent } from './rosary-prayers/holy-rosary/home/holy-rosary-home.component';
+import { HolyRosaryDisplayComponent } from './rosary-prayers/holy-rosary/prayer/holy-rosary-display.component';
+import { MainConfigComponent } from './components/config/main-config/main-config.component';
+
+export const HOLY_ROSARY_HOME = 'holy-rosary-home';
+export const HOLY_ROSARY_PRAYER = 'holy-rosary-prayer';
+export const PRAYER_CONFIG = 'prayer-config';
+export const PRAYER_HOME = 'prayer-home';
+
+const LEGACY_EN = 'en';
+const LEGACY_ES = 'es';
+
+export const APP_HOME = HOLY_ROSARY_HOME;
+// export const APP_HOME = PRAYER_HOME;
 
 const routes: Routes = [
-  { path: 'testing/layout', component: LayoutsComponent },
-  { path: 'testing/buzz', component: BuzzFeedbackComponent },
-  { path: 'holy-rosary', component: HolyRosaryHomeComponent },
-  { path: '', redirectTo: 'holy-rosary', pathMatch: 'full' }
+  // { path: 'testing/layout', component: LayoutsComponent },
+  // { path: 'testing/buzz', component: BuzzFeedbackComponent },
+  { path: HOLY_ROSARY_PRAYER + '/:mystery', component: HolyRosaryDisplayComponent },
+  { path: APP_HOME, component: HolyRosaryHomeComponent },
+  { path: PRAYER_CONFIG, component: MainConfigComponent },
+  // { path: PRAYER_HOME, component: PrayerHomeComponent },
+  { path: LEGACY_EN, redirectTo: APP_HOME },
+  { path: LEGACY_ES, redirectTo: APP_HOME },
+  { path: '', redirectTo: APP_HOME, pathMatch: 'full' }
 ];
 
 @NgModule({

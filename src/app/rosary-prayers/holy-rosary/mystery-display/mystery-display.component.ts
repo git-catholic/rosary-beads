@@ -1,34 +1,51 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BeadGroupList } from 'src/app/models/bead-group-list';
-import { AppConfigService } from 'src/app/services/app-config.service';
+import { AppConfigService } from '../../../services/app-config.service';
+import { CommonModule } from '@angular/common';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { REPLACE_WITH_TRANSLATION } from '../../../app.component';
 
 @Component({
   selector: 'app-mystery-display',
+  standalone: true,
+  imports: [
+    CommonModule,
+    TranslateModule
+  ],
   templateUrl: './mystery-display.component.html',
   styleUrls: ['./mystery-display.component.scss']
 })
 export class MysteryDisplayComponent implements OnInit {
 
   @Input()
-  activeBeadGroupList: BeadGroupList;
+  mysteryNumber: string;
 
-  private mysteryNumbers = [undefined, '1st', '2nd', '3rd', '4th', '5th'];
+  @Input()
+  mysteryDesc: string;
 
-  constructor(public appConfig: AppConfigService) { }
+  @Input()
+  mysteryFruit: string;
+
+  constructor(public appConfig: AppConfigService,
+              private translate: TranslateService) { }
 
   ngOnInit(): void {
-  }
-
-
-  get mysteryNum(): string {
-    return this.mysteryNumbers[this.activeBeadGroupList.mysteryNumber()];
-  }
-
-  get mysteryName(): string {
-    return this.activeBeadGroupList.mysterySequenceName();
+    console.log(`displayMystery: name/number=${this.mysteryNumber}, desc=${this.mysteryDesc}, fruit=${this.mysteryFruit}`);
+    console.log(`mysteryLiteralLabel (raw): ${this.mysteryLiteralLabel}`);
+    console.log(`mysteryFruitDisplay (raw): ${this.mysteryFruitDisplay}`);
   }
 
   get mysteryLiteralLabel(): string {
-    return $localize`:@@mysteryLiteral:Mystery`;
+    return this.translate.instant('mysteryLiteral');
   }
+
+  get hasFruitDesc(): boolean {
+    return REPLACE_WITH_TRANSLATION !== this.translate.instant(this.mysteryFruit);
+  }
+
+  get mysteryFruitDisplay(): string {
+    return (this.hasFruitDesc)
+      ? this.translate.instant(this.mysteryFruit)
+      : '';
+  }
+
 }

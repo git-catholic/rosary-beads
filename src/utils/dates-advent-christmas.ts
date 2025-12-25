@@ -1,7 +1,7 @@
-import { LiturgicalColors } from "src/app/models/liturgical-colors";
-import { LiturgicalDates, LiturgicalPeriod, PeriodStatus } from "src/app/models/liturgical-dates";
-import { AppDateService } from "src/app/services/app-date.service";
-import { LocalizationService } from "src/app/services/localization.service";
+import { LiturgicalColors } from "./liturgical-colors";
+import { LiturgicalDates, LiturgicalPeriod, PeriodStatus } from "./liturgical-dates";
+import { AppDateService } from "../app/services/app-date.service";
+import { LocalizationService } from "../app/services/localization.service";
 import { addDays, Months } from "./key-dates";
 
 export function refreshNeeded(period: LiturgicalPeriod, appDate: AppDateService): PeriodStatus {
@@ -47,7 +47,7 @@ function calculateChristmasForYear(year: number, localization: LocalizationServi
     endDate: endOfChristmas,
     name: localization.christmasLabel,
     color: LiturgicalColors.WHITE,
-    labelId: ':@@christmasLabel'
+    labelId: 'christmasLabel'
   };
 }
 
@@ -72,6 +72,6 @@ function calculateAdventForYear(adventYear: number, localization: LocalizationSe
     endDate: new Date(adventYear, Months.DEC, 24),
     name: localization.adventLabel,
     color: LiturgicalColors.VIOLET,
-    labelId: ':@@adventLabel'
+    labelId: 'adventLabel'
   };
 }

@@ -1,5 +1,4 @@
-@import '../../../../styles-shared-mixins.scss';
-@import '../shared-config-mixins.scss';
+@use '../../../../styles/style-variables.scss' as vars;
 
 #config-tab-row {
   display: block;
@@ -11,11 +10,11 @@
   float: left;
 
   .selected-tab, .unselected-tab {
-    border-top-left-radius: $tab-top-radius;
-    border-top-right-radius: $tab-top-radius;
-    border-color: $tab-line-color;
+    border-top-left-radius: vars.$tab-top-radius;
+    border-top-right-radius: vars.$tab-top-radius;
+    border-color: vars.$tab-line-color;
     border-style: solid;
-    padding: $margins;
+    padding: vars.$margins;
     text-align: center;
   }
 
@@ -37,8 +36,8 @@
   font-size: smaller;
   font-weight: bold;
   vertical-align: top;
-  width: $close-button-diameter;
-  height: $close-button-diameter;
+  width: vars.$close-button-diameter;
+  height: vars.$close-button-diameter;
 }
 
 .config-content {

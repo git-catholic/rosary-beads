@@ -1,0 +1,11 @@
+<div id="home-content-border">
+  <ng-container>
+    <div *ngIf="showMysterySelector">
+      <app-mystery-selector 
+        (selectedMysteryEvent)="onMysterySelected($event)"
+        (onConfigViewEvent)="onConfigView($event)">
+      </app-mystery-selector>
+      <app-notices id="notices-id"></app-notices>
+    </div>
+  </ng-container>
+</div>

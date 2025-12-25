@@ -1,14 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { AppConfigService } from 'src/app/services/app-config.service';
+import { AppConfigService } from '../../../services/app-config.service';
+import { LanguageItem, LanguageSelectorComponent } from '../language-selector/language-selector.component';
+import { TranslateService } from '@ngx-translate/core';
+import { SupportedLanguagesService } from '../../../services/supported-languages.service';
 
 @Component({
   selector: 'app-device-details',
+  standalone: true,
+  imports: [LanguageSelectorComponent],
   templateUrl: './device-details.component.html',
   styleUrls: ['./device-details.component.scss']
 })
 export class DeviceDetailsComponent implements OnInit {
 
-  constructor(private appConfig: AppConfigService) { }
+  readonly languageSelectorList: LanguageItem[];
+
+  constructor(private appConfig: AppConfigService,
+              private supportedLanguagesService: SupportedLanguagesService,
+              private translateService: TranslateService) {
+
+    this.languageSelectorList = [];
+    this.supportedLanguagesService.getSupportedLanguagesMap().forEach((value, key) => {
+      this.languageSelectorList.push({ value: key, displayValue: value?.id })
+    });
+  }
 
   ngOnInit(): void { }
 
@@ -34,6 +49,23 @@ export class DeviceDetailsComponent implements OnInit {
 
   get windowDevicePixelRatio(): any {
     return window.devicePixelRatio;
+  }
+
+  get navigationChecked(): boolean {
+    return this.appConfig?.isNavigationEnabled;
+  }
+
+  get enableNavigation(): string {
+    return this.translateService.instant('navigationChecked');
+  }
+
+  onLanguageSelectionChange(code: string) {
+    this.supportedLanguagesService.assignActiveLanguageIdFromCode(code);
+  }
+
+  onNavigationChecked(event: Event) {
+    const isChecked = (event.target as HTMLInputElement).checked;
+    console.log(`navigation checked: ${isChecked}`);
   }
 
 }

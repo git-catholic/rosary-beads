@@ -1,14 +1,26 @@
-@import 'src/styles-shared-mixins.scss';
+@use '../../../styles/style-variables.scss' as vars;
 
 .active-prayer-header {
 
   background-color: darkgray;
   opacity: 90%;
-  display: flex;
+  display: flexbox;
   flex-direction: row;
   -webkit-flex-direction: row;
-  padding: $padding;
+  padding: vars.$padding;
+  position: absolute;
+  left: 0;
+  right: 0;
 
+}
+
+.header-language-selector {
+  padding-bottom: 3vh;
+  width: 100%;
+}
+
+.prayer-name {
+  font-weight: bold;
 }
 
 @media (orientation: landscape) {
@@ -19,39 +31,26 @@
 
 @media (orientation: portrait) {
   .active-prayer-header {
-    max-height: 4vh;
+    max-height: 6vh;
   }
 }
 
-.active-prayer-header .left {
-  padding: $padding;
-  text-align: center;
-  width: 45%;
+.active-prayer-header .header-title {
+  padding: vars.$padding;
+  text-align: left;
+  // width: 25%;
 }
 
-.active-prayer-header .right {
-  padding: $padding;
+.active-prayer-header .header-buttons {
+  padding: vars.$padding;
   text-align: center;
-  width: 55%;
+  font-weight: bold;
+  // width: 75%;
 }
-
-// .arrows-btn-inward, .arrows-btn-outward {
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: 100%;
-// }
-
-// .arrows-btn-inward {
-//   background-image: url('../../../assets/inward-arrows.png');
-// }
-
-// .arrows-btn-outward {
-//   background-image: url('../../../assets/expand-arrows.png');
-// }
 
 @media (orientation: landscape) {
 
-  .active-prayer-header .right {
+  .active-prayer-header .header-buttons {
     margin-top: -1.5vh;
   }
 
@@ -59,8 +58,8 @@
 
 @media (orientation: portrait) {
 
-  .active-prayer-header .right {
-    margin-top: -1.9vh;
+  .active-prayer-header .header-buttons {
+    margin-top: -1.6vh;
   }
 
 }

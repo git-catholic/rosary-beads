@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { calculateAdventAndChristmas, refreshNeeded } from 'src/utils/dates-advent-christmas';
-import { calculateLentAndEaster } from 'src/utils/dates-lent-easter';
-import { addDays, Months } from 'src/utils/key-dates';
-import { LiturgicalColors } from '../models/liturgical-colors';
-import { LiturgicalDates, LiturgicalPeriod, PeriodStatus } from '../models/liturgical-dates';
+import { calculateAdventAndChristmas, refreshNeeded } from '../../utils/dates-advent-christmas';
+import { calculateLentAndEaster } from '../../utils/dates-lent-easter';
+import { addDays, Months } from '../../utils/key-dates';
+import { LiturgicalColors } from '../../utils/liturgical-colors';
+import { LiturgicalDates, LiturgicalPeriod, PeriodStatus } from '../../utils/liturgical-dates';
 import { AppDateService } from './app-date.service';
 import { LocalizationService } from './localization.service';
 
@@ -12,15 +12,15 @@ import { LocalizationService } from './localization.service';
 })
 export class LiturgicalYearService {
 
-  liturgicalDates: LiturgicalDates;
+  liturgicalDates = new LiturgicalDates();
 
-  adventSunday3: Date;
-  allSaintsDay: Date;
-  lentSunday4: Date;
-  palmSunday: Date;
-  pentacostSunday: Date;
+  adventSunday3!: Date;
+  allSaintsDay!: Date;
+  lentSunday4!: Date;
+  palmSunday!: Date;
+  pentacostSunday!: Date;
 
-  overrideLiturgicalColor: LiturgicalColors;
+  overrideLiturgicalColor!: LiturgicalColors;
 
   constructor(public appDate: AppDateService,
               private localization: LocalizationService) {
@@ -38,7 +38,7 @@ export class LiturgicalYearService {
     if ((this.isDateInRangeOfTriduum
       || appDateTime === this.palmSunday.getTime()
       || appDateTime === this.pentacostSunday.getTime())
-      && appDateTime !== this.liturgicalDates.easter.startDate.getTime()) {
+      && appDateTime !== this.liturgicalDates?.easter?.startDate?.getTime()) {
         return LiturgicalColors.RED;
     }
     else if (appDateTime === this.adventSunday3.getTime()
@@ -59,27 +59,27 @@ export class LiturgicalYearService {
   }
 
   get isAshWednesday(): boolean {
-    return this.appDate.date.getTime() === this.liturgicalDates.lent.startDate.getTime();
+    return this.appDate.date.getTime() === this.liturgicalDates?.lent?.startDate?.getTime();
   }
 
   get isDateInRangeOfAdvent(): boolean {
-    return this.dateInRange(this.liturgicalDates.advent);
+    return this.dateInRange(this.liturgicalDates?.advent);
   }
 
   get isDateInRangeOfChristmas(): boolean {
-    return this.dateInRange(this.liturgicalDates.christmas);
+    return this.dateInRange(this.liturgicalDates?.christmas);
   }
 
   get isDateInRangeOfEaster(): boolean {
-    return this.dateInRange(this.liturgicalDates.easter);
+    return this.dateInRange(this.liturgicalDates?.easter);
   }
 
   get isDateInRangeOfLent(): boolean {
-    return this.dateInRange(this.liturgicalDates.lent);
+    return this.dateInRange(this.liturgicalDates?.lent);
   }
 
   get isDateInRangeOfTriduum(): boolean {
-    return this.dateInRange(this.liturgicalDates.triduum);
+    return this.dateInRange(this.liturgicalDates?.triduum);
   }
 
   validateDates() {

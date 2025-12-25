@@ -1,8 +1,14 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { AppConfigService } from 'src/app/services/app-config.service';
+import { AppConfigService } from '../../services/app-config.service';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { LanguageItem, LanguageSelectorComponent } from "../config/language-selector/language-selector.component";
+import { SupportedLanguagesService } from '../../services/supported-languages.service';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
+  imports: [CommonModule, LanguageSelectorComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
@@ -15,9 +21,6 @@ export class HeaderComponent implements OnInit {
   isPrayerSequenceDone: boolean;
 
   @Output()
-  onResetEvent = new EventEmitter<boolean>();
-
-  @Output()
   onEnableNavigationEvent = new EventEmitter<boolean>();
 
   @Output()
@@ -26,12 +29,24 @@ export class HeaderComponent implements OnInit {
   @ViewChild('navEnabledChkbox')
   navEnabledChkbox: ElementRef;
 
-  constructor(public appConfig: AppConfigService) { }
+  readonly languageSelectorList: LanguageItem[];
+
+  constructor(private appConfig: AppConfigService,
+              private supportedLanguagesService: SupportedLanguagesService,
+              private router: Router) {
+
+    this.languageSelectorList = this.supportedLanguagesService.getLanguageSelectorList();
+  }
 
   ngOnInit(): void { }
 
+  get isPortrait(): boolean {
+    return this.appConfig?.isPortrait;
+  }
+
   onStartNew() {
-    this.onResetEvent.emit(true);
+    console.log(`onStartNew`);
+    this.router.navigate(['']);
   }
 
   onEnableNavigation(): void {
@@ -42,4 +57,9 @@ export class HeaderComponent implements OnInit {
   onConfigView(): void {
     this.onConfigViewEvent.emit('header');
   }
+
+  onLanguageSelectionChange(code: string) {
+    this.supportedLanguagesService.assignActiveLanguageIdFromCode(code);
+  }
+
 }

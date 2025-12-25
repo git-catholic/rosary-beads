@@ -1,7 +1,11 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { AppDateService } from './app-date.service';
-import { LocalizationService } from './localization.service';
-import { name, version } from '../../../package.json';
+import { environment } from '../../environments/environment';
+import { StateStorageService } from './state-storage.service';
+
+declare var require: any;
+
+const pkgAppName = require('../../../package.json').name;
+const pkgAppVersion = require('../../../package.json').version;
 
 @Injectable({
   providedIn: 'root'
@@ -10,18 +14,24 @@ export class AppConfigService {
 
   screenOrientationChangeEvent = new EventEmitter<boolean>();
 
-  readonly appName: string = name;
-  readonly appVersion: string = version;
+  readonly appName: string = pkgAppName;
+  readonly appVersion: string = pkgAppVersion;
+  readonly useDebugImage: boolean;
 
-  private _isPortrait: boolean;
+  private _isPortrait!: boolean;
 
-  private _isFullscreen: boolean;
+  private _isFullscreen!: boolean;
 
-  constructor(public readonly appDate: AppDateService,
-              public readonly localization: LocalizationService) { }
+  constructor(private stateStorageService: StateStorageService) {
+    this.useDebugImage = environment.useDebugImage;
+  }
 
   toggleView(): void {
     this._isFullscreen = !this._isFullscreen;
+  }
+
+  get hasMultiPrayerSupport(): boolean {
+    return false;
   }
 
   get isFullscreen(): boolean {
@@ -40,4 +50,9 @@ export class AppConfigService {
   get defaultLanguageId(): string {
     return 'en';
   }
+
+  get isNavigationEnabled(): boolean {
+    return this.stateStorageService?.navigationOnFlag?.data;
+  }
+
 }

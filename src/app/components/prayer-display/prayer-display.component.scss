@@ -1,0 +1,27 @@
+// @use 'styles/variables' as vars;
+@use '../../../styles/style-variables.scss' as vars;
+
+.leaderPrayerRight {
+  float: right;
+}
+
+.prayer-leader-label, .prayer-response-label {
+  border-width: 1px;
+  font-style: italic;
+  font-weight: bold;
+  opacity: 100%;
+  width: 5vh;
+}
+
+.prayer-all, .prayer-leader-label, .prayer-response-label {
+  margin-top: vars.$margins;
+}
+
+.prayer-all, .prayer-leader, .prayer-response, .prayer-leader-label, .prayer-response-label {
+  display: block;
+  margin-left: vars.$margins;
+  margin-right: vars.$margins;
+  padding: vars.$padding;
+  text-align: left;
+  width: auto;
+}

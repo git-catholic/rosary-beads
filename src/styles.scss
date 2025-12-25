@@ -1,45 +1,78 @@
-@import 'styles-shared-mixins.scss';
+@use 'styles/style-variables.scss' as vars;
 
 /* ================================================================================ */
 
 html, body {
-  font-family: $fontname;
+  font-family: vars.$fontname;
   margin: unset;
   overflow: hidden;
 }
 
 button {
-  border-radius: $border-radius;
-  padding: $padding;
+  border-radius: vars.$border-radius;
+  padding: vars.$padding;
 }
 
 input {
-  font-family: $fontname;
-  margin-bottom: $input-margin-bottom;
+  font-family: vars.$fontname;
+  margin-bottom: vars.$input-margin-bottom;
 }
 
 pre {
-  font-family: $fontname;
+  font-family: vars.$fontname;
+}
+
+.active-prayer-workspace {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.button-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-cell, .home-button-cell {
+  padding: vars.$padding;
+  text-align: center;
+}
+
+.home-button-cell, .home-button {
+  width: 97%;
+}
+
+.button-cell {
+  width: 24%;
 }
 
 @media (orientation: landscape) {
 
   html, body {
-    font-size: $font-size-base;
+    font-size: vars.$font-size-base;
   }
 
   button {
-    font-family: $fontname;
-    font-size: $font-size-base;
+    font-family: vars.$fontname;
+    font-size: vars.$font-size-base;
   }
 
   pre {
-    font-family: $fontname;
-    font-size: $font-size-base;
+    font-family: vars.$fontname;
+    font-size: vars.$font-size-base;
   }
 
   select, select option {
-    font-size: $font-size-dropdown;
+    font-size: vars.$font-size-dropdown;
+  }
+
+  .active-prayer-workspace {
+    font-size: vars.$font-size-base;
+    margin-top: 2vh;
   }
 
 }
@@ -47,26 +80,35 @@ pre {
 @media (orientation: portrait) {
 
   html, body {
-    font-size: $font-size-base-phone;
+    font-size: vars.$font-size-base-phone;
   }
 
   button {
-    font-family: $fontname;
-    font-size: $font-size-base-phone;
+    font-family: vars.$fontname;
+    font-size: vars.$font-size-base-phone;
   }
 
   pre {
-    font-family: $fontname;
-    font-size: $font-size-base-phone;
+    font-family: vars.$fontname;
+    font-size: vars.$font-size-base-phone;
   }
 
   select, select option {
-    font-size: $font-size-dropdown-phone;
+    font-size: vars.$font-size-dropdown-phone;
+  }
+
+  .active-prayer-workspace {
+    font-size: vars.$font-size-base-phone;
+    margin-top: -2vh;
   }
 
 }
 
 /* ================================================================================ */
+
+.seperator {
+  padding: 3px;
+}
 
 .lit-color-green, .lit-color-red, .lit-color-rose, .lit-color-violet, .lit-color-white {
   position: absolute;
@@ -102,6 +144,13 @@ $offset-red: rgb(150, 0, 0);
 
 /* ================================================================================ */
 
+.home-widget {
+  background-image: url('assets/home.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
 .config-widget {
   background-image: url('assets/widget.png');
   background-position: center;
@@ -119,8 +168,8 @@ $offset-red: rgb(150, 0, 0);
 */
 
 .content-border, #home-content-border {
-  border: $border;
-  border-radius: $border-radius;
+  border: vars.$border;
+  border-radius: vars.$border-radius;
   display: flex;
   flex-flow: column;
 }
@@ -129,36 +178,36 @@ $offset-red: rgb(150, 0, 0);
   background-color: lightgray;
   box-sizing: border-box;
   opacity: 85%;
-  padding: $padding;
+  padding: vars.$padding;
   overflow: hidden;
 }
 
 
 @media (orientation: landscape) {
   .content-no-border, .content-border, #home-content-border {
-    margin: $margins;
+    margin: vars.$margins;
   }
 
   #home-content-border {
     position: absolute;
-    top: $margins;
-    left: $margins;
-    right: $margins;
-    bottom: $margins;
+    top: vars.$margins;
+    left: vars.$margins;
+    right: vars.$margins;
+    bottom: vars.$margins;
   }
 }
 
 @media (orientation: portrait) {
   .content-no-border, .content-border, #home-content-border {
-    margin: $margins-phone;
+    margin: vars.$margins-phone;
   }
 
   #home-content-border {
     position: absolute;
-    top: $margins-phone;
-    left: $margins-phone;
-    right: $margins-phone;
-    bottom: $margins-phone;
+    top: vars.$margins-phone;
+    left: vars.$margins-phone;
+    right: vars.$margins-phone;
+    bottom: vars.$margins-phone;
   }
 }
 
@@ -171,7 +220,7 @@ $offset-red: rgb(150, 0, 0);
 @media (orientation: landscape) {
 
   #nav-footer {
-    bottom: $nav-landscape-margin;
+    bottom: vars.$nav-landscape-margin;
   }
 
 }
@@ -179,7 +228,7 @@ $offset-red: rgb(150, 0, 0);
 @media (orientation: portrait) {
 
   #nav-footer {
-    bottom: $nav-portrait-margin;
+    bottom: vars.$nav-portrait-margin;
   }
 
 }
@@ -202,22 +251,22 @@ $offset-red: rgb(150, 0, 0);
 
 #nav-footer app-navigation .left button {
   background-image: url('assets/left-arrow.png');
-  bottom: $nav-landscape-margin;
+  bottom: vars.$nav-landscape-margin;
 }
 
 #nav-footer app-navigation .right button {
   background-image: url('assets/right-arrow.png');
-  bottom: $nav-landscape-margin;
+  bottom: vars.$nav-landscape-margin;
 }
 
 #nav-footer app-navigation .left {
-  padding: $padding;
+  padding: vars.$padding;
   text-align: right;
   width: 45%;
 }
 
 #nav-footer app-navigation .right {
-  padding: $padding;
+  padding: vars.$padding;
   text-align: left;
   width: 45%;
 }
@@ -236,6 +285,6 @@ $offset-red: rgb(150, 0, 0);
 
 .section-title {
   font-weight: bold;
-  padding: $padding;
+  padding: vars.$padding;
   text-align: center;
 }

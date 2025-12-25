@@ -1,14 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { automaticSelection, LiturgicalPeriod, ordinaryTime } from 'src/app/models/liturgical-dates';
-import { LiturgicalYearService } from 'src/app/services/liturgical-year.service';
-import { LocalizationService } from 'src/app/services/localization.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { LiturgicalPeriod, automaticSelection, ordinaryTime } from '../../models/liturgical-dates';
+import { LiturgicalYearService } from '../../services/liturgical-year.service';
+import { LocalizationService } from '../../services/localization.service';
+import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-liturgical-dates',
+  imports: [
+    CommonModule,
+    TranslateModule
+  ],
   templateUrl: './liturgical-dates.component.html',
-  styleUrls: ['./liturgical-dates.component.scss']
+  styleUrls: ['./liturgical-dates.component.scss'],
+  standalone: true
 })
 export class LiturgicalDatesComponent implements OnInit {
+
+  @Input()
+  hideSelector: boolean;
+
+  @Input()
+  displayVerticalVersion: boolean;
 
   periods: LiturgicalPeriod[];
   periodsLeft: LiturgicalPeriod[];
@@ -51,26 +64,35 @@ export class LiturgicalDatesComponent implements OnInit {
     ]
   }
 
+  liturgicalPeriodLabel(): string {
+    return this.localizationUtil?.liturgicalPeriod;
+  }
+
+  get showSelector(): boolean {
+    return this.hideSelector !== true;
+  }
+
   labelFromId(labelId: string): string {
-    if (':@@adventLabel' === labelId) {
+    if ('adventLabel' === labelId) {
       return this.localizationUtil.adventLabel;
     }
-    else if (':@@christmasLabel' === labelId) {
+    else if ('christmasLabel' === labelId) {
       return this.localizationUtil.christmasLabel;
     }
-    else if (':@@lentLabel' === labelId) {
+    else if ('lentLabel' === labelId) {
       return this.localizationUtil.lentLabel;
     }
-    else if (':@@triduumLabel' === labelId) {
+    else if ('triduumLabel' === labelId) {
       return this.localizationUtil.triduumLabel;
     }
-    else if (':@@easterLabel' === labelId) {
+    else if ('easterLabel' === labelId) {
       return this.localizationUtil.easterLabel;
     }
     return labelId;
   }
 
-  onLiturgicalPeriodChanged(newValue: string): void {
+  onLiturgicalPeriodChanged(event: any): void {
+    const newValue = event?.target?.value;
     const idx = Number.parseInt(newValue);
     if (idx === 0) {
       this.liturgicalYear.overrideLiturgicalColor = undefined;

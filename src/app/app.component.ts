@@ -1,53 +1,65 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { version } from '../../package.json';
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { AppConfigService } from './services/app-config.service';
 import { LiturgicalYearService } from './services/liturgical-year.service';
-import { SoundService } from './services/sound.service';
+import { LocalizationService } from './services/localization.service';
+import { SupportedLanguagesService } from './services/supported-languages.service';
+import { StateStorageService } from './services/state-storage.service';
+
+declare var require: any;
+
+const pkgAppVersion = require('../../package.json').version;
+
+export const REPLACE_WITH_TRANSLATION = 'REPLACE_WITH_TRANSLATION';
 
 @Component({
   selector: 'app-root',
+  standalone: false,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
 
-  title = $localize`:@@rosaryTitle:Rosary Beads`;
+  title: string;
 
-  readonly appVersion: string = version;
+  readonly appVersion: string = pkgAppVersion;
 
   @ViewChild('tap1')
-  private tapRef1: ElementRef<HTMLAudioElement>;
-  private tap1: HTMLAudioElement;
+  private tapRef1!: ElementRef<HTMLAudioElement>;
+  private tap1!: HTMLAudioElement | undefined;
 
   @ViewChild('tap2')
-  private tapRef2: ElementRef<HTMLAudioElement>;
-  private tap2: HTMLAudioElement;
+  private tapRef2!: ElementRef<HTMLAudioElement>;
+  private tap2!: HTMLAudioElement | undefined;
 
-  constructor(public liturgicalYear: LiturgicalYearService,
-              private appConfig: AppConfigService,
-              private soundService: SoundService) {
+  constructor(private appConfig: AppConfigService,
+              private liturgicalYear: LiturgicalYearService,
+              localizationService: LocalizationService,
+              //private translate: TranslateService,
+              supportedLanguagesService: SupportedLanguagesService,
+              stateStorageService: StateStorageService) {
+
+    this.title = localizationService.appTitle;
     this.checkOrientation();
+
+    const language = stateStorageService.selectedLanguage;
     console.log(`user-agent: ${window.navigator.userAgent}`);
+    console.log(`language: ${language?.data}`);
+    supportedLanguagesService.assignActiveLanguageIdFromCode(language?.data);
   }
 
   ngAfterViewInit(): void {
     this.tap1 = this.extractAudioElement(this.tapRef1);
     this.tap2 = this.extractAudioElement(this.tapRef2, 0.5);
+  }
 
-    if (this.soundService) {
-      this.soundService.tap1 = this.tap1;
-      this.soundService.tap2 = this.tap2;
-    }
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkOrientation();
   }
 
   backgroundImageClass(): string {
     const color = this.liturgicalYear.liturgicalColor();
     return `lit-color-${color.toString().toLowerCase()}`;
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
-    this.checkOrientation();
   }
 
   tap1mp3(): string {
@@ -71,17 +83,17 @@ export class AppComponent implements AfterViewInit {
       // console.log(`you're in PORTRAIT mode - ${window.innerWidth}, ${window.innerHeight}`);
       this.appConfig.isPortrait = true;
     }
-    else 
+    else
     if (window.matchMedia('(orientation: landscape)').matches) {
       // console.log(`you're in LANDSCAPE mode - ${window.innerWidth}, ${window.innerHeight}`);
       this.appConfig.isPortrait = false;
     }
     else {
-      this.appConfig.isPortrait = undefined;
+      this.appConfig.isPortrait = false;
     }
   }
 
-  private extractAudioElement(elementRef: ElementRef<HTMLAudioElement>, volume = 0.3): HTMLAudioElement {
+  private extractAudioElement(elementRef: ElementRef<HTMLAudioElement>, volume = 0.3): HTMLAudioElement | undefined {
     if (elementRef?.nativeElement) {
       const element = elementRef.nativeElement;
       element.volume = volume;
@@ -89,4 +101,5 @@ export class AppComponent implements AfterViewInit {
     }
     return undefined;
   }
+
 }

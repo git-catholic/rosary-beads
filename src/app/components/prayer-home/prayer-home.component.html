@@ -1,0 +1,23 @@
+<div class="content-border">
+  <div class="button-column">
+    <div class="home-button-cell">
+      <button class="home-button" (click)="onClickHolyRosary()" i18n="home.pray-holy-rosary">
+        Pray the Holy Rosary
+      </button>
+    </div>
+    <div class="home-button-cell">
+      <button class="home-button" (click)="onClickDivineMercy()" i18n="home.pray-holy-rosary">
+        Pray the Divine Mercy
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="content-border">
+  <div class="section-title">
+    {{ importantDatesLabel() }}
+  </div>
+  <app-liturgical-dates [hideSelector]=true></app-liturgical-dates>
+</div>
+
+<app-version-info></app-version-info>

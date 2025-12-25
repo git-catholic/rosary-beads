@@ -1,15 +1,28 @@
-import { Component, OnInit, OnChanges, AfterViewInit, SimpleChanges, Input, ViewChild, ElementRef, HostListener } from "@angular/core";
-import { BeadPosition } from "src/app/models/bead-position";
-import { AppConfigService } from "src/app/services/app-config.service";
+import { AfterViewInit, Component, ElementRef, EventEmitter, Inject, Input, Output, ViewChild } from "@angular/core";
+import { BeadPosition, BeadPositionTemplate } from "../bead-position";
+import { PrayerSequence } from "../../models/prayer-sequence";
+import { Sequence } from "../../models/sequence";
 import { RosaryBeads } from "../rosary-beads";
-import { PATS_BEADS_COORDS_LONG } from "./pats-beads-coords";
+import { CommonModule } from "@angular/common";
+import { AppConfigService } from "../../services/app-config.service";
+import { holyRosarySequenceForPatsBeads } from "./holy-rosary-pats-beads-seq";
 
 @Component({
   selector: 'app-pats-beads',
+  standalone: true,
+  imports: [
+    CommonModule
+  ],
   templateUrl: './pats-beads.component.html',
   styleUrls: ['./pats-beads.component.scss']
 })
-export class PatsBeadsComponent implements OnInit, OnChanges, AfterViewInit, RosaryBeads {
+export class PatsBeadsComponent extends PrayerSequence implements AfterViewInit, RosaryBeads {
+
+  readonly useDebugImage: boolean;
+  
+  readonly id: string = 'PatsBeadsComponent';
+
+  readonly name: string = `:@@patsBeads:Pat's Beads`;
 
   highlightBeadIdx: number = 0;
   highlightStyle: string;
@@ -19,24 +32,58 @@ export class PatsBeadsComponent implements OnInit, OnChanges, AfterViewInit, Ros
   highlightTop: string;
   highlightLeft: string;
 
+  // @Output()
+  // activeBeadsEvent = new EventEmitter<RosaryBeads>;
+
   private rawWidth = 1608;
   private rawHeight = 3704;
-  rawCoords = PATS_BEADS_COORDS_LONG;
+  private rawCoords: Sequence[];
 
   @ViewChild('patsBeadsImg')
   patsBeadsImg: ElementRef<HTMLImageElement>;
 
-  constructor(private appConfig: AppConfigService) {
+  constructor(private appConfig: AppConfigService,
+              @Inject('activeBeadsEvent') private activeBeadsEvent: (activeBeads: RosaryBeads) => void) { //, private beadPositionSequence: Sequence[]) {
+    super(holyRosarySequenceForPatsBeads());
+    this.useDebugImage = appConfig?.useDebugImage;
+    
+    //this.updateBeadPositionSequence(beadPositionSequence);
+    this.initHolyRosarySequence();
     this.appConfig.screenOrientationChangeEvent.subscribe((portrait: boolean) => {
       this.updateBeadPosition(this.highlightBeadIdx);
     });
   }
 
-  ngOnInit(): void { }
-
-  ngOnChanges(changes: SimpleChanges): void { }
-
   ngAfterViewInit(): void {
+    // console.log(`ngAfterViewInit PatsBeadsComponent`);
+    // this.initHolyRosarySequence();
+    setTimeout(() => this.updateBeadPosition(0));
+    console.log(`pats-beads: emit`);
+    //this.activeBeadsEvent.emit(this);
+    this.activeBeadsEvent(this);
+  }
+
+  getBeadSource(): string {
+    if (this.useDebugImage) {
+      return this.isPortrait
+        ? 'assets/x-2.90-deg.png'
+        : 'assets/x-2.png';
+    }
+    return this.isPortrait
+      ? 'assets/cropped-2.90-deg.png'
+      : 'assets/cropped-2.png';
+  }
+
+  getActiveBeadDetails(): Sequence {
+    return this.rawCoords[this.highlightBeadIdx];
+  }
+
+  initHolyRosarySequence(): void {
+    this.initBeadPositionSequence(holyRosarySequenceForPatsBeads())
+  }
+
+  initBeadPositionSequence(beadPositionSequence: Sequence[]): void {
+    this.updateBeadPositionSequence(beadPositionSequence);
     setTimeout(() => this.updateBeadPosition(0));
   }
 
@@ -44,15 +91,36 @@ export class PatsBeadsComponent implements OnInit, OnChanges, AfterViewInit, Ros
     return this.appConfig?.isPortrait;
   }
 
-  updateBeadPosition(highlightBeadIdx: number): void {
-    this.highlightBeadIdx = highlightBeadIdx;
-    this.highlightStyle = this.calculateHighlightStyle(this.appConfig.isPortrait);
+  updateBeadPosition(prayerIdx: number): void {
+    console.log(`prayerIdx: ${prayerIdx}`);
+    this.highlightBeadIdx = prayerIdx;
+    this.highlightStyle = this.calculateHighlightStyle(this.isPortrait);
+  }
+
+  updateBeadPositionSequence(beadPositionSequence: Sequence[]): void {
+    console.log(`updateBeadPositionSequence with ${beadPositionSequence?.length} values`);
+    this.rawCoords = beadPositionSequence;
+  }
+
+  protected onNext(currentPrayer: Sequence): void {
+    // No action by design
+  }
+
+  protected onPrevious(currentPrayer: Sequence): void {
+    // No action by design
+  }
+
+  protected onStart(): void {
+    // No action by design
+  }
+
+  protected onEnd(): void {
+    // No action by design
   }
 
   private calculateHighlightStyle(isPortrait: boolean): string {
     if (this.patsBeadsImg) {
-      const point = this.rawCoords[this.highlightBeadIdx];
-
+      const point = this.rawCoords[this.highlightBeadIdx] as BeadPosition;
       const style = (isPortrait)
         ? this.highlightStyleForPortrait(point)
         : this.highlightStyleForLandscape(point);
@@ -65,7 +133,8 @@ export class PatsBeadsComponent implements OnInit, OnChanges, AfterViewInit, Ros
 
   private highlightStyleForPortrait(point: BeadPosition): string {
     const scale = this.patsBeadsImg.nativeElement.width / this.rawHeight;
-    return this.generateHighlightStyle(point.y * -1, point.x, scale, this.patsBeadsImg.nativeElement.width + 5, 52);
+    const offsetY = this.patsBeadsImg.nativeElement.parentElement.offsetTop;
+    return this.generateHighlightStyle(point.y * -1, point.x, scale, this.patsBeadsImg.nativeElement.width + 5, offsetY);
   }
 
   private highlightStyleForLandscape(point: BeadPosition): string {
@@ -77,6 +146,7 @@ export class PatsBeadsComponent implements OnInit, OnChanges, AfterViewInit, Ros
   }
 
   private generateHighlightStyle(x: number, y: number, scale: number, offsetX: number, offsetY: number): string {
+    console.log(`offsetX: ${offsetX}, offsetY: ${offsetY}`);
     const diameter = (125 * scale);
     const border = (150 * scale);
     const offset = border / 2;
@@ -85,9 +155,4 @@ export class PatsBeadsComponent implements OnInit, OnChanges, AfterViewInit, Ros
       + ` width: ${diameter}px; height: ${diameter}px; border-width: ${border};`;
   }
 
-  private debugElementRef(desc: string, elementRef: ElementRef) {
-    console.log(`${desc} - ${elementRef?.nativeElement?.name} exists: ${elementRef}, ${elementRef?.nativeElement?.width}, ${elementRef?.nativeElement?.height}`);
-  }
-
 }
-

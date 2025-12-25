@@ -1,4 +1,4 @@
-import { addDays } from "src/utils/key-dates";
+import { addDays } from "../../utils/key-dates";
 import { LiturgicalColors } from "./liturgical-colors";
 
 export class LiturgicalDates {
@@ -57,13 +57,13 @@ export enum PeriodStatus {
 }
 
 export const automaticSelection: LiturgicalPeriod = {
-  name: $localize`:@@:Automatic`,
+  name: 'test-automatic',
   color: undefined,
-  labelId: ':@@selectPeriodAutomatic'
+  labelId: 'selectPeriodAutomatic'
 }
 
 export const ordinaryTime: LiturgicalPeriod = {
-  name: $localize`:@@:Ordinary Time`,
+  name: 'test-ordinarytime',
   color: LiturgicalColors.GREEN,
-  labelId: ':@@selectOrdinaryTime'
+  labelId: 'selectOrdinaryTime'
 }

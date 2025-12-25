@@ -1,7 +1,7 @@
-import { LiturgicalColors } from "src/app/models/liturgical-colors";
-import { LiturgicalDates } from "src/app/models/liturgical-dates";
-import { AppDateService } from "src/app/services/app-date.service";
-import { LocalizationService } from "src/app/services/localization.service";
+import { LiturgicalColors } from "./liturgical-colors";
+import { LiturgicalDates } from "./liturgical-dates";
+import { AppDateService } from "../app/services/app-date.service";
+import { LocalizationService } from "../app/services/localization.service";
 import { addDays, Months } from "./key-dates";
 
 /**
@@ -42,11 +42,13 @@ export function gaussEaster(year: number): Date {
 
 export function calculateLentAndEaster(appDate: AppDateService, localization: LocalizationService): LiturgicalDates {
   let easterDay = gaussEaster(appDate.currentYear);
-  if (appDate.date > easterDay) {
+  let endEaster = calculateEndOfEasterSeason(easterDay);
+
+  if (appDate.date > endEaster) {
     easterDay = gaussEaster(appDate.currentYear + 1);
+    endEaster = calculateEndOfEasterSeason(easterDay);
   }
 
-  const endEaster = addDays(easterDay, 49);
 
   const lentEnds = addDays(easterDay, -3);
   const lentStarts = addDays(lentEnds, -43);
@@ -57,21 +59,25 @@ export function calculateLentAndEaster(appDate: AppDateService, localization: Lo
       endDate: lentEnds,
       name: localization.lentLabel,
       color: LiturgicalColors.VIOLET,
-      labelId: ':@@lentLabel'
+      labelId: 'lentLabel'
     },
     triduum: {
       startDate: lentEnds,
       endDate: easterDay,
       name: localization.triduumLabel,
       color: LiturgicalColors.RED,
-      labelId: ':@@triduumLabel'
+      labelId: 'triduumLabel'
     },
     easter: {
       startDate: easterDay,
       endDate: endEaster,
       name: localization.easterLabel,
       color: LiturgicalColors.WHITE,
-      labelId: ':@@easterLabel'
+      labelId: 'easterLabel'
     }
   }
+}
+
+function calculateEndOfEasterSeason(easterDay: Date): Date {
+  return addDays(easterDay, 49);
 }

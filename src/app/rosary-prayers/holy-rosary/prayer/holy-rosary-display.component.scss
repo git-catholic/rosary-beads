@@ -1,0 +1,33 @@
+// @use '../../../../styles-shared-mixins.scss';
+@use '../../../../styles/style-variables.scss' as vars;
+
+@media (orientation: portrait) {
+
+  #rosary-beads-img-div {
+    margin-top: 14vw;
+  }
+
+}
+
+@media (orientation: landscape) {
+
+  #rosary-beads {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+  }
+  
+  #rosary-beads #rosary-beads-img-div, #rosary-beads #rosary-beads-prayer-div {
+    margin-top: 6vw;
+  }
+
+  #rosary-beads #rosary-beads-img-div {
+    width: 30%;
+  }
+
+  #rosary-beads #rosary-beads-prayer-div {
+    width: 70%;
+  }
+
+}

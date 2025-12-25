@@ -1,11 +1,13 @@
 {
   "configurations": [
     {
-      "name": "Docker Node.js Launch",
-      "type": "docker",
+      "name": "Attach to Chrome",
+      "type": "chrome",
       "request": "launch",
-      "preLaunchTask": "docker-run: debug",
-      "platform": "node"
+      "url": "http://localhost:4201",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "trace": true
     }
   ]
 }

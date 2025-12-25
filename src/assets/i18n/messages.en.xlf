@@ -1,0 +1,1097 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="plaintext" original="messages.en.xlf" source-language="en">
+    <body>
+      <trans-unit datatype="html" id="end.thank-you">
+        <source>Thank you for praying</source>
+        <target>Thank you for praying</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/end/end.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="end.today">
+        <source>today!</source>
+        <target>today!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/end/end.component.html</context>
+          <context context-type="linenumber">4,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="prayer-leader">
+        <source>Leader:</source>
+        <target>Leader:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/prayer-display/prayer-display.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="prayer-response">
+        <source>Response:</source>
+        <target>Response:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/prayer-display/prayer-display.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="first-glorious">
+        <source>First Glorious Mystery</source>
+        <target>First Glorious Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-glorious.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="glorious-mystery-1">
+        <source>The Resurrection</source>
+        <target>The Resurrection</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-glorious.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="glorious-fruit-1">
+        <source>A conversion of heart</source>
+        <target>A conversion of heart</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-glorious.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="second-glorious">
+        <source>Second Glorious Mystery</source>
+        <target>Second Glorious Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-glorious.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="glorious-mystery-2">
+        <source>The Ascension</source>
+        <target>The Ascension</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-glorious.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="glorious-fruit-2">
+        <source>A desire for heaven</source>
+        <target>A desire for heaven</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-glorious.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="third-glorious">
+        <source>Third Glorious Mystery</source>
+        <target>Third Glorious Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-glorious.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="glorious-mystery-3">
+        <source>The Coming of the Holy Spirit</source>
+        <target>The Coming of the Holy Spirit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-glorious.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="glorious-fruit-3">
+        <source>The gifts of the Holy Spirit</source>
+        <target>The gifts of the Holy Spirit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-glorious.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="fourth-glorious">
+        <source>Fourth Glorious Mystery</source>
+        <target>Fourth Glorious Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-glorious.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="glorious-mystery-4">
+        <source>The Assumption of the Blessed Mother</source>
+        <target>The Assumption of the Blessed Mother</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-glorious.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="glorious-fruit-4">
+        <source>Devotion to Mary</source>
+        <target>Devotion to Mary</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-glorious.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="fifth-glorious">
+        <source>Fifth Glorious Mystery</source>
+        <target>Fifth Glorious Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-glorious.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="glorious-mystery-5">
+        <source>The Coronation of the Blessed Mother</source>
+        <target>The Coronation of the Blessed Mother</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-glorious.ts</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="glorious-fruit-5">
+        <source>Eternal happiness</source>
+        <target>Eternal happiness</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-glorious.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="glorious">
+        <source>Glorious</source>
+        <target>Glorious</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-glorious.ts</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="first-joyful">
+        <source>First Joyful Mystery</source>
+        <target>First Joyful Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-joyful.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="joyful-mystery-1">
+        <source>The Annunciation</source>
+        <target>The Annunciation</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-joyful.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="joyful-fruit-1">
+        <source>Humility</source>
+        <target>Humility</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-joyful.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="second-joyful">
+        <source>Second Joyful Mystery</source>
+        <target>Second Joyful Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-joyful.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="joyful-mystery-2">
+        <source>The Visitation</source>
+        <target>The Visitation</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-joyful.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="joyful-fruit-2">
+        <source>Charity</source>
+        <target>Charity</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-joyful.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="third-joyful">
+        <source>Third Joyful Mystery</source>
+        <target>Third Joyful Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-joyful.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="joyful-mystery-3">
+        <source>Birth of our Lord</source>
+        <target>Birth of our Lord</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-joyful.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="joyful-fruit-3">
+        <source>Poverty; detachment from the world</source>
+        <target>Poverty; detachment from the world</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-joyful.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="fourth-joyful">
+        <source>Fourth Joyful Mystery</source>
+        <target>Fourth Joyful Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-joyful.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="joyful-mystery-4">
+        <source>The Presentation</source>
+        <target>The Presentation</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-joyful.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="joyful-fruit-4">
+        <source>Obedience</source>
+        <target>Obedience</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-joyful.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="fifth-joyful">
+        <source>Fifth Joyful Mystery</source>
+        <target>Fifth Joyful Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-joyful.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="joyful-mystery-5">
+        <source>The Finding of our Lord in the temple</source>
+        <target>The Finding of our Lord in the temple</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-joyful.ts</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="joyful-fruit-5">
+        <source>Piety</source>
+        <target>Piety</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-joyful.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="joyful">
+        <source>Joyful</source>
+        <target>Joyful</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-joyful.ts</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="first-luminous">
+        <source>First Luminous Mystery</source>
+        <target>First Luminous Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-luminous.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="luminous-mystery-1">
+        <source>The Baptism in the Jordan</source>
+        <target>The Baptism in the Jordan</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-luminous.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="luminous-fruit-1">
+        <source>Openness to the Holy Spirit</source>
+        <target>Openness to the Holy Spirit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-luminous.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="second-luminous">
+        <source>Second Luminous Mystery</source>
+        <target>Second Luminous Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-luminous.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="luminous-mystery-2">
+        <source>The Wedding Feast at Cana</source>
+        <target>The Wedding Feast at Cana</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-luminous.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="luminous-fruit-2">
+        <source>To Jesus through Mary</source>
+        <target>To Jesus through Mary</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-luminous.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="third-luminous">
+        <source>Third Luminous Mystery</source>
+        <target>Third Luminous Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-luminous.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="luminous-mystery-3">
+        <source>The Proclamation of the Kingdom of God</source>
+        <target>The Proclamation of the Kingdom of God</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-luminous.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="luminous-fruit-3">
+        <source>Conversion</source>
+        <target>Conversion</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-luminous.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="fourth-luminous">
+        <source>Fourth Luminous Mystery</source>
+        <target>Fourth Luminous Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-luminous.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="luminous-mystery-4">
+        <source>The Transfiguration</source>
+        <target>The Transfiguration</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-luminous.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="luminous-fruit-4">
+        <source>Desire for holiness</source>
+        <target>Desire for holiness</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-luminous.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="fifth-luminous">
+        <source>Fifth Luminous Mystery</source>
+        <target>Fifth Luminous Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-luminous.ts</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="luminous-mystery-5">
+        <source>The Instituation of the Eucharist</source>
+        <target>The Instituation of the Eucharist</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-luminous.ts</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="luminous-fruit-5">
+        <source>Adoration</source>
+        <target>Adoration</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-luminous.ts</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="luminous">
+        <source>Luminous</source>
+        <target>Luminous</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-luminous.ts</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="first-sorrowful">
+        <source>First Sorrowful Mystery</source>
+        <target>First Sorrowful Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-sorrowful.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="sorrowful-mystery-1">
+        <source>The Agony in the Garden</source>
+        <target>The Agony in the Garden</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-sorrowful.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="sorrowful-fruit-1">
+        <source>Contrition for our sins</source>
+        <target>Contrition for our sins</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-sorrowful.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="second-sorrowful">
+        <source>Second Sorrowful Mystery</source>
+        <target>Second Sorrowful Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-sorrowful.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="sorrowful-mystery-2">
+        <source>The Scourging at the Pillar</source>
+        <target>The Scourging at the Pillar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-sorrowful.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="sorrowful-fruit-2">
+        <source>Mortification of our senses</source>
+        <target>Mortification of our senses</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-sorrowful.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="third-sorrowful">
+        <source>Third Sorrowful Mystery</source>
+        <target>Third Sorrowful Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-sorrowful.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="sorrowful-mystery-3">
+        <source>The Crowning of Thorns</source>
+        <target>The Crowning of Thorns</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-sorrowful.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="sorrowful-fruit-3">
+        <source>Interior mortification</source>
+        <target>Interior mortification</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-sorrowful.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="fourth-sorrowful">
+        <source>Fourth Sorrowful Mystery</source>
+        <target>Fourth Sorrowful Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-sorrowful.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="sorrowful-mystery-4">
+        <source>The Carrying of the Cross</source>
+        <target>The Carrying of the Cross</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-sorrowful.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="sorrowful-fruit-4">
+        <source>Patience under crosses</source>
+        <target>Patience under crosses</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-sorrowful.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="fifth-sorrowful">
+        <source>Fifth Sorrowful Mystery</source>
+        <target>Fifth Sorrowful Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-sorrowful.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="sorrowful-mystery-5">
+        <source>The Crucifixion and Death of our Lord</source>
+        <target>The Crucifixion and Death of our Lord</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-sorrowful.ts</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="sorrowful-fruit-5">
+        <source>That we may die to ourselves</source>
+        <target>That we may die to ourselves</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-sorrowful.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="sorrowful">
+        <source>Sorrowful</source>
+        <target>Sorrowful</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/holy-rosary/mystery-sorrowful.ts</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="selectPeriodAutomatic">
+        <source>Automatic</source>
+        <target>Automatic</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/liturgical-dates.ts</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/utils/liturgical-dates.ts</context>
+          <context context-type="linenumber">144</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="selectOrdinaryTime">
+        <source>Ordinary Time</source>
+        <target>Ordinary Time</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/liturgical-dates.ts</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/utils/liturgical-dates.ts</context>
+          <context context-type="linenumber">150</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="creedName">
+        <source>Apostles' Creed</source>
+        <target>Apostles' Creed</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/common-prayers.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="creed">
+        <source>I believe in God the Father almighty
+      Creator of Heaven and Earth;
+      I believe in Jesus Christ, His only Son, Our Lord
+      who was conceived by the Holy Spirit,
+      born of the Virgin Mary,
+      suffered under Pontius Pilate,
+      was crucified, died and was buried;
+      He decended into hell;
+      the third day He rose again from the dead;
+      He ascended into heaven,
+      sits at the right hand of God the Father Almighty;
+      from there He shall come to judge
+         the living and the dead.
+      I believe in the Holy Spirit;
+      the Holy Catholic Church,
+      the communion of saints;
+      the forgiveness of sins;
+      the resurrection of the body;
+      and life everylasting.
+      Amen.</source>
+        <target>I believe in God the Father almighty
+      Creator of Heaven and Earth;
+      I believe in Jesus Christ, His only Son, Our Lord
+      who was conceived by the Holy Spirit,
+      born of the Virgin Mary,
+      suffered under Pontius Pilate,
+      was crucified, died and was buried;
+      He decended into hell;
+      the third day He rose again from the dead;
+      He ascended into heaven,
+      sits at the right hand of God the Father Almighty;
+      from there He shall come to judge
+         the living and the dead.
+      I believe in the Holy Spirit;
+      the Holy Catholic Church,
+      the communion of saints;
+      the forgiveness of sins;
+      the resurrection of the body;
+      and life everylasting.
+      Amen.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/common-prayers.ts</context>
+          <context context-type="linenumber">9,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="gloryName">
+        <source>The Glory Be (The Doxology)</source>
+        <target>The Glory Be (The Doxology)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/common-prayers.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="glory-leader">
+        <source>Glory be to the Father, and the Son,
+      and the Holy Spirit.</source>
+        <target>Glory be to the Father, and the Son,
+      and the Holy Spirit.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/common-prayers.ts</context>
+          <context context-type="linenumber">66,67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="glory-response">
+        <source>As it was in the beginning, is now,
+      and ever shall be, world without end.
+
+      Amen.</source>
+        <target>As it was in the beginning, is now,
+      and ever shall be, world without end.
+
+      Amen.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/common-prayers.ts</context>
+          <context context-type="linenumber">69,72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="hailMaryName">
+        <source>Hail Mary</source>
+        <target>Hail Mary</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/common-prayers.ts</context>
+          <context context-type="linenumber">112</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="hail-mary-leader">
+        <source>Hail Mary, full of grace,
+      the Lord is with thee;
+      blessed art thou amongst women,
+      and blessed is the fruit of thy womb, Jesus.</source>
+        <target>Hail Mary, full of grace,
+      the Lord is with thee;
+      blessed art thou amongst women,
+      and blessed is the fruit of thy womb, Jesus.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/common-prayers.ts</context>
+          <context context-type="linenumber">114,117</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="hail-mary-response">
+        <source>Holy Mary, Mother of God,
+      pray for us sinners,
+      now, and at the hour of our death.
+
+      Amen.</source>
+        <target>Holy Mary, Mother of God,
+      pray for us sinners,
+      now, and at the hour of our death.
+
+      Amen.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/common-prayers.ts</context>
+          <context context-type="linenumber">119,123</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="ourFatherName">
+        <source>Our Father</source>
+        <target>Our Father</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/common-prayers.ts</context>
+          <context context-type="linenumber">134</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="our-father-leader">
+        <source>Our Father who art in heaven,
+      hallowed be Thy name;
+      Thy kingdom come;
+      Thy will be done
+      on earth as it is in heaven.</source>
+        <target>Our Father who art in heaven,
+      hallowed be Thy name;
+      Thy kingdom come;
+      Thy will be done
+      on earth as it is in heaven.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/common-prayers.ts</context>
+          <context context-type="linenumber">136,140</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="our-father-response">
+        <source>Give us this day our daily bread;
+      and forgive us our trespasses,
+      as we forgive those who trespass against us;
+      and lead us not into temptation;
+      but deliver us from evil.
+
+      Amen.</source>
+        <target>Give us this day our daily bread;
+      and forgive us our trespasses,
+      as we forgive those who trespass against us;
+      and lead us not into temptation;
+      but deliver us from evil.
+
+      Amen.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/common-prayers.ts</context>
+          <context context-type="linenumber">142,148</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="signCrossName">
+        <source>The Sign of the Cross</source>
+        <target>The Sign of the Cross</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/common-prayers.ts</context>
+          <context context-type="linenumber">159</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="sign-cross">
+        <source>In the name of the Father,
+      and of the Son,
+      and of the Holy Spirit.
+
+      Amen.</source>
+        <target>In the name of the Father,
+      and of the Son,
+      and of the Holy Spirit.
+
+      Amen.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/common-prayers.ts</context>
+          <context context-type="linenumber">161,165</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="closingName1">
+        <source>Closing Prayer 1</source>
+        <target>Closing Prayer 1</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/rosary-prayers.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="closing-leader-1">
+        <source>Pray for us, O holy Mother of God.</source>
+        <target>Pray for us, O holy Mother of God.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/rosary-prayers.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="closing-response-1">
+        <source>That we may be made worthy of the promises of Christ.</source>
+        <target>That we may be made worthy of the promises of Christ.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/rosary-prayers.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="closingName2">
+        <source>Closing Prayer 2</source>
+        <target>Closing Prayer 2</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/rosary-prayers.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="closing-leader-2">
+        <source>Let us pray:</source>
+        <target>Let us pray:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/rosary-prayers.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="closing-response-2">
+        <source>O God, whose only begotten Son,
+      by His life, death and resurrection,
+      has purchased for us
+      the rewards of eternal life,
+      grant, we beseech Thee,
+      that meditating on these mysteries
+      of the Most Holy Rosary
+      of the Blessed Virgin Mary,
+      we may imitate what they contain,
+      and obtain what they promise,
+      through the same Christ, our Lord.
+
+      Amen.</source>
+        <target>O God, whose only begotten Son,
+      by His life, death and resurrection,
+      has purchased for us
+      the rewards of eternal life,
+      grant, we beseech Thee,
+      that meditating on these mysteries
+      of the Most Holy Rosary
+      of the Blessed Virgin Mary,
+      we may imitate what they contain,
+      and obtain what they promise,
+      through the same Christ, our Lord.
+
+      Amen.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/rosary-prayers.ts</context>
+          <context context-type="linenumber">27,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="fatimaName">
+        <source>The Fatima Prayer</source>
+        <target>The Fatima Prayer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/rosary-prayers.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="fatima">
+        <source>Oh my Jesus, forgive us our sins,
+      save us from the fires of hell;
+      lead all souls to heaven,
+      especially those in most need of your mercy!
+
+      Amen.</source>
+        <target>Oh my Jesus, forgive us our sins,
+      save us from the fires of hell;
+      lead all souls to heaven,
+      especially those in most need of your mercy!
+
+      Amen.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/rosary-prayers.ts</context>
+          <context context-type="linenumber">51,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="hail-holy-queen">
+        <source>Hail, Holy Queen, Mother of Mercy,
+      our life, our sweetness, and our hope.
+      To thee do we cry, poor banished children of Eve.
+      To thee do we send up our sighs, mourning and weeping in this vale of tears.
+      Turn then, most gracious advocate, thine eyes of mercy towards us,
+      and after this our exile show unto us the blessed fruit of thy womb, Jesus.
+      O clement, O loving, O sweet Virgin Mary.
+
+      Amen</source>
+        <target>Hail, Holy Queen, Mother of Mercy,
+      our life, our sweetness, and our hope.
+      To thee do we cry, poor banished children of Eve.
+      To thee do we send up our sighs, mourning and weeping in this vale of tears.
+      Turn then, most gracious advocate, thine eyes of mercy towards us,
+      and after this our exile show unto us the blessed fruit of thy womb, Jesus.
+      O clement, O loving, O sweet Virgin Mary.
+
+      Amen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/rosary-prayers.ts</context>
+          <context context-type="linenumber">66,74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="hail-holy-queen-name">
+        <source>Hail, Holy Queen</source>
+        <target>Hail, Holy Queen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/models/prayers/rosary-prayers.ts</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="mystery-fruit">
+        <source>Fruit of the Mystery:</source>
+        <target>Fruit of the Mystery:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/rosary-prayers/holy-rosary/mystery-display/mystery-display.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="mysteryLiteral">
+        <source>Mystery</source>
+        <target>Mystery</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/rosary-prayers/holy-rosary/mystery-display/mystery-display.component.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="select-mystery">
+        <source> Select the desired Mystery: </source>
+        <target> Select the desired Mystery: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/rosary-prayers/holy-rosary/mystery-selector/mystery-selector.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="glorious-notes">
+        <source>Sunday and Wednesday</source>
+        <target>Sunday and Wednesday</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/rosary-prayers/holy-rosary/mystery-selector/mystery-selector.component.ts</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="joyful-notes">
+        <source>Monday, Saturday and Sunday during Advent</source>
+        <target>Monday, Saturday and Sunday during Advent</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/rosary-prayers/holy-rosary/mystery-selector/mystery-selector.component.ts</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="luminous-notes">
+        <source>Thursday</source>
+        <target>Thursday</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/rosary-prayers/holy-rosary/mystery-selector/mystery-selector.component.ts</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="sorrowful-notes">
+        <source>Tuesday, Friday and Sunday during Lent</source>
+        <target>Tuesday, Friday and Sunday during Lent</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/rosary-prayers/holy-rosary/mystery-selector/mystery-selector.component.ts</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="rosaryTitle">
+        <source>Rosary Beads</source>
+        <target>Rosary Beads</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="lit-dates.period">
+        <source>Liturgical period</source>
+        <target>Liturgical period</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="lit-dates.important-times">
+        <source>Important Times</source>
+        <target>Important Times</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="prayerHolyRosary">
+        <source>The Holy Rosary</source>
+        <target>The Holy Rosary</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="adventLabel">
+        <source>Advent</source>
+        <target>Advent</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="christmasLabel">
+        <source>Christmas</source>
+        <target>Christmas</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="lentLabel">
+        <source>Lent</source>
+        <target>Lent</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="triduumLabel">
+        <source>Holy Triduum</source>
+        <target>Holy Triduum</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="holyThursday">
+        <source>Holy Thursday</source>
+        <target>Holy Thursday</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="goodFridayLabel">
+        <source>Good Friday</source>
+        <target>Good Friday</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="holySaturdayLabel">
+        <source>Holy Saturday</source>
+        <target>Holy Saturday</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="easterLabel">
+        <source>Easter</source>
+        <target>Easter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="easterSundayLabel">
+        <source>Easter Sunday</source>
+        <target>Easter Sunday</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/localization.service.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="supported.english">
+        <source>English</source>
+        <target>English</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/supported-languages.service.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit datatype="html" id="supported.spanish">
+        <source>Spanish</source>
+        <target>Spanish</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/supported-languages.service.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="navigationChecked" datatype="html">
+        <source>Enable navigation buttons.</source>
+        <target>Enable navigation buttons.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/supported-languages.service.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

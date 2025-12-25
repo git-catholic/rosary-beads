@@ -1,0 +1,24 @@
+<div class="app-header-div">
+  <app-header [prayerName]="prayerName"></app-header>
+</div>
+<div id="rosary-beads">
+  <div id="rosary-beads-img-div">
+    <app-rosary-beads-container #rosaryBeads [rosaryBeadsType]="beadsByType"
+                                (activeBeadsEvent)="onActiveBeads($event)">
+    </app-rosary-beads-container>
+  </div>
+  <div id="rosary-beads-prayer-div">
+    <div *ngIf="showMystery">
+      <app-mystery-display [mysteryNumber]="mysteryNumber"
+                           [mysteryDesc]="mysteryDesc"
+                           [mysteryFruit]="mysteryFruit">
+      </app-mystery-display>
+    </div>
+    <div id="active-prayer">
+      <app-prayer-swipe [prayerName] = "prayerName"
+                        [prayerSequence]="fullPrayerSequence"
+                        (swipeIndexEvent)="onSwipeIndex($event)">
+      </app-prayer-swipe>
+    </div>
+  </div>
+</div>

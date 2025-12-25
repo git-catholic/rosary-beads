@@ -1,10 +1,14 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { RosaryMysteriesEnum } from 'src/app/sequences/rosary-helper';
-import { AppConfigService } from 'src/app/services/app-config.service';
-import { AppDateService } from 'src/app/services/app-date.service';
-import { LiturgicalYearService } from 'src/app/services/liturgical-year.service';
-import { LocalizationService } from 'src/app/services/localization.service';
-import { MysteryGlorious } from '../mysteries/mystery-glorious';
+import { RosaryMysteriesEnum } from '../../../utils/rosary-mysteries-enum';
+import { AppConfigService } from '../../../services/app-config.service';
+import { LiturgicalYearService } from '../../../services/liturgical-year.service';
+import { LocalizationService } from '../../../services/localization.service';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { PRAYER_HOME } from '../../../app-routing.module';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LanguageItem, LanguageSelectorComponent } from '../../../components/config/language-selector/language-selector.component';
+import { SupportedLanguagesService } from '../../../services/supported-languages.service';
 
 const SUN = 0;
 const MON = 1;
@@ -20,6 +24,12 @@ const HIGHLIGHT_MYSTERY_OF_DAY = 'highlight-mystery-of-day';
 
 @Component({
   selector: 'app-mystery-selector',
+  standalone: true,
+  imports: [
+    CommonModule,
+    LanguageSelectorComponent,
+    TranslateModule
+  ],
   templateUrl: './mystery-selector.component.html',
   styleUrls: ['./mystery-selector.component.scss']
 })
@@ -35,11 +45,17 @@ export class MysterySelectorComponent implements OnInit {
 
   mysteryOfTheDay: RosaryMysteriesEnum;
 
+  readonly languageSelectorList: LanguageItem[];
+
   private dayOfWeek: number;
 
   constructor(private appConfig: AppConfigService,
               private liturgicalYear: LiturgicalYearService,
-              private localizationUtil: LocalizationService) {
+              private localizationUtil: LocalizationService,
+              private supportedLanguagesService: SupportedLanguagesService,
+              private router: Router,
+              private translate: TranslateService) {
+
     if (MYSTERY_LABEL_MAP.size === 0) {
       MYSTERY_LABEL_MAP[RosaryMysteriesEnum.GLORIOUS] = this.gloriousMystery;
       MYSTERY_LABEL_MAP[RosaryMysteriesEnum.JOYFUL] = this.joyfulMystery;
@@ -50,12 +66,35 @@ export class MysterySelectorComponent implements OnInit {
     this.dayOfWeek = (new Date()).getDay();
     this.mysteryOfTheDay = this.getMysteryOfTheDay();
     this.mysteryOfTheDayLabel = MYSTERY_LABEL_MAP[this.mysteryOfTheDay];
+
+    this.languageSelectorList = this.supportedLanguagesService.getLanguageSelectorList();
   }
 
   ngOnInit(): void { }
 
+  onGoHome() {
+    this.router.navigate([PRAYER_HOME]);
+  }
+
   onConfigView(): void {
+    console.log(`mystery-selector - config view clicked`);
     this.onConfigViewEvent.emit('mystery-selector');
+  }
+
+  onLanguageSelectionChange(code: string) {
+    this.supportedLanguagesService.assignActiveLanguageIdFromCode(code);
+  }
+
+  get appTitle(): string {
+    return this.localizationUtil.appTitle;
+  }
+
+  get appVersion(): string {
+    return this.appConfig?.appVersion;
+  }
+
+  get multiPrayerHome(): boolean {
+    return this.appConfig?.hasMultiPrayerSupport;
   }
 
   get isPortrait(): boolean {
@@ -67,7 +106,7 @@ export class MysterySelectorComponent implements OnInit {
   }
 
   get gloriousMysteryNotes(): string {
-    return $localize`:@@glorious-notes:Sunday and Wednesday`;
+    return this.translate.instant('glorious-notes');
   }
 
   get joyfulMystery(): string {
@@ -75,7 +114,7 @@ export class MysterySelectorComponent implements OnInit {
   }
 
   get joyfulMysteryNotes(): string {
-    return $localize`:@@joyful-notes:Monday, Saturday and Sunday during Advent`;
+    return this.translate.instant('joyful-notes');
   }
 
   get luminousMystery(): string {
@@ -83,7 +122,7 @@ export class MysterySelectorComponent implements OnInit {
   }
 
   get luminousMysteryNotes(): string {
-    return $localize`:@@luminous-notes:Thursday`;
+    return this.translate.instant('luminous-notes');
   }
 
   get sorrowfulMystery(): string {
@@ -91,7 +130,7 @@ export class MysterySelectorComponent implements OnInit {
   }
 
   get sorrowfulMysteryNotes(): string {
-    return $localize`:@@sorrowful-notes:Tuesday, Friday and Sunday during Lent`;
+    return this.translate.instant('sorrowful-notes');
   }
 
   get isGlorious(): string {

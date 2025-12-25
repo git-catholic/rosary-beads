@@ -1,0 +1,5 @@
+<select (change)="onLanguageSelectionChange($event)">
+  <option *ngFor="let entry of items" [value]="entry?.value" [selected]="isSelectedLanguage(entry)">
+    {{ entry.displayValue | translate }}
+  </option>
+</select>

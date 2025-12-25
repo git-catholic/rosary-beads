@@ -6,11 +6,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AppDateService {
   // tslint:disable-next-line:variable-name
-  private _date: Date;
+  private _date!: Date;
   // tslint:disable-next-line:variable-name
-  private _currentYear;
+  private _currentYear!: number;
 
-  constructor(private activateRoute?: ActivatedRoute) {
+  constructor(private activateRoute: ActivatedRoute) {
     if (activateRoute?.queryParams) {
       this.activateRoute.queryParams.subscribe(params => {
         if ('use-date' in params) {
@@ -31,7 +31,7 @@ export class AppDateService {
     return this._currentYear;
   }
 
-  normalizeStringDate(source: string): Date {
+  normalizeStringDate(source: string): Date | undefined {
     return (source) ? this.normalizeDate(new Date(source)) : undefined;
   }
 

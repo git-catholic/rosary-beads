@@ -1,0 +1,51 @@
+$fontname: Consola;
+$font-size-base: 2vw;
+$font-size-base-phone: 4.5vw;
+
+$font-size-dropdown: 2vw;
+$font-size-dropdown-phone: 4vw;
+
+$margins: 1vh;
+$margins-phone: 0.15vh;
+$nav-landscape-margin: 1vh;
+$nav-portrait-margin: 1vh;
+
+$padding: 1vh;
+$padding-phone: 0.3vh;
+
+$border: 1px dashed black;
+$border-radius: 1.5vh;
+
+$input-margin-bottom: 1vh;
+
+/* ================================================================================ */
+
+$close-button-diameter: 5vh;
+$config-tab-row-height: 5vh;
+
+$tab-line-color: darkslategray;
+$tab-top-radius: 10px;
+
+/* ================================================================================ */
+
+.kv-row {
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.kv-row .kv-field-name {
+  background-color: azure;
+  opacity: 85%;
+  padding: $margins;
+  text-align: right;
+  width: 30%;
+}
+
+.kv-row .kv-field-value {
+  font-weight: bold;
+  padding: $margins;
+  width: 70%;
+  overflow-wrap: anywhere;
+}

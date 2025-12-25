@@ -2,10 +2,17 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+
 export const environment = {
   production: false,
   debugMode: true,
-  redirect: true
+  redirect: false,
+  supportedLanguages: [
+    [ 'en', 'supported.english' ],
+    // [ 'he', 'supported.hebrew', true ],
+    [ 'es', 'supported.spanish' ]
+  ],
+  useDebugImage: false
 };
 
 /*

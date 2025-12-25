@@ -1,22 +1,26 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-import { AppConfigService } from 'src/app/services/app-config.service';
-import { AppDateService } from 'src/app/services/app-date.service';
-import { LocalizationService } from 'src/app/services/localization.service';
-import { LanguageSelectorComponent } from '../../language-selector/language-selector.component';
 
 import { DeviceDetailsComponent } from './device-details.component';
+import { AppConfigService } from '../../../services/app-config.service';
+import { LocalizationService } from '../../../services/localization.service';
+import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
+import { TranslateService } from '@ngx-translate/core';
+import { jest } from 'jest';
 
-describe('DeviceDetailsComponent', () => {
+fdescribe('DeviceDetailsComponent', () => {
   let component: DeviceDetailsComponent;
   let fixture: ComponentFixture<DeviceDetailsComponent>;
   let activatedRoute: ActivatedRoute;
-  let appConfig: AppConfigService;
-  let localizationUtil = new LocalizationService();
+
+  const mockTranslate = {
+    instant: jest.fn().mockReturnValue('mocked-message')
+  };
 
   beforeEach(() => {
     activatedRoute = new ActivatedRoute();
-    appConfig = new AppConfigService(new AppDateService(activatedRoute), localizationUtil);
+    //localizationUtil = new LocalizationService(mockTranslate);
+    // appConfig = new AppConfigService(new AppDateService(activatedRoute), localizationUtil);
 
     TestBed.configureTestingModule({
       declarations: [
@@ -25,7 +29,10 @@ describe('DeviceDetailsComponent', () => {
       ],
       providers: [
         { provide: ActivatedRoute, useValue: activatedRoute },
-        { provide: AppConfigService, useValue: appConfig }
+        { provide: TranslateService, useValue: mockTranslate },
+        // { provide: AppConfigService, useValue: appConfig },
+        LocalizationService,
+        AppConfigService
       ]
     });
 

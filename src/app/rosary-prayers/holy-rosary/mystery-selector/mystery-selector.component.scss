@@ -1,4 +1,6 @@
-@import '../../../../styles-shared-mixins.scss';
+// @use 'styles/variables' as vars;
+@use '../../../../styles/style-variables.scss' as vars;
+// @use '../../../../styles.scss';
 
 $widget-width: 3vw;
 $widget-width-phone: 9vw;
@@ -9,15 +11,20 @@ $widget-width-phone: 9vw;
   width: 100%;
 }
 
+app-language-selector, app-version-info {
+  float: left;
+}
+
 @media (orientation: landscape) {
   .section-title {
     text-align: left;
-    width: calc(100% - #{$widget-width});
+    width: 50%; //calc(100% - #{$widget-width});
   }
 
-  .config-widget {
+  .home-widget, .config-widget {
     float: right;
     width: $widget-width;
+    height: $widget-width;
   }
 
   .button-row {
@@ -26,9 +33,13 @@ $widget-width-phone: 9vw;
   }
 
   .button-cell {
-    padding: $padding;
+    padding: vars.$padding;
     text-align: center;
     width: 24%;
+  }
+
+  .mystery-language-selector {
+    padding-bottom: 3vh;
   }
 }
 
@@ -38,15 +49,16 @@ $widget-width-phone: 9vw;
     width: calc(100% - #{$widget-width-phone});
   }
 
-  .config-widget {
+  .home-widget, .config-widget {
     float: right;
     width: $widget-width-phone;
+    height: $widget-width-phone;
   }
 
   .button-row {
     display: flex;
     flex-direction: row;
-    padding: $margins-phone;
+    padding: vars.$margins-phone;
 
     button {
       width: 40%;
@@ -56,10 +68,14 @@ $widget-width-phone: 9vw;
       display: flex;
       align-items: center;
 
-      padding-left: $margins;
+      padding-left: vars.$margins;
       width: 60%;
       height: inherit;
     }
+  }
+
+  .mystery-language-selector {
+    margin-top: 1vh;
   }
 }
 

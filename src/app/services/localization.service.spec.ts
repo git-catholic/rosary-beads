@@ -4,7 +4,7 @@ import { AppDateService } from './app-date.service';
 
 import { LocalizationService } from './localization.service';
 
-describe('DateAndLocalizationService', () => {
+describe('LocalizationService', () => {
   let service: LocalizationService;
   let activatedRoute: ActivatedRoute;
   let appDate: AppDateService;

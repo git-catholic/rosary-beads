@@ -1,66 +1,82 @@
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalizationService {
 
-  constructor() { }
+  constructor(private translate: TranslateService) { }
+
+  get appTitle(): string {
+    console.log(`++ appTitle: ${this.translate.instant('rosaryTitle')}`);
+    return this.translate.instant('rosaryTitle');
+  }
+
+  get liturgicalPeriod(): string {
+    return this.translate.instant('lit-dates.period');
+  }
+
+  get importantDates(): string {
+    console.log(`importantDates: ${this.translate.instant('lit-dates.important-times')}`);
+    return this.translate.instant('lit-dates.important-times');
+  }
 
   get prayerHolyRosary(): string {
-    return $localize`:@@prayerHolyRosary:The Holy Rosary`;
+    return this.translate.instant('prayerHolyRosary');
   }
 
   get adventLabel(): string {
-    return $localize`:@@adventLabel:Advent`;
+    console.log(`++ adventLabel: ${this.translate.instant('adventLabel')}`);
+    return this.translate.instant('adventLabel');
   }
 
   get christmasLabel(): string {
-    return $localize`:@@christmasLabel:Christmas`;
+    return this.translate.instant('christmasLabel');
   }
 
   get lentLabel(): string {
-    return $localize`:@@lentLabel:Lent`;
+    return this.translate.instant('lentLabel');
   }
 
   get triduumLabel(): string {
-    return $localize`:@@triduumLabel:Holy Triduum`;
+    return this.translate.instant('triduumLabel');
   }
 
   get holyThursdayLabel(): string {
-    return $localize`:@@holyThursday:Holy Thursday`;
+    return this.translate.instant('holyThursday');
   }
 
   get goodFridayLabel(): string {
-    return $localize`:@@goodFridayLabel:Good Friday`;
+    return this.translate.instant('goodFridayLabel');
   }
 
   get holySaturdayLabel(): string {
-    return $localize`:@@holySaturdayLabel:Holy Saturday`;
+    return this.translate.instant('holySaturdayLabel');
   }
 
   get easterLabel(): string {
-    return $localize`:@@easterLabel:Easter`;
+    return this.translate.instant('easterLabel');
   }
 
   get easterSundayLabel(): string {
-    return $localize`:@@easterSundayLabel:Easter Sunday`;
+    return this.translate.instant('easterSundayLabel');
   }
 
   get gloriousMysteryLabel(): string {
-    return $localize`:@@glorious:Glorious`;
+    return this.translate.instant('glorious');
   }
 
   get joyfulMysteryLabel(): string {
-    return $localize`:@@joyful:Joyful`;
+    return this.translate.instant('joyful');
   }
 
   get luminousMysteryLabel(): string {
-    return $localize`:@@luminous:Luminous`;
+    return this.translate.instant('luminous');
   }
 
   get sorrowfulMysteryLabel(): string {
-    return $localize`:@@sorrowful:Sorrowful`;
+    return this.translate.instant('sorrowful');
   }
 
 }

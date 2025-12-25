@@ -6,7 +6,7 @@ PRJ_NAME=`echo ${PWD##*/}`
 echo "Project: ${PRJ_NAME}"
 
 # -------------------------------------------------------------------------
-IS_VALID=`grep -c "\"localize\": true" angular.json`
+IS_VALID=1
 
 # -------------------------------------------------------------------------
 if [[ $IS_VALID -eq 0 ]]; then
@@ -26,6 +26,9 @@ else
   ng build --output-path docs --base-href "#47;${PRJ_NAME}/"
 
   cp -p src/redirect-index.html docs/index.html
+
+  mv docs/browser/* docs/
+  rm -r docs/browser
   
   COMMIT_VERSION=`npm version | grep -i "${PRJ_NAME}" | awk -F"[:]" '{ print $1,$2 }' | sed -e "s/',//g"`
   CV_CLEAN=`echo ${COMMIT_VERSION}`

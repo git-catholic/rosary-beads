@@ -1,13 +1,11 @@
-export interface RosaryBeads {
-  highlightBeadIdx: number;
+import { NavigateSequence, Sequence, SequenceTemplate } from "../models/sequence";
 
-  imageWidth: number;
-  imageHeight: number;
-
-  highlightTop: string;
-  highlightLeft: string;
-
+export interface RosaryBeads extends NavigateSequence, SequenceTemplate {
   highlightStyle: string;
 
-  updateBeadPosition(highlightBeadIdx: number): void;
+  getActiveBeadDetails(): Sequence;
+
+  initHolyRosarySequence(): void;
+  updateBeadPosition(prayerIdx: number): void;
+  updateBeadPositionSequence(beadPositionSequence: Sequence[]): void;
 }
