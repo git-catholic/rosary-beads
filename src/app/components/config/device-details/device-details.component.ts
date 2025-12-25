@@ -52,6 +52,7 @@ export class DeviceDetailsComponent implements OnInit {
   }
 
   get navigationChecked(): boolean {
+    console.log(`navigation checked? ${this.appConfig?.isNavigationEnabled}`);
     return this.appConfig?.isNavigationEnabled;
   }
 
@@ -65,7 +66,7 @@ export class DeviceDetailsComponent implements OnInit {
 
   onNavigationChecked(event: Event) {
     const isChecked = (event.target as HTMLInputElement).checked;
-    console.log(`navigation checked: ${isChecked}`);
+    this.appConfig.setNavigationEnabled(isChecked);
   }
 
 }
