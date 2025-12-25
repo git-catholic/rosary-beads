@@ -55,4 +55,12 @@ export class AppConfigService {
     return this.stateStorageService?.navigationOnFlag?.data;
   }
 
+  setNavigationEnabled(enabled: boolean): void {
+    console.log(`setNavigationEnabled: ${enabled}`);
+    if (this.stateStorageService?.navigationOnFlag) {
+      this.stateStorageService.navigationOnFlag.data = enabled;
+    }
+    console.log(`checking flag: ${this.stateStorageService?.navigationOnFlag?.data}`);
+  }
+
 }

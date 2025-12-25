@@ -9,8 +9,8 @@
   <span class="kv-field-name">Show navigation:</span>
   <span class="kv-field-value">
     <input type="checkbox"
-           [value]="navigationChecked"
-           (click)="onNavigationChecked($event)">
+           [checked]="navigationChecked"
+           (change)="onNavigationChecked($event)">
     {{ enableNavigation }}
   </span>
 </div>
