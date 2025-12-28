@@ -31,9 +31,6 @@ export class HolyRosaryDisplayComponent implements AfterViewInit {
   @ViewChild('rosaryBeads')
   rosaryBeadsContainer: RosaryBeadsContainerComponent;
 
-  // @ViewChild('currentDisplayPrayer')
-  // currentDisplayPrayer: PrayerDisplayComponent;
-
   rosaryBeads: RosaryBeads;
 
   beadsByType: Type<RosaryBeads>;

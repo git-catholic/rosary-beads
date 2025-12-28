@@ -1,23 +1,26 @@
-// import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { PrayerDisplayComponent } from './prayer-display.component';
+import { PrayerDisplayComponent } from './prayer-display.component';
+import { RosaryTranslateModule } from 'src/app/modules/rosary-translate.module';
 
-// describe('PrayerDisplayComponent', () => {
-//   let component: PrayerDisplayComponent;
-//   let fixture: ComponentFixture<PrayerDisplayComponent>;
+describe('PrayerDisplayComponent', () => {
+  let component: PrayerDisplayComponent;
+  let fixture: ComponentFixture<PrayerDisplayComponent>;
 
-//   beforeEach(async () => {
-//     await TestBed.configureTestingModule({
-//       declarations: [PrayerDisplayComponent]
-//     })
-//     .compileComponents();
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [
+        RosaryTranslateModule
+      ]
+    })
+    .compileComponents();
 
-//     fixture = TestBed.createComponent(PrayerDisplayComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+    fixture = TestBed.createComponent(PrayerDisplayComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

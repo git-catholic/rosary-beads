@@ -27,10 +27,14 @@ export class LanguageSelectorComponent implements OnInit {
 
   selectedValue: string;
 
+  static isTypeOf(obj: any): boolean {
+    const checkObj = obj as LanguageSelectorComponent;
+    return checkObj?.items !== undefined && checkObj?.languageSelectionChangeEvent !== undefined;
+  }
+
   constructor(public translate: TranslateService) { }
 
   ngOnInit(): void {
-    //console.log(`current lang: ${this.translate.getCurrentLang()}`);
     const activeCode = this.translate.getCurrentLang();
     const displayArray = this.items.filter(entry => entry.value === activeCode)
       .map(entry => entry.displayValue);

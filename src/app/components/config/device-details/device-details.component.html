@@ -1,13 +1,14 @@
 <div class="language-selector">
   <app-language-selector
+    test-id="device-details-lang-selector"
     class="dropdown-height"
     [items]="languageSelectorList"
     (languageSelectionChangeEvent)="onLanguageSelectionChange($event)">
   </app-language-selector>
 </div>
 <div class="kv-row">
-  <span class="kv-field-name">Show navigation:</span>
-  <span class="kv-field-value">
+  <span class="kv-field-name" test-id="device-details-nav-label">Show navigation:</span>
+  <span class="kv-field-value" test-id="device-details-nav-checkbox">
     <input type="checkbox"
            [checked]="navigationChecked"
            (change)="onNavigationChecked($event)">
@@ -15,26 +16,26 @@
   </span>
 </div>
 <div class="kv-row">
-  <span class="kv-field-name">Version:</span>
-  <span class="kv-field-value">{{ appNameVersion }}</span>
+  <span class="kv-field-name" test-id="device-details-version-label">Version:</span>
+  <span class="kv-field-value" test-id="device-details-version-value">{{ appNameVersion }}</span>
 </div>
 <div class="kv-row">
-  <span class="kv-field-name">User-agent:</span>
-  <span class="kv-field-value">{{ userAgent }}</span>
+  <span class="kv-field-name" test-id="device-details-agent-label">User-agent:</span>
+  <span class="kv-field-value" test-id="device-details-agent-value">{{ userAgent }}</span>
 </div>
 <div class="kv-row">
-  <span class="kv-field-name">Portrait?</span>
-  <span class="kv-field-value">{{ isPortrait }}</span>
+  <span class="kv-field-name" test-id="device-details-portrait-label">Portrait?</span>
+  <span class="kv-field-value" test-id="device-details-portrait-value">{{ isPortrait }}</span>
 </div>
 <div class="kv-row">
-  <span class="kv-field-name">Win (inner):</span>
-  <span class="kv-field-value">{{ windowInnerDimension }}</span>
+  <span class="kv-field-name" test-id="device-details-inner-label">Win (inner):</span>
+  <span class="kv-field-value" test-id="device-details-inner-value">{{ windowInnerDimension }}</span>
 </div>
 <div class="kv-row">
-  <span class="kv-field-name">Win (outer):</span>
-  <span class="kv-field-value">{{ windowOuterDimension }}</span>
+  <span class="kv-field-name" test-id="device-details-outer-label">Win (outer):</span>
+  <span class="kv-field-value" test-id="device-details-outer-value">{{ windowOuterDimension }}</span>
 </div>
 <div class="kv-row">
-  <span class="kv-field-name">Win DPR:</span>
-  <span class="kv-field-value">{{ windowDevicePixelRatio }}</span>
+  <span class="kv-field-name" test-id="device-details-dpr-label">Win DPR:</span>
+  <span class="kv-field-value" test-id="device-details-dpr-value">{{ windowDevicePixelRatio }}</span>
 </div>

@@ -1,39 +1,32 @@
-// import { ComponentFixture, TestBed } from '@angular/core/testing';
-// import { ActivatedRoute } from '@angular/router';
-// import { AppConfigService } from 'src/app/services/app-config.service';
-// import { AppDateService } from 'src/app/services/app-date.service';
-// import { LocalizationService } from 'src/app/services/localization.service';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
-// import { MysterySelectorComponent } from './mystery-selector.component';
+import { MysterySelectorComponent } from './mystery-selector.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { RosaryTranslateModule } from 'src/app/modules/rosary-translate.module';
+import { testRoutes } from 'src/app/utils-for-test/routes-for-testing.spec';
 
-// describe('MysterySelectorComponent', () => {
-//   let component: MysterySelectorComponent;
-//   let fixture: ComponentFixture<MysterySelectorComponent>;
-//   let activatedRoute: ActivatedRoute
-//   let appConfig: AppConfigService;
-//   let localizationUtil = new LocalizationService();
+describe('MysterySelectorComponent', () => {
+  let component: MysterySelectorComponent;
+  let fixture: ComponentFixture<MysterySelectorComponent>;
 
-//   beforeEach(() => {
-//     activatedRoute = new ActivatedRoute();
-//     appConfig = new AppConfigService(new AppDateService(activatedRoute), localizationUtil);
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        RosaryTranslateModule
+      ],
+      providers: [
+        provideHttpClient(withInterceptorsFromDi()),
+        provideRouter(testRoutes)
+      ]
+    });
 
-//     TestBed.configureTestingModule({
+    fixture = TestBed.createComponent(MysterySelectorComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//       declarations: [
-//         MysterySelectorComponent
-//       ],
-//       providers: [
-//         { provide: ActivatedRoute, useValue: activatedRoute },
-//         { provide: AppConfigService, useValue: appConfig }
-//       ]
-//     });
-
-//     fixture = TestBed.createComponent(MysterySelectorComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
-
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

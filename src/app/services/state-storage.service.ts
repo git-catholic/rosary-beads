@@ -6,10 +6,18 @@ import { FlagStorage, StringStorage } from '../utils/state-storage';
 })
 export class StateStorageService {
 
+  private readonly storeSelectedLanguage = new StringStorage('rosary.language');
+  private readonly storeNavigationOnFlag = new FlagStorage('rosary.navigation');
+
   constructor() { }
 
-  readonly selectedLanguage = new StringStorage('rosary.language');
-  readonly navigationOnFlag = new FlagStorage('rosary.navigation');
+  get selectedLanguage(): StringStorage {
+    return this.storeSelectedLanguage;
+  }
+
+  get navigationOnFlag(): FlagStorage {
+    return this.storeNavigationOnFlag;
+  }
 
 }
 

@@ -1,47 +1,83 @@
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
-
+import { RosaryTranslateModule } from 'src/app/modules/rosary-translate.module';
 import { DeviceDetailsComponent } from './device-details.component';
-import { AppConfigService } from '../../../services/app-config.service';
-import { LocalizationService } from '../../../services/localization.service';
+import { DeviceDetailsFixtureSpec } from './fixtures/device-details-fixture.spec';
+import { SupportedLanguagesService } from 'src/app/services/supported-languages.service';
+import { AppConfigService } from 'src/app/services/app-config.service';
+import { MockedStorage } from 'src/app/utils-for-test/mocks/mocked-state-storage-service.spec';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
-import { TranslateService } from '@ngx-translate/core';
-import { jest } from 'jest';
+import { DomGetterByTestId } from 'src/app/utils-for-test/dom-utils.spec';
 
-fdescribe('DeviceDetailsComponent', () => {
+describe('DeviceDetailsComponent', () => {
   let component: DeviceDetailsComponent;
   let fixture: ComponentFixture<DeviceDetailsComponent>;
-  let activatedRoute: ActivatedRoute;
+  let elements: DeviceDetailsFixtureSpec;
 
-  const mockTranslate = {
-    instant: jest.fn().mockReturnValue('mocked-message')
-  };
 
   beforeEach(() => {
-    activatedRoute = new ActivatedRoute();
-    //localizationUtil = new LocalizationService(mockTranslate);
-    // appConfig = new AppConfigService(new AppDateService(activatedRoute), localizationUtil);
+    Object.defineProperty(window, "localStorage", {
+      value: new MockedStorage()
+    });
 
     TestBed.configureTestingModule({
-      declarations: [
+      declarations: [ ],
+      imports: [
         DeviceDetailsComponent,
-        LanguageSelectorComponent
+
+        CommonModule,
+        BrowserModule,
+        ReactiveFormsModule,
+        RosaryTranslateModule
       ],
       providers: [
-        { provide: ActivatedRoute, useValue: activatedRoute },
-        { provide: TranslateService, useValue: mockTranslate },
-        // { provide: AppConfigService, useValue: appConfig },
-        LocalizationService,
-        AppConfigService
+        provideHttpClient(withInterceptorsFromDi()),
+        // provideRouter(testRoutes),
+        AppConfigService,
+        SupportedLanguagesService
       ]
     });
 
     fixture = TestBed.createComponent(DeviceDetailsComponent);
+    elements = new DeviceDetailsFixtureSpec(fixture);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
+
+    expectElementVisible(elements.languageSelectorElement);
+    expect(LanguageSelectorComponent.isTypeOf(elements.languageSelectorElement.debugElement.componentInstance)).toBeTrue();
+
+    expectElementVisible(elements.navigationLabel);
+    expectElementVisible(elements.navigationCheckbox);
+
+    expectElementVisible(elements.versionLabel);
+    expectElementVisible(elements.versionValue);
+
+    expectElementVisible(elements.agentLabel);
+    expectElementVisible(elements.agentValue);
+
+    expectElementVisible(elements.portraitLabel);
+    expectElementVisible(elements.portraitValue);
+
+    expectElementVisible(elements.winInnerLabel);
+    expectElementVisible(elements.winInnerValue);
+
+    expectElementVisible(elements.winOuterLabel);
+    expectElementVisible(elements.winOuterValue);
+
+    expectElementVisible(elements.winDprLabel);
+    expectElementVisible(elements.winDprValue);
   });
+
+  function expectElementVisible<H extends HTMLElement>(element: DomGetterByTestId<DeviceDetailsComponent, H>): void {
+    expect(element).toBeTruthy();
+    expect(element?.nativeElement).toBeTruthy();
+    expect(element?.debugElement).toBeTruthy();
+  }
 });

@@ -90,7 +90,6 @@ export abstract class PrayerSequence implements SequenceTemplate {
   }
 
   next(): Sequence {
-    console.log(`abstract prayer seq: ${this.currentPrayer?.id} - ${this.currentPrayer?.hasNext()}`);
     if (this.currentPrayer?.hasNext()) {
       this.prayerIndex++;
       this.onNext(this.currentPrayer);

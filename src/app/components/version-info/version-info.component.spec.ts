@@ -8,7 +8,7 @@ describe('VersionInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [VersionInfoComponent]
+      declarations: []
     })
     .compileComponents();
 

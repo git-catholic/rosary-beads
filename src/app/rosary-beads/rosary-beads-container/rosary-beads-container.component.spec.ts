@@ -8,7 +8,7 @@ describe('RosaryBeadsContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RosaryBeadsContainerComponent]
+      declarations: []
     })
     .compileComponents();
 

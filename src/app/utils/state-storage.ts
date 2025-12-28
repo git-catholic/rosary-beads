@@ -4,7 +4,7 @@ export abstract class StateStorageBase<T> {
 
   abstract get data(): T;
 
-  abstract set data(flag: T);
+  abstract set data(value: T);
 
   constructor(key: string) {
     this.key = key;
@@ -23,9 +23,9 @@ export class StringStorage extends StateStorageBase<string> {
     return (response !== null) ? response : undefined;
   }
 
-  set data(entry: string) {
-    if (entry) {
-      window.localStorage.setItem(this.key, entry);
+  set data(value: string) {
+    if (value) {
+      window.localStorage.setItem(this.key, value);
     }
     else {
       window.localStorage.removeItem(this.key);
@@ -45,9 +45,9 @@ export class FlagStorage extends StateStorageBase<boolean> {
     return this.stringToBoolean(response);
   }
 
-  set data(entry: boolean) {
-    if (entry) {
-      window.localStorage.setItem(this.key, entry.toString());
+  set data(value: boolean) {
+    if (value) {
+      window.localStorage.setItem(this.key, value.toString());
     }
     else {
       window.localStorage.removeItem(this.key);

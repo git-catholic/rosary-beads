@@ -15,6 +15,14 @@ export class DeviceDetailsComponent implements OnInit {
 
   readonly languageSelectorList: LanguageItem[];
 
+  readonly name = 'DeviceDetailsComponent';
+
+  static isTypeOf(obj: any): boolean {
+    const checkObj = obj as DeviceDetailsComponent;
+    console.log(`checkObj = ${checkObj?.name}`);
+    return checkObj?.name === 'DeviceDetailsComponent' && checkObj?.languageSelectorList !== undefined;
+  }
+
   constructor(private appConfig: AppConfigService,
               private supportedLanguagesService: SupportedLanguagesService,
               private translateService: TranslateService) {
@@ -23,9 +31,12 @@ export class DeviceDetailsComponent implements OnInit {
     this.supportedLanguagesService.getSupportedLanguagesMap().forEach((value, key) => {
       this.languageSelectorList.push({ value: key, displayValue: value?.id })
     });
+    console.log(`DeviceDetailsComponent - constructor`);
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    console.log(`DeviceDetailsComponent - ngOnInit`);
+  }
 
   get appNameVersion(): string {
     return `${this.appConfig.appName} - ${this.appConfig.appVersion}`;
