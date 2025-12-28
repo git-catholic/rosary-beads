@@ -21,8 +21,7 @@ export class VisibilityCheckDirective implements OnInit, AfterViewInit, OnDestro
 
   private observer!: IntersectionObserver;
   
-  constructor(private readonly zone: NgZone,
-              private readonly elementRef: ElementRef<HTMLElement>) { }
+  constructor(private readonly elementRef: ElementRef<HTMLElement>) { }
 
   ngOnInit(): void {
     if (this.threshold === undefined) {

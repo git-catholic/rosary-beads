@@ -8,6 +8,10 @@ export class LocalizationService {
 
   constructor(private translate: TranslateService) { }
 
+  debugCheckTranslation(code: string): string {
+    return this.translate.instant(code);
+  }
+
   get appTitle(): string {
     console.log(`++ appTitle: ${this.translate.instant('rosaryTitle')}`);
     return this.translate.instant('rosaryTitle');

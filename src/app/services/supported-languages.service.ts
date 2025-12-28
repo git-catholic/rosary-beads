@@ -116,7 +116,7 @@ export class SupportedLanguagesService {
   private updateSupportedLanguages() {
     this.translate.get('supported.english').pipe(take(1))
       .subscribe(value => {
-        console.log(`received english event`);
+        console.log(`received english event - ${value}`);
         this.supportedLang_english = value;
       });
 
@@ -127,7 +127,7 @@ export class SupportedLanguagesService {
 
     this.translate.get('supported.spanish').pipe(take(1))
       .subscribe(value => {
-        console.log(`received spanish event`);
+        console.log(`received spanish event - ${value}`);
         this.supportedLang_spanish = value;
       });
    }

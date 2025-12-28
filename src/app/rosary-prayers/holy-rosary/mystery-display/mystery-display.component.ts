@@ -39,7 +39,9 @@ export class MysteryDisplayComponent implements OnInit {
   }
 
   get hasFruitDesc(): boolean {
-    return REPLACE_WITH_TRANSLATION !== this.translate.instant(this.mysteryFruit);
+    return (this.mysteryFruit)
+      ? REPLACE_WITH_TRANSLATION !== this.translate.instant(this.mysteryFruit)
+      : false;
   }
 
   get mysteryFruitDisplay(): string {

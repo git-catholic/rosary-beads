@@ -1,32 +1,33 @@
-// import { ComponentFixture, TestBed } from '@angular/core/testing';
-// import { AppConfigService } from 'src/app/services/app-config.service';
-// import { AppDateService } from 'src/app/services/app-date.service';
-// import { LocalizationService } from 'src/app/services/localization.service';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppConfigService } from 'src/app/services/app-config.service';
+import { AppDateService } from 'src/app/services/app-date.service';
+import { LocalizationService } from 'src/app/services/localization.service';
 
-// import { HeaderComponent } from './header.component';
+import { HeaderComponent } from './header.component';
+import { RosaryTranslateModule } from 'src/app/modules/rosary-translate.module';
 
-// describe('HeaderComponent', () => {
-//   let component: HeaderComponent;
-//   let fixture: ComponentFixture<HeaderComponent>;
+describe('HeaderComponent', () => {
+  let component: HeaderComponent;
+  let fixture: ComponentFixture<HeaderComponent>;
 
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({
-//       declarations: [ 
-//         HeaderComponent 
-//       ],
-//       providers: [
-//         { provide: AppDateService, useValue: new AppDateService(undefined) },
-//         LocalizationService,
-//         AppConfigService
-//       ]
-//     });
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        RosaryTranslateModule
+      ],
+      providers: [
+        { provide: AppDateService, useValue: new AppDateService(undefined) },
+        LocalizationService,
+        AppConfigService
+      ]
+    });
 
-//     fixture = TestBed.createComponent(HeaderComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+    fixture = TestBed.createComponent(HeaderComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

@@ -1,150 +1,185 @@
-// import { PatsBeadsComponent } from "../rosary-beads/pats-beads/pats-beads.component";
-// import { PrayerSequence } from "./prayer-sequence";
-// import { Sequence } from "./sequence";
+import { TranslateService } from "@ngx-translate/core";
+import { PatsBeadsComponent } from "../rosary-beads/pats-beads/pats-beads.component";
+import { PrayerSequence } from "./prayer-sequence";
+import { Sequence } from "./sequence";
+import { TestBed } from "@angular/core/testing";
+import { RosaryTranslateModule } from "../modules/rosary-translate.module";
+import { AppConfigService } from "../services/app-config.service";
+import { AppDateService } from "../services/app-date.service";
+import { LocalizationService } from "../services/localization.service";
+import { PrayerFactoryService } from "../services/prayer-factory.service";
+import { RosaryMysteriesEnum } from "../utils/rosary-mysteries-enum";
+import { EventEmitter } from "@angular/core";
 
-// describe('PrayerSequence', () => {
+describe('PrayerSequence', () => {
 
-//   describe(`PatsBeadsComponent`, () => {
-//     let prayerCount = 0;
-//     let prayerSequence: PrayerSequence;
+  describe(`PatsBeadsComponent`, () => {
+    let prayerCount = 0;
+    let prayerSequence: PrayerSequence;
+    let translate: TranslateService;
 
-//     beforeEach(() => {
-//       prayerSequence = new PatsBeadsComponent();
-//     });
+    let activeBeadsEvent: EventEmitter<any>;
 
-//     it('should successfully increment to next prayer until the end of the rosary', () => {
-//       // given
-//       const expectedPrayerCount = 81;
-//       expect(prayerSequence.currentIndex).toEqual(0);
-//       expect(prayerSequence.totalPrayerCount).toEqual(expectedPrayerCount);
+    beforeEach(() => {
+      activeBeadsEvent = new EventEmitter<any>();
 
-//       // when (start)
-//       let prayer = prayerSequence.start();
+      TestBed.configureTestingModule({
+        imports: [
+          PatsBeadsComponent,
+          RosaryTranslateModule
+        ],
+        providers: [
+          { provide: AppDateService, useValue: new AppDateService(undefined) },
+          { provide: 'activeBeadsEvent', useValue: activeBeadsEvent },
+          TranslateService,
+          LocalizationService,
+          AppConfigService,
+          PrayerFactoryService
+        ]
+      });
 
-//       // then (start)
-//       expect(prayer?.id).toBeTruthy();
+      translate = TestBed.inject(TranslateService);
+      translate.use('en');
 
-//       // when (forward to Glory)
-//       for (let idx = 0; prayerSequence.hasNext() && idx < 6; idx++) {
-//         prayerCount++;
-//         prayer = prayerSequence.next();
-//       }
+      const prayerFactoryService = TestBed.inject(PrayerFactoryService);
+      const activeMysteries = prayerFactoryService.newPrayerMystery(RosaryMysteriesEnum.GLORIOUS);
+      const fixture = TestBed.createComponent(PatsBeadsComponent); //prayerFactoryService.newRosaryPrayer(activeMysteries, undefined);
+      prayerSequence = fixture.componentInstance;
+    });
 
-//       // then (forward to Glory)
-//       expect(prayer?.id).toBeTruthy();
+    it('should successfully increment to next prayer until the end of the rosary', () => {
+      // given
+      const expectedPrayerCount = 81;
+      expect(prayerSequence.currentIndex).toEqual(0);
+      expect(prayerSequence.totalPrayerCount).toEqual(expectedPrayerCount);
 
-//       // when (back 1)
-//       prayerCount--;
-//       prayer = prayerSequence.previous();
+      // when (start)
+      let prayer = prayerSequence.start();
 
-//       // then (back 1)
-//       expect(prayer?.id).toBeTruthy();
+      // then (start)
+      expect(prayer?.id).toBeTruthy();
 
-//       // when (forward 2)
-//       for (let idx = 0; prayerSequence.hasNext() && idx < 2; idx++) {
-//         prayerCount++;
-//         prayer = prayerSequence.next();
-//       }
+      // when (forward to Glory)
+      for (let idx = 0; prayerSequence.hasNext() && idx < 6; idx++) {
+        prayerCount++;
+        prayer = prayerSequence.next();
+      }
 
-//       // then (forward 2)
-//       expect(prayer?.id).toBeTruthy();
+      // then (forward to Glory)
+      expect(prayer?.id).toBeTruthy();
 
-//       // when (forward 1)
-//       prayerCount++;
-//       prayer = prayerSequence.next();
+      // when (back 1)
+      prayerCount--;
+      prayer = prayerSequence.previous();
 
-//       // then (forward 1)
-//       expect(prayer?.id).toBeTruthy();
+      // then (back 1)
+      expect(prayer?.id).toBeTruthy();
 
-//       // when / then (10 Hail Mary's)
-//       for (let idx = 0; prayerSequence.hasNext() && idx < 10; idx++) {
-//         prayerCount++;
-//         prayer = prayerSequence.next();
-//         expect(prayer?.id).toBeTruthy();
-//       }
+      // when (forward 2)
+      for (let idx = 0; prayerSequence.hasNext() && idx < 2; idx++) {
+        prayerCount++;
+        prayer = prayerSequence.next();
+      }
 
-//       // when (forward 1 to Glory)
-//       prayerCount++;
-//       prayer = prayerSequence.next();
+      // then (forward 2)
+      expect(prayer?.id).toBeTruthy();
 
-//       // then (forward 1 to Glory)
-//       expect(prayer?.id).toBeTruthy();
+      // when (forward 1)
+      prayerCount++;
+      prayer = prayerSequence.next();
 
-//       // when (go to end)
-//       while (prayer !== undefined) {
-//         prayerCount++;
-//         expect(prayer).toBeTruthy();
-//         prayer = prayerSequence.next();
-//       }
+      // then (forward 1)
+      expect(prayer?.id).toBeTruthy();
 
-//       // then (go to end)
-//       expect(prayer).toBeFalsy();
-//       expect(prayerCount).toEqual(expectedPrayerCount);
+      // when / then (10 Hail Mary's)
+      for (let idx = 0; prayerSequence.hasNext() && idx < 10; idx++) {
+        prayerCount++;
+        prayer = prayerSequence.next();
+        expect(prayer?.id).toBeTruthy();
+      }
 
-//     });
+      // when (forward 1 to Glory)
+      prayerCount++;
+      prayer = prayerSequence.next();
 
-//     [
-//       { forward: 2, back: 1 },
-//       { forward: 3, back: 1 },
-//       { forward: 4, back: 2 },
-//     ]
-//     .forEach(entry => {
-//       it(`should successfully traverse the prayer sequence going ${entry.forward} forward and ${entry.back} back`, () => {
-//         // given
-//         const expectedPrayerCount = 81;
-//         const forward = entry.forward;
-//         const back = entry.back * -1;
+      // then (forward 1 to Glory)
+      expect(prayer?.id).toBeTruthy();
 
-//         // -- and
-//         expect(prayerSequence.currentIndex).toEqual(0);
-//         expect(prayerSequence.totalPrayerCount).toEqual(expectedPrayerCount);
+      // when (go to end)
+      while (prayer !== undefined) {
+        prayerCount++;
+        expect(prayer).toBeTruthy();
+        prayer = prayerSequence.next();
+      }
 
-//         // when (start)
-//         let prayer = prayerSequence.start();
+      // then (go to end)
+      expect(prayer).toBeFalsy();
+      expect(prayerCount).toEqual(expectedPrayerCount);
 
-//         // then (start)
-//         let sequenceDirectionIndex = prayerSequence.currentIndex;
-//         let prayerIndex = sequenceDirectionIndex;
-//         expect(prayer?.id).toBeTruthy()
+    });
 
-//         while (prayerSequence.hasNext()) {
-//           // when (forward/back)
-//           const change = sequenceDirection(prayerSequence, [forward, back]);
-//           sequenceDirectionIndex += change;
-//           prayerIndex += change;
+    [
+      { forward: 2, back: 1 },
+      { forward: 3, back: 1 },
+      { forward: 4, back: 2 },
+    ]
+    .forEach(entry => {
+      it(`should successfully traverse the prayer sequence going ${entry.forward} forward and ${entry.back} back`, () => {
+        // given
+        const expectedPrayerCount = 81;
+        const forward = entry.forward;
+        const back = entry.back * -1;
 
-//           if (change === forward + back) {
-//             // then (forward/back) - skip last check as it is not important in this case.
-//             expect(sequenceDirectionIndex).toEqual(prayerSequence.currentIndex);
-//           }
-//         }
+        // -- and
+        expect(prayerSequence.currentIndex).toEqual(0);
+        expect(prayerSequence.totalPrayerCount).toEqual(expectedPrayerCount);
 
-//         expect(sequenceDirectionIndex).toEqual(expectedPrayerCount);
-//       });
-//     });
-//   });
-// });
+        // when (start)
+        let prayer = prayerSequence.start();
 
-// function sequenceDirection(prayerSequence: PrayerSequence, changeArray: number[]): number {
-//   let result = 0;
-//   let done = false;
-//   let prayer: Sequence;
-//   changeArray.forEach(change => {
-//     if (change !== 0 && !done) {
-//       const totalSteps = Math.abs(change);
-//       const step = (change / totalSteps);
-//       for (let stepIndex = 0; stepIndex < totalSteps && !done; stepIndex++) {
-//         if (step > 0) {
-//           prayer = prayerSequence.next();
-//           result++;
-//         }
-//         else {
-//           prayer = prayerSequence.previous();
-//           result--;
-//         }
-//         done = (prayer === undefined);
-//       }
-//     }
-//   });
-//   return result;
-// };
+        // then (start)
+        let sequenceDirectionIndex = prayerSequence.currentIndex;
+        let prayerIndex = sequenceDirectionIndex;
+        expect(prayer?.id).toBeTruthy()
+
+        while (prayerSequence.hasNext()) {
+          // when (forward/back)
+          const change = sequenceDirection(prayerSequence, [forward, back]);
+          sequenceDirectionIndex += change;
+          prayerIndex += change;
+
+          if (change === forward + back) {
+            // then (forward/back) - skip last check as it is not important in this case.
+            expect(sequenceDirectionIndex).toEqual(prayerSequence.currentIndex);
+          }
+        }
+
+        expect(sequenceDirectionIndex).toEqual(expectedPrayerCount);
+      });
+    });
+  });
+});
+
+function sequenceDirection(prayerSequence: PrayerSequence, changeArray: number[]): number {
+  let result = 0;
+  let done = false;
+  let prayer: Sequence;
+  changeArray.forEach(change => {
+    if (change !== 0 && !done) {
+      const totalSteps = Math.abs(change);
+      const step = (change / totalSteps);
+      for (let stepIndex = 0; stepIndex < totalSteps && !done; stepIndex++) {
+        if (step > 0) {
+          prayer = prayerSequence.next();
+          result++;
+        }
+        else {
+          prayer = prayerSequence.previous();
+          result--;
+        }
+        done = (prayer === undefined);
+      }
+    }
+  });
+  return result;
+};

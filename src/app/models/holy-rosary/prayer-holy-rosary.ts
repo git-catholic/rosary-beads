@@ -5,7 +5,6 @@ import { PrayerSequence } from "../prayer-sequence";
 import { Sequence } from "../sequence";
 import { RosaryBeads } from "../../rosary-beads/rosary-beads";
 import { LocalizationService } from "../../services/localization.service";
-import { TranslateService } from "@ngx-translate/core";
 
 export class PrayerHolyRosary extends PrayerSequence {
 
@@ -74,7 +73,6 @@ export class PrayerHolyRosary extends PrayerSequence {
   };
 
   protected onNext(prayer?: Sequence): void {
-    console.log(`rosary - has beads? ${this.beads} - bead id: ${this.beads?.id}`);
     if (this.beads !== undefined) {
       this.beads.next(prayer);
     }

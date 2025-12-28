@@ -5,6 +5,7 @@ import { platformBrowser } from '@angular/platform-browser';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import { register as registerSwiperElements } from 'swiper/element/bundle';
+import 'zone.js';
 
 if (environment.production) {
   enableProdMode();
