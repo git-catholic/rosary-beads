@@ -1,8 +1,10 @@
+
 export const messages_en_xlf = {
   "end.thank-you" : "Thank you for praying",
   "end.today" : "today!",
   "prayer-leader" : "Leader:",
   "prayer-response" : "Response:",
+
   "first-glorious" : "First Glorious Mystery",
   "glorious-mystery-1" : "The Resurrection",
   "glorious-fruit-1" : "A conversion of heart",
@@ -19,6 +21,7 @@ export const messages_en_xlf = {
   "glorious-mystery-5" : "The Coronation of the Blessed Mother",
   "glorious-fruit-5" : "Eternal happiness",
   "glorious" : "Glorious",
+
   "first-joyful" : "First Joyful Mystery",
   "joyful-mystery-1" : "The Annunciation",
   "joyful-fruit-1" : "Humility",
@@ -35,6 +38,7 @@ export const messages_en_xlf = {
   "joyful-mystery-5" : "The Finding of our Lord in the temple",
   "joyful-fruit-5" : "Piety",
   "joyful" : "Joyful",
+
   "first-luminous" : "First Luminous Mystery",
   "luminous-mystery-1" : "The Baptism in the Jordan",
   "luminous-fruit-1" : "Openness to the Holy Spirit",
@@ -48,9 +52,10 @@ export const messages_en_xlf = {
   "luminous-mystery-4" : "The Transfiguration",
   "luminous-fruit-4" : "Desire for holiness",
   "fifth-luminous" : "Fifth Luminous Mystery",
-  "luminous-mystery-5" : "The Instituation of the Eucharist",
+  "luminous-mystery-5" : "The Institution of the Eucharist",
   "luminous-fruit-5" : "Adoration",
   "luminous" : "Luminous",
+
   "first-sorrowful" : "First Sorrowful Mystery",
   "sorrowful-mystery-1" : "The Agony in the Garden",
   "sorrowful-fruit-1" : "Contrition for our sins",
@@ -67,12 +72,13 @@ export const messages_en_xlf = {
   "sorrowful-mystery-5" : "The Crucifixion and Death of our Lord",
   "sorrowful-fruit-5" : "That we may die to ourselves",
   "sorrowful" : "Sorrowful",
+
   "selectPeriodAutomatic" : "Automatic",
   "selectOrdinaryTime" : "Ordinary Time",
   "creedName" : "Apostles' Creed",
   "creed" : "I believe in God the Father almighty\n      Creator of Heaven and Earth;\n      I believe in Jesus Christ, His only Son, Our Lord\n      who was conceived by the Holy Spirit,\n      born of the Virgin Mary,\n      suffered under Pontius Pilate,\n      was crucified, died and was buried;\n      He decended into hell;\n      the third day He rose again from the dead;\n      He ascended into heaven,\n      sits at the right hand of God the Father Almighty;\n      from there He shall come to judge\n         the living and the dead.\n      I believe in the Holy Spirit;\n      the Holy Catholic Church,\n      the communion of saints;\n      the forgiveness of sins;\n      the resurrection of the body;\n      and life everylasting.\n      Amen.",
   "gloryName" : "The Glory Be (The Doxology)",
-  "glory-leader" : "Glory be to the Father, and the Son,\n      and the Holy Spirit.",
+  "glory-leader" : "Glory be to the Father, and the Son,\n      and the Holy Spirit,",
   "glory-response" : "As it was in the beginning, is now,\n      and ever shall be, world without end.\n\n      Amen.",
   "hailMaryName" : "Hail Mary",
   "hail-mary-leader" : "Hail Mary, full of grace,\n      the Lord is with thee;\n      blessed art thou amongst women,\n      and blessed is the fruit of thy womb, Jesus.",
@@ -86,7 +92,7 @@ export const messages_en_xlf = {
   "closing-leader-1" : "Pray for us, O holy Mother of God.",
   "closing-response-1" : "That we may be made worthy of the promises of Christ.",
   "closingName2" : "Closing Prayer 2",
-  "closing-leader-2" : "Let us pray:",
+  "closing-leader-2" : "Let us pray.",
   "closing-response-2" : "O God, whose only begotten Son,\n      by His life, death and resurrection,\n      has purchased for us\n      the rewards of eternal life,\n      grant, we beseech Thee,\n      that meditating on these mysteries\n      of the Most Holy Rosary\n      of the Blessed Virgin Mary,\n      we may imitate what they contain,\n      and obtain what they promise,\n      through the same Christ, our Lord.\n\n      Amen.",
   "fatimaName" : "The Fatima Prayer",
   "fatima" : "Oh my Jesus, forgive us our sins,\n      save us from the fires of hell;\n      lead all souls to heaven,\n      especially those in most need of your mercy!\n\n      Amen.",
@@ -114,5 +120,6 @@ export const messages_en_xlf = {
   "easterSundayLabel" : "Easter Sunday",
   "supported.english" : "English",
   "supported.spanish" : "Spanish",
+  "supported.latin" : "Latin",
   "navigationChecked" : "Enable navigation buttons."
 };

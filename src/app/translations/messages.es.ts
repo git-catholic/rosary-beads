@@ -114,5 +114,6 @@ export const messages_es_xlf = {
   "easterSundayLabel" : "Domingo de Resurrección",
   "supported.english" : "Inglés",
   "supported.spanish" : "Español",
+  "supported.latin" : "Latín",
   "navigationChecked" : "Habilitar los botones de navegación."
 };
