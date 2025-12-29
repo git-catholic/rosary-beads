@@ -2,13 +2,18 @@ import { TranslateLoader, TranslationObject } from "@ngx-translate/core";
 import { Observable, of } from "rxjs";
 import { messages_es_xlf } from "../translations/messages.es";
 import { messages_en_xlf } from "../translations/messages.en";
+import { messages_la_xlf } from "../translations/messages.la";
 
 export class TypescriptTranslateLoader implements TranslateLoader {
 
   getTranslation(lang: string): Observable<TranslationObject> {
-    if ('es' === lang) {
-      return of(messages_es_xlf);
+    switch (lang) {
+      case 'es':
+        return of(messages_es_xlf);
+      case 'la':
+        return of(messages_la_xlf);
     }
+
     return of(messages_en_xlf);
   }
   

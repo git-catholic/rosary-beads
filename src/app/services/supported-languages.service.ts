@@ -137,5 +137,5 @@ export class SupportedLanguagesService {
 export interface SupportedLanguage {
   id: string;
   rtl?: boolean;
-  // reference?: string;
+  reference?: string;
 }
