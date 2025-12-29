@@ -1,13 +1,12 @@
 {
   "name": "rosary-beads",
-  "version": "2.0.0-1",
+  "version": "2.0.1-0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "i18n": "ng extract-i18n --output-path src/assets/i18n/"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {

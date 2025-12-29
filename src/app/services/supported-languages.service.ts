@@ -21,6 +21,8 @@ export class SupportedLanguagesService {
 
   private langRtl?: boolean;
 
+  private languageSelectorList: LanguageItem[];
+
   private supportedLang_english?: string;
   // private supportedLang_hebrew?: string;
   private supportedLang_spanish?: string;
@@ -31,13 +33,8 @@ export class SupportedLanguagesService {
     this.supportedLanguagesMap = new Map<string, SupportedLanguage>();
 
     environment.supportedLanguages.forEach(entry => {
-      const key = entry[0] as string;
-      const supportedLanguage: SupportedLanguage = {
-        id: entry[1] as string,
-        rtl: (entry?.length >= 3)
-      };
-      console.log(`loading ${key}`);
-      this.supportedLanguagesMap.set(key, supportedLanguage);
+      const supportedLanguage = this.convertEntry(entry);
+      this.supportedLanguagesMap.set(supportedLanguage?.id, supportedLanguage);
     });
 
     this.supportedLanguageCodes = Array.from(this.supportedLanguagesMap.keys());
@@ -60,11 +57,15 @@ export class SupportedLanguagesService {
   }
 
   getLanguageSelectorList(): LanguageItem[] {
-    const languageSelectorList: LanguageItem[] = [];
-    this.getSupportedLanguagesMap().forEach((value, key) => {
-      languageSelectorList.push({ value: key, displayValue: value?.id })
-    });
-    return languageSelectorList;
+    if (this.languageSelectorList === undefined) {
+      this.languageSelectorList = [];
+      this.getSupportedLanguagesMap().forEach((value, key) => {
+        console.log(`selector list: ${key}, ${JSON.stringify(value)}`);
+        this.languageSelectorList.push({ value: key, displayValue: value?.id })
+      });
+    }
+    console.log(`full selector list: ${JSON.stringify(this.languageSelectorList)}`);
+    return this.languageSelectorList;
   }
 
   getSupportedLanguagesMap(): Map<string, SupportedLanguage> {
@@ -101,6 +102,10 @@ export class SupportedLanguagesService {
     return this.supportedLang_spanish || '';
   }
 
+  getAssignedActiveLanguageId(): string {
+    return this.stateStorageService?.selectedLanguage?.data || 'en';
+  }
+
   private assignActiveLanguageIdFromCodeWorker(code: string): void {
     const supportedLanguage = this.supportedLanguagesMap.get(code);
     this.langRtl = supportedLanguage?.rtl;
@@ -116,25 +121,33 @@ export class SupportedLanguagesService {
   private updateSupportedLanguages() {
     this.translate.get('supported.english').pipe(take(1))
       .subscribe(value => {
-        console.log(`received english event - ${value}`);
         this.supportedLang_english = value;
       });
 
     // this.translate.get('supported.hebrew').pipe(take(1))
-    //   .subscribe(value => {
     //     this.supportedLang_hebrew = value;
     //   });
 
     this.translate.get('supported.spanish').pipe(take(1))
       .subscribe(value => {
-        console.log(`received spanish event - ${value}`);
         this.supportedLang_spanish = value;
       });
-   }
+  }
+
+  private convertEntry(entry: any[]): SupportedLanguage {
+    const supportedLanguage: SupportedLanguage = {
+      key: entry[0] as string,
+      id: entry[1] as string,
+      rtl: entry[2] as boolean,
+      reference: entry[3] as string
+    };
+    return supportedLanguage;
+  }
 
 }
 
 export interface SupportedLanguage {
+  key: string;
   id: string;
   rtl?: boolean;
   reference?: string;
