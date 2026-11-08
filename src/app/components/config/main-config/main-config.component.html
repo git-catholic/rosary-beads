@@ -4,6 +4,8 @@
   </div>
   <button class="close-config" (click)="onClose()">X</button>
 </div>
-<div *ngIf="activeTab === 'device'" class="config-content">
-  <app-device-details></app-device-details>
-</div>
+@if (activeTab === 'device') {
+  <div class="config-content">
+    <app-device-details></app-device-details>
+  </div>
+}

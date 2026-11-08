@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Sequence } from '../../models/sequence';
-import { CommonModule } from '@angular/common';
+
 import { asLeaderResponse, asGroupPrayer } from '../../utils/typeof-utils';
 import { EndComponent } from '../end/end.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -9,7 +9,6 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   selector: 'app-prayer-display',
   standalone: true,
   imports: [
-    CommonModule,
     EndComponent,
     TranslateModule
 ],

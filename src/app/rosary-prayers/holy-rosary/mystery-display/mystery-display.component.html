@@ -1,5 +1,5 @@
 <div class="mystery-row">
-  <ng-container *ngIf="appConfig.isPortrait === false">
+  @if (appConfig.isPortrait === false) {
     <div class="mystery-row-inner">
       <div class="mystery-label">
         {{ mysteryNumber | translate }}:
@@ -8,26 +8,26 @@
         {{ mysteryDesc | translate }}
       </div>
     </div>
-    <ng-container *ngIf="mysteryFruitDisplay">
+    @if (mysteryFruitDisplay) {
       <div class="mystery-row-inner">
         <div class="fruit-label">{{ 'mystery-fruit' | translate }}</div>
         <div class="fruit-value">
           {{ mysteryFruitDisplay }}
         </div>
       </div>
-    </ng-container>
-  </ng-container>
-  <ng-container *ngIf="appConfig.isPortrait">
+    }
+  }
+  @if (appConfig.isPortrait) {
     <span class="mystery-label">
       {{ mysteryNumber | translate }}:
     </span>
     <span class="mystery-value">
       {{ mysteryDesc | translate }}
     </span>
-    <ng-container *ngIf="mysteryFruitDisplay">
+    @if (mysteryFruitDisplay) {
       <span class="fruit-value">
         - {{ mysteryFruitDisplay }}
       </span>
-    </ng-container>
-  </ng-container>
+    }
+  }
 </div>

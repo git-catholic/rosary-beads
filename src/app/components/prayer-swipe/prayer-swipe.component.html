@@ -1,16 +1,20 @@
 <div class="swiper-parent-container">
   <swiper-container #prayerSwiper>
-    <swiper-slide *ngFor="let sequence of prayerSequence; let i = index">
-      <app-prayer-display [prayerName] = "prayerName"
-                          [activePrayerSequence]="sequence"
-                          [isPrayerSequenceDone]="checkSequenceDone(i)"
-                          [currentPrayerCounter]="sequence?.prayerLabel">
-      </app-prayer-display>
-    </swiper-slide>
+    @for (sequence of prayerSequence; track sequence; let i = $index) {
+      <swiper-slide>
+        <app-prayer-display [prayerName] = "prayerName"
+          [activePrayerSequence]="sequence"
+          [isPrayerSequenceDone]="checkSequenceDone(i)"
+          [currentPrayerCounter]="sequence?.prayerLabel">
+        </app-prayer-display>
+      </swiper-slide>
+    }
   </swiper-container>
 
-  <span *ngIf="isNavigationEnabled">
-    <button id="custom-prev-button" [class]="prevButtonClass" [disabled]="leftArrowDisabled" (click)="onPrev()">&nbsp;&nbsp;&nbsp;&nbsp;</button>
-    <button id="custom-next-button" [class]="nextButtonClass" [disabled]="rightArrowDisabled" (click)="onNext()">&nbsp;&nbsp;&nbsp;&nbsp;</button>
-  </span>
+  @if (isNavigationEnabled) {
+    <span>
+      <button id="custom-prev-button" [class]="prevButtonClass" [disabled]="leftArrowDisabled" (click)="onPrev()">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+      <button id="custom-next-button" [class]="nextButtonClass" [disabled]="rightArrowDisabled" (click)="onNext()">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    </span>
+  }
 </div>

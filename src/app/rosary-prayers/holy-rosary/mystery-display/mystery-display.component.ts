@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppConfigService } from '../../../services/app-config.service';
-import { CommonModule } from '@angular/common';
+
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { REPLACE_WITH_TRANSLATION } from '../../../app.component';
 
@@ -8,9 +8,8 @@ import { REPLACE_WITH_TRANSLATION } from '../../../app.component';
   selector: 'app-mystery-display',
   standalone: true,
   imports: [
-    CommonModule,
     TranslateModule
-  ],
+],
   templateUrl: './mystery-display.component.html',
   styleUrls: ['./mystery-display.component.scss']
 })

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { SwiperContainer } from 'swiper/element';
 import { Swiper, SwiperOptions } from 'swiper/types';
@@ -10,7 +10,6 @@ import { AppConfigService } from '../../services/app-config.service';
   selector: 'app-prayer-swipe',
   standalone: true,
   imports: [
-    CommonModule,
     PrayerDisplayComponent
 ],
   templateUrl: './prayer-swipe.component.html',

@@ -1,14 +1,20 @@
-<div *ngIf="showSelector" class="liturgical-div">
-  <label>{{ liturgicalPeriodLabel() }}:</label>&nbsp;
-  <select (change)="onLiturgicalPeriodChanged($event)">
-    <option *ngFor="let periodSelector of litYearColorSelector; let i = index" value="{{ i }}">
-      {{ periodSelector.labelId | translate }}
-    </option>
-  </select>
-</div>
-<div class="box">
-  <div *ngFor="let period of periods" class="period">
-    <div class="label">{{ labelFromId(period.labelId) }}:</div>
-    {{ period.startDate | date }} - {{ period.endDate | date }}
+@if (showSelector) {
+  <div class="liturgical-div">
+    <label>{{ liturgicalPeriodLabel() }}:</label>&nbsp;
+    <select (change)="onLiturgicalPeriodChanged($event)">
+      @for (periodSelector of litYearColorSelector; track periodSelector; let i = $index) {
+        <option value="{{ i }}">
+          {{ periodSelector.labelId | translate }}
+        </option>
+      }
+    </select>
   </div>
+}
+<div class="box">
+  @for (period of periods; track period) {
+    <div class="period">
+      <div class="label">{{ labelFromId(period.labelId) }}:</div>
+      {{ period.startDate | date }} - {{ period.endDate | date }}
+    </div>
+  }
 </div>

@@ -3,16 +3,14 @@ import { BeadPosition, BeadPositionTemplate } from "../bead-position";
 import { PrayerSequence } from "../../models/prayer-sequence";
 import { Sequence } from "../../models/sequence";
 import { RosaryBeads } from "../rosary-beads";
-import { CommonModule } from "@angular/common";
+
 import { AppConfigService } from "../../services/app-config.service";
 import { holyRosarySequenceForPatsBeads } from "./holy-rosary-pats-beads-seq";
 
 @Component({
   selector: 'app-pats-beads',
   standalone: true,
-  imports: [
-    CommonModule
-  ],
+  imports: [],
   templateUrl: './pats-beads.component.html',
   styleUrls: ['./pats-beads.component.scss']
 })

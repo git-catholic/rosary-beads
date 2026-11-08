@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { AppConfigService } from '../../services/app-config.service';
-import { CommonModule } from '@angular/common';
+
 import { Router } from '@angular/router';
 import { LanguageItem, LanguageSelectorComponent } from "../config/language-selector/language-selector.component";
 import { SupportedLanguagesService } from '../../services/supported-languages.service';
@@ -8,7 +8,7 @@ import { SupportedLanguagesService } from '../../services/supported-languages.se
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, LanguageSelectorComponent],
+  imports: [LanguageSelectorComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
@@ -11,9 +11,8 @@ export interface LanguageItem {
   selector: 'app-language-selector',
   standalone: true,
   imports: [
-    CommonModule,
     TranslateModule
-  ],
+],
   templateUrl: './language-selector.component.html',
   styleUrls: ['./language-selector.component.scss']
 })

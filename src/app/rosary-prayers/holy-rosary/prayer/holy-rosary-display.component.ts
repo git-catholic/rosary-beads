@@ -7,7 +7,7 @@ import { RosaryBeads } from '../../../rosary-beads/rosary-beads';
 import { HeaderComponent } from '../../../components/header/header.component';
 import { Mysteries } from '../../../models/holy-rosary/mysteries';
 import { MysteryDisplayComponent } from '../mystery-display/mystery-display.component';
-import { CommonModule } from '@angular/common';
+
 import { RosaryBeadsContainerComponent } from '../../../rosary-beads/rosary-beads-container/rosary-beads-container.component';
 import { Sequence } from '../../../models/sequence';
 import { PrayerSwipeComponent } from '../../../components/prayer-swipe/prayer-swipe.component';
@@ -17,12 +17,11 @@ import { LocalizationService } from '../../../services/localization.service';
   selector: 'app-holy-rosary-prayer',
   standalone: true,
   imports: [
-    CommonModule,
     HeaderComponent,
     MysteryDisplayComponent,
     PrayerSwipeComponent,
     RosaryBeadsContainerComponent
-  ],
+],
   templateUrl: './holy-rosary-display.component.html',
   styleUrls: ['./holy-rosary-display.component.scss']
 })

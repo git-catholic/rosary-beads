@@ -11,17 +11,19 @@
         </app-language-selector>
       </span>
     </span>
-    <span *ngIf="multiPrayerHome">
-      <button class="home-widget" (click)="onGoHome()">
-        &nbsp;&nbsp;&nbsp;&nbsp;
-      </button>
-    </span>
+    @if (multiPrayerHome) {
+      <span>
+        <button class="home-widget" (click)="onGoHome()">
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        </button>
+      </span>
+    }
     <button class="config-widget" (click)="onConfigView()">
       &nbsp;&nbsp;&nbsp;&nbsp;
     </button>
   </div>
 
-  <ng-container *ngIf="!isPortrait">
+  @if (!isPortrait) {
     <div class="button-row">
       <div class="button-cell">
         <button (click)='selectGlorious()' [class]='isGlorious'><b>{{ gloriousMystery }}</b></button>
@@ -40,9 +42,9 @@
         <span class="description">{{ sorrowfulMysteryNotes }}</span>
       </div>
     </div>
-  </ng-container>
+  }
 
-  <ng-container *ngIf="isPortrait">
+  @if (isPortrait) {
     <div class="button-row">
       <button (click)='selectGlorious()' [class]='isGlorious'><b>{{ gloriousMystery }}</b></button>
       <span class="description">{{ gloriousMysteryNotes }}</span>
@@ -59,5 +61,5 @@
       <button (click)='selectSorrowful()' [class]='isSorrowful'><b>{{ sorrowfulMystery }}</b></button>
       <span class="description">{{ sorrowfulMysteryNotes }}</span>
     </div>
-  </ng-container>
+  }
 </div>
