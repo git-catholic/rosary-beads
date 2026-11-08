@@ -3,7 +3,7 @@ import { AppConfigService } from '../../services/app-config.service';
 import { LiturgicalDatesComponent } from '../liturgical-dates/liturgical-dates.component';
 import { VersionInfoComponent } from '../version-info/version-info.component';
 import { LocalizationService } from '../../services/localization.service';
-import { CommonModule } from '@angular/common';
+
 import { VisibilityCheckDirective } from '../../directives/visibility-check/visibility-check.directive';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -11,12 +11,11 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-notices',
   standalone: true,
   imports: [
-    CommonModule,
     LiturgicalDatesComponent,
     TranslateModule,
     VersionInfoComponent,
     VisibilityCheckDirective
-  ],
+],
   templateUrl: './notices.component.html',
   styleUrls: ['./notices.component.scss']
 })

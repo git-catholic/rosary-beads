@@ -1,5 +1,5 @@
-import { CommonModule, DOCUMENT } from '@angular/common';
-import { Component, Inject, Input, OnInit, ViewChild } from '@angular/core';
+
+import { Component, Inject, Input, OnInit, ViewChild, DOCUMENT } from '@angular/core';
 import { AppConfigService } from '../../../services/app-config.service';
 import { LiturgicalYearService } from '../../../services/liturgical-year.service';
 import { RosaryMysteriesEnum } from '../../../utils/rosary-mysteries-enum';
@@ -12,10 +12,9 @@ import { HOLY_ROSARY_HOME, HOLY_ROSARY_PRAYER, PRAYER_CONFIG } from '../../../ap
   selector: 'app-holy-rosary-home',
   standalone: true,
   imports: [
-    CommonModule,
     MysterySelectorComponent,
     NoticesComponent
-  ],
+],
   templateUrl: './holy-rosary-home.component.html',
   styleUrls: ['./holy-rosary-home.component.scss']
 })

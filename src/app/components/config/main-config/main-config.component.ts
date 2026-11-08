@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DeviceDetailsComponent } from '../device-details/device-details.component';
-import { CommonModule, Location } from '@angular/common';
+import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HOLY_ROSARY_HOME } from '../../../app-routing.module';
 
@@ -8,9 +8,8 @@ import { HOLY_ROSARY_HOME } from '../../../app-routing.module';
   selector: 'app-main-config',
   standalone: true,
   imports: [
-    CommonModule,
     DeviceDetailsComponent
-  ],
+],
   templateUrl: './main-config.component.html',
   styleUrls: ['./main-config.component.scss']
 })

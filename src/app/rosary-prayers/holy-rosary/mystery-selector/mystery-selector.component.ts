@@ -3,7 +3,7 @@ import { RosaryMysteriesEnum } from '../../../utils/rosary-mysteries-enum';
 import { AppConfigService } from '../../../services/app-config.service';
 import { LiturgicalYearService } from '../../../services/liturgical-year.service';
 import { LocalizationService } from '../../../services/localization.service';
-import { CommonModule } from '@angular/common';
+
 import { Router } from '@angular/router';
 import { PRAYER_HOME } from '../../../app-routing.module';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -26,10 +26,9 @@ const HIGHLIGHT_MYSTERY_OF_DAY = 'highlight-mystery-of-day';
   selector: 'app-mystery-selector',
   standalone: true,
   imports: [
-    CommonModule,
     LanguageSelectorComponent,
     TranslateModule
-  ],
+],
   templateUrl: './mystery-selector.component.html',
   styleUrls: ['./mystery-selector.component.scss']
 })
